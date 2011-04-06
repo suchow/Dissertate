@@ -74,7 +74,7 @@
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
-	\sc \noindent \copyright 2014, \theauthor \\
+	\sc \noindent \copyright \degreeyear, \theauthor \\
 	All rights reserved.
 	\vspace*{\fill} \newpage \rm
 }
