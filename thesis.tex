@@ -1,0 +1,27 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{harvard-thesis}
+
+\begin{document}
+
+% the front matter
+\input{frontmatter/coverpage}
+\maketitle
+\copyrightpage
+\abstractpage
+\tableofcontents
+\dedicationpage
+\acknowledgments
+
+% incluude each chapter...
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+
+% the back matter
+\bibliography{references}
+\nocite{*}
+\bibliographystyle{apalike}
+
+\end{document}
