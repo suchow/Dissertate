@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>currentDocument</key>
+	<string>thesis.tex</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,6 +15,8 @@
 			<string>admin</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>chapters</string>
 			<key>regexFolderFilter</key>
@@ -67,8 +71,6 @@
 			<string>references.bib</string>
 			<key>lastUsed</key>
 			<date>2011-04-06T05:13:12Z</date>
-			<key>selected</key>
-			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -89,6 +91,8 @@
 		<dict>
 			<key>filename</key>
 			<string>thesis.bbl</string>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -105,15 +109,81 @@
 		<dict>
 			<key>filename</key>
 			<string>thesis.tex</string>
+			<key>lastUsed</key>
+			<date>2011-04-06T05:34:12Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>200</integer>
 	<key>metaData</key>
-	<dict/>
+	<dict>
+		<key>chapters/chapter1.aux</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>chapters/chapter1.tex</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>384</integer>
+				<key>line</key>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>chapters/chapter2.tex</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>thesis.tex</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>26</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>openDocuments</key>
+	<array>
+		<string>chapters/chapter1.tex</string>
+		<string>thesis.tex</string>
+		<string>chapters/chapter1.aux</string>
+		<string>chapters/chapter2.tex</string>
+	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{140, 164}, {640, 388}}</string>
+	<string>{{4, 146}, {678, 632}}</string>
 </dict>
 </plist>
