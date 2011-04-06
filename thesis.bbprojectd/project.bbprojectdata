@@ -10,33 +10,73 @@
 		<string>18F8560A-FDE1-490C-B98C-49519E14AFA8</string>
 		<string>FFF7E75D-F505-4C91-AD42-0B01F7AFBE3B</string>
 		<string>A625433B-2F93-4F33-8261-057DA57027B3</string>
+		<string>149E55F6-129D-40F2-9672-5CAA386BBB9F</string>
 	</array>
 	<key>ProjectItems</key>
 	<dict>
+		<key>149E55F6-129D-40F2-9672-5CAA386BBB9F</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>AliasData</key>
+				<data>
+				AAAAAAHSAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
+				AAAAAADGOpXESCsAAAEb/QoGUkVBRE1FAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAARv9VsnBT48AAAAAAAAAAP//
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAH0xhVGVYLXRlbXBs
+				YXRlLWZvci1IYXJ2IzExQkZEMEEAABAACAAAxjrOBAAA
+				ABEACAAAycGHzwAAAAEAFAEb/QoAC13mAAtVIwAKm0QA
+				AIXtAAIAUk1hY2ludG9zaCBIRDpVc2VyczpTdWNob3c6
+				SGFydmFyZDp0ZW1wbGF0ZXM6TGFUZVgtdGVtcGxhdGUt
+				Zm9yLUhhcnYjMTFCRkQwQTpSRUFETUUADgAOAAYAUgBF
+				AEEARABNAEUADwAaAAwATQBhAGMAaQBuAHQAbwBzAGgA
+				IABIAEQAEgBNVXNlcnMvU3VjaG93L0hhcnZhcmQvdGVt
+				cGxhdGVzL0xhVGVYLXRlbXBsYXRlLWZvci1IYXJ2YXJk
+				LWRpc3NlcnRhdGlvbi9SRUFETUUAABMAAS8AABUAAgAN
+				//8AAA==
+				</data>
+				<key>FileURL</key>
+				<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/README</string>
+				<key>RelativePath</key>
+				<string>./README</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>README</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+		</dict>
 		<key>18F8560A-FDE1-490C-B98C-49519E14AFA8</key>
 		<dict>
 			<key>ItemData</key>
 			<dict>
 				<key>AliasData</key>
 				<data>
-				AAAAAAGcAAIAAAZTdWNob3cAAAAAAAAAAAAAAAAAAAAA
-				AAAAAADCgSnzSCsAAAbrdVMSaGFydmFyZC10aGVzaXMu
+				AAAAAAICAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
+				AAAAAADGOpXESCsAAAEb/QoSaGFydmFyZC10aGVzaXMu
 				Y2xzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				AAAAAAAAAAAAAAAAAAAABwulJMQ7yYwAAAAAAAAAAP//
-				//8AAAkgAAAAAAAAAAAAAAAAAAAABnRoZXNpcwAQAAgA
-				AMKBYjMAAAARAAgAAMQ8AcwAAAABABQG63VTBu2mjgax
-				DGQAMhoSACnccAACAD9TdWNob3c6VXNlcnM6U3VjaG93
-				OkhhcnZhcmQ6dGVtcGxhdGVzOnRoZXNpczpoYXJ2YXJk
-				LXRoZXNpcy5jbHMAAA4AJgASAGgAYQByAHYAYQByAGQA
-				LQB0AGgAZQBzAGkAcwAuAGMAbABzAA8ADgAGAFMAdQBj
-				AGgAbwB3ABIAOFVzZXJzL1N1Y2hvdy9IYXJ2YXJkL3Rl
-				bXBsYXRlcy90aGVzaXMvaGFydmFyZC10aGVzaXMuY2xz
-				ABMAAS8AABUAAgAN//8AAA==
+				AAAAAAAAAAAAAAAAAAAAARv+DsYIZFBURVhUVGVYc///
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAH0xhVGVYLXRlbXBs
+				YXRlLWZvci1IYXJ2IzExQkZEMEEAABAACAAAxjrOBAAA
+				ABEACAAAxgickAAAAAEAFAEb/QoAC13mAAtVIwAKm0QA
+				AIXtAAIAXk1hY2ludG9zaCBIRDpVc2VyczpTdWNob3c6
+				SGFydmFyZDp0ZW1wbGF0ZXM6TGFUZVgtdGVtcGxhdGUt
+				Zm9yLUhhcnYjMTFCRkQwQTpoYXJ2YXJkLXRoZXNpcy5j
+				bHMADgAmABIAaABhAHIAdgBhAHIAZAAtAHQAaABlAHMA
+				aQBzAC4AYwBsAHMADwAaAAwATQBhAGMAaQBuAHQAbwBz
+				AGgAIABIAEQAEgBZVXNlcnMvU3VjaG93L0hhcnZhcmQv
+				dGVtcGxhdGVzL0xhVGVYLXRlbXBsYXRlLWZvci1IYXJ2
+				YXJkLWRpc3NlcnRhdGlvbi9oYXJ2YXJkLXRoZXNpcy5j
+				bHMAABMAAS8AABUAAgAN//8AAA==
 				</data>
 				<key>FileURL</key>
-				<string>file://localhost/Users/Suchow/Harvard/templates/thesis/harvard-thesis.cls</string>
+				<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/harvard-thesis.cls</string>
 				<key>RelativePath</key>
-				<string>harvard-thesis.cls</string>
+				<string>./harvard-thesis.cls</string>
 				<key>TypeID</key>
 				<string>_CFileLocator</string>
 				<key>Version</key>
@@ -53,23 +93,26 @@
 			<dict>
 				<key>AliasData</key>
 				<data>
-				AAAAAAGAAAIAAQZTdWNob3cAAAAAAAAAAAAAAAAAAAAA
-				AAAAAADCgSnzSCsAAAbrdVMLZnJvbnRtYXR0ZXIAAAAA
+				AAAAAAHmAAIAAQxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
+				AAAAAADGOpXESCsAAAEb/QoLZnJvbnRtYXR0ZXIAAAAA
 				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				AAAAAAAAAAAAAAAAAAAABwv1HsYDIegAAAAAAAAAAP//
-				//8AAAkgAAAAAAAAAAAAAAAAAAAABnRoZXNpcwAQAAgA
-				AMKBYjMAAAARAAgAAMYDWigAAAABABQG63VTBu2mjgax
-				DGQAMhoSACnccAACADhTdWNob3c6VXNlcnM6U3VjaG93
-				OkhhcnZhcmQ6dGVtcGxhdGVzOnRoZXNpczpmcm9udG1h
-				dHRlcgAOABgACwBmAHIAbwBuAHQAbQBhAHQAdABlAHIA
-				DwAOAAYAUwB1AGMAaABvAHcAEgAxVXNlcnMvU3VjaG93
-				L0hhcnZhcmQvdGVtcGxhdGVzL3RoZXNpcy9mcm9udG1h
-				dHRlcgAAEwABLwAAFQACAA3//wAA
+				AAAAAAAAAAAAAAAAAAAAARv+DcYDIoYAAAAAAAAAAP//
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAH0xhVGVYLXRlbXBs
+				YXRlLWZvci1IYXJ2IzExQkZEMEEAABAACAAAxjrOBAAA
+				ABEACAAAxgNaxgAAAAEAFAEb/QoAC13mAAtVIwAKm0QA
+				AIXtAAIAV01hY2ludG9zaCBIRDpVc2VyczpTdWNob3c6
+				SGFydmFyZDp0ZW1wbGF0ZXM6TGFUZVgtdGVtcGxhdGUt
+				Zm9yLUhhcnYjMTFCRkQwQTpmcm9udG1hdHRlcgAADgAY
+				AAsAZgByAG8AbgB0AG0AYQB0AHQAZQByAA8AGgAMAE0A
+				YQBjAGkAbgB0AG8AcwBoACAASABEABIAUlVzZXJzL1N1
+				Y2hvdy9IYXJ2YXJkL3RlbXBsYXRlcy9MYVRlWC10ZW1w
+				bGF0ZS1mb3ItSGFydmFyZC1kaXNzZXJ0YXRpb24vZnJv
+				bnRtYXR0ZXIAEwABLwAAFQACAA3//wAA
 				</data>
 				<key>FileURL</key>
-				<string>file://localhost/Users/Suchow/Harvard/templates/thesis/frontmatter/</string>
+				<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/frontmatter/</string>
 				<key>RelativePath</key>
-				<string>frontmatter</string>
+				<string>./frontmatter</string>
 				<key>TypeID</key>
 				<string>_CFileLocator</string>
 				<key>Version</key>
@@ -86,23 +129,26 @@
 			<dict>
 				<key>AliasData</key>
 				<data>
-				AAAAAAF8AAIAAAZTdWNob3cAAAAAAAAAAAAAAAAAAAAA
-				AAAAAADCgSnzSCsAAAbrdVMKdGhlc2lzLnRleAAAAAAA
+				AAAAAAHiAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
+				AAAAAADGOpXESCsAAAEb/QoKdGhlc2lzLnRleAAAAAAA
 				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				AAAAAAAAAAAAAAAAAAAABvvPO8X0DJlURVhUUipjaP//
-				//8AAAkgAAAAAAAAAAAAAAAAAAAABnRoZXNpcwAQAAgA
-				AMKBYjMAAAARAAgAAMX0RNkAAAABABQG63VTBu2mjgax
-				DGQAMhoSACnccAACADdTdWNob3c6VXNlcnM6U3VjaG93
-				OkhhcnZhcmQ6dGVtcGxhdGVzOnRoZXNpczp0aGVzaXMu
-				dGV4AAAOABYACgB0AGgAZQBzAGkAcwAuAHQAZQB4AA8A
-				DgAGAFMAdQBjAGgAbwB3ABIAMFVzZXJzL1N1Y2hvdy9I
-				YXJ2YXJkL3RlbXBsYXRlcy90aGVzaXMvdGhlc2lzLnRl
-				eAATAAEvAAAVAAIADf//AAA=
+				AAAAAAAAAAAAAAAAAAAAARv+G8YEY4RURVhUVGVYc///
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAH0xhVGVYLXRlbXBs
+				YXRlLWZvci1IYXJ2IzExQkZEMEEAABAACAAAxjrOBAAA
+				ABEACAAAxgSbxAAAAAEAFAEb/QoAC13mAAtVIwAKm0QA
+				AIXtAAIAVk1hY2ludG9zaCBIRDpVc2VyczpTdWNob3c6
+				SGFydmFyZDp0ZW1wbGF0ZXM6TGFUZVgtdGVtcGxhdGUt
+				Zm9yLUhhcnYjMTFCRkQwQTp0aGVzaXMudGV4AA4AFgAK
+				AHQAaABlAHMAaQBzAC4AdABlAHgADwAaAAwATQBhAGMA
+				aQBuAHQAbwBzAGgAIABIAEQAEgBRVXNlcnMvU3VjaG93
+				L0hhcnZhcmQvdGVtcGxhdGVzL0xhVGVYLXRlbXBsYXRl
+				LWZvci1IYXJ2YXJkLWRpc3NlcnRhdGlvbi90aGVzaXMu
+				dGV4AAATAAEvAAAVAAIADf//AAA=
 				</data>
 				<key>FileURL</key>
-				<string>file://localhost/Users/Suchow/Harvard/templates/thesis/thesis.tex</string>
+				<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/thesis.tex</string>
 				<key>RelativePath</key>
-				<string>thesis.tex</string>
+				<string>./thesis.tex</string>
 				<key>TypeID</key>
 				<string>_CFileLocator</string>
 				<key>Version</key>
@@ -152,22 +198,25 @@
 			<dict>
 				<key>AliasData</key>
 				<data>
-				AAAAAAGeAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
-				AAAAAADGOpXESCsAAAALXgUOcmVmZXJlbmNlcy5iaWIA
+				AAAAAAHyAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
+				AAAAAADGOpXESCsAAAEb/QoOcmVmZXJlbmNlcy5iaWIA
 				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				AAAAAAAAAAAAAAAAAAAAAMcQhMkTBY4AAAAAAAAAAP//
-				//8AAAkgAAAAAAAAAAAAAAAAAAAABnRoZXNpcwAQAAgA
-				AMY6zgQAAAARAAgAAMkTS94AAAABABQAC14FAAtd5gAL
-				VSMACptEAACF7QACAEFNYWNpbnRvc2ggSEQ6VXNlcnM6
-				U3VjaG93OkhhcnZhcmQ6dGVtcGxhdGVzOnRoZXNpczpy
-				ZWZlcmVuY2VzLmJpYgAADgAeAA4AcgBlAGYAZQByAGUA
-				bgBjAGUAcwAuAGIAaQBiAA8AGgAMAE0AYQBjAGkAbgB0
-				AG8AcwBoACAASABEABIANFVzZXJzL1N1Y2hvdy9IYXJ2
-				YXJkL3RlbXBsYXRlcy90aGVzaXMvcmVmZXJlbmNlcy5i
-				aWIAEwABLwAAFQACAA3//wAA
+				AAAAAAAAAAAAAAAAAAAAARv+EskTBY5URVhUAAAAAP//
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAH0xhVGVYLXRlbXBs
+				YXRlLWZvci1IYXJ2IzExQkZEMEEAABAACAAAxjrOBAAA
+				ABEACAAAyRNL3gAAAAEAFAEb/QoAC13mAAtVIwAKm0QA
+				AIXtAAIAWk1hY2ludG9zaCBIRDpVc2VyczpTdWNob3c6
+				SGFydmFyZDp0ZW1wbGF0ZXM6TGFUZVgtdGVtcGxhdGUt
+				Zm9yLUhhcnYjMTFCRkQwQTpyZWZlcmVuY2VzLmJpYgAO
+				AB4ADgByAGUAZgBlAHIAZQBuAGMAZQBzAC4AYgBpAGIA
+				DwAaAAwATQBhAGMAaQBuAHQAbwBzAGgAIABIAEQAEgBV
+				VXNlcnMvU3VjaG93L0hhcnZhcmQvdGVtcGxhdGVzL0xh
+				VGVYLXRlbXBsYXRlLWZvci1IYXJ2YXJkLWRpc3NlcnRh
+				dGlvbi9yZWZlcmVuY2VzLmJpYgAAEwABLwAAFQACAA3/
+				/wAA
 				</data>
 				<key>FileURL</key>
-				<string>file://localhost/Users/Suchow/Harvard/templates/thesis/references.bib</string>
+				<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/references.bib</string>
 				<key>RelativePath</key>
 				<string>./references.bib</string>
 				<key>TypeID</key>
@@ -186,21 +235,24 @@
 			<dict>
 				<key>AliasData</key>
 				<data>
-				AAAAAAGGAAIAAQxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
-				AAAAAADGOpXESCsAAAALXgUIY2hhcHRlcnMAAAAAAAAA
+				AAAAAAHaAAIAAQxNYWNpbnRvc2ggSEQAAAAAAAAAAAAA
+				AAAAAADGOpXESCsAAAEb/QoIY2hhcHRlcnMAAAAAAAAA
 				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				AAAAAAAAAAAAAAAAAAAAAAteCcYDr0EAAAAAAAAAAP//
-				//8AAAkgAAAAAAAAAAAAAAAAAAAABnRoZXNpcwAQAAgA
-				AMY6zgQAAAARAAgAAMYD54EAAAABABQAC14FAAtd5gAL
-				VSMACptEAACF7QACADtNYWNpbnRvc2ggSEQ6VXNlcnM6
-				U3VjaG93OkhhcnZhcmQ6dGVtcGxhdGVzOnRoZXNpczpj
-				aGFwdGVycwAADgASAAgAYwBoAGEAcAB0AGUAcgBzAA8A
-				GgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIALlVz
-				ZXJzL1N1Y2hvdy9IYXJ2YXJkL3RlbXBsYXRlcy90aGVz
-				aXMvY2hhcHRlcnMAEwABLwAAFQACAA3//wAA
+				AAAAAAAAAAAAAAAAAAAAARv+CsYDr0EAAAAAAAAAAP//
+				//8AAAkgAAAAAAAAAAAAAAAAAAAAH0xhVGVYLXRlbXBs
+				YXRlLWZvci1IYXJ2IzExQkZEMEEAABAACAAAxjrOBAAA
+				ABEACAAAxgPngQAAAAEAFAEb/QoAC13mAAtVIwAKm0QA
+				AIXtAAIAVE1hY2ludG9zaCBIRDpVc2VyczpTdWNob3c6
+				SGFydmFyZDp0ZW1wbGF0ZXM6TGFUZVgtdGVtcGxhdGUt
+				Zm9yLUhhcnYjMTFCRkQwQTpjaGFwdGVycwAOABIACABj
+				AGgAYQBwAHQAZQByAHMADwAaAAwATQBhAGMAaQBuAHQA
+				bwBzAGgAIABIAEQAEgBPVXNlcnMvU3VjaG93L0hhcnZh
+				cmQvdGVtcGxhdGVzL0xhVGVYLXRlbXBsYXRlLWZvci1I
+				YXJ2YXJkLWRpc3NlcnRhdGlvbi9jaGFwdGVycwAAEwAB
+				LwAAFQACAA3//wAA
 				</data>
 				<key>FileURL</key>
-				<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/</string>
+				<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/chapters/</string>
 				<key>RelativePath</key>
 				<string>./chapters</string>
 				<key>TypeID</key>

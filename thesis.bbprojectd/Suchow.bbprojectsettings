@@ -18,6 +18,57 @@
 		<dict>
 			<key>AliasData</key>
 			<data>
+			AAAAAAHSAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADG
+			OpXESCsAAAEb/QoGUkVBRE1FAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARwF
+			58nBT49URVhUAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAAH0xh
+			VGVYLXRlbXBsYXRlLWZvci1IYXJ2IzExQkZEMEEAABAACAAAxjrO
+			BAAAABEACAAAycGHzwAAAAEAFAEb/QoAC13mAAtVIwAKm0QAAIXt
+			AAIAUk1hY2ludG9zaCBIRDpVc2VyczpTdWNob3c6SGFydmFyZDp0
+			ZW1wbGF0ZXM6TGFUZVgtdGVtcGxhdGUtZm9yLUhhcnYjMTFCRkQw
+			QTpSRUFETUUADgAOAAYAUgBFAEEARABNAEUADwAaAAwATQBhAGMA
+			aQBuAHQAbwBzAGgAIABIAEQAEgBNVXNlcnMvU3VjaG93L0hhcnZh
+			cmQvdGVtcGxhdGVzL0xhVGVYLXRlbXBsYXRlLWZvci1IYXJ2YXJk
+			LWRpc3NlcnRhdGlvbi9SRUFETUUAABMAAS8AABUAAgAN//8AAA==
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/README</string>
+			<key>RelativePath</key>
+			<string>./README</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>AliasData</key>
+			<data>
+			AAAAAAHoAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADG
+			OpXESCsAAAEb/goMY2hhcHRlcjMudGV4AAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARv+
+			LcYEY4RURVhUVGVYc/////8AAAkgAAAAAAAAAAAAAAAAAAAACGNo
+			YXB0ZXJzABAACAAAxjrOBAAAABEACAAAxgSbxAAAAAEAGAEb/goB
+			G/0KAAtd5gALVSMACptEAACF7QACAGFNYWNpbnRvc2ggSEQ6VXNl
+			cnM6U3VjaG93OkhhcnZhcmQ6dGVtcGxhdGVzOkxhVGVYLXRlbXBs
+			YXRlLWZvci1IYXJ2IzExQkZEMEE6Y2hhcHRlcnM6Y2hhcHRlcjMu
+			dGV4AAAOABoADABjAGgAYQBwAHQAZQByADMALgB0AGUAeAAPABoA
+			DABNAGEAYwBpAG4AdABvAHMAaAAgAEgARAASAFxVc2Vycy9TdWNo
+			b3cvSGFydmFyZC90ZW1wbGF0ZXMvTGFUZVgtdGVtcGxhdGUtZm9y
+			LUhhcnZhcmQtZGlzc2VydGF0aW9uL2NoYXB0ZXJzL2NoYXB0ZXIz
+			LnRleAATAAEvAAAVAAIADf//AAA=
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Users/Suchow/Harvard/templates/LaTeX-template-for-Harvard-dissertation/chapters/chapter3.tex</string>
+			<key>RelativePath</key>
+			<string>./chapters/chapter3.tex</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>AliasData</key>
+			<data>
 			AAAAAAGOAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADG
 			OpXESCsAAAALXgUKdGhlc2lzLnRleAAAAAAAAAAAAAAAAAAAAAAA
 			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARs2
@@ -33,7 +84,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/thesis.tex</string>
 			<key>RelativePath</key>
-			<string>./thesis.tex</string>
+			<string>../thesis/thesis.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -58,7 +109,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/harvard-thesis.cls</string>
 			<key>RelativePath</key>
-			<string>./harvard-thesis.cls</string>
+			<string>../thesis/harvard-thesis.cls</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -83,7 +134,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/chapter2.log</string>
 			<key>RelativePath</key>
-			<string>./chapters/chapter2.log</string>
+			<string>../thesis/chapters/chapter2.log</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -108,7 +159,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/chapter1.tex</string>
 			<key>RelativePath</key>
-			<string>./chapters/chapter1.tex</string>
+			<string>../thesis/chapters/chapter1.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -133,7 +184,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/chapter1.log</string>
 			<key>RelativePath</key>
-			<string>./chapters/chapter1.log</string>
+			<string>../thesis/chapters/chapter1.log</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -158,7 +209,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/chapter1.aux</string>
 			<key>RelativePath</key>
-			<string>./chapters/chapter1.aux</string>
+			<string>../thesis/chapters/chapter1.aux</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -183,7 +234,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/chapter2.aux</string>
 			<key>RelativePath</key>
-			<string>./chapters/chapter2.aux</string>
+			<string>../thesis/chapters/chapter2.aux</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -208,7 +259,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/frontmatter/coverpage.tex</string>
 			<key>RelativePath</key>
-			<string>./frontmatter/coverpage.tex</string>
+			<string>../thesis/frontmatter/coverpage.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -233,7 +284,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/frontmatter/abstract.tex</string>
 			<key>RelativePath</key>
-			<string>./frontmatter/abstract.tex</string>
+			<string>../thesis/frontmatter/abstract.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -282,7 +333,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/chapter3.tex</string>
 			<key>RelativePath</key>
-			<string>./chapters/chapter3.tex</string>
+			<string>../thesis/chapters/chapter3.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -307,7 +358,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/chapters/chapter2.tex</string>
 			<key>RelativePath</key>
-			<string>./chapters/chapter2.tex</string>
+			<string>../thesis/chapters/chapter2.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -331,7 +382,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/references.bib</string>
 			<key>RelativePath</key>
-			<string>./references.bib</string>
+			<string>../thesis/references.bib</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -356,7 +407,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/frontmatter/thanks.tex</string>
 			<key>RelativePath</key>
-			<string>./frontmatter/thanks.tex</string>
+			<string>../thesis/frontmatter/thanks.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -381,7 +432,7 @@
 			<key>FileURL</key>
 			<string>file://localhost/Users/Suchow/Harvard/templates/thesis/frontmatter/dedication.tex</string>
 			<key>RelativePath</key>
-			<string>./frontmatter/dedication.tex</string>
+			<string>../thesis/frontmatter/dedication.tex</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>

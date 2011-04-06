@@ -2,15 +2,15 @@
 %  @LaTeX-class-file{
 %     filename        = "harvard-thesis.cls",
 %     version         = "0.1",
-%     date            = "5 April 2009",
+%     date            = "5 April 2011",
 %     createdby       = "Jordan Suchow",
-%     address         = "33 Osceola Avenue, Irvington, NY 10533"
+%     address         = "10 Akron St. 309, Cambridge, MA 02138"
 %     telephone       = "+1 914 582 2646",
 %     email           = "suchow at fas.harvard.edu",
 %     codetable       = "ISO/ASCII",
 %     keywords        = "LaTeX, harvard-thesis",
-%     supported       = "send email to suchow@brandeis.edu",
-%     docstring       = "A thesis class for Harvard University."
+%     supported       = "send email to suchow@fas.harvard.edu",
+%     docstring       = "A thesis class for a Harvard dissertation."
 % --------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
