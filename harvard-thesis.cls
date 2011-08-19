@@ -16,11 +16,18 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{harvard-thesis}[2011/04/09 v0.1 Harvard University Thesis Class]
 \LoadClass[11pt, oneside, letterpaper]{book}
+%these should be inpreamble of .tex file, not .cls
 \RequirePackage{graphicx}
-\RequirePackage[small, bf, sc]{titlesec}
+\RequirePackage{hyperref}
+\usepackage[centertags]{amsmath}
 \RequirePackage{amssymb}
-\RequirePackage{lettrine}
-\RequirePackage[numbers, comma, sort]{natbib}
+\RequirePackage[numbers, comma, sort&compress]{natbib}
+\RequirePackage[small, bf, sc]{titlesec}
+\RequirePackage[tight,nice]{units}
+\RequirePackage{verbatim}
+\RequirePackage{url}
+%these can stay here
+\RequirePackage{lettrine}%big letter at start of chapter
 \RequirePackage[width=5in, letterpaper]{geometry}
 \RequirePackage{fancyhdr} % This should be set AFTER setting up the page geometry
 \pagestyle{plain} % options: empty , plain , fancy
@@ -28,9 +35,6 @@
 \RequirePackage{titling}
 \RequirePackage{setspace} 
 \RequirePackage{booktabs} % for much better looking tables
-\RequirePackage[tight,nice]{units}
-\RequirePackage{verbatim}
-\RequirePackage{url}
 \RequirePackage[labelfont={sf,bf,small},textfont={sf,small},justification=RaggedRight,margin=0pt, figurewithin=section, tablewithin=section]{caption}
 \onehalfspacing
 %\raggedright
