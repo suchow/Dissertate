@@ -5,6 +5,24 @@ http://jwsu.ch/ow/
 For contributions, comments, and bug reports, 
 please contact me at suchow {at} fas.harvard.edu.
 
+Modified by Andrew Leifer, August 2011
+
+For Windows XP:
+Download basic-miktex-2.9.4244.exe
+Download SumatraPDF v 1.5.1
+Download this Git Repo
+
+Installatioan instructions:
+Copy the contents of fonts\ into 
+C:\Program Files\MiKTeX 2.9\fonts\opentype\public\ChaparralPro
+
+
+To complie, from the MSYS command prompt run: 
+xelatex -synctex=-1 thesis.tex
+
+
+
+
 *** An introduction ***
 
 The HarvardThesis package provides all of files needed to support the production and typesetting of a PhD thesis at Harvard.

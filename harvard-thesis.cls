@@ -16,6 +16,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{harvard-thesis}[2011/04/09 v0.1 Harvard University Thesis Class]
 \LoadClass[11pt, oneside, letterpaper]{book}
+
+
 %these should be inpreamble of .tex file, not .cls
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
@@ -26,9 +28,14 @@
 \RequirePackage[tight,nice]{units}
 \RequirePackage{verbatim}
 \RequirePackage{url}
+\usepackage{pdfsync} %do pdf synchronization
+
+
 %these can stay here
 \RequirePackage{lettrine}%big letter at start of chapter
 \RequirePackage[width=5in, letterpaper]{geometry}
+
+
 \RequirePackage{fancyhdr} % This should be set AFTER setting up the page geometry
 \pagestyle{plain} % options: empty , plain , fancy
 \RequirePackage[palatino]{quotchap}
@@ -46,8 +53,10 @@
 \RequirePackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text, Numbers=OldStyle}
 \setromanfont[Mapping=tex-text, Numbers=OldStyle, Ligatures={{Historic,Contextual,Rare}}]{Chaparral Pro} % Contextuals=Swash, Ligatures={{Historic,Contextual,Rare}}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue}
-\setmonofont[Scale=MatchLowercase]{Consolas}
+
+%Set fonts for Mac Specific (Comment out on Windows XP)
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue} 
+%\setmonofont[Scale=MatchLowercase]{Consolas}
 
 % some definitions
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
