@@ -8,6 +8,7 @@ please contact me at suchow {at} fas.harvard.edu.
 Modified by Andrew Leifer, August 2011
 
 For Windows XP:
+================
 Download basic-miktex-2.9.4244.exe
 Download SumatraPDF v 1.5.1
 Download this Git Repo
@@ -19,6 +20,24 @@ C:\Program Files\MiKTeX 2.9\fonts\opentype\public\ChaparralPro
 
 To complie, from the MSYS command prompt run: 
 xelatex -synctex=-1 thesis.tex
+
+
+For Mac OS X
+==============
+Downlaod MacTex (when I tried the main site was down so I used this mirror)
+http://mirror.unl.edu/ctan/systems/mac/mactex/
+I downloaded the MacTeX.mpkg.zip  file... it should be roughly 2 GB
+Install.
+Also install skim. And Set Skim->Preferences->Sync to the Preset "TextMate." You can command-shift-click in the PDF to pull up a line in the code in Textmate.
+
+Now to setup TextMate, go to the Bundle->LaTex->Preferences and choose xelatex and Skim respectively.
+Then go to Bundles->Latex-> File Preferences -> Set Master file and select your master file.. thesis.tex
+
+
+
+
+xelatex  thesis.tex
+
 
 
 

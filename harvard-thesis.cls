@@ -28,7 +28,8 @@
 \RequirePackage[tight,nice]{units}
 \RequirePackage{verbatim}
 \RequirePackage{url}
-\usepackage{pdfsync} %do pdf synchronization
+\usepackage{pdfsync} %do pdf synchronization [andy]
+\synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
 
 %these can stay here
@@ -70,16 +71,15 @@
 \def\universitystate#1{\gdef\@universitystate{#1}}
 
 \renewcommand{\maketitle}{ 
-	\thispagestyle{empty}\sc
-	\vspace*{\fill} \begin{center}
-	\Huge \thetitle \normalsize \\ \vspace{100pt}
-	a dissertation presented \\ by\\
+	\thispagestyle{empty}\vspace*{\fill} 
+	\begin{center}
+	\huge \thetitle \normalsize \\ \vspace{100pt}
+	A dissertation presented \\ by\\
 	\theauthor\\ to\\ The \@department\\ 
-	\vspace{12pt}
 	in partial fulfillment of the requirements\\ 
 	for the degree of\\ \@degree\\ 
 	in the subject of\\ \@field\\
-	\vspace{12pt}
+	\vspace{24pt}
 	\@university\\ \@universitycity, \@universitystate\\ 
 	\@degreemonth\ \@degreeyear
 	\end{center} \vspace*{\fill}
@@ -87,7 +87,7 @@
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
-	\sc \noindent \copyright \degreeyear, \theauthor \\
+	\noindent \copyright \degreeyear, \theauthor \\
 	All rights reserved.
 	\vspace*{\fill} \newpage \rm
 }
