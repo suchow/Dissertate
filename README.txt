@@ -1,4 +1,4 @@
-HarvardThesis 0.1
+HarvardThesis 0.2
 Jordan Suchow, April 2011.
 http://jwsu.ch/ow/
 
@@ -6,12 +6,23 @@ For contributions, comments, and bug reports,
 please contact me at suchow {at} fas.harvard.edu.
 
 Modified by Andrew Leifer, August 2011
+http://andrewleifer.com
+leifer@fas.harvard.edu
+
+
+*** An introduction ***
+
+The HarvardThesis package provides all of files needed to support the production and typesetting of a PhD thesis at Harvard.
+
+****Installation***
+
+This is the setup that Andrew uses on Windows and Mac:
 
 For Windows XP:
-================
-Download basic-miktex-2.9.4244.exe
-Download SumatraPDF v 1.5.1
-Download this Git Repo
+================ 
+Download basic-miktex-2.9.4244.exe  http://miktex.org/
+Download SumatraPDF v 1.5.1 http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html
+Download this Git Repo 
 
 Installatioan instructions:
 Copy the contents of fonts\ into 
@@ -24,27 +35,39 @@ xelatex -synctex=-1 thesis.tex
 
 For Mac OS X
 ==============
-Downlaod MacTex (when I tried the main site was down so I used this mirror)
-http://mirror.unl.edu/ctan/systems/mac/mactex/
-I downloaded the MacTeX.mpkg.zip  file... it should be roughly 2 GB
+Downlaod MacTex (when I tried, the main site was down so I used this mirror)
+http://mirror.unl.edu/ctan/systems/mac/mactex/MacTeX.mpkg.zip  
+it should be roughly 2 GB
 Install.
-Also install skim. And Set Skim->Preferences->Sync to the Preset "TextMate." You can command-shift-click in the PDF to pull up a line in the code in Textmate.
+
+I use the free PDF reader Skim and the non-free editor TextMate. Both integrate well with latex:
+
+Skim is available http://skim-app.sourceforge.net/
+Set Skim->Preferences->Sync to the Preset "TextMate." You can command-shift-click in the PDF to pull up a line in the code in Textmate.
 
 Now to setup TextMate, go to the Bundle->LaTex->Preferences and choose xelatex and Skim respectively.
 Then go to Bundles->Latex-> File Preferences -> Set Master file and select your master file.. thesis.tex
 
 
+To compile, from the terminal run:
+xelatex  thesis
 
 
-xelatex  thesis.tex
+I also use Zotero http://www.zotero.org/ with the following modification to enable drag and drop cite keys:
+For Bibtex Drag and Drop Functionality from Zotero see:
+http://forums.zotero.org/discussion/5094/drag-and-drop-bibtex-cite/
+and in particular:
+http://pastebin.com/GXmCJevn
 
 
+**** General Links ****
+Harvard Approved Binding Sites:
+http://www.lbibinders.org/index.php?option=com_content&view=article&id=32&Itemid=80
+
+Harvard Preferred Paper:
+http://www.universityproducts.com/cart.php?m=product_list&c=791&primary=1&navTree=&msg=1314731211&total=2
 
 
-
-*** An introduction ***
-
-The HarvardThesis package provides all of files needed to support the production and typesetting of a PhD thesis at Harvard.
 
 *** License ***
 
