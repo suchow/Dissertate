@@ -3,7 +3,7 @@ Jordan Suchow, April 2011.
 http://jwsu.ch/ow/
 
 For contributions, comments, and bug reports, 
-please contact me at suchow {at} fas.harvard.edu.
+please contact me at suchow@fas.harvard.edu.
 
 Modified by Andrew Leifer, August 2011
 http://andrewleifer.com
@@ -28,7 +28,6 @@ Installatioan instructions:
 Copy the contents of fonts\ into 
 C:\Program Files\MiKTeX 2.9\fonts\opentype\public\ChaparralPro
 
-
 To complie, from the MSYS command prompt run: 
 xelatex -synctex=-1 thesis.tex
 
@@ -48,10 +47,8 @@ Set Skim->Preferences->Sync to the Preset "TextMate." You can command-shift-clic
 Now to setup TextMate, go to the Bundle->LaTex->Preferences and choose xelatex and Skim respectively.
 Then go to Bundles->Latex-> File Preferences -> Set Master file and select your master file.. thesis.tex
 
-
 To compile, from the terminal run:
 xelatex  thesis
-
 
 I also use Zotero http://www.zotero.org/ with the following modification to enable drag and drop cite keys:
 For Bibtex Drag and Drop Functionality from Zotero see:
@@ -66,7 +63,6 @@ http://www.lbibinders.org/index.php?option=com_content&view=article&id=32&Itemid
 
 Harvard Preferred Paper:
 http://www.universityproducts.com/cart.php?m=product_list&c=791&primary=1&navTree=&msg=1314731211&total=2
-
 
 
 *** License ***

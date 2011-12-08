@@ -3,12 +3,6 @@
 
 \documentclass{harvard-thesis}
 
-
-
-
-
-
-
 \begin{document}
 
 % the front matter
@@ -17,17 +11,25 @@
 \copyrightpage
 \abstractpage
 \tableofcontents
-\dedicationpage
 \authorlist
+\listoffigures
+\dedicationpage
 \acknowledgments
+
+\onehalfspacing
 
 % incluude each chapter...
 \include{chapters/chapter1}
 \include{chapters/chapter2}
 \include{chapters/chapter3}
 
+\singlespacing
+
 % the back matter
+\clearpage
+\addcontentsline{toc}{chapter}{References}
 \bibliography{references}
 \bibliographystyle{plainnat}
+\include{endmatter/colophon}
 
 \end{document}
