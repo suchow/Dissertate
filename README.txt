@@ -1,22 +1,15 @@
 HarvardThesis 0.2
-Jordan Suchow, April 2011.
-http://jwsu.ch/ow/
-
 For contributions, comments, and bug reports, 
-please contact me at suchow@fas.harvard.edu.
+please contact Jordan Suchow at suchow@fas.harvard.edu.
 
-Modified by Andrew Leifer, August 2011
-http://andrewleifer.com
-leifer@fas.harvard.edu
-
+Contributions by Andrew Leifer (leifer@fas.harvard.edu)
+Thanks to Clemens Eppner for Ubuntu instructions.
 
 *** An introduction ***
 
 The HarvardThesis package provides all of files needed to support the production and typesetting of a PhD thesis at Harvard.
 
-****Installation***
-
-This is the setup that Andrew uses on Windows and Mac:
+*** Installation ***
 
 For Windows XP:
 ================ 
@@ -55,6 +48,27 @@ For Bibtex Drag and Drop Functionality from Zotero see:
 http://forums.zotero.org/discussion/5094/drag-and-drop-bibtex-cite/
 and in particular:
 http://pastebin.com/GXmCJevn
+
+For Ubuntu
+============
+1. Installing xetex: 
+
+	sudo apt-get install texlive-xetex
+	
+2. Copy the fonts (from the template folder): 
+
+	sudo cp fonts/*/usr/local/share/fonts/
+
+3. Add 
+
+	\aliasfontfeatureoption{Ligatures}{Historic}{Historical} 
+  
+in harvard-thesis.cls just above the \setromanfont... command.
+This is because the syntax changed at some point from "Historical" to
+"Historic" but the ubuntu package is obviously a little behind. See
+here: http://tug.org/pipermail/xetex/2010-September/018106.html
+
+4. Run xelatex thesis.tex
 
 
 **** General Links ****
