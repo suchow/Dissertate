@@ -1,18 +1,15 @@
-HarvardThesis 0.2
-For contributions, comments, and bug reports, 
-please contact Jordan Suchow at suchow@fas.harvard.edu.
+An introduction
+---------------
 
-Contributions by Andrew Leifer (leifer@fas.harvard.edu)
-Thanks to Clemens Eppner for Ubuntu instructions.
+This package provides all of the files needed to support the production and typesetting of a PhD thesis at Harvard. For contributions, comments, and bug reports, please contact Jordan Suchow at suchow@fas.harvard.edu.
 
-*** An introduction ***
+Contributions were made by Andrew Leifer (leifer@fas.harvard.edu), and thanks to Clemens Eppner for the Ubuntu instructions.
 
-The HarvardThesis package provides all of files needed to support the production and typesetting of a PhD thesis at Harvard.
+Installation
+------------
 
-*** Installation ***
+### For Windows XP: ###
 
-For Windows XP:
-================ 
 Download basic-miktex-2.9.4244.exe  http://miktex.org/
 Download SumatraPDF v 1.5.1 http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html
 Download this Git Repo 
@@ -25,8 +22,8 @@ To complie, from the MSYS command prompt run:
 xelatex -synctex=-1 thesis.tex
 
 
-For Mac OS X
-==============
+### For Mac OS X ###
+
 Downlaod MacTex (when I tried, the main site was down so I used this mirror)
 http://mirror.unl.edu/ctan/systems/mac/mactex/MacTeX.mpkg.zip  
 it should be roughly 2 GB
@@ -49,8 +46,8 @@ http://forums.zotero.org/discussion/5094/drag-and-drop-bibtex-cite/
 and in particular:
 http://pastebin.com/GXmCJevn
 
-For Ubuntu
-============
+### For Ubuntu ###
+
 1. Installing xetex: 
 
 	sudo apt-get install texlive-xetex
@@ -71,7 +68,9 @@ here: http://tug.org/pipermail/xetex/2010-September/018106.html
 4. Run xelatex thesis.tex
 
 
-**** General Links ****
+General Links
+-----------------------
+
 Harvard Approved Binding Sites:
 http://www.lbibinders.org/index.php?option=com_content&view=article&id=32&Itemid=80
 
@@ -79,7 +78,8 @@ Harvard Preferred Paper:
 http://www.universityproducts.com/cart.php?m=product_list&c=791&primary=1&navTree=&msg=1314731211&total=2
 
 
-*** License ***
+License
+-------
 
 This software is free and is covered under the MIT License, given here:
 
