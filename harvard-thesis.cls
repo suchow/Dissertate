@@ -118,7 +118,7 @@
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
-	\sc \noindent \copyright 2014\hspace{3pt}-- \theauthor \\
+	\sc \noindent \copyright \@degreeyear \hspace{3pt}-- \theauthor \\
 	\noindent All rights reserved.
 	\vspace*{\fill} \newpage \rm
 }
