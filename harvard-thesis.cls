@@ -57,6 +57,7 @@
 \RequirePackage{fancyhdr} 
 \pagestyle{plain} % options: empty , plain , fancy
 \RequirePackage[palatino]{quotchap}
+\definecolor{chaptergrey}{rgb}{0.6,0,0}
 \RequirePackage{titling}
 \RequirePackage{setspace} 
 \RequirePackage{booktabs} % for much better looking tables
