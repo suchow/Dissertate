@@ -101,15 +101,20 @@
 	\begin{center} \sc
 	\huge \thetitle \normalsize \\ \vspace{100pt}
 	A dissertation presented \\ by\\
+	\thispagestyle{empty}
+	\vspace*{\fill} \vspace{100pt} \begin{center}
+	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
+	a dissertation presented \\ by\\
 	\theauthor\\ to\\ The \@department\\ 
+	\vspace{12pt}
 	in partial fulfillment of the requirements\\ 
 	for the degree of\\ \@degree\\ 
 	in the subject of\\ \@field\\
-	\vspace{24pt}
+	\vspace{12pt}
 	\@university\\ \@universitycity, \@universitystate\\ 
 	\@degreemonth\ \@degreeyear
 	\end{center} \vspace*{\fill}
-} 
+}
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
