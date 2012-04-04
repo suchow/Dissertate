@@ -1,8 +1,6 @@
 % -------------------------------------------------------------------
 %  @LaTeX-class-file{
 %     filename        = "harvard-thesis.cls",
-%     version         = "0.1.1",
-%     date            = "5 April 2011",
 %     version         = "0.3",
 %     date            = "4 April 2012",
 %     createdby       = "Jordan Suchow, modified by Andrew Leifer",
@@ -14,7 +12,6 @@
 % --------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{harvard-thesis}[2011/12/08 v0.3 Harvard University Thesis Class]
 \ProvidesClass{harvard-thesis}[2012/04/05 v0.3 Harvard University Thesis Class]
 \LoadClass[11pt, oneside, letterpaper]{book}
 
@@ -79,8 +76,6 @@
 \defaultfontfeatures{Mapping=tex-text, Numbers=OldStyle}
 \setromanfont[Mapping=tex-text, Numbers=OldStyle, Ligatures={{Historic,Contextual,Rare}}]{Arno Pro} % Contextuals=Swash, Ligatures={{Historic,Contextual,Rare}}
 
-
-
 %Set fonts for Mac Specific (Comment out on Windows XP)
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue} 
 %\setmonofont[Scale=MatchLowercase]{Consolas}
@@ -97,10 +92,6 @@
 \def\universitystate#1{\gdef\@universitystate{#1}}
 
 \renewcommand{\maketitle}{ 
-	\thispagestyle{empty}\vspace*{\fill} 
-	\begin{center} \sc
-	\huge \thetitle \normalsize \\ \vspace{100pt}
-	A dissertation presented \\ by\\
 	\thispagestyle{empty}
 	\vspace*{\fill} \vspace{100pt} \begin{center}
 	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
@@ -156,7 +147,7 @@
 	}
 
 \newcommand{\acknowledgments}{
-%	\vspace*{\fill} %This has to be removed, otherwise you get an additional empty page
+
 	\chapter*{Acknowledgments}
 	\noindent
 	\input{frontmatter/thanks}
