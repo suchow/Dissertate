@@ -3,6 +3,8 @@
 %     filename        = "harvard-thesis.cls",
 %     version         = "0.1.1",
 %     date            = "5 April 2011",
+%     version         = "0.3",
+%     date            = "4 April 2012",
 %     createdby       = "Jordan Suchow, modified by Andrew Leifer",
 %     email           = "suchow at fas.harvard.edu",
 %     codetable       = "ISO/ASCII",
@@ -13,6 +15,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{harvard-thesis}[2011/12/08 v0.3 Harvard University Thesis Class]
+\ProvidesClass{harvard-thesis}[2012/04/05 v0.3 Harvard University Thesis Class]
 \LoadClass[11pt, oneside, letterpaper]{book}
 
 
