@@ -128,7 +128,7 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{\@advisor} \rhead{\@author} \vspace*{\fill}
+	\lhead{Thesis advisor: \@advisor} \rhead{\@author} \vspace*{\fill}
 	\renewcommand{\headrulewidth}{0.0pt} 
 	\begin{center}
 	\Large \textsc{\@title} \normalsize \vspace*{\fill}\\
