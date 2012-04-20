@@ -1,10 +1,8 @@
 % -------------------------------------------------------------------
 %  @LaTeX-class-file{
 %     filename        = "harvard-thesis.cls",
-%     version         = "0.3",
+%     version         = "0.4",
 %     date            = "4 April 2012",
-%     createdby       = "Jordan Suchow, modified by Andrew Leifer",
-%     email           = "suchow at fas.harvard.edu",
 %     codetable       = "ISO/ASCII",
 %     keywords        = "LaTeX, harvard-thesis",
 %     supported       = "send email to suchow@fas.harvard.edu",
@@ -122,7 +120,7 @@
 	\lhead{Thesis advisor: \@advisor} \rhead{\@author} \vspace*{\fill}
 	\renewcommand{\headrulewidth}{0.0pt} 
 	\begin{center}
-	\Large \textsc{\@title} \normalsize \vspace*{\fill}\\
+	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize \vspace*{\fill}\\
 	\sc Abstract \\ \rm
 	\end{center}
 	\input{frontmatter/abstract}
