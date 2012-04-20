@@ -15,7 +15,7 @@ bibtexCommand = 'bibtex'
 scripts_folder = '/scripts'
 chapters_folder = '/chapters'
 
-clear_junk_command = 'rm -f *.toc *.blg *.aux *.bbl *.out *.brf *.tex-e'
+clear_junk_command = 'rm -f *.toc *.blg *.aux *.bbl *.lof *.out *.brf *.tex-e'
 
 # generate all of the figures
 

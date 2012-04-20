@@ -14,37 +14,37 @@
 \LoadClass[11pt, oneside, letterpaper]{book}
 
 
-%these should be inpreamble of .tex file, not .cls
+% Required packages
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
-\usepackage[centertags]{amsmath}
+\RequirePackage[centertags]{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage[numbers, comma, sort&compress]{natbib}
 \RequirePackage[small, md, sc]{titlesec}
 \RequirePackage[tight,nice]{units}
 \RequirePackage{verbatim}
-\usepackage{color}
-\setcounter{tocdepth}{1}
-\usepackage{hyperref}
+
+% colors
+\RequirePackage{color}
 \definecolor{Crimson}{rgb}{0.6,0,0}
+
 \RequirePackage{url}
-\usepackage[titles]{tocloft}
+\RequirePackage[titles]{tocloft}
+\setcounter{tocdepth}{1}
 \renewcommand{\cftchapfont}{\normalsize \scshape}
 
 \renewcommand\bibname{References}
 \renewcommand\listfigurename{Listing of figures}
 \raggedright
 
-%Begin Andy's package additions
-\usepackage{pdfsync} %do pdf synchronization [andy]
-\usepackage[closeFloats]{fltpage}
+\RequirePackage{pdfsync} %do pdf synchronization [andy]
+\RequirePackage[closeFloats]{fltpage}
 
 \synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
 %   list an entire bibliography entry inline. Useful for acknowledging when my paper was previously published
-\usepackage{bibentry} 
+\RequirePackage{bibentry} 
 \nobibliography*        
-%End Andy's package additions
 
 \RequirePackage{lettrine} % big letter at start of chapter
 \RequirePackage[width=5in, letterpaper]{geometry}
@@ -63,17 +63,20 @@
 \parindent 12pt
 \RequirePackage{mathspec}
 
-% Instead of using default latex for math fonts, we can be fancy and try to adapt Chaparral Pro.. --ANDY
+% use Arno Pro instead of standard LaTeX fonts
 \setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Arno Pro}
-\setmathrm{Arno Pro}  %I added this to handle \mathbf
-
-%Use this if you want math fonts that are slightly better than default Latex
-%\setmathfont{Cambria Math}
-
+\setmathrm{Arno Pro}
 \RequirePackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text, Numbers=OldStyle}
-\setromanfont[Mapping=tex-text, Numbers=OldStyle, Ligatures={{Historic,Contextual,Rare}}]{Arno Pro} % Contextuals=Swash, Ligatures={{Historic,Contextual,Rare}}
-
+\setromanfont[Mapping=tex-text, 
+			  Numbers=OldStyle, 
+			  Ligatures={Common}, 
+			  SizeFeatures={%
+		          {Size={-10}, Font=* Caption},
+		          {Size={10-13.0}, Font=*},
+		          {Size={13.01-19.9}, Font=* Subhead, Ligatures=Rare, Contextuals={Swash,Alternate}},
+		       {Size={19.91-},Font=* Display, Ligatures=Rare, Contextuals={Swash,Alternate}}}]
+			  {Arno Pro} %
 %Set fonts for Mac Specific (Comment out on Windows XP)
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue} 
 %\setmonofont[Scale=MatchLowercase]{Consolas}
@@ -135,6 +138,7 @@
 	\vspace*{\fill} \newpage \rm
 	}
 
+% the list of authors
 \newcommand{\authorlist}{
 	\pagestyle{fancy}
 	\newpage
@@ -144,12 +148,13 @@
 	\newpage \rm
 	}
 
+% the acknowledgments page
 \newcommand{\acknowledgments}{
-
 	\chapter*{Acknowledgments}
 	\noindent
 	\input{frontmatter/thanks}
-	\vspace*{\fill} \newpage
+	\vspace*{\fill} 
+	\newpage
 	\setcounter{page}{1}
 	\pagenumbering{arabic}}
 	
@@ -158,8 +163,3 @@
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
    \noindent\textsc{#1}%
 }	
-	
-%Andys Spacing 
-%Be more forgiving, and stretch word spacing out more so that wormds don't run out into the margins..
-\emergencystretch=1.5em
-%End Andy Spacing
