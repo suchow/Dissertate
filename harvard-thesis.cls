@@ -10,13 +10,22 @@
 % --------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{harvard-thesis}[2012/04/05 v0.3 Harvard University Thesis Class]
-\LoadClass[11pt, oneside, letterpaper]{book}
+\ProvidesClass{harvard-thesis}[2012/04/05 v0.4 Harvard University Thesis Class]
+\LoadClass[12pt, oneside, letterpaper]{book}
 
 
 % Required packages
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
+\hypersetup{
+	linktocpage,
+    colorlinks,
+    citecolor=Crimson,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=Crimson,
+}
+
 \RequirePackage[centertags]{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage[numbers, comma, sort&compress]{natbib}
@@ -26,7 +35,7 @@
 
 % colors
 \RequirePackage{color}
-\definecolor{Crimson}{rgb}{0.6,0,0}
+\definecolor{Crimson}{rgb}{0.6471, 0.1098, 0.1882}
 
 \RequirePackage{url}
 \RequirePackage[titles]{tocloft}
