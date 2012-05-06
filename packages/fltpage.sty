@@ -1,0 +1,186 @@
+%%
+%% This is file `fltpage.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% fltpage.dtx  (with options: `package')
+%% 
+%% Copyright (C) 1998 by Sebastian Gross. All rights reserved.
+%% 
+%% 
+%% This file is part of the fltpage package
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% This a tool or better yet, an experiments written by Sebastian Gross,
+%% who is writing this not only for it utility value, but as part of the
+%% process of learning LaTeX.  This utility is far from perfect, and
+%% comments are welcome.
+%% 
+%% The usual disclaimers apply:  If it doesn't work right that's your problem!
+%% 
+%% The usual GNU-style conditions apply: If you change it, you take
+%% the blame; if you pass it on, pass on all present conditions;
+%% 
+%% Error Reports in case of UNCHANGED versions to
+%% 
+%%       Sebastian Gross   <seppel@zedat.fu-berlin.de>
+%% 
+%%
+%% \iffalse meta-comment
+%% ===================================================================
+%%  @LaTeX-package-file{
+%%     author     = {Sebastian Gross},
+%%     version    = {0.3},
+%%     date       = {13 Nov 1998},
+%%     filename   = {fltpage.dtx},
+%%     email      = {seppel@zedat.fu-berlin.de},
+%%     codetable  = {ISO/ASCII},
+%%     keywords   = {LaTeX2e, float, table, figure, caption, FPfigure, FPtable},
+%%     supported  = {yes},
+%%     docstring  = {LaTeX package which defines new environments to place
+%%                   captions of tables and figures on the facing/following page.}
+%%  }
+%% ===================================================================
+%% \fi
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fltpage}[1998/10/29 v.0.3 Floats on full page (SMU)]
+\RequirePackage{ifthen}
+\RequirePackage{afterpage}
+\newcounter{FP@figureC}
+\newcounter{FP@tableC}
+\newsavebox{\FP@floatCorpusBOX}
+\newcommand*{\FP@guide}{}%
+\newcommand*{\FP@guideStyle}{\slshape}
+\newcommand*{\FP@guideOneside}{following page}
+\newcommand*{\FP@guideTwoside}{facing page}
+\newcommand*{\FP@guideAfter}{following page}
+\newcommand*{\FP@guideBefore}{preceding page}
+\newcommand*{\FP@guideFaceBefore}{preceding page}
+\newcommand*{\FP@guideFaceAfter}{following page}
+\newcommand*{\FP@separatorCaption}{\rule{\linewidth}{.4pt}}
+\newcommand{\FP@positionLabel}{FP\@captype-\number\value{FP@\@captype C}-pos}
+\newcommand{\FP@helpNote}[2]{%
+  \typeout{FP#1 is inserted on page \pageref{#2}!}}%
+\newcommand{\FP@floatOneside}{}
+\newcommand{\FP@floatTwoside}{}
+\newcommand{\FP@float}{}
+\DeclareOption{german}{%
+  \renewcommand{\FP@guideAfter}{n\"achste Seite}
+  \renewcommand{\FP@guideBefore}{vorhergehende Seite}
+  \renewcommand{\FP@guideOneside}{\FP@guideAfter}
+  \renewcommand{\FP@guideFaceBefore}{gegen\"uberliegende Seite}
+  \renewcommand{\FP@guideFaceAfter}{gegen\"uberliegende Seite}
+  \renewcommand{\FP@guideTwoside}{\FP@guideFaceAfter}
+  \PassOptionsToPackage{german}{varioref}
+}%
+\DeclareOption{varioref}{%
+  \AtBeginDocument{%
+    \RequirePackage{varioref}
+    \ifthenelse{\equal{\reftextbefore}{\@empty}}%
+      {}{\renewcommand{\FP@guideBefore}{\reftextbefore}}%
+    \ifthenelse{\equal{\reftextafter}{\@empty}}%
+      {}{\renewcommand{\FP@guideAfter}{\reftextafter}}%
+    \renewcommand{\FP@guideOneside}{\FP@guideAfter}
+    \ifthenelse{\equal{\reftextfacebefore}{\@empty}}%
+      {}{\renewcommand{\FP@guideFaceBefore}{\reftextfacebefore}}%
+    \ifthenelse{\equal{\reftextfaceafter}{\@empty}}%
+      {}{\renewcommand{\FP@guideFaceAfter}{\reftextfaceafter}}%
+    \renewcommand{\FP@guideTwoside}{\FP@guideFaceAfter}%
+  }%
+}%
+\DeclareOption{closeFloats}{%
+  \renewcommand{\FP@floatOneside}[3]{#3#2#1}%
+  \renewcommand{\FP@floatTwoside}[4]{%
+    \ifthenelse{\isodd{\pageref{#1}}}{#2#3#4}{#4#3#2}}%
+}%
+\DeclareOption{leftFloats}{%
+  \renewcommand{\FP@floatOneside}[3]{#1#2#3}%
+  \renewcommand{\FP@floatTwoside}[4]{%
+    \ifthenelse{\isodd{\pageref{#1}}}{{#2#3#4}}{\afterpage{#2#3#4}}}%
+  \renewcommand{\FP@guideOneside}{\FP@guideBefore}%
+  \renewcommand{\FP@guideTwoside}{\FP@guideFaceBefore}%
+}%
+\DeclareOption{rightFloats}{%
+  \renewcommand{\FP@floatOneside}[3]{#3#2#1}%
+  \renewcommand{\FP@floatTwoside}[4]{%
+    \ifthenelse{\isodd{\pageref{#1}}}{\afterpage{#4#3#2}}{{#4#3#2}}}%
+  \renewcommand{\FP@guideOneside}{\FP@guideAfter}%
+  \renewcommand{\FP@guideTwoside}{\FP@guideFaceAfter}%
+}%
+\DeclareOption{CaptionAfterwards}{\ExecuteOptions{leftFloats}}
+\DeclareOption{CaptionBefore}{\ExecuteOptions{rightFloats}}%
+\DeclareOption{draft}{%
+  \renewcommand{\FP@helpNote}[2]{%
+    \marginpar{Insertion of FP#1}%
+    \typeout{FP#1 is inserted on page \pageref{#2}!}}%
+}%
+\DeclareOption{oneside}{%
+  \renewcommand{\FP@guide}{\FP@guideStyle(\FP@guideOneside)}%
+  \renewcommand{\FP@float}[4]{\FP@floatOneside{#2}{#3}{#4}}
+}%
+\DeclareOption{twoside}{%
+  \renewcommand{\FP@guide}{\FP@guideStyle(\FP@guideTwoside)}%
+  \renewcommand{\FP@float}[4]{\FP@floatTwoside{#1}{#2}{#3}{#4}}
+}%
+\DeclareOption{noSeparatorLine}{%
+  \renewcommand{\FP@separatorCaption}{}
+}
+\DeclareOption{noHints}{%
+  \AtBeginDocument{\renewcommand{\FP@guide}{}}
+}%
+\DeclareOption*{%
+  \PackageWarning{fltpage}{Unknown option `\CurrentOption'!}%
+  \PassOptionsToPackage{\currentOption}{varioref}
+}%
+\ExecuteOptions{closeFloats}
+\ExecuteOptions{oneside}
+\ProcessOptions*
+\relax
+\newcommand{\FP@floatBegin}[1]{%
+  \gdef\@captype{#1}%
+  \global\let\FP@savedCaptionCommand\caption%
+  \global\let\FP@savedLabelCommand\label%
+  \ifthenelse{\equal{\@captype}{figure}}
+     {\global\let\old@Fnum\fnum@figure}%
+     {\global\let\old@Fnum\fnum@table}%
+  \let\FP@LabelText\@empty%
+  \let\FP@CaptionText\@empty%
+  \let\FP@optionalCaptionText\@empty%
+  \renewcommand\label[1]{\gdef\FP@LabelText{##1}}%
+  \renewcommand\caption[2][]{\gdef\FP@optionalCaptionText{##1}\gdef\FP@CaptionText{##2}}%
+  \begin{lrbox}{\FP@floatCorpusBOX}%
+}%
+\newcommand{\FP@floatEnd}{%
+  \end{lrbox}%
+  \global\setbox\FP@floatCorpusBOX=\box\FP@floatCorpusBOX
+  \stepcounter{FP@\@captype C}%
+  \FP@savedLabelCommand{\FP@positionLabel}%
+  \FP@helpNote{\@captype}{\FP@positionLabel}%
+  \FP@float{\FP@positionLabel}% location label test
+          {\begin{\@captype}[p!]
+             \usebox{\FP@floatCorpusBOX}%
+             \refstepcounter{\@captype}%
+             \ifthenelse{\equal{\FP@LabelText}{\@empty}}
+                {}{\FP@savedLabelCommand{\expandafter\protect\FP@LabelText}}%
+          \end{\@captype}}
+           {\addtocounter{\@captype}{-1}}
+           {\begin{\@captype}[b!]%
+             \ifthenelse{\equal{\FP@guide}{\@empty}}%
+               {}{\ifthenelse{\equal{\@captype}{figure}}%
+                   {\renewcommand{\fnum@figure}{\old@Fnum\ {\FP@guide}}}%
+                   {\renewcommand{\fnum@table}{\old@Fnum\ {\FP@guide}}}}%
+             \setlength{\abovecaptionskip}{2pt plus2pt minus 1pt} % length above caption
+             \setlength{\belowcaptionskip}{2pt plus2pt minus 1pt} % length above caption
+             \FP@separatorCaption%
+             \ifthenelse{\equal{\FP@optionalCaptionText}{\@empty}}%
+               {\FP@savedCaptionCommand{\expandafter\protect\FP@CaptionText}}%
+               {\FP@savedCaptionCommand[\expandafter\protect\FP@optionalCaptionText]{\expandafter\protect\FP@CaptionText}}%
+           \end{\@captype}}%
+}%
+\newenvironment{FPfigure}{\FP@floatBegin{figure}}{\FP@floatEnd}
+\newenvironment{FPtable}{\FP@floatBegin{table}}{\FP@floatEnd}
+\endinput
+%%
+%% End of file `fltpage.sty'.
