@@ -1,0 +1,219 @@
+%% 
+%% This is the fltpage package for full page figures. 
+%% It has been heavily commented and lightly modified by Andrew Leifer 
+%% to bring into compliance with Harvard University's thesis guidelines. 
+%% Specifically, captions preceeding full page captions now appear
+%% on their own lines. Thanks to Eddie Schlafly for initial guidance here.
+%%
+%%  -- Andrew Leifer
+%%      leifer@fas.harvard.edu
+%%      leifer@princeton.edu
+%%      5 May 2012
+%%
+%%
+%% This is file `fltpage.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% fltpage.dtx  (with options: `package')
+%% 
+%% Copyright (C) 1998 by Sebastian Gross. All rights reserved.
+%% 
+%% 
+%% This file is part of the fltpage package
+%% 
+%%
+%% 
+%%
+%% IMPORTANT NOTICE:
+%% 
+%% This a tool or better yet, an experiments written by Sebastian Gross,
+%% who is writing this not only for it utility value, but as part of the
+%% process of learning LaTeX.  This utility is far from perfect, and
+%% comments are welcome.
+%% 
+%% The usual disclaimers apply:  If it doesn't work right that's your problem!
+%% 
+%% The usual GNU-style conditions apply: If you change it, you take
+%% the blame; if you pass it on, pass on all present conditions;
+%% 
+%% Error Reports in case of UNCHANGED versions to
+%% 
+%%       Sebastian Gross   <seppel@zedat.fu-berlin.de>
+%% 
+%%
+%% \iffalse meta-comment
+%% ===================================================================
+%%  @LaTeX-package-file{
+%%     author     = {Sebastian Gross},
+%%     version    = {0.3},
+%%     date       = {13 Nov 1998},
+%%     filename   = {fltpage.dtx},
+%%     email      = {seppel@zedat.fu-berlin.de},
+%%     codetable  = {ISO/ASCII},
+%%     keywords   = {LaTeX2e, float, table, figure, caption, FPfigure, FPtable},
+%%     supported  = {yes},
+%%     docstring  = {LaTeX package which defines new environments to place
+%%                   captions of tables and figures on the facing/following page.}
+%%  }
+%% ===================================================================
+%% \fi
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fltpage2}[1998/10/29 v.0.3 Floats on full page (SMU)]
+\RequirePackage{ifthen}
+\RequirePackage{afterpage}
+\newcounter{FP@figureC} %Two new counters
+\newcounter{FP@tableC}
+\newsavebox{\FP@floatCorpusBOX}
+\newcommand*{\FP@guide}{}%
+\newcommand*{\FP@guideStyle}{\slshape}
+\newcommand*{\FP@guideOneside}{following page}
+\newcommand*{\FP@guideTwoside}{facing page}
+\newcommand*{\FP@guideAfter}{following page}
+\newcommand*{\FP@guideBefore}{preceding page}
+\newcommand*{\FP@guideFaceBefore}{preceding page}
+\newcommand*{\FP@guideFaceAfter}{following page}
+\newcommand*{\FP@separatorCaption}{\rule{\linewidth}{.4pt}}
+\newcommand{\FP@positionLabel}{FP\@captype-\number\value{FP@\@captype C}-pos}
+\newcommand{\FP@helpNote}[2]{%
+  \typeout{FP#1 is inserted on page \pageref{#2}!}}%
+\newcommand{\FP@floatOneside}{}
+\newcommand{\FP@floatTwoside}{}
+\newcommand{\FP@float}{}
+\DeclareOption{german}{%
+  \renewcommand{\FP@guideAfter}{n\"achste Seite}
+  \renewcommand{\FP@guideBefore}{vorhergehende Seite}
+  \renewcommand{\FP@guideOneside}{\FP@guideAfter}
+  \renewcommand{\FP@guideFaceBefore}{gegen\"uberliegende Seite}
+  \renewcommand{\FP@guideFaceAfter}{gegen\"uberliegende Seite}
+  \renewcommand{\FP@guideTwoside}{\FP@guideFaceAfter}
+  \PassOptionsToPackage{german}{varioref}
+}%
+\DeclareOption{varioref}{%
+  \AtBeginDocument{%
+    \RequirePackage{varioref}
+    \ifthenelse{\equal{\reftextbefore}{\@empty}}%
+      {}{\renewcommand{\FP@guideBefore}{\reftextbefore}}%
+    \ifthenelse{\equal{\reftextafter}{\@empty}}%
+      {}{\renewcommand{\FP@guideAfter}{\reftextafter}}%
+    \renewcommand{\FP@guideOneside}{\FP@guideAfter}
+    \ifthenelse{\equal{\reftextfacebefore}{\@empty}}%
+      {}{\renewcommand{\FP@guideFaceBefore}{\reftextfacebefore}}%
+    \ifthenelse{\equal{\reftextfaceafter}{\@empty}}%
+      {}{\renewcommand{\FP@guideFaceAfter}{\reftextfaceafter}}%
+    \renewcommand{\FP@guideTwoside}{\FP@guideFaceAfter}%
+  }%
+}%
+\DeclareOption{closeFloats}{%
+  \renewcommand{\FP@floatOneside}[3]{#3#2#1}%
+  \renewcommand{\FP@floatTwoside}[4]{%
+    \ifthenelse{\isodd{\pageref{#1}}}{#2#3#4}{#4#3#2}}%
+}%
+\DeclareOption{leftFloats}{%
+  \renewcommand{\FP@floatOneside}[3]{#1#2#3}%
+  \renewcommand{\FP@floatTwoside}[4]{%
+    \ifthenelse{\isodd{\pageref{#1}}}{{#2#3#4}}{\afterpage{#2#3#4}}}%
+  \renewcommand{\FP@guideOneside}{\FP@guideBefore}%
+  \renewcommand{\FP@guideTwoside}{\FP@guideFaceBefore}%
+}%
+\DeclareOption{rightFloats}{%
+  \renewcommand{\FP@floatOneside}[3]{#3#2#1}%
+  \renewcommand{\FP@floatTwoside}[4]{%
+    \ifthenelse{\isodd{\pageref{#1}}}{\afterpage{#4#3#2}}{{#4#3#2}}}%
+  \renewcommand{\FP@guideOneside}{\FP@guideAfter}%
+  \renewcommand{\FP@guideTwoside}{\FP@guideFaceAfter}%
+}%
+\DeclareOption{CaptionAfterwards}{\ExecuteOptions{leftFloats}}
+\DeclareOption{CaptionBefore}{\ExecuteOptions{rightFloats}}%
+\DeclareOption{draft}{%
+  \renewcommand{\FP@helpNote}[2]{%
+    \marginpar{Insertion of FP#1}%
+    \typeout{FP#1 is inserted on page \pageref{#2}!}}%
+}%
+\DeclareOption{oneside}{%
+  \renewcommand{\FP@guide}{\FP@guideStyle(\FP@guideOneside)}%
+  \renewcommand{\FP@float}[4]{\FP@floatOneside{#2}{#3}{#4}}
+}%
+\DeclareOption{twoside}{%
+  \renewcommand{\FP@guide}{\FP@guideStyle(\FP@guideTwoside)}%
+  \renewcommand{\FP@float}[4]{\FP@floatTwoside{#1}{#2}{#3}{#4}}
+}%
+\DeclareOption{noSeparatorLine}{%
+  \renewcommand{\FP@separatorCaption}{}
+}
+\DeclareOption{noHints}{%
+  \AtBeginDocument{\renewcommand{\FP@guide}{}}
+}%
+\DeclareOption*{%
+  \PackageWarning{fltpage}{Unknown option `\CurrentOption'!}%
+  \PassOptionsToPackage{\currentOption}{varioref}
+}%
+\ExecuteOptions{closeFloats}
+\ExecuteOptions{oneside}
+\ProcessOptions*
+\relax
+
+% This code gets dropped into place for the \begin{FPfigure} command
+\newcommand{\FP@floatBegin}[1]{%
+  \clearpage %Added to clear the page  -- Andrew Leifer 2012
+  \gdef\@captype{#1}%
+  \global\let\FP@savedCaptionCommand\caption %Caption command before it gets redefined!!
+  \global\let\FP@savedLabelCommand\label%
+  \ifthenelse{\equal{\@captype}{figure}} %Set \old@Fnum to be either figure or table
+     {\global\let\old@Fnum\fnum@figure}%
+     {\global\let\old@Fnum\fnum@table}%
+  \let\FP@LabelText\@empty %set the label text as empty
+  \let\FP@CaptionText\@empty % set the caption text as empty
+  \let\FP@optionalCaptionText\@empty %set the optional caption text as empty 
+
+  %Redefinie the \label command to save the value placed there in this special LabelText variable
+  \renewcommand\label[1]{\gdef\FP@LabelText{##1}}
+
+%Redefine the caption function so that it no longer creatse a caption, instead it saves the values that would have been passed to caption and places them in these variables. Then it beings a lrbox environment
+\renewcommand\caption[2][]{\gdef\FP@optionalCaptionText{##1}\gdef\FP@CaptionText{##2}}
+
+%THis shows up right wher \begin{FPfigure} would have been
+   \begin{lrbox}{\FP@floatCorpusBOX}%
+	%Text at this position shows up right before the figure
+}
+
+
+\newcommand{\FP@floatEnd}{%
+  \end{lrbox} %This closes the end of the  lrbox that was opened when the calling .tex file invoked the "\caption" command
+  \global\setbox\FP@floatCorpusBOX=\box\FP@floatCorpusBOX
+  \stepcounter{FP@\@captype C}%
+  \FP@savedLabelCommand{\FP@positionLabel}%
+  \FP@helpNote{\@captype}{\FP@positionLabel}%
+  \FP@float{\FP@positionLabel} % location label test %I believe this is the float
+          {\begin{\@captype}[p!] \ContinuedFloat %Begin figure! % NEW<---------- 
+			 \stepcounter{\@captype}%increment the counter 
+			\FP@savedCaptionCommand{(continued)} % NEW<----------
+             \usebox{\FP@floatCorpusBOX}%this must be handle to the float box?
+             %if the label text is NOT empty,  display the label command
+             \ifthenelse{\equal{\FP@LabelText}{\@empty}}
+                {}{\FP@savedLabelCommand{\expandafter\protect\FP@LabelText}}%
+          \end{\@captype}}
+           {\addtocounter{\@captype}{-1}} %Subtract off one from the counter?
+           {\begin{\@captype}[p!]% %Changed from b to p! Thanks to Eddie. --- Andrew Leifer  	%Start another figure!
+             \ifthenelse{\equal{\FP@guide}{\@empty}}%
+               {}{\ifthenelse{\equal{\@captype}{figure}}%
+                   {\renewcommand{\fnum@figure}{\old@Fnum\ {\FP@guide}}}%
+                   {\renewcommand{\fnum@table}{\old@Fnum\ {\FP@guide}}}}%
+             \setlength{\abovecaptionskip}{2pt plus2pt minus 1pt} % length above caption
+             \setlength{\belowcaptionskip}{2pt plus2pt minus 1pt} % length above caption
+			 %THis is where the full caption shows pu
+             \FP@separatorCaption %make the line if we are using it
+             \ifthenelse{\equal{\FP@optionalCaptionText}{\@empty}}%
+               {\FP@savedCaptionCommand{\expandafter\protect\FP@CaptionText}}%here is the saved caption command if the optional text is empty
+{\FP@savedCaptionCommand[\expandafter\protect\FP@optionalCaptionText]{\expandafter\protect\FP@CaptionText}}%if the optional text is not empty, than this is the command
+           \end{\@captype}}%
+}%
+
+
+%I believe this command means: go through and find all instances of \begin{FPFigure} in the calling .tex file and repalce it with the first argument, and \end{FPFigure} gets replaced with the secoind argument 
+\newenvironment{FPfigure}{\FP@floatBegin{figure}}{\FP@floatEnd}
+\newenvironment{FPtable}{\FP@floatBegin{table}}{\FP@floatEnd}
+\endinput
+%%
+%% End of file `fltpage.sty'.

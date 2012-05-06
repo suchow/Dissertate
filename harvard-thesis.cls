@@ -47,7 +47,9 @@
 \raggedright
 
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
-\RequirePackage[closeFloats]{fltpage}
+
+\usepackage{pdfsync} %do pdf synchronization [andy]
+\usepackage[closeFloats, noSeparatorLine]{packages/fltpage2} %use the custom modified fltpage package
 
 \synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
@@ -75,6 +77,7 @@
 % use Arno Pro instead of standard LaTeX fonts
 \setmathsfont(Digits,Latin,Greek)[Numbers={OldStyle,Proportional}]{Arno Pro}
 \setmathrm{Arno Pro}
+
 \RequirePackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text, Numbers=OldStyle}
 \setromanfont[Mapping=tex-text, 
@@ -116,6 +119,8 @@
 	\@degreemonth\ \@degreeyear
 	\end{center} \vspace*{\fill}
 }
+
+% You might also consider licensing your work under Creative Commons (NOTE: this is non-traditional, but a good idea). See: http://creativecommons.org/weblog/entry/12824 for other PhD students who release their work under creative commons.
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
@@ -170,5 +175,7 @@
 % An environment for paragraph-style section
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
-   \noindent\textsc{#1}%
-}	
+   \noindent\textsc{#1}}%
+	
+%Be more forgiving, and stretch word spacing out more so that wormds don't run out into the margins..
+%\emergencystretch=1.5em
