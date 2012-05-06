@@ -60,13 +60,10 @@ and in particular:
 http://pastebin.com/GXmCJevn
 
 
-**** General Links ****
-Harvard Approved Binding Sites:
-http://www.lbibinders.org/index.php?option=com_content&view=article&id=32&Itemid=80
 
-Harvard Preferred Paper:
-http://www.universityproducts.com/cart.php?m=product_list&c=791&primary=1&navTree=&msg=1314731211&total=2
 
+**** Known Bugs ****
+There is a minor bug regarding figure captions for full page figures. Harvard requires that full page figures be preceded by a page containing only a figure caption. I have modified the fltpage package to do this. Now the bug: on rare occasions, if LaTeX has many small floats in the queue, a second float can appear on the page that is supposed to have only the figure caption. This is a known bug in the fltpage package, see for example the comments in the original (unmodified) source: http://www.tex.ac.uk/CTAN/macros/latex/contrib/fltpage/fltpage.dtx
 
 
 *** License ***

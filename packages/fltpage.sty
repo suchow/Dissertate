@@ -1,3 +1,16 @@
+%!TEX root = /Users/andy/Documents/Academics/Dissertation/thesis.tex
+%% 
+%% This is the fltpage package for full page figures. 
+%% It has been heavily commented and lightly modified by Andrew Leifer 
+%% to bring into compliance with Harvard University's thesis guidelines. 
+%% Specifically, captions preceeding full page captions now appear
+%% on their own lines. Thanks to Eddie Schlafly for initial guidance here.
+%%
+%%  -- Andrew Leifer
+%%      leifer@fas.harvard.edu
+%%      leifer@princeton.edu
+%%      5 May 2012
+%%
 %%
 %% This is file `fltpage.sty',
 %% generated with the docstrip utility.
@@ -11,6 +24,9 @@
 %% 
 %% This file is part of the fltpage package
 %% 
+%%
+%% 
+%%
 %% IMPORTANT NOTICE:
 %% 
 %% This a tool or better yet, an experiments written by Sebastian Gross,
@@ -48,7 +64,7 @@
 \ProvidesPackage{fltpage}[1998/10/29 v.0.3 Floats on full page (SMU)]
 \RequirePackage{ifthen}
 \RequirePackage{afterpage}
-\newcounter{FP@figureC}
+\newcounter{FP@figureC} %Two new counters
 \newcounter{FP@tableC}
 \newsavebox{\FP@floatCorpusBOX}
 \newcommand*{\FP@guide}{}%
@@ -138,47 +154,65 @@
 \ExecuteOptions{oneside}
 \ProcessOptions*
 \relax
+
+% This code gets dropped into place for the \begin{FPfigure} command
 \newcommand{\FP@floatBegin}[1]{%
+  \clearpage %Added to clear the page  -- Andrew Leifer 2012
   \gdef\@captype{#1}%
-  \global\let\FP@savedCaptionCommand\caption%
+  \global\let\FP@savedCaptionCommand\caption %Caption command before it gets redefined!!
   \global\let\FP@savedLabelCommand\label%
-  \ifthenelse{\equal{\@captype}{figure}}
+  \ifthenelse{\equal{\@captype}{figure}} %Set \old@Fnum to be either figure or table
      {\global\let\old@Fnum\fnum@figure}%
      {\global\let\old@Fnum\fnum@table}%
-  \let\FP@LabelText\@empty%
-  \let\FP@CaptionText\@empty%
-  \let\FP@optionalCaptionText\@empty%
-  \renewcommand\label[1]{\gdef\FP@LabelText{##1}}%
-  \renewcommand\caption[2][]{\gdef\FP@optionalCaptionText{##1}\gdef\FP@CaptionText{##2}}%
-  \begin{lrbox}{\FP@floatCorpusBOX}%
-}%
+  \let\FP@LabelText\@empty %set the label text as empty
+  \let\FP@CaptionText\@empty % set the caption text as empty
+  \let\FP@optionalCaptionText\@empty %set the optional caption text as empty 
+
+  %Redefinie the \label command to save the value placed there in this special LabelText variable
+  \renewcommand\label[1]{\gdef\FP@LabelText{##1}}
+
+%Redefine the caption function so that it no longer creatse a caption, instead it saves the values that would have been passed to caption and places them in these variables. Then it beings a lrbox environment
+\renewcommand\caption[2][]{\gdef\FP@optionalCaptionText{##1}\gdef\FP@CaptionText{##2}}
+
+%THis shows up right wher \begin{FPfigure} would have been
+   \begin{lrbox}{\FP@floatCorpusBOX}%
+	%Text at this position shows up right before the figure
+}
+
+
 \newcommand{\FP@floatEnd}{%
-  \end{lrbox}%
+  \end{lrbox} %This closes the end of the  lrbox that was opened when the calling .tex file invoked the "\caption" command
   \global\setbox\FP@floatCorpusBOX=\box\FP@floatCorpusBOX
   \stepcounter{FP@\@captype C}%
   \FP@savedLabelCommand{\FP@positionLabel}%
   \FP@helpNote{\@captype}{\FP@positionLabel}%
-  \FP@float{\FP@positionLabel}% location label test
-          {\begin{\@captype}[p!]
-             \usebox{\FP@floatCorpusBOX}%
-             \refstepcounter{\@captype}%
+  \FP@float{\FP@positionLabel} % location label test %I believe this is the float
+          {\begin{\@captype}[p!] \ContinuedFloat %Begin figure! % NEW<---------- 
+			 \stepcounter{\@captype}%increment the counter 
+			\FP@savedCaptionCommand{(continued)} % NEW<----------
+             \usebox{\FP@floatCorpusBOX}%this must be handle to the float box?
+             %if the label text is NOT empty,  display the label command
              \ifthenelse{\equal{\FP@LabelText}{\@empty}}
                 {}{\FP@savedLabelCommand{\expandafter\protect\FP@LabelText}}%
           \end{\@captype}}
-           {\addtocounter{\@captype}{-1}}
-           {\begin{\@captype}[b!]%
+           {\addtocounter{\@captype}{-1}} %Subtract off one from the counter?
+           {\begin{\@captype}[p!]% %Changed from b to p! Thanks to Eddie. --- Andrew Leifer  	%Start another figure!
              \ifthenelse{\equal{\FP@guide}{\@empty}}%
                {}{\ifthenelse{\equal{\@captype}{figure}}%
                    {\renewcommand{\fnum@figure}{\old@Fnum\ {\FP@guide}}}%
                    {\renewcommand{\fnum@table}{\old@Fnum\ {\FP@guide}}}}%
              \setlength{\abovecaptionskip}{2pt plus2pt minus 1pt} % length above caption
              \setlength{\belowcaptionskip}{2pt plus2pt minus 1pt} % length above caption
-             \FP@separatorCaption%
+			 %THis is where the full caption shows pu
+             \FP@separatorCaption %make the line if we are using it
              \ifthenelse{\equal{\FP@optionalCaptionText}{\@empty}}%
-               {\FP@savedCaptionCommand{\expandafter\protect\FP@CaptionText}}%
-               {\FP@savedCaptionCommand[\expandafter\protect\FP@optionalCaptionText]{\expandafter\protect\FP@CaptionText}}%
+               {\FP@savedCaptionCommand{\expandafter\protect\FP@CaptionText}}%here is the saved caption command if the optional text is empty
+{\FP@savedCaptionCommand[\expandafter\protect\FP@optionalCaptionText]{\expandafter\protect\FP@CaptionText}}%if the optional text is not empty, than this is the command
            \end{\@captype}}%
 }%
+
+
+%I believe this command means: go through and find all instances of \begin{FPFigure} in the calling .tex file and repalce it with the first argument, and \end{FPFigure} gets replaced with the secoind argument 
 \newenvironment{FPfigure}{\FP@floatBegin{figure}}{\FP@floatEnd}
 \newenvironment{FPtable}{\FP@floatBegin{table}}{\FP@floatEnd}
 \endinput

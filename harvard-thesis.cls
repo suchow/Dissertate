@@ -31,7 +31,7 @@
 
 %Begin Andy's package additions
 \usepackage{pdfsync} %do pdf synchronization [andy]
-\usepackage[closeFloats]{fltpage}
+\usepackage[closeFloats, noSeparatorLine]{packages/fltpage} %use the custom modified fltpage package
 
 \synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
@@ -56,7 +56,6 @@
 
 \parindent 12pt
 \RequirePackage{mathspec}
-
 
 
 % Instead of using default latex for math fonts, we can be fancy and try to adapt Chaparral Pro.. --ANDY
@@ -110,7 +109,8 @@
 }
 
 
-
+%Andy's Alternative Creative Commons Licensing (NOTE this is non-traditional, but a good idea)
+% See: http://creativecommons.org/weblog/entry/12824 for other PhD students who release their work under creative commons
 
 \newcommand{\abstractpage}{
 	\newpage
