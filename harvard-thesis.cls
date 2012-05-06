@@ -129,10 +129,10 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{Thesis advisor: \@advisor} \rhead{\@author} \vspace*{\fill}
+	\lhead{Thesis advisor: \@advisor} \rhead{\@author}
 	\renewcommand{\headrulewidth}{0.0pt} 
 	\begin{center}
-	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize \vspace*{\fill}\\
+	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
 	\sc Abstract \\ \rm
 	\end{center}
 	\input{frontmatter/abstract}
