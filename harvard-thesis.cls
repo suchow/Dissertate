@@ -1,3 +1,4 @@
+%!TEX root = /Users/andy/Documents/Academics/Dissertation/thesis.tex
 % -------------------------------------------------------------------
 %  @LaTeX-class-file{
 %     filename        = "harvard-thesis.cls",
@@ -29,9 +30,19 @@
 \RequirePackage{verbatim}
 \RequirePackage{url}
 
+
 %Begin Andy's package additions
 \usepackage{pdfsync} %do pdf synchronization [andy]
 \usepackage[closeFloats, noSeparatorLine]{packages/fltpage} %use the custom modified fltpage package
+\RequirePackage{afterpage}
+
+
+
+
+
+
+ 
+
 
 \synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
@@ -124,7 +135,9 @@
 	\vspace{20pt}
 	\sc Abstract \\ \rm
 	\end{center}
+	\begin{doublespace} %Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
+	\end{doublespace}
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
 }
@@ -168,3 +181,21 @@
 %Be more forgiving, and stretch word spacing out more so that wormds don't run out into the margins..
 \emergencystretch=1.5em
 %End Andy Spacing
+
+
+%Andy's Numbering Fixf
+%Fix the figure counting so that it isn't affected by sections so as to be complient with harvard's annoying rule that says Figure 4.2.x cannot be followed by Figure 4.5.1.
+\usepackage{chngcntr}
+
+%The way it will now work is that figures will have two numbers and the first number will increment by chapter and the second number will increment within a chapter irrespective of section
+\counterwithout{figure}{part}
+\counterwithout{figure}{section}
+\counterwithin{figure}{chapter}
+
+%Repeat for Tables
+\counterwithout{table}{part}
+\counterwithout{table}{section}
+\counterwithin{table}{chapter}
+
+
+
