@@ -1,4 +1,3 @@
-%!TEX root = /Users/andy/Documents/Academics/Dissertation/thesis.tex
 % -------------------------------------------------------------------
 %  @LaTeX-class-file{
 %     filename        = "harvard-thesis.cls",
@@ -34,8 +33,7 @@
 %Begin Andy's package additions
 \usepackage{pdfsync} %do pdf synchronization [andy]
 \usepackage[closeFloats, noSeparatorLine]{packages/fltpage} %use the custom modified fltpage package
-\RequirePackage{afterpage}
-
+\RequirePackage{afterpage} 
 
 
 
@@ -97,8 +95,9 @@
 \def\universitycity#1{\gdef\@universitycity{#1}}
 \def\universitystate#1{\gdef\@universitystate{#1}}
 
+
 \renewcommand{\maketitle}{ 
-	\thispagestyle{empty}\vspace*{\fill} 
+\thispagestyle{empty}\vspace*{\fill} 
 	\begin{center}
 	\huge \thetitle \normalsize \\ \vspace{100pt}
 	A dissertation presented \\ by\\
@@ -114,7 +113,7 @@
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
-	\noindent \copyright \degreeyear, \theauthor \\
+	\noindent \copyright~\textit{\@degreeyear ~-\theauthor}  \\
 	All rights reserved.
 	\vspace*{\fill} \newpage \rm
 }
