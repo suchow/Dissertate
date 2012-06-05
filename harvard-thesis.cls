@@ -48,9 +48,15 @@
 
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
 
-\usepackage{pdfsync} %do pdf synchronization [andy]
+\usepackage[closeFloats, noSeparatorLine]{fltpage} %use the custom modified fltpage package
+\RequirePackage{afterpage} 
 
-\usepackage[closeFloats, noSeparatorLine]{packages/fltpage} %use the custom modified fltpage package
+
+
+
+
+ 
+
 
 \synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
@@ -106,7 +112,9 @@
 \def\universitycity#1{\gdef\@universitycity{#1}}
 \def\universitystate#1{\gdef\@universitystate{#1}}
 
+
 \renewcommand{\maketitle}{ 
+
 	\thispagestyle{empty}
 	\vspace*{\fill} \vspace{100pt} \begin{center}
 	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
@@ -126,7 +134,7 @@
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
-	\sc \noindent \copyright \textit{\@degreeyear \hspace{3pt}-- \theauthor} \\
+	\sc \noindent \copyright~\textit{\@degreeyear \hspace{3pt}~- \theauthor} \\
 	\noindent All rights reserved.
 	\vspace*{\fill} \newpage \rm
 }
@@ -142,9 +150,12 @@
 	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
 	\sc Abstract \\ \rm
 	\end{center}
+	\doublespace %Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
+	\doublespace %Harvard registrar requests that abstract is double spaced	
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
+	\onehalfspacing
 }
 
 \newcommand{\dedicationpage}{
@@ -177,4 +188,4 @@
 % An environment for paragraph-style section
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
-   \noindent\textsc{#1}}%
+   \noindent\textsc{#1}}

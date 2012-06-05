@@ -155,9 +155,11 @@
 \ProcessOptions*
 \relax
 
+
+
+
 % This code gets dropped into place for the \begin{FPfigure} command
 \newcommand{\FP@floatBegin}[1]{%
-  \clearpage %Added to clear the page  -- Andrew Leifer 2012
   \gdef\@captype{#1}%
   \global\let\FP@savedCaptionCommand\caption %Caption command before it gets redefined!!
   \global\let\FP@savedLabelCommand\label%
@@ -182,14 +184,15 @@
 
 \newcommand{\FP@floatEnd}{%
   \end{lrbox} %This closes the end of the  lrbox that was opened when the calling .tex file invoked the "\caption" command
+
   \global\setbox\FP@floatCorpusBOX=\box\FP@floatCorpusBOX
   \stepcounter{FP@\@captype C}%
   \FP@savedLabelCommand{\FP@positionLabel}%
   \FP@helpNote{\@captype}{\FP@positionLabel}%
   \FP@float{\FP@positionLabel} % location label test %I believe this is the float
-          {\begin{\@captype}[p!] \ContinuedFloat %Begin figure! % NEW<---------- 
+          {\begin{\@captype}[b!] \ContinuedFloat %Begin figure! % NEW<---------- (conti)
 			 \stepcounter{\@captype}%increment the counter 
-			\FP@savedCaptionCommand{(continued)} % NEW<----------
+			\FP@savedCaptionCommand{(continued)} % NEW<---------- (additional caption command)
              \usebox{\FP@floatCorpusBOX}%this must be handle to the float box?
              %if the label text is NOT empty,  display the label command
              \ifthenelse{\equal{\FP@LabelText}{\@empty}}
@@ -203,18 +206,25 @@
                    {\renewcommand{\fnum@table}{\old@Fnum\ {\FP@guide}}}}%
              \setlength{\abovecaptionskip}{2pt plus2pt minus 1pt} % length above caption
              \setlength{\belowcaptionskip}{2pt plus2pt minus 1pt} % length above caption
-			 %THis is where the full caption shows pu
+			 %THis is where the full caption shows up
+		  
              \FP@separatorCaption %make the line if we are using it
              \ifthenelse{\equal{\FP@optionalCaptionText}{\@empty}}%
                {\FP@savedCaptionCommand{\expandafter\protect\FP@CaptionText}}%here is the saved caption command if the optional text is empty
 {\FP@savedCaptionCommand[\expandafter\protect\FP@optionalCaptionText]{\expandafter\protect\FP@CaptionText}}%if the optional text is not empty, than this is the command
-           \end{\@captype}}%
+           \end{\@captype}} 
 }%
 
 
 %I believe this command means: go through and find all instances of \begin{FPFigure} in the calling .tex file and repalce it with the first argument, and \end{FPFigure} gets replaced with the secoind argument 
+
 \newenvironment{FPfigure}{\FP@floatBegin{figure}}{\FP@floatEnd}
 \newenvironment{FPtable}{\FP@floatBegin{table}}{\FP@floatEnd}
+
+
+
+%\afterpage{\clearpage .....} }
+
 \endinput
 %%
 %% End of file `fltpage.sty'.
