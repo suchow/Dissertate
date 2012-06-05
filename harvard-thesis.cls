@@ -114,9 +114,9 @@
 
 
 \renewcommand{\maketitle}{ 
-
+	\singlespacing
 	\thispagestyle{empty}
-	\vspace*{\fill} \vspace{100pt} \begin{center}
+	\vspace*{\fill} \vspace{150pt} \begin{center}
 	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
 	a dissertation presented \\ by\\
 	\theauthor\\ to\\ The \@department\\ 
@@ -147,7 +147,9 @@
 	\lhead{Thesis advisor: \@advisor} \rhead{\@author}
 	\renewcommand{\headrulewidth}{0.0pt} 
 	\begin{center}
+	\vspace*{1pt}
 	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
+	\vspace*{15pt}
 	\sc Abstract \\ \rm
 	\end{center}
 	\doublespace %Harvard registrar requests that abstract is double spaced
