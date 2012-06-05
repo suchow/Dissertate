@@ -49,7 +49,8 @@
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
 
 \usepackage{pdfsync} %do pdf synchronization [andy]
-\usepackage[closeFloats, noSeparatorLine]{packages/fltpage2} %use the custom modified fltpage package
+
+\usepackage[closeFloats, noSeparatorLine]{packages/fltpage} %use the custom modified fltpage package
 
 \synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
@@ -89,6 +90,7 @@
 		          {Size={13.01-19.9}, Font=* Subhead, Ligatures=Rare, Contextuals={Swash,Alternate}},
 		       {Size={19.91-},Font=* Display, Ligatures=Rare, Contextuals={Swash,Alternate}}}]
 			  {Arno Pro} %
+			
 %Set fonts for Mac Specific (Comment out on Windows XP)
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue} 
 %\setmonofont[Scale=MatchLowercase]{Consolas}
@@ -120,7 +122,7 @@
 	\end{center} \vspace*{\fill}
 }
 
-% You might also consider licensing your work under Creative Commons (NOTE: this is non-traditional, but a good idea). See: http://creativecommons.org/weblog/entry/12824 for other PhD students who release their work under creative commons.
+% You might also consider licensing your work under Creative Commons). See: http://creativecommons.org/weblog/entry/12824 for other PhD students who have released their work under creative commons.
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
@@ -176,6 +178,3 @@
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
    \noindent\textsc{#1}}%
-	
-%Be more forgiving, and stretch word spacing out more so that wormds don't run out into the margins..
-%\emergencystretch=1.5em
