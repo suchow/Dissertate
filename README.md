@@ -46,6 +46,9 @@ http://forums.zotero.org/discussion/5094/drag-and-drop-bibtex-cite/
 and in particular:
 http://pastebin.com/GXmCJevn
 
+If this is your first time you are working with LaTeX in TextMate then you would need to install the LaTeX bundle first. 
+TextMate->Bundles->LaTeX: tick the box (the installation kicks in automatically)
+
 ### For Ubuntu ###
 
 1. Installing xetex: 
