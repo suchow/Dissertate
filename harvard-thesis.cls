@@ -76,6 +76,8 @@
 \RequirePackage{booktabs} % for much better looking tables
 \RequirePackage[labelfont={sf,bf,small},textfont={sf,small},justification=RaggedRight,margin=0pt, figurewithin=section, tablewithin=section]{caption}
 \onehalfspacing
+\addtolength{\footnotesep}{\footnotesep}
+
 %\raggedright
 
 \parindent 12pt
