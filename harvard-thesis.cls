@@ -48,8 +48,9 @@
 
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
 
-\usepackage[closeFloats, noSeparatorLine]{fltpage} %use the custom modified fltpage package
-\RequirePackage{afterpage} 
+%\usepackage[closeFloats, noSeparatorLine]{fltpage} %use the custom modified fltpage package
+\RequirePackage{afterpage}
+
 
 
 
