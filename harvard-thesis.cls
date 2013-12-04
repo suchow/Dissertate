@@ -56,24 +56,23 @@
 
 
 
- 
 
 
 \synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
 
 %   list an entire bibliography entry inline. Useful for acknowledging when my paper was previously published
-\RequirePackage{bibentry} 
-\nobibliography*        
+\RequirePackage{bibentry}
+\nobibliography*
 
 \RequirePackage{lettrine} % big letter at start of chapter
 \RequirePackage[width=5in, letterpaper]{geometry}
 
-\RequirePackage{fancyhdr} 
+\RequirePackage{fancyhdr}
 \pagestyle{plain} % options: empty , plain , fancy
 \RequirePackage[palatino]{quotchap}
 \definecolor{chaptergrey}{rgb}{0.6,0,0}
 \RequirePackage{titling}
-\RequirePackage{setspace} 
+\RequirePackage{setspace}
 \RequirePackage{booktabs} % for much better looking tables
 \RequirePackage[labelfont={sf,bf,small},textfont={sf,small},justification=RaggedRight,margin=0pt, figurewithin=section, tablewithin=section]{caption}
 \onehalfspacing
@@ -90,18 +89,18 @@
 
 \RequirePackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text, Numbers=OldStyle}
-\setromanfont[Mapping=tex-text, 
-			  Numbers=OldStyle, 
-			  Ligatures={Common}, 
+\setromanfont[Mapping=tex-text,
+			  Numbers=OldStyle,
+			  Ligatures={Common},
 			  SizeFeatures={%
 		          {Size={-10}, Font=* Caption},
 		          {Size={10-13.0}, Font=*},
 		          {Size={13.01-19.9}, Font=* Subhead, Ligatures=Rare, Contextuals={Swash,Alternate}},
 		       {Size={19.91-},Font=* Display, Ligatures=Rare, Contextuals={Swash,Alternate}}}]
 			  {Arno Pro} %
-			
+
 %Set fonts for Mac Specific (Comment out on Windows XP)
-%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue} 
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica Neue}
 %\setmonofont[Scale=MatchLowercase]{Consolas}
 
 % some definitions
@@ -116,19 +115,19 @@
 \def\universitystate#1{\gdef\@universitystate{#1}}
 
 
-\renewcommand{\maketitle}{ 
+\renewcommand{\maketitle}{
 	\singlespacing
 	\thispagestyle{empty}
 	\vspace*{\fill} \vspace{150pt} \begin{center}
 	\Huge \textcolor{Crimson}{\textit{\thetitle}} \normalsize \\ \sc \vspace{100pt}
 	a dissertation presented \\ by\\
-	\theauthor\\ to\\ The \@department\\ 
+	\theauthor\\ to\\ The \@department\\
 	\vspace{12pt}
-	in partial fulfillment of the requirements\\ 
-	for the degree of\\ \@degree\\ 
+	in partial fulfillment of the requirements\\
+	for the degree of\\ \@degree\\
 	in the subject of\\ \@field\\
 	\vspace{12pt}
-	\@university\\ \@universitycity, \@universitystate\\ 
+	\@university\\ \@universitycity, \@universitystate\\
 	\@degreemonth\ \@degreeyear
 	\end{center} \vspace*{\fill}
 }
@@ -148,7 +147,7 @@
 	\setcounter{page}{3}
 	\pagestyle{fancy}
 	\lhead{Thesis advisor: \@advisor} \rhead{\@author}
-	\renewcommand{\headrulewidth}{0.0pt} 
+	\renewcommand{\headrulewidth}{0.0pt}
 	\begin{center}
 	\vspace*{1pt}
 	\Large \textcolor{Crimson}{\textit{\@title}} \normalsize\\
@@ -157,7 +156,7 @@
 	\end{center}
 	\doublespace %Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
-	\doublespace %Harvard registrar requests that abstract is double spaced	
+	\doublespace %Harvard registrar requests that abstract is double spaced
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
 	\onehalfspacing
@@ -174,7 +173,7 @@
 \newcommand{\authorlist}{
 	\pagestyle{fancy}
 	\newpage
-	\thispagestyle{fancy} 
+	\thispagestyle{fancy}
 	\chapter*{Author List}
 	\noindent \input{frontmatter/authorlist}
 	\newpage \rm
@@ -185,11 +184,11 @@
 	\chapter*{Acknowledgments}
 	\noindent
 	\input{frontmatter/thanks}
-	\vspace*{\fill} 
+	\vspace*{\fill}
 	\newpage
 	\setcounter{page}{1}
 	\pagenumbering{arabic}}
-	
+
 % An environment for paragraph-style section
 \providecommand\newthought[1]{%
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%

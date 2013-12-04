@@ -12,20 +12,20 @@ Installation
 
 Download basic-miktex-2.9.4244.exe  http://miktex.org/
 Download SumatraPDF v 1.5.1 http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html
-Download this Git Repo 
+Download this Git Repo
 
 Installatioan instructions:
-Copy the contents of fonts\ into 
+Copy the contents of fonts\ into
 C:\Program Files\MiKTeX 2.9\fonts\opentype\public\ChaparralPro
 
-To complie, from the MSYS command prompt run: 
+To complie, from the MSYS command prompt run:
 xelatex -synctex=-1 thesis.tex
 
 
 ### For Mac OS X ###
 
 Downlaod MacTex (when I tried, the main site was down so I used this mirror)
-http://mirror.unl.edu/ctan/systems/mac/mactex/MacTeX.mpkg.zip  
+http://mirror.unl.edu/ctan/systems/mac/mactex/MacTeX.mpkg.zip
 it should be roughly 2 GB
 Install.
 
@@ -46,23 +46,23 @@ http://forums.zotero.org/discussion/5094/drag-and-drop-bibtex-cite/
 and in particular:
 http://pastebin.com/GXmCJevn
 
-If this is your first time you are working with LaTeX in TextMate then you would need to install the LaTeX bundle first. 
+If this is your first time you are working with LaTeX in TextMate then you would need to install the LaTeX bundle first.
 TextMate->Bundles->LaTeX: tick the box (the installation kicks in automatically)
 
 ### For Ubuntu ###
 
-1. Installing xetex: 
+1. Installing xetex:
 
 	sudo apt-get install texlive-xetex
-	
-2. Copy the fonts (from the template folder): 
+
+2. Copy the fonts (from the template folder):
 
 	sudo cp fonts/*/usr/local/share/fonts/
 
-3. Add 
+3. Add
 
-	\aliasfontfeatureoption{Ligatures}{Historic}{Historical} 
-  
+	\aliasfontfeatureoption{Ligatures}{Historic}{Historical}
+
 in harvard-thesis.cls just above the \setromanfont... command.
 This is because the syntax changed at some point from "Historical" to
 "Historic" but the ubuntu package is obviously a little behind. See
