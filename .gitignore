@@ -8,3 +8,19 @@ thesis.lof
 thesis.synctex.gz
 
 thesis.pdfsync
+
+*.aux
+
+*.blg
+
+*.out
+
+*.gz(busy)
+
+*.toc
+
+*.log
+
+*.fdb_latexmk
+
+*.bbl
