@@ -1,90 +1,54 @@
-An introduction
+LaTeX template for a Harvard Dissertation
 ===============
 
-This package provides all of the files needed to support the production and typesetting of a PhD thesis at Harvard. For contributions, comments, and bug reports, please contact Jordan Suchow at suchow@fas.harvard.edu.
+This package provides all the files needed to support the production and typesetting of a PhD dissertation at Harvard. The format and styling is based closely on GSAS's document *Form of the PhD dissertation* (http://www.gsas.harvard.edu/images/stories/pdfs/form%20of%20dissertation.pdf). Contributions and bug reports should be made on Github using pull requests and issues.
 
-Contributions were made by Andrew Leifer (leifer@fas.harvard.edu), and thanks to Clemens Eppner for the Ubuntu instructions.
-
-Installation
+Basic installation instructions
 ============
 
-### For Windows XP: ###
+### Windows XP ###
 
-Download basic-miktex-2.9.4244.exe  http://miktex.org/
-Download SumatraPDF v 1.5.1 http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html
-Download this Git Repo
-
-Installatioan instructions:
-Copy the contents of fonts\ into
-C:\Program Files\MiKTeX 2.9\fonts\opentype\public\ChaparralPro
-
-To complie, from the MSYS command prompt run:
-xelatex -synctex=-1 thesis.tex
+1. Download basic-miktex-2.9.4244.exe  http://miktex.org/
+2. Download SumatraPDF v 1.5.1 http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html
+3. Download this Git Repo
+4. Copy the contents of `fonts\` into
+`C:\Program Files\MiKTeX 2.9\fonts\opentype\public\ArnoPro`
+5. To complie, from the MSYS command prompt run:
+`xelatex -synctex=-1 thesis.tex`
 
 
-### For Mac OS X ###
+### Mac OS X ###
 
-Downlaod MacTex (when I tried, the main site was down so I used this mirror)
-http://mirror.unl.edu/ctan/systems/mac/mactex/MacTeX.mpkg.zip
-it should be roughly 2 GB
-Install.
+1. Downlaod MacTex (http://tug.org/mactex/). It's big, roughly 2 GB.
+2. To compile, from the terminal (e.g., Terminal.app) run: `xelatex thesis`
 
 Install whatever fonts you'll be using in the usual way for OS X. For example, to install the included fonts, you can open the `fonts` directory, select all the font files, double click on any one of them, and then click the `Install font` button on the Font Book window that appears.
 
-I use the free PDF reader Skim and the non-free editor TextMate. Both integrate well with latex:
+### Ubuntu ###
 
-Skim is available http://skim-app.sourceforge.net/
-Set Skim->Preferences->Sync to the Preset "TextMate." You can command-shift-click in the PDF to pull up a line in the code in Textmate.
-
-Now to setup TextMate, go to the Bundle->LaTex->Preferences and choose xelatex and Skim respectively.
-Then go to Bundles->Latex-> File Preferences -> Set Master file and select your master file.. thesis.tex
-
-To compile, from the terminal run:
-xelatex  thesis
-
-I also use Zotero http://www.zotero.org/ with the following modification to enable drag and drop cite keys:
-For Bibtex Drag and Drop Functionality from Zotero see:
-http://forums.zotero.org/discussion/5094/drag-and-drop-bibtex-cite/
-and in particular:
-http://pastebin.com/GXmCJevn
-
-If this is your first time you are working with LaTeX in TextMate then you would need to install the LaTeX bundle first.
-TextMate->Bundles->LaTeX: tick the box (the installation kicks in automatically)
-
-### For Ubuntu ###
-
-1. Installing xetex:
-
-	sudo apt-get install texlive-xetex
-
-2. Copy the fonts (from the template folder):
-
-	sudo cp fonts/*/usr/local/share/fonts/
-
-3. Add
-
-	\aliasfontfeatureoption{Ligatures}{Historic}{Historical}
-
-in harvard-thesis.cls just above the \setromanfont... command.
-This is because the syntax changed at some point from "Historical" to
-"Historic" but the ubuntu package is obviously a little behind. See
-here: http://tug.org/pipermail/xetex/2010-September/018106.html
-
-4. Run xelatex thesis.tex
+1. Install xetex: `sudo apt-get install texlive-xetex`
+2. Copy the fonts (from the template folder): `sudo cp fonts/*/usr/local/share/fonts/`
+3. Add `\aliasfontfeatureoption{Ligatures}{Historic}{Historical}` in harvard-thesis.cls just above the \setromanfont... command. This is because the syntax changed at some point from "Historical" to "Historic" but the Ubuntu package is obviously a little behind. See here: http://tug.org/pipermail/xetex/2010-September/018106.html.
+4. Run `xelatex thesis.tex`.
 
 
 General Links
 =============
 
 Harvard Approved Binding Sites:
-http://www.acmebook.com/
-http://www.lbibinders.org/index.php?option=com_content&view=article&id=32&Itemid=80
-
-=======
+- http://www.acmebook.com/
+- http://www.lbibinders.org/index.php?option=com_content&view=article&id=32&Itemid=80
 
 Known Bugs
 ==========
 There is a minor bug regarding figure captions for full page figures. Harvard requires that full page figures be preceded by a page containing only a figure caption. I have modified the fltpage package to do this. Now the bug: on rare occasions, if LaTeX has many small floats in the queue, a second float can appear on the page that is supposed to have only the figure caption. This is a known bug in the fltpage package, see for example the comments in the original (unmodified) source: http://www.tex.ac.uk/CTAN/macros/latex/contrib/fltpage/fltpage.dtx
+
+
+Acknowledgments
+=======
+
+Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
+
 
 License
 =======
