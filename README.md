@@ -29,6 +29,8 @@ http://mirror.unl.edu/ctan/systems/mac/mactex/MacTeX.mpkg.zip
 it should be roughly 2 GB
 Install.
 
+Install whatever fonts you'll be using in the usual way for OS X. For example, to install the included fonts, you can open the `fonts` directory, select all the font files, double click on any one of them, and then click the `Install font` button on the Font Book window that appears.
+
 I use the free PDF reader Skim and the non-free editor TextMate. Both integrate well with latex:
 
 Skim is available http://skim-app.sourceforge.net/
