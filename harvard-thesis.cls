@@ -95,8 +95,8 @@
 			  SizeFeatures={%
 		          {Size={-10}, Font=* Caption},
 		          {Size={10-13.0}, Font=*},
-		          {Size={13.01-19.9}, Font=* Subhead, Ligatures=Rare, Contextuals={Swash,Alternate}},
-		       {Size={19.91-},Font=* Display, Ligatures=Rare, Contextuals={Swash,Alternate}}}]
+		          {Size={13.01-19.9}, Font=* Subhead, Ligatures=Rare},
+		       {Size={19.91-},Font=* Display, Ligatures=Rare}}]
 			  {Arno Pro} %
 
 %Set fonts for Mac Specific (Comment out on Windows XP)
