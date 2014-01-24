@@ -24,3 +24,5 @@ thesis.pdfsync
 *.fdb_latexmk
 
 *.bbl
+
+*.pdf
