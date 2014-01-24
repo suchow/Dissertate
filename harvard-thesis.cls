@@ -1,18 +1,17 @@
 % -------------------------------------------------------------------
 %  @LaTeX-class-file{
 %     filename        = "harvard-thesis.cls",
-%     version         = "0.4",
-%     date            = "4 April 2012",
+%     version         = "1.0",
+%     date            = "24 January 2014",
 %     codetable       = "ISO/ASCII",
 %     keywords        = "LaTeX, harvard-thesis",
-%     supported       = "send email to suchow@fas.harvard.edu",
+%     supported       = "send email to suchow@post.harvard.edu",
 %     docstring       = "A thesis class for a Harvard dissertation."
 % --------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{harvard-thesis}[2012/04/05 v0.4 Harvard University Thesis Class]
+\ProvidesClass{harvard-thesis}[2014/01/24 v1.0 Harvard University Thesis Class]
 \LoadClass[12pt, oneside, letterpaper]{book}
-
 
 % Required packages
 \RequirePackage{graphicx}
@@ -30,7 +29,7 @@
 \RequirePackage{amssymb}
 \RequirePackage[numbers, comma, sort&compress]{natbib}
 \RequirePackage[small, md, sc]{titlesec}
-\RequirePackage[tight,nice]{units}
+\RequirePackage[tight, nice]{units}
 \RequirePackage{verbatim}
 
 % colors
@@ -46,29 +45,17 @@
 \renewcommand\listfigurename{Listing of figures}
 \raggedright
 
-\RequirePackage{pdfsync} %do pdf synchronization [andy]
+%\RequirePackage{pdfsync}
+%\synctex=1 % turn synctex on automatically to sync between pdf viewer
 
-%\usepackage[closeFloats, noSeparatorLine]{fltpage} %use the custom modified fltpage package
-\RequirePackage{afterpage}
+%\usepackage[closeFloats, noSeparatorLine]{fltpage}
+%\RequirePackage{afterpage}
 
-
-
-
-
-
-
-
-\synctex=1 % turn synctex on automatically to sync between pdf viewer [andy]
-
-%   list an entire bibliography entry inline. Useful for acknowledging when my paper was previously published
-\RequirePackage{bibentry}
-\nobibliography*
-
-\RequirePackage{lettrine} % big letter at start of chapter
+\RequirePackage{lettrine}  % big letter at start of chapter
 \RequirePackage[width=5in, letterpaper]{geometry}
 
 \RequirePackage{fancyhdr}
-\pagestyle{plain} % options: empty , plain , fancy
+\pagestyle{plain}  % options: empty , plain , fancy
 \RequirePackage[palatino]{quotchap}
 \definecolor{chaptergrey}{rgb}{0.6,0,0}
 \RequirePackage{titling}
@@ -132,7 +119,9 @@
 	\end{center} \vspace*{\fill}
 }
 
-% You might also consider licensing your work under Creative Commons). See: http://creativecommons.org/weblog/entry/12824 for other PhD students who have released their work under creative commons.
+% You might also consider licensing your work under Creative Commons).
+% See: http://creativecommons.org/weblog/entry/12824 for other PhD students
+% who have released their work under creative commons.
 
 \newcommand{\copyrightpage}{
 	\newpage \thispagestyle{empty} \vspace*{\fill}
@@ -154,9 +143,9 @@
 	\vspace*{15pt}
 	\sc Abstract \\ \rm
 	\end{center}
-	\doublespace %Harvard registrar requests that abstract is double spaced
+	\doublespace  % Harvard registrar requests that abstract is double spaced
 	\input{frontmatter/abstract}
-	\doublespace %Harvard registrar requests that abstract is double spaced
+	\doublespace  % Harvard registrar requests that abstract is double spaced
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
 	\onehalfspacing
