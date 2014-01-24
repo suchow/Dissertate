@@ -31,6 +31,11 @@ Install whatever fonts you'll be using in the usual way for OS X. For example, t
 3. Add `\aliasfontfeatureoption{Ligatures}{Historic}{Historical}` in harvard-thesis.cls just above the \setromanfont... command. This is because the syntax changed at some point from "Historical" to "Historic" but the Ubuntu package is obviously a little behind. See here: http://tug.org/pipermail/xetex/2010-September/018106.html.
 4. Run `xelatex thesis.tex`.
 
+FAQ
+=============
+###How do I make the text justified instead of ragged right?
+Remove or comment out the line `\RaggedRight` from the .cls file.
+
 
 General Links
 =============
