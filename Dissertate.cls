@@ -62,14 +62,10 @@
 \widowpenalty=300
 \clubpenalty=300
 
+\defaultfontfeatures{Mapping=tex-text}
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{EB Garamond}
-\defaultfontfeatures{Mapping=tex-text, Numbers=OldStyle}
-
-\setromanfont[Mapping=tex-text,
-			        Numbers=OldStyle,
-			        Ligatures={Common}]
-			       {EB Garamond} %
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text,BoldFont={Lato Bold}]{Lato Regular}
+\setromanfont[Numbers=OldStyle, Ligatures={Common}]{EB Garamond}
+\setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
 
 \RequirePackage[labelfont={bf,sf,footnotesize,singlespacing},
