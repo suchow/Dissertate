@@ -1,13 +1,29 @@
-LaTeX template for a Harvard Dissertation
-===============
+# Dissertate: a LaTeX template for your dissertation
 
-This package provides all the files needed to support the production and typesetting of a PhD dissertation at Harvard. The format and styling is based closely on GSAS's document *Form of the PhD dissertation* (http://www.gsas.harvard.edu/images/stories/pdfs/form%20of%20dissertation.pdf). Contributions and bug reports should be made on Github using pull requests and issues.
+This package provides all the files needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, and NYU, though it can easily be adapted to meet the requirements of other schools. The format and styling is based closely on the requirements published by each university's registrar.
 
-Basic installation instructions
-============
+
+## Getting started
+1. Install the default font, EB Garamond and Lato. The files are provided in `fonts/EB Garamond`, `fonts/Lato`, and `fonts/Source Code Pro`.
+2. Pick your school by editing line 26 of `dissertate.cls` to use the package `Harvard`, `Princeton`, or `NYU`. Then install the relevant package, located in `packages/`, either in the usual LaTeX way or by moving everything in that folder into the top level directory with `Dissertate.cls`.
+3. Personalize the document by filling out your name and all the other info in the file `frontmatter/personalize.md`.
+4. Build your dissertation with `build.command`, located in the `scripts` directory (e.g., you can `cd` into the main directory and then run `./scripts/build.command`).
+
+
+## Contributions, questions, and bug reports
+Contributions, questions, and bug reports should be made on Github using pull requests and issues. Submit questions here: https://github.com/suchow/Dissertate/issues/new. First take a look at the FAQ:
+
+## FAQ
+
+### How do I make the text justified instead of ragged right?
+Remove or comment out the line `\RaggedRight` from the .cls file.
+
+## Acknowledgments
+Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
+
+## Basic installation instructions
 
 ### Windows XP ###
-
 1. Download basic-miktex-2.9.4244.exe  http://miktex.org/
 2. Download SumatraPDF v 1.5.1 http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html
 3. Download this Git Repo
@@ -16,48 +32,20 @@ Basic installation instructions
 5. To complie, from the MSYS command prompt run:
 `xelatex -synctex=-1 thesis.tex`
 
-
 ### Mac OS X ###
-
 1. Downlaod MacTex (http://tug.org/mactex/). It's big, roughly 2 GB.
 2. To compile, from the terminal (e.g., Terminal.app) run: `xelatex thesis`
 
 Install whatever fonts you'll be using in the usual way for OS X. For example, to install the included fonts, you can open the `fonts` directory, select all the font files, double click on any one of them, and then click the `Install font` button on the Font Book window that appears.
 
 ### Ubuntu ###
-
 1. Install xetex: `sudo apt-get install texlive-xetex`
 2. Copy the fonts (from the template folder): `sudo cp fonts/*/usr/local/share/fonts/`
 3. Add `\aliasfontfeatureoption{Ligatures}{Historic}{Historical}` in harvard-thesis.cls just above the \setromanfont... command. This is because the syntax changed at some point from "Historical" to "Historic" but the Ubuntu package is obviously a little behind. See here: http://tug.org/pipermail/xetex/2010-September/018106.html.
 4. Run `xelatex thesis.tex`.
 
-FAQ
-=============
-###How do I make the text justified instead of ragged right?
-Remove or comment out the line `\RaggedRight` from the .cls file.
 
-
-General Links
-=============
-
-Harvard Approved Binding Sites:
-- http://www.acmebook.com/
-- http://www.lbibinders.org/index.php?option=com_content&view=article&id=32&Itemid=80
-
-Known Bugs
-==========
-There is a minor bug regarding figure captions for full page figures. Harvard requires that full page figures be preceded by a page containing only a figure caption. I have modified the fltpage package to do this. Now the bug: on rare occasions, if LaTeX has many small floats in the queue, a second float can appear on the page that is supposed to have only the figure caption. This is a known bug in the fltpage package, see for example the comments in the original (unmodified) source: http://www.tex.ac.uk/CTAN/macros/latex/contrib/fltpage/fltpage.dtx
-
-
-Acknowledgments
-=======
-
-Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
-
-
-License
-=======
-
+## License
 This software is free and is covered under the MIT License, given here:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

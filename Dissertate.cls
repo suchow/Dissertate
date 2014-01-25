@@ -22,8 +22,8 @@
 \RequirePackage[palatino]{quotchap}
 
 % Modify the following line to match your school
-% Available options include Harvard, Princeton, and NYU.
-\RequirePackage{packages/Princeton}
+% Available options include `Harvard`, `Princeton`, and `NYU`.
+\RequirePackage{YOUR_SCHOOL}
 
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
