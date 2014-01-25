@@ -1,4 +1,4 @@
-\ProvidesPackage{packages/NYU}
+\ProvidesPackage{NYU}
 
 % School color found from university's graphic identity site:
 % http://www.nyu.edu/employees/resources-and-services/media-and-communications/styleguide.html
@@ -27,12 +27,12 @@
 	\preface
 	\abstractpage
 	\tableofcontents
-	
+
 	% figure listing - required if you have any figures
 	\listoffigures
 	\phantomsection
 	\addcontentsline{toc}{chapter}{List of figures}
-	
+
 	% table listing - required if you have any tables
 	\listoftables
 	\phantomsection
@@ -45,18 +45,18 @@
 	% \addcontentsline{toc}{chapter}{List of appendices}
 	% \chapter*{List of appendices}
 	% \contentsline {chapter}{Appendix A}{\pageref{AppendixA}}{}
-	
+
 	\newpage
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
 }
 
-\renewcommand{\maketitle}{ 
+\renewcommand{\maketitle}{
 	\thispagestyle{empty}
-	\vspace*{\fill} 
-	\vspace{100pt} 
+	\vspace*{\fill}
+	\vspace{100pt}
 	\begin{center}
-	\Huge \textcolor{midgrey}{\thetitle} \normalsize \\ 
+	\Huge \textcolor{midgrey}{\thetitle} \normalsize \\
 	\vspace{25pt}
 	by \\
 	\vspace{15pt}
@@ -70,25 +70,25 @@
 	\@university \\
 	\vspace{10pt}
 	\@degreemonth, \@degreeyear}
-	\end{center} 
+	\end{center}
 	\vspace*{\fill}
 }
 
 \newcommand{\copyrightpage}{
-	\newpage 
-	\thispagestyle{empty} 
+	\newpage
+	\thispagestyle{empty}
 	\vspace*{25pt}
 	\begin{center}
 	\scshape \noindent \small \copyright \  \small  \theauthor \\
 	all rights reserved, \@degreeyear
 	\end{center}
-	\newpage 
+	\newpage
 	\rm
 }
 
 \newcommand{\frontispiece}{
 	\newpage
-	\thispagestyle{empty} 
+	\thispagestyle{empty}
 	\vspace*{\fill}
 	\begin{center}
   \includegraphics[width=45pt]{packages/images/NYUlogo.eps}
@@ -103,8 +103,8 @@
 	\setcounter{page}{4}
 	\vspace*{\fill}
 	\scshape \noindent \input{frontmatter/dedication}
-	\vspace*{\fill} 
-	\newpage 
+	\vspace*{\fill}
+	\newpage
 	\rm
 }
 

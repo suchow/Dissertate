@@ -1,8 +1,9 @@
-.thesis.log
+dissertation.pdf
+.dissertation.log
 endmatter/colophon.aux
-thesis.lof
-thesis.synctex.gz
-thesis.pdfsync
+dissertation.lof
+dissertation.synctex.gz
+dissertation.pdfsync
 *.aux
 *.blg
 *.out
@@ -11,4 +12,3 @@ thesis.pdfsync
 *.log
 *.fdb_latexmk
 *.bbl
-*.pdf
