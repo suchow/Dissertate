@@ -1,9 +1,10 @@
-# Dissertate: a LaTeX template for your dissertation
+# Dissertate: a LaTeX dissertation template
 
 This package provides all the files needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, and NYU, though it can easily be adapted to meet the requirements of other schools. The format and styling is based closely on the requirements published by each university's registrar.
 
 
 ## Getting started
+1. Install LaTeX (see below for basic instructions for Mac OS X, Windows, and Ubuntu).
 1. Install the default font, EB Garamond and Lato. The files are provided in `fonts/EB Garamond`, `fonts/Lato`, and `fonts/Source Code Pro`.
 2. Pick your school by editing line 26 of `dissertate.cls` to use the package `Harvard`, `Princeton`, or `NYU`. Then install the relevant package, located in `packages/`, either in the usual LaTeX way or by moving everything in that folder into the top level directory with `Dissertate.cls`.
 3. Personalize the document by filling out your name and all the other info in the file `frontmatter/personalize.md`.
@@ -21,14 +22,14 @@ Remove or comment out the line `\RaggedRight` from the .cls file.
 ## Acknowledgments
 Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
 
-## Basic installation instructions
+## Basic LaTeX installation instructions
 
 ### Windows XP ###
 1. Download basic-miktex-2.9.4244.exe  http://miktex.org/
 2. Download SumatraPDF v 1.5.1 http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html
 3. Download this Git Repo
 4. Copy the contents of `fonts\` into
-`C:\Program Files\MiKTeX 2.9\fonts\opentype\public\ArnoPro`
+`C:\Program Files\MiKTeX 2.9\fonts\opentype\public\EB Garamond`
 5. To complie, from the MSYS command prompt run:
 `xelatex -synctex=-1 thesis.tex`
 
