@@ -1,12 +1,12 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass{harvard-thesis}
+\documentclass{Dissertate}
 
 \begin{document}
 
 % the front matter
-\input{frontmatter/coverpage}
+\input{frontmatter/personalize}
 \maketitle
 \copyrightpage
 \abstractpage
@@ -18,10 +18,16 @@
 
 \onehalfspacing
 
-% incluude each chapter...
+% include each chapter...
+\setcounter{chapter}{-1}  % start chapter numbering at 0
+\include{chapters/introduction}
 \include{chapters/chapter1}
 \include{chapters/chapter2}
 \include{chapters/chapter3}
+\include{chapters/conclusion}
+\begin{appendices}
+    \include{chapters/appendixA}
+\end{appendices}
 
 \singlespacing
 
@@ -30,6 +36,7 @@
 \bibliography{references}
 \addcontentsline{toc}{chapter}{References}
 \bibliographystyle{plainnat}
+
 \include{endmatter/colophon}
 
 \end{document}

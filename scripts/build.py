@@ -8,7 +8,7 @@
 import os
 import sys
 
-fileToTex = 'thesis'
+fileToTex = 'dissertation'
 texCommand = 'xelatex'
 bibtexCommand = 'bibtex'
 
