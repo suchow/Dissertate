@@ -105,3 +105,28 @@
    \addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
    \noindent\textsc{#1}%
 }
+
+% Align reference numbers so that they do not cause an indent
+\newlength\mybibindent
+\setlength\mybibindent{0pt}
+\makeatletter
+\renewenvironment{thebibliography}[1]
+    {\chapter*{\bibname}%
+     \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+     \list{\@biblabel{\@arabic\c@enumiv}}
+          {\settowidth\labelwidth{\@biblabel{999}}
+           \leftmargin\labelwidth
+            \advance\leftmargin\dimexpr\labelsep+\mybibindent\relax\itemindent-\mybibindent
+           \@openbib@code
+           \usecounter{enumiv}
+           \let\p@enumiv\@empty
+           \renewcommand\theenumiv{\@arabic\c@enumiv}}
+     \sloppy
+     \clubpenalty4000
+     \@clubpenalty \clubpenalty
+     \widowpenalty4000%
+     \sfcode`\.\@m}
+    {\def\@noitemerr
+      {\@latex@warning{Empty `thebibliography' environment}}
+     \endlist}
+\makeatother
