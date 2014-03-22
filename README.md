@@ -15,9 +15,6 @@ This package provides all the files needed to support the production and typeset
 ### How do I make the text justified instead of ragged right?
 Remove or comment out the line `\RaggedRight` from the .cls file.
 
-## Acknowledgments
-Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
-
 ## Basic LaTeX installation instructions
 
 ### Windows XP ###
@@ -40,3 +37,6 @@ Install whatever fonts you'll be using in the usual way for OS X. For example, t
 2. Copy the fonts (from the template folder): `sudo cp fonts/*/usr/local/share/fonts/`
 3. Add `\aliasfontfeatureoption{Ligatures}{Historic}{Historical}` in harvard-thesis.cls just above the \setromanfont... command. This is because the syntax changed at some point from "Historical" to "Historic" but the Ubuntu package is obviously a little behind. See here: http://tug.org/pipermail/xetex/2010-September/018106.html.
 4. Run `xelatex thesis.tex`.
+
+## Acknowledgments
+Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
