@@ -10,10 +10,6 @@ This package provides all the files needed to support the production and typeset
 3. Personalize the document by filling out your name and all the other info in the file `frontmatter/personalize.md`.
 4. Build your dissertation with `build.command`, located in the `scripts` directory (e.g., you can `cd` into the main directory and then run `./scripts/build.command`).
 
-
-## Contributions, questions, and bug reports
-Contributions, questions, and bug reports should be made on Github using pull requests and issues. Dissertate uses semantic versioning (semver.org). Submit questions here: https://github.com/suchow/Dissertate/issues/new. First take a look at the FAQ:
-
 ## FAQ
 
 ### How do I make the text justified instead of ragged right?
