@@ -21,9 +21,10 @@
 \RequirePackage{titling}
 \RequirePackage[palatino]{quotchap}
 
-% Modify the following line to match your school
-% Available options include `Harvard`, `Princeton`, and `NYU`.
-\RequirePackage{YOUR_SCHOOL}
+\RequirePackage{kvoptions}
+\DeclareStringOption{School}[]
+\ProcessKeyvalOptions*
+\RequirePackage{packages/\Dissertate@School/style}
 
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
