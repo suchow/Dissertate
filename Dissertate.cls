@@ -13,6 +13,24 @@
 \ProvidesClass{Dissertate}[2014/01/24 v1.0 Dissertate Class]
 \LoadClass[12pt, oneside, letterpaper]{book}
 
+% some definitions
+\def\degreeyear#1{\gdef\@degreeyear{#1}}
+\def\degreemonth#1{\gdef\@degreemonth{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\advisor#1{\gdef\@advisor{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\field#1{\gdef\@field{#1}}
+\def\university#1{\gdef\@university{#1}}
+\def\universitycity#1{\gdef\@universitycity{#1}}
+\def\universitystate#1{\gdef\@universitystate{#1}}
+\def\programname#1{\gdef\@programname{#1}}
+\def\pdOneName#1{\gdef\@pdOneName{#1}}
+\def\pdOneSchool#1{\gdef\@pdOneSchool{#1}}
+\def\pdOneYear#1{\gdef\@pdOneYear{#1}}
+\def\pdTwoName#1{\gdef\@pdTwoName{#1}}
+\def\pdTwoSchool#1{\gdef\@pdTwoSchool{#1}}
+\def\pdTwoYear#1{\gdef\@pdTwoYear{#1}}
+
 \RequirePackage{color}
 \usepackage{hyperref}
 \RequirePackage[tiny, md, sc]{titlesec}
@@ -81,25 +99,6 @@
 
 %\onehalfspacing
 %\doublespacing
-
-% some definitions
-\def\degreeyear#1{\gdef\@degreeyear{#1}}
-\def\degreemonth#1{\gdef\@degreemonth{#1}}
-\def\degree#1{\gdef\@degree{#1}}
-\def\advisor#1{\gdef\@advisor{#1}}
-\def\department#1{\gdef\@department{#1}}
-\def\field#1{\gdef\@field{#1}}
-\def\university#1{\gdef\@university{#1}}
-\def\universitycity#1{\gdef\@universitycity{#1}}
-\def\universitystate#1{\gdef\@universitystate{#1}}
-\def\programname#1{\gdef\@programname{#1}}
-\def\pdOneName#1{\gdef\@pdOneName{#1}}
-\def\pdOneSchool#1{\gdef\@pdOneSchool{#1}}
-\def\pdOneYear#1{\gdef\@pdOneYear{#1}}
-\def\pdTwoName#1{\gdef\@pdTwoName{#1}}
-\def\pdTwoSchool#1{\gdef\@pdTwoSchool{#1}}
-\def\pdTwoYear#1{\gdef\@pdTwoYear{#1}}
-
 
 % an environment for paragraph-style section
 \providecommand\newthought[1]{%
