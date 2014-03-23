@@ -6,9 +6,9 @@ This package provides all the files needed to support the production and typeset
 
 ## Getting started
 1. Install LaTeX (see below for basic instructions for Mac OS X, Windows, and Ubuntu).
-1. Install the default font, EB Garamond and Lato. The files are provided in `fonts/EB Garamond`, `fonts/Lato`, and `fonts/Source Code Pro`.
-2. Pick your school by editing line 6 of `dissertation.tex` to use the package Dissertate with the option `Harvard`, `Princeton`, or `NYU`, depending on you school.
-3. Personalize the document by filling out your name and all the other info in the file `frontmatter/personalize.md`.
+1. Install the default fonts: EB Garamond, Lato, and Source Code Pro. The files are provided in `fonts/EB Garamond`, `fonts/Lato`, and `fonts/Source Code Pro`.
+2. Pick your school by editing line 6 of `dissertation.tex` to use the option `Harvard`, `Princeton`, or `NYU`, depending on your school.
+3. Personalize the document by filling out your name and all the other info in `frontmatter/personalize.md`.
 4. Build your dissertation with `build.command`, located in the `scripts` directory (e.g., you can `cd` into the main directory and then run `./scripts/build.command`).
 
 ## FAQ
