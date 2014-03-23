@@ -1,7 +1,7 @@
-%% 
-%% This is the fltpage package for full page figures. 
-%% It has been heavily commented and lightly modified by Andrew Leifer 
-%% to bring into compliance with Harvard University's thesis guidelines. 
+%%
+%% This is the fltpage package for full page figures.
+%% It has been heavily commented and lightly modified by Andrew Leifer
+%% to bring into compliance with Harvard University's thesis guidelines.
 %% Specifically, captions preceeding full page captions now appear
 %% on their own lines. Thanks to Eddie Schlafly for initial guidance here.
 %%
@@ -17,31 +17,31 @@
 %% The original source files were:
 %%
 %% fltpage.dtx  (with options: `package')
-%% 
-%% Copyright (C) 1998 by Sebastian Gross. All rights reserved.
-%% 
-%% 
-%% This file is part of the fltpage package
-%% 
 %%
-%% 
+%% Copyright (C) 1998 by Sebastian Gross. All rights reserved.
+%%
+%%
+%% This file is part of the fltpage package
+%%
+%%
+%%
 %%
 %% IMPORTANT NOTICE:
-%% 
+%%
 %% This a tool or better yet, an experiments written by Sebastian Gross,
 %% who is writing this not only for it utility value, but as part of the
 %% process of learning LaTeX.  This utility is far from perfect, and
 %% comments are welcome.
-%% 
+%%
 %% The usual disclaimers apply:  If it doesn't work right that's your problem!
-%% 
+%%
 %% The usual GNU-style conditions apply: If you change it, you take
 %% the blame; if you pass it on, pass on all present conditions;
-%% 
+%%
 %% Error Reports in case of UNCHANGED versions to
-%% 
+%%
 %%       Sebastian Gross   <seppel@zedat.fu-berlin.de>
-%% 
+%%
 %%
 %% \iffalse meta-comment
 %% ===================================================================
@@ -165,7 +165,7 @@
      {\global\let\old@Fnum\fnum@table}%
   \let\FP@LabelText\@empty %set the label text as empty
   \let\FP@CaptionText\@empty % set the caption text as empty
-  \let\FP@optionalCaptionText\@empty %set the optional caption text as empty 
+  \let\FP@optionalCaptionText\@empty %set the optional caption text as empty
 
   %Redefinie the \label command to save the value placed there in this special LabelText variable
   \renewcommand\label[1]{\gdef\FP@LabelText{##1}}
@@ -186,8 +186,8 @@
   \FP@savedLabelCommand{\FP@positionLabel}%
   \FP@helpNote{\@captype}{\FP@positionLabel}%
   \FP@float{\FP@positionLabel} % location label test %I believe this is the float
-          {\begin{\@captype}[p!] \ContinuedFloat %Begin figure! % NEW<---------- 
-			 \stepcounter{\@captype}%increment the counter 
+          {\begin{\@captype}[p!] \ContinuedFloat %Begin figure! % NEW<----------
+			 \stepcounter{\@captype}%increment the counter
 			\FP@savedCaptionCommand{(continued)} % NEW<----------
              \usebox{\FP@floatCorpusBOX}%this must be handle to the float box?
              %if the label text is NOT empty,  display the label command
@@ -211,7 +211,7 @@
 }%
 
 
-%I believe this command means: go through and find all instances of \begin{FPFigure} in the calling .tex file and repalce it with the first argument, and \end{FPFigure} gets replaced with the secoind argument 
+%I believe this command means: go through and find all instances of \begin{FPFigure} in the calling .tex file and repalce it with the first argument, and \end{FPFigure} gets replaced with the secoind argument
 \newenvironment{FPfigure}{\FP@floatBegin{figure}}{\FP@floatEnd}
 \newenvironment{FPtable}{\FP@floatBegin{table}}{\FP@floatEnd}
 \endinput
