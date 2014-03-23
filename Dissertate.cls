@@ -48,7 +48,6 @@
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
 \RequirePackage[super,comma,numbers]{natbib}
-\bibliographystyle{apalike2}
 \renewcommand{\bibnumfmt}[1]{[#1]}
 \RequirePackage[width=5in, letterpaper]{geometry}
 \RequirePackage{fancyhdr}
