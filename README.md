@@ -40,8 +40,7 @@ Install whatever fonts you'll be using in the usual way for OS X. For example, t
 sudo cp -r fonts/* /usr/local/share/fonts/
 sudo fc-cache -f -v
 ```
-3. Add `\aliasfontfeatureoption{Ligatures}{Historic}{Historical}` in harvard-thesis.cls just above the \setromanfont... command. This is because the syntax changed at some point from "Historical" to "Historic" but the Ubuntu package is obviously a little behind. See here: http://tug.org/pipermail/xetex/2010-September/018106.html.
-4. Run `xelatex thesis.tex`.
+3. Run `xelatex thesis.tex` or the build script.
 
 ## Acknowledgments
 Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
