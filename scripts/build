@@ -1,11 +1,13 @@
 #!/bin/sh
 
-for dir in assets/schools/*/
+cd build
+
+for dir in ../assets/schools/*/
 do
     dir=${dir%*/}
 
     # Create LaTeX template
-    latexdir="build/Dissertate-${dir##*/}-LaTeX"
+    latexdir="Dissertate-${dir##*/}-LaTeX"
     mkdir $latexdir
     touch $latexdir/readme.md
 
@@ -15,7 +17,7 @@ do
     zip -r $latexdir.zip $latexdir && rm -r $latexdir
 
     # Create Word template
-    worddir="build/Dissertate-${dir##*/}-Word"
+    worddir="Dissertate-${dir##*/}-Word"
     mkdir $worddir
     touch $worddir/readme.md
 
@@ -23,3 +25,4 @@ do
     zip -r $worddir.zip $worddir && rm -r $worddir
 done
 
+cd ..
