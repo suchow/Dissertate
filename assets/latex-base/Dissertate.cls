@@ -39,11 +39,6 @@
 \RequirePackage{titling}
 \RequirePackage[palatino]{quotchap}
 
-\RequirePackage{kvoptions}
-\DeclareStringOption{School}[]
-\ProcessKeyvalOptions*
-\RequirePackage{packages/\Dissertate@School/style}
-
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
@@ -108,7 +103,6 @@
 % Align reference numbers so that they do not cause an indent
 \newlength\mybibindent
 \setlength\mybibindent{0pt}
-\makeatletter
 \renewenvironment{thebibliography}[1]
     {\chapter*{\bibname}%
      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
@@ -128,4 +122,4 @@
     {\def\@noitemerr
       {\@latex@warning{Empty `thebibliography' environment}}
      \endlist}
-\makeatother
+

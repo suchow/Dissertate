@@ -18,6 +18,7 @@ do
 
     # Add the LaTeX template
     rsync --recursive ../assets/latex-base/* $latexdir
+    cat ../assets/schools/${dir##*/}/style.sty >> ../build/$latexdir/Dissertate.cls
 
     # Build LaTeX template
     ./$latexdir/scripts/build
