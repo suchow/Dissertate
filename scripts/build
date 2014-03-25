@@ -24,11 +24,12 @@ do
     ./$latexdir/scripts/build
 
     # Remove temporary files
-    declare -a tmps=( aux blg bbl out lof toc )
-    for i in "${tmps[@]}"
-    do
-        find . -name "*.$i" -delete
-    done
+    find . -name "*.aux" -delete
+    find . -name "*.blg" -delete
+    find . -name "*.bbl" -delete
+    find . -name "*.out" -delete
+    find . -name "*.lof" -delete
+    find . -name "*.toc" -delete
 
     # Package it up
     zip -r $latexdir.zip $latexdir && rm -r $latexdir
