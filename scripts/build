@@ -1,8 +1,4 @@
 #!/bin/sh
 
-# Copy assets to template directories
-sudo cp -r assets/fonts/ latex/fonts/
-sudo cp -r assets/fonts/ word/fonts/
 
 # Build LaTeX template
-./latex/scripts/build
