@@ -1,4 +1,25 @@
 #!/bin/sh
 
+for dir in assets/schools/*/
+do
+    dir=${dir%*/}
 
-# Build LaTeX template
+    # Create LaTeX template
+    latexdir="build/Dissertate-${dir##*/}-LaTeX"
+    mkdir $latexdir
+    touch $latexdir/readme.md
+
+    # Build LaTeX template
+
+    # Package it up
+    zip -r $latexdir.zip $latexdir && rm -r $latexdir
+
+    # Create Word template
+    worddir="build/Dissertate-${dir##*/}-Word"
+    mkdir $worddir
+    touch $worddir/readme.md
+
+    # Package it up
+    zip -r $worddir.zip $worddir && rm -r $worddir
+done
+
