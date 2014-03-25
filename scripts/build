@@ -9,9 +9,18 @@ do
     # Create LaTeX template
     latexdir="Dissertate-${dir##*/}-LaTeX"
     mkdir $latexdir
-    touch $latexdir/readme.md
+
+    # Add fonts
+    rsync --recursive ../assets/fonts/* $latexdir/fonts/
+
+    # Add guidelines
+    cp ../assets/schools/${dir##*/}/guidelines.pdf $latexdir/guidelines.pdf
+
+    # Add the LaTeX template
+    rsync --recursive ../assets/latex-base/* $latexdir
 
     # Build LaTeX template
+    ./$latexdir/scripts/build
 
     # Package it up
     zip -r $latexdir.zip $latexdir && rm -r $latexdir
@@ -19,7 +28,6 @@ do
     # Create Word template
     worddir="Dissertate-${dir##*/}-Word"
     mkdir $worddir
-    touch $worddir/readme.md
 
     # Package it up
     zip -r $worddir.zip $worddir && rm -r $worddir
