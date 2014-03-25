@@ -23,6 +23,13 @@ do
     # Build LaTeX template
     ./$latexdir/scripts/build
 
+    # Remove temporary files
+    tmps=( aux blg bbl out lof toc )
+    for i in "${tmps[@]}"
+    do
+        find . -name "*.$i" -delete
+    done
+
     # Package it up
     zip -r $latexdir.zip $latexdir && rm -r $latexdir
 
