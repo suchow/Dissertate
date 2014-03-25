@@ -1,0 +1,137 @@
+\ProvidesPackage{packages/NYU/style}
+
+% School name and location
+\university{New York University}
+\universitycity{New York}
+\universitystate{New York}
+
+% School color found from university's graphic identity site:
+% http://www.nyu.edu/employees/resources-and-services/media-and-communications/styleguide.html
+\definecolor{SchoolColor}{rgb}{0.3412, 0.0235, 0.5490} % purple
+\definecolor{chaptergrey}{rgb}{0.2600, 0.0200, 0.4600} % dialed back a little
+\definecolor{midgrey}{rgb}{0.4, 0.4, 0.4}
+
+\hypersetup{
+    colorlinks,
+    citecolor=SchoolColor,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=SchoolColor,
+}
+
+% Formatting guidelines found in:
+% http://gsas.nyu.edu/docs/IO/4474/formattingguide.pdf
+\renewcommand{\frontmatter}{
+	\pagenumbering{roman}
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\frontispiece
+	\dedicationpage
+	\acknowledgments
+	\preface
+	\abstractpage
+	\tableofcontents
+
+	% figure listing - required if you have any figures
+	\listoffigures
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of figures}
+
+	% table listing - required if you have any tables
+	\listoftables
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of tables}
+
+	% appendix listing - required only if you have two or more appendices
+	% \newpage
+	% \thispagestyle{empty}
+	% \phantomsection
+	% \addcontentsline{toc}{chapter}{List of appendices}
+	% \chapter*{List of appendices}
+	% \contentsline {chapter}{Appendix A}{\pageref{AppendixA}}{}
+
+	\newpage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\vspace{100pt}
+	\begin{center}
+	\Huge \textcolor{midgrey}{\thetitle} \normalsize \\
+	\vspace{25pt}
+	by \\
+	\vspace{15pt}
+	\theauthor\\
+	\vspace{135pt}
+	\textsc{a dissertation submitted in partial fulfillment\\
+	of the requirements for the degree of \\
+	\vspace{8pt}
+	\@degree \\
+	\@department \\
+	\@university \\
+	\vspace{10pt}
+	\@degreemonth, \@degreeyear}
+	\end{center}
+	\vspace*{\fill}
+}
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{25pt}
+	\begin{center}
+	\scshape \noindent \small \copyright \  \small  \theauthor \\
+	all rights reserved, \@degreeyear
+	\end{center}
+	\newpage
+	\rm
+}
+
+\newcommand{\frontispiece}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\begin{center}
+  \includegraphics[width=45pt]{packages/images/NYUlogo.eps}
+	\end{center}
+	\vspace*{\fill}
+}
+
+\newcommand{\dedicationpage}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Dedication}
+	\newpage
+	\setcounter{page}{4}
+	\vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill}
+	\newpage
+	\rm
+}
+
+\newcommand{\acknowledgments}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Acknowledgments}
+	\chapter*{Acknowledgments}
+	\noindent
+	\input{frontmatter/thanks}
+	\vspace*{\fill} \newpage
+}
+
+\newcommand{\preface}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Preface}
+	\chapter*{Preface}
+	\input{frontmatter/preface}
+}
+
+\newcommand{\abstractpage}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abstract}
+	\chapter*{Abstract}
+	\input{frontmatter/abstract}
+}

@@ -1,0 +1,105 @@
+\ProvidesPackage{packages/Princeton/style}
+
+% School name and location
+\university{Princeton University}
+\universitycity{Princeton}
+\universitystate{New Jersey}
+
+% School color found from university's graphic identity site:
+% http://www.princeton.edu/communications/services/image/graphic/color
+\definecolor{SchoolColor}{rgb}{0.9608, 0.5020, 0.1451}
+\definecolor{chaptergrey}{rgb}{0.9608, 0.5020, 0.1451}
+
+\hypersetup{
+    colorlinks,
+    citecolor=SchoolColor,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=SchoolColor,
+}
+
+% Formatting guidelines found in:
+% http://www.princeton.edu/~mudd/thesis/MuddDissertationRequirements.pdf
+\renewcommand{\frontmatter}{
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\abstractpage
+	\tableofcontents
+	% \listoffigures % optional
+	\dedicationpage
+	\acknowledgments
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\vspace{75pt}
+	\begin{center}
+	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+	\vspace{100pt}
+	\textsc{\theauthor}\\
+	\vspace{50pt}
+	\sc
+		a dissertation\\
+	  presented to the faculty\\
+	  of princeton university\\
+	  in candidacy for the degree\\
+    of \@degree\\
+
+	  \vspace{35pt}
+	  recommended for acceptance\\
+	  by the Department of\\
+		\@department\\
+		\vspace{25pt}
+	  Adviser: \@advisor \\
+		\vspace{15pt}
+	  \@degreemonth\ \@degreeyear
+	\rm
+	\end{center}
+	\vspace*{\fill}
+}
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{25pt}
+	\begin{center}
+	\scshape \noindent \small \copyright \  \small Copyright by \theauthor, \@degreeyear. All rights reserved.
+	\end{center}
+	\newpage
+	\rm
+}
+
+\newcommand{\abstractpage}{
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abstract}
+	\newpage
+	\pagenumbering{roman}
+	\setcounter{page}{3}
+	\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\vspace*{35pt}
+	\begin{center}
+	\scshape Abstract \\ \rm
+	\end{center}
+	\input{frontmatter/abstract}
+	\vspace*{\fill}
+	\newpage \lhead{} \rhead{}
+	\cfoot{\thepage}
+}
+
+\newcommand{\dedicationpage}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill} \newpage \rm
+}
+
+\newcommand{\acknowledgments}{
+	\chapter*{Acknowledgments}
+	\noindent
+	\input{frontmatter/thanks}
+	\vspace*{\fill} \newpage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+}

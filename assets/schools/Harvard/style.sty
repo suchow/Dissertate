@@ -1,0 +1,96 @@
+\ProvidesPackage{packages/Harvard/style}
+
+% School name and location
+\university{Harvard University}
+\universitycity{Cambridge}
+\universitystate{Massachusetts}
+
+% School color found from university's graphic identity site:
+% http://isites.harvard.edu/icb/icb.do?keyword=k75408&pageid=icb.page392732
+\definecolor{SchoolColor}{rgb}{0.6471, 0.1098, 0.1882} % Crimson
+\definecolor{chaptergrey}{rgb}{0.6471, 0.1098, 0.1882} % for chapter numbers
+
+\hypersetup{
+    colorlinks,
+    citecolor=SchoolColor,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=SchoolColor,
+}
+
+% Formatting guidelines found in:
+% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+\renewcommand{\frontmatter}{
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\abstractpage
+	\tableofcontents
+	% \listoffigures % optional
+	\dedicationpage
+	\acknowledgments
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\vspace{100pt}
+	\begin{center}
+	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+	\vspace{100pt}
+	\textsc{a dissertation presented \\ by\\
+	\theauthor\\ to\\ The Department of \@department\\
+	\vspace{12pt}
+	in partial fulfillment of the requirements\\
+	for the degree of\\ \@degree\\
+	in the subject of\\ \@field\\
+	\vspace{12pt}
+	\@university\\ \@universitycity, \@universitystate\\
+	\@degreemonth\ \@degreeyear}
+	\end{center} \vspace*{\fill}
+}
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\scshape \noindent \small \copyright \small 2014\hspace{3pt}-- \theauthor \\
+	\noindent all rights reserved.
+	\vspace*{\fill}
+	\newpage
+	\rm
+}
+
+\newcommand{\abstractpage}{
+	\newpage
+	\pagenumbering{roman}
+	\setcounter{page}{3}
+	\pagestyle{fancy}
+	\lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\vspace*{35pt}
+	\begin{center}
+	\Large \textcolor{SchoolColor}{\@title} \normalsize \\
+	\vspace*{20pt}
+	\scshape Abstract \\ \rm
+	\end{center}
+	\input{frontmatter/abstract}
+	\vspace*{\fill}
+	\newpage \lhead{} \rhead{}
+	\cfoot{\thepage}
+}
+
+\newcommand{\dedicationpage}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill} \newpage \rm
+}
+
+\newcommand{\acknowledgments}{
+	\chapter*{Acknowledgments}
+	\noindent
+	\input{frontmatter/thanks}
+	\vspace*{\fill} \newpage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+}
