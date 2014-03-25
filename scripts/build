@@ -24,7 +24,7 @@ do
     ./$latexdir/scripts/build
 
     # Remove temporary files
-    tmps=( aux blg bbl out lof toc )
+    declare -a tmps=( aux blg bbl out lof toc )
     for i in "${tmps[@]}"
     do
         find . -name "*.$i" -delete

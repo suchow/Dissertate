@@ -17,7 +17,6 @@
 \RequirePackage[width=5.75in, letterpaper]{geometry}
 \usepackage{ragged2e}
 \RaggedRight
-\RequirePackage[palatino]{quotchap}
 \RequirePackage{graphicx}
 \usepackage{fixltx2e}
 \parindent 12pt
@@ -26,7 +25,6 @@
 \RequirePackage{verbatim}
 
 % Fonts.
-\defaultfontfeatures{Mapping=tex-text}
 \RequirePackage{color}
 \usepackage{hyperref}
 \RequirePackage{url}
@@ -71,6 +69,7 @@
 \renewcommand\bibname{References}
 \RequirePackage[super,comma,numbers]{natbib}
 \renewcommand{\bibnumfmt}[1]{[#1]}
+\RequirePackage[palatino]{quotchap}
 
 % An environment for paragraph-style section.
 \providecommand\newthought[1]{%
