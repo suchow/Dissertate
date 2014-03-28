@@ -14,4 +14,4 @@ deploy:
   local-dir: build
   on:
     repo: suchow/Dissertate
-    branch: refactor-2.0
+    branch: master
