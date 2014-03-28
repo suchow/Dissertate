@@ -1,6 +1,17 @@
 script: ./scripts/build
 install:
-  - sudo apt-get update -qq
-  - sudo cp -r assets/fonts/* /usr/local/share/fonts/
-  - sudo fc-cache -f -v
-  - sudo apt-get install texlive-full
+- sudo apt-get update -qq
+- sudo cp -r assets/fonts/* /usr/local/share/fonts/
+- sudo fc-cache -f -v
+- sudo apt-get install texlive-full
+deploy:
+  provider: s3
+  access_key_id: AKIAI6DXQYKG4LOZCCSA
+  secret_access_key:
+    secure: hkOs8/obtDqaOGJISU+Ra97BdYB/KbC+nrjvlcXz6xIULx3+zTyWBqCEtVsKKSDkbDiVXkNy2+HPrQhqqqhoOyy0r4RFDQoY9pvQ+IuvlXniKWGEXwwiVdO6P5pU3VkZ9m6O88Ek4KJ9LXoHsJhr6tjCRdohrUq6BGxdXCU5KIQ=
+  bucket: Dissertate
+  skip_cleanup: true
+  local-dir: build
+  on:
+    repo: suchow/Dissertate
+    branch: refactor-2.0
