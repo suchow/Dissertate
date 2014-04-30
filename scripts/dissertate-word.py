@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import optparse
 import importlib
+import os
 
 
 def main():
@@ -13,7 +14,7 @@ def main():
 
 
 def createTemplate(option, opt_str, schoolName, parser):
-    SchoolPackage = importlib.import_module("Schools." + schoolName + ".word")
+    SchoolPackage = importlib.import_module("schools." + schoolName + ".word")
     template = SchoolPackage.Template()
     template.fill()
     template.save()

@@ -37,7 +37,7 @@ do
     # # Create Word template
     worddir="Dissertate-${dir##*/}-Word"
     mkdir $worddir
-    python ../scripts/dissertate-word/dissertate-word.py --school ${dir##*/}
+    python ../scripts/dissertate-word.py --school ${dir##*/}
     cp dissertation.docx $worddir/dissertation.docx
     rm dissertation.docx
 
