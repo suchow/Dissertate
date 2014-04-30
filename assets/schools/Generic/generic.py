@@ -5,7 +5,7 @@ from docx import Document
 class GenericTemplate(object):
 
     def __init__(self):
-        self.document = Document('../../assets/word-base/dissertate.docx')
+        self.document = Document('../assets/word-base/dissertate.docx')
 
     def fill(self):
 
@@ -51,4 +51,4 @@ class GenericTemplate(object):
         #document.add_picture('monty-truth.png', width=Inches(1.25))
 
     def save(self):
-        self.document.save('demo.docx')
+        self.document.save('dissertation.docx')

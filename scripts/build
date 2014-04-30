@@ -34,9 +34,15 @@ do
     # Package it up
     zip -r $latexdir.zip $latexdir && rm -r $latexdir
 
-    # Create Word template
+    # # Create Word template
     worddir="Dissertate-${dir##*/}-Word"
     mkdir $worddir
+    python ../scripts/dissertate-word/dissertate-word.py --school ${dir##*/}
+    cp dissertation.docx $worddir/dissertation.docx
+    rm dissertation.docx
+
+    # Add guidelines
+    cp ../assets/schools/${dir##*/}/guidelines.pdf $worddir/guidelines.pdf
 
     # Package it up
     zip -r $worddir.zip $worddir && rm -r $worddir
