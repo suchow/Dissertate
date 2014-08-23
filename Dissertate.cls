@@ -44,6 +44,7 @@
 \DeclareStringOption{School}[]
 \ProcessKeyvalOptions*
 \RequirePackage{packages/\Dissertate@School/style}
+\RequirePackage{packages/\Dissertate@School/fltpage2}
 
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
