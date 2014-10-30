@@ -1,20 +1,26 @@
-# Dissertate: a LaTeX dissertation template [![Build Status](https://travis-ci.org/suchow/Dissertate.svg?branch=master)](https://travis-ci.org/suchow/Dissertate)
+# Wits University thesis LaTeX template
 
+This package provides all the files needed to support the production and typesetting of a PhD dissertation at the [University of the Witwatersrand](http://www.wits.ac.za/) (Johannesburg, South Africa). The format and styling is based closely on the requirements published by the Faculty of Engineering and the Built Environment.
+  
+This package is a customised version of the fanastic [Dissertate](https://github.com/suchow/Dissertate) LaTeX templates created by [Jordan Suchow](https://github.com/suchow). Only minimal changes were made to fit the Wits University style guide.
 
-This package provides all the files needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, and NYU, though it can easily be adapted to meet the requirements of other schools. The format and styling is based closely on the requirements published by each university's registrar.
+## Status
+:warning: The current status of this project is **IMCOMPLETE**.:warning:  
+Work is still being done to match the required university style. 
 
-
-## Getting started
-1. Install LaTeX. For Mac OS X, we recommend MacTex (http://tug.org/mactex/); for Windows, MiKTeX (http://miktex.org/); and for Ubuntu, Tex Live (`sudo apt-get install texlive-full`)
-2. Install the default fonts: EB Garamond, Lato, and Source Code Pro. The files are provided in `fonts/EB Garamond`, `fonts/Lato`, and `fonts/Source Code Pro`.
-3. Pick your school by editing line 6 of `dissertation.tex` to use the option `Harvard`, `Princeton`, or `NYU`, depending on your school.
-4. Personalize the document by filling out your name and all the other info in `frontmatter/personalize.md`.
-5. Build your dissertation with `build.command`, located in the `scripts` directory (e.g., you can `cd` into the main directory and then run `./scripts/build.command`).
-
-## FAQ
-
-### How do I make the text justified instead of ragged right?
-Remove or comment out the line `\RaggedRight` from the .cls file.
+## Documentation
+Please see the [wiki](https://github.com/SlicedSilver/WitsUniversity-TeXTemplate/wiki) for documentation.  
+Topics discussed:
+* Getting Started
+* Useful Links
+* Wits University Style Guide
 
 ## Acknowledgments
-Thanks to Andrew Leifer for many code and README contributions and to Clemens Eppner for the Ubuntu instructions.
+[Jordan Suchow](https://github.com/suchow), for the creation of the [Dissertate](https://github.com/suchow/Dissertate) templates.  
+
+## Author
+Mark Silverwood  
+University of the Witwatersrand  
+2014  
+  
+![Wits University Logo](http://cl.ly/image/1I1X1j2G2W3l/WitsLogoSmall.jpg)

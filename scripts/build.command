@@ -11,4 +11,3 @@ xelatex dissertation
 
 # Hide the log.
 mv "dissertation.log" ".logged"
-
