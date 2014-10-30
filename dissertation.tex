@@ -8,7 +8,7 @@
 \begin{document}
 
 % the front matter
-\input{frontmatter/personalize}
+\input{dissertation/frontmatter/personalize}
 \maketitle
 \copyrightpage
 \abstractpage
@@ -22,23 +22,23 @@
 
 % include each chapter...
 \setcounter{chapter}{-1}  % start chapter numbering at 0
-\include{chapters/introduction}
-\include{chapters/chapter1}
-\include{chapters/chapter2}
-\include{chapters/chapter3}
-\include{chapters/conclusion}
+\include{dissertation/chapters/introduction}
+\include{dissertation/chapters/chapter1}
+\include{dissertation/chapters/chapter2}
+\include{dissertation/chapters/chapter3}
+\include{dissertation/chapters/conclusion}
 \begin{appendices}
-    \include{chapters/appendixA}
+    \include{dissertation/chapters/appendixA}
 \end{appendices}
 
 \singlespacing
 
 % the back matter
 \clearpage
-\bibliography{references}
+\bibliography{dissertation/references}
 \addcontentsline{toc}{chapter}{References}
 \bibliographystyle{apalike2}
 
-\include{endmatter/colophon}
+\include{dissertation/endmatter/colophon}
 
 \end{document}

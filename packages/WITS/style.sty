@@ -23,7 +23,7 @@
 % http://gsas.nyu.edu/docs/IO/4474/formattingguide.pdf
 \renewcommand{\frontmatter}{
 	\pagenumbering{roman}
-	\input{frontmatter/personalize}
+	\input{dissertation/frontmatter/personalize}
 	\maketitle
 	\copyrightpage
 	\frontispiece
@@ -98,7 +98,7 @@
 	\thispagestyle{empty}
 	\vspace*{\fill}
 	\begin{center}
-  \includegraphics[width=45pt]{packages/images/NYUlogo.eps}
+  \includegraphics[width=45pt]{packages/NYU/NYUlogo.eps}
 	\end{center}
 	\vspace*{\fill}
 }
@@ -109,7 +109,7 @@
 	\newpage
 	\setcounter{page}{4}
 	\vspace*{\fill}
-	\scshape \noindent \input{frontmatter/dedication}
+	\scshape \noindent \input{dissertation/frontmatter/dedication}
 	\vspace*{\fill}
 	\newpage
 	\rm
@@ -120,7 +120,7 @@
 	\addcontentsline{toc}{chapter}{Acknowledgments}
 	\chapter*{Acknowledgments}
 	\noindent
-	\input{frontmatter/thanks}
+	\input{dissertation/frontmatter/thanks}
 	\vspace*{\fill} \newpage
 }
 
@@ -128,12 +128,12 @@
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Preface}
 	\chapter*{Preface}
-	\input{frontmatter/preface}
+	\input{dissertation/frontmatter/preface}
 }
 
 \newcommand{\abstractpage}{
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Abstract}
 	\chapter*{Abstract}
-	\input{frontmatter/abstract}
+	\input{dissertation/frontmatter/abstract}
 }
