@@ -4,6 +4,9 @@ This package provides all the files needed to support the production and typeset
   
 This package is a customised version of the fanastic [Dissertate](https://github.com/suchow/Dissertate) LaTeX templates created by [Jordan Suchow](https://github.com/suchow). Only minimal changes were made to fit the Wits University style guide.
 
+## Status
+The current status of this project is **IMCOMPLETE**. Work is still being done to match the required university style.
+
 ## Documentation
 Please see the [wiki](https://github.com/SlicedSilver/WitsUniversity-TeXTemplate/wiki) for documentation.  
 Topics discussed:
