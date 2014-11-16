@@ -1,0 +1,123 @@
+\ProvidesPackage{packages/Berkeley/style}
+
+% School name and location
+\university{University of California, Berkeley}
+\universitycity{Berkeley}
+\universitystate{California}
+
+% School color found from university's graphic identity site:
+% http://brand.berkeley.edu/colors/
+\definecolor{SchoolColor}{HTML}{003262}
+\definecolor{chaptergrey}{HTML}{003262}
+
+\hypersetup{
+    colorlinks,
+    citecolor=SchoolColor,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=SchoolColor,
+}
+
+% Formatting guidelines found in:
+% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+\renewcommand{\frontmatter}{
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\abstractpage
+	\tableofcontents
+	% \listoffigures % optional
+	\dedicationpage
+	\acknowledgments
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\vspace{100pt}
+	\begin{center}
+	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+	\vspace{100pt}
+	By\\
+	\theauthor\\
+	\vspace{12pt}
+	\textsc{A Dissertation submitted in partial satisfaction of the\\
+	requirements for the degree of \\ \@degree\\
+	in\\ \@department\\ in the\\  Graduate Division\\ of the\\
+	\@university\\
+	\vspace{50pt}
+	Committee in charge\\
+	\@chair\\ \@universitycity, \@universitystate\\
+	\@degreemonth\ \@degreeyear}
+	\end{center} \vspace*{\fill}
+}
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\scshape \noindent \small \copyright \small 2014\hspace{3pt}-- \theauthor \\
+	\noindent all rights reserved.
+	\vspace*{\fill}
+	\newpage
+	\rm
+}
+
+% The following conditional definition is derived from http://tex.stackexchange.com/questions/131726/conditional-content. This allows the inclusion of the co-advisor consideration.
+
+\documentclass{article}
+% Display the argument if \cond is True/False
+\newcommand{\IfCond}[2]{%
+  \ifnum\pdfstrcmp{\cond}{True}=0
+    \ifnum\pdfstrcmp{}{#1}=0\unskip\else#1\fi%
+  \else
+    \ifnum\pdfstrcmp{}{#2}=0\unskip\else#2\fi%
+  \fi\ignorespaces}
+
+% Display the argument if \cond is False
+\newcommand{\IfCondFalse}[1]{%
+  \ifnum\pdfstrcmp{\cond}{True}=0 \unskip\else #1\fi\ignorespaces}
+\begin{document}
+\def\cond{True}% Version control
+This is fake \IfCond{text}{hooplah}. \par
+This is fake \IfCond{}{hooplah}.
+
+\def\cond{False}% Version control
+This is fake \IfCond{text}{hooplah}. \par
+This is fake \IfCond{text}{}.
+\end{document}
+
+
+\newcommand{\abstractpage}{
+	\newpage
+	\pagenumbering{roman}
+	\setcounter{page}{3}
+	\pagestyle{fancy}
+	\lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\vspace*{35pt}
+	\begin{center}
+	\Large \textcolor{SchoolColor}{\@title} \normalsize \\
+	\vspace*{20pt}
+	\scshape Abstract \\ \rm
+	\end{center}
+	\input{frontmatter/abstract}
+	\vspace*{\fill}
+	\newpage \lhead{} \rhead{}
+	\cfoot{\thepage}
+}
+
+\newcommand{\dedicationpage}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill} \newpage \rm
+}
+
+\newcommand{\acknowledgments}{
+	\chapter*{Acknowledgments}
+	\noindent
+	\input{frontmatter/thanks}
+	\vspace*{\fill} \newpage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+}
