@@ -1,0 +1,17 @@
+\def\pdTwoYear#1{\gdef\@pdTwoYear{#1}}
+\def\degreemonth#1{\gdef\@degreemonth{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\coadvisors#1#2{\gdef\@coadvisors{#1,#2}}
+\def\pdOneName#1{\gdef\@pdOneName{#1}}
+\def\university#1{\gdef\@university{#1}}
+\def\universitycity#1{\gdef\@universitycity{#1}}
+\def\universitystate#1{\gdef\@universitystate{#1}}
+\def\pdOneSchool#1{\gdef\@pdOneSchool{#1}}
+\def\field#1{\gdef\@field{#1}}
+\def\programname#1{\gdef\@programname{#1}}
+\def\advisor#1{\gdef\@advisor{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\degreeyear#1{\gdef\@degreeyear{#1}}
+\def\pdOneYear#1{\gdef\@pdOneYear{#1}}
+\def\pdTwoSchool#1{\gdef\@pdTwoSchool{#1}}
+\def\pdTwoName#1{\gdef\@pdTwoName{#1}}

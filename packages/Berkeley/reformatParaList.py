@@ -8,7 +8,7 @@ def reformatParaList(text, num_arg):
     for i in range(num_arg):
         argstring1 += "#"+str(i+1)
         if i+1 < num_arg:
-            argstring2 += "#"+str(i+1)+","
+            argstring2 += "#"+str(i+1) + ","
         else:
             argstring2 += "#"+str(i+1)
 

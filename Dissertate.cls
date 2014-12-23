@@ -5,7 +5,7 @@
 %     date            = "24 January 2014",
 %     codetable       = "ISO/ASCII",
 %     keywords        = "LaTeX, Dissertate",
-%     supported       = "send email to suchow@post.harvard.edu",
+%     supported       = "send email to mpacer@berkeley.edu",
 %     docstring       = "Class for a dissertation."
 % --------------------------------------------------------------------
 
