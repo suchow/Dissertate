@@ -1,0 +1,19 @@
+{
+    "degreeyear":1,
+    "degreemonth":1,
+    "degree":1,
+    "advisor":1,
+    "coadvisors":2,
+    "department":1,
+    "field":1,
+    "university":1,
+    "universitycity":1,
+    "universitystate":1,
+    "programname":1,
+    "pdOneName":1,
+    "pdOneSchool":1,
+    "pdOneYear":1,
+    "pdTwoName":1,
+    "pdTwoSchool":1,
+    "pdTwoYear":1
+}
