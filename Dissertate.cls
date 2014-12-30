@@ -14,6 +14,7 @@
 \LoadClass[12pt, oneside, letterpaper]{book}
 
 % some definitions
+
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
 \def\degreemonth#1{\gdef\@degreemonth{#1}}
 \def\degree#1{\gdef\@degree{#1}}
@@ -43,6 +44,7 @@
 \DeclareStringOption{School}[]
 \ProcessKeyvalOptions*
 \RequirePackage{packages/\Dissertate@School/style}
+\RequirePackage{packages/\Dissertate@School/parameterList}
 
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}

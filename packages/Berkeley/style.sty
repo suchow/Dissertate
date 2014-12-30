@@ -19,7 +19,7 @@
 }
 
 % Formatting guidelines found in:
-% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+% http://grad.berkeley.edu/academic-progress/dissertation/
 \renewcommand{\frontmatter}{
 	\input{frontmatter/personalize}
 	\maketitle
@@ -30,6 +30,7 @@
 	\dedicationpage
 	\acknowledgments
 }
+
 
 \renewcommand{\maketitle}{
 	\thispagestyle{empty}
@@ -46,9 +47,13 @@
 	in\\ \@department\\ in the\\  Graduate Division\\ of the\\
 	\@university\\
 	\vspace{50pt}
-	Committee in charge\\
-	\@chair\\ \@universitycity, \@universitystate\\
-	\@degreemonth\ \@degreeyear}
+	Committee in charge:\\
+	Professor \@coadvisorOne, Co-chair\\
+	Professor \@coadvisorTwo, Co-chair\\
+	Professor \@committeeInternal\\
+	Professor \@committeeExternal\\
+	\vspace{50pt}
+	\@degreeterm\ \@degreeyear}
 	\end{center} \vspace*{\fill}
 }
 
@@ -66,6 +71,7 @@
 % The following conditional definition is derived from http://tex.stackexchange.com/questions/131726/conditional-content. This allows the inclusion of the co-advisor consideration.
 
 \documentclass{article}
+
 % Display the argument if \cond is True/False
 \newcommand{\IfCond}[2]{%
   \ifnum\pdfstrcmp{\cond}{True}=0

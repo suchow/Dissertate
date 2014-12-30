@@ -1,5 +1,6 @@
 import sys
 import json
+import os
 
 
 def reformatParaList(text, num_arg):
@@ -19,8 +20,16 @@ filename = sys.argv[1]
 
 json_input = open(filename+".json", "r")
 json_input_loaded = json.load(json_input)
-json_output = open(filename+".txt", "w")
+json_output1 = open(filename+".txt", "w")
+json_output2 = open(filename+".sty", "w")
+json_output2.write(
+    r"\ProvidesPackage{packages/" +
+    os.path.basename(os.getcwd()) +
+    r"/filename}" + "\n\n"
+    )
 for line in json_input_loaded:
-    json_output.write(reformatParaList(line, json_input_loaded[line]))
+    json_output1.write(reformatParaList(line, json_input_loaded[line]))
+    json_output2.write(reformatParaList(line, json_input_loaded[line]))
 json_input.close()
-json_output.close()
+json_output1.close()
+json_output2.close()
