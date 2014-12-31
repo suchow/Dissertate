@@ -33,7 +33,7 @@
 
 
 \renewcommand{\maketitle}{
-	\thispagestyle{empty}
+	%\thispagestyle{empty}
 	\vspace*{\fill}
 	\vspace{100pt}
 	\begin{center}
@@ -48,6 +48,7 @@
 	\@university\\
 	\vspace{50pt}
 	Committee in charge:\\
+	\vspace{20pt}
 	Professor \@coadvisorOne, Co-chair\\
 	Professor \@coadvisorTwo, Co-chair\\
 	Professor \@committeeInternal\\
@@ -70,36 +71,38 @@
 
 % The following conditional definition is derived from http://tex.stackexchange.com/questions/131726/conditional-content. This allows the inclusion of the co-advisor consideration.
 
-\documentclass{article}
+%\documentclass{article}
 
 % Display the argument if \cond is True/False
-\newcommand{\IfCond}[2]{%
-  \ifnum\pdfstrcmp{\cond}{True}=0
-    \ifnum\pdfstrcmp{}{#1}=0\unskip\else#1\fi%
-  \else
-    \ifnum\pdfstrcmp{}{#2}=0\unskip\else#2\fi%
-  \fi\ignorespaces}
+%\newcommand{\IfCond}[2]{%
+%  \ifnum\pdfstrcmp{\cond}{True}=0
+%    \ifnum\pdfstrcmp{}{#1}=0\unskip\else#1\fi%
+%  \else
+%    \ifnum\pdfstrcmp{}{#2}=0\unskip\else#2\fi%
+%  \fi\ignorespaces}
+%
+%% Display the argument if \cond is False
+%\newcommand{\IfCondFalse}[1]{%
+%  \ifnum\pdfstrcmp{\cond}{True}=0 \unskip\else #1\fi\ignorespaces}
+%\begin{document}
+%\def\cond{True}% Version control
+%This is fake \IfCond{text}{hooplah}. \par
+%This is fake \IfCond{}{hooplah}.
+%
+%\def\cond{False}% Version control
+%This is fake \IfCond{text}{hooplah}. \par
+%This is fake \IfCond{text}{}.
+%\end{document}
 
-% Display the argument if \cond is False
-\newcommand{\IfCondFalse}[1]{%
-  \ifnum\pdfstrcmp{\cond}{True}=0 \unskip\else #1\fi\ignorespaces}
-\begin{document}
-\def\cond{True}% Version control
-This is fake \IfCond{text}{hooplah}. \par
-This is fake \IfCond{}{hooplah}.
-
-\def\cond{False}% Version control
-This is fake \IfCond{text}{hooplah}. \par
-This is fake \IfCond{text}{}.
-\end{document}
 
 
 \newcommand{\abstractpage}{
 	\newpage
-	\pagenumbering{roman}
-	\setcounter{page}{3}
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
 	\pagestyle{fancy}
-	\lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
+	\lhead{Co-advisors: Professors \@coadvisorOne {\textit \&} \@coadvisorTwo}
+	\rhead{\@author}
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}
 	\begin{center}
@@ -113,17 +116,19 @@ This is fake \IfCond{text}{}.
 	\cfoot{\thepage}
 }
 
-\newcommand{\dedicationpage}{
-	\newpage \thispagestyle{fancy} \vspace*{\fill}
-	\scshape \noindent \input{frontmatter/dedication}
-	\vspace*{\fill} \newpage \rm
-}
-
 \newcommand{\acknowledgments}{
 	\chapter*{Acknowledgments}
 	\noindent
 	\input{frontmatter/thanks}
 	\vspace*{\fill} \newpage
 	\setcounter{page}{1}
-	\pagenumbering{arabic}
+	\pagenumbering{roman}
 }
+
+\newcommand{\dedicationpage}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill} \newpage \rm
+}
+
+

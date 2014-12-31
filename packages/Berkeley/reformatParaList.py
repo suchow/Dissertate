@@ -27,6 +27,7 @@ json_output2.write(
     os.path.basename(os.getcwd()) +
     r"/filename}" + "\n\n"
     )
+
 for line in json_input_loaded:
     json_output1.write(reformatParaList(line, json_input_loaded[line]))
     json_output2.write(reformatParaList(line, json_input_loaded[line]))
