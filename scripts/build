@@ -2,6 +2,9 @@
 
 cd build
 
+# Clear out the previous build.
+/bin/rm -f *
+
 for dir in ../assets/schools/*/
 do
     dir=${dir%*/}
