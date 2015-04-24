@@ -34,7 +34,7 @@
 \setmathrm{EB Garamond}
 \widowpenalty=300
 \clubpenalty=300
-\setromanfont[Numbers=OldStyle, Ligatures={Common}]{EB Garamond}
+\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}]{EB Garamond}
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{EB Garamond}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
