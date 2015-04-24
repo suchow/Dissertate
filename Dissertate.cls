@@ -82,7 +82,7 @@
 
 \defaultfontfeatures{Mapping=tex-text}
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{EB Garamond}
-\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}]{EB Garamond}
+\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EB Garamond}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
 
