@@ -13,3 +13,4 @@ dissertation.pdfsync
 *.log
 *.fdb_latexmk
 *.bbl
+build/*
