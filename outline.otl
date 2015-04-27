@@ -1,0 +1,27 @@
+GP numerics
+	checked for steady state
+		energy peaks are delta-like
+		looked at time evolution of signal to check stationarity
+	checked for convergence, w/wo defect
+		in momentum space
+		in real space
+	filtered signal emission
+		in momentum
+		in energy
+			varied integration window size
+	moving defect
+	varied defect strength
+	larger pump angle, kp=1.5
+	homogeneous system
+	changed defect position
+	varied pump power
+
+linear response
+	MF stability
+		evolution of spectrum
+			small k instability
+			large k instability
+	slope of Goldstone mode
+		vs kp
+		vs ks
+		vs Ip

@@ -11,7 +11,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Dissertate}[2014/01/24 v1.0 Dissertate Class]
-\LoadClass[12pt, oneside, letterpaper]{book}
+\LoadClass[12pt, oneside, a4paper]{book}
+
 
 % some definitions
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
@@ -43,13 +44,14 @@
 \DeclareStringOption{School}[]
 \ProcessKeyvalOptions*
 \RequirePackage{packages/\Dissertate@School/style}
+\RequirePackage{packages/\Dissertate@School/fltpage2}
 
 \RequirePackage{graphicx}
 \RequirePackage{amssymb}
 \RequirePackage{lettrine}
 \RequirePackage[super,comma,numbers]{natbib}
 \renewcommand{\bibnumfmt}[1]{[#1]}
-\RequirePackage[width=5.75in, letterpaper]{geometry}
+\RequirePackage[width=5.75in, a4paper]{geometry}
 \RequirePackage{fancyhdr}
 
 \usepackage[titletoc]{appendix}
