@@ -8,9 +8,9 @@ install:
 - sudo pip install python-docx
 deploy:
   provider: s3
-  access_key_id: AKIAI6DXQYKG4LOZCCSA
+  access_key_id: AKIAILY5S7AZ77Q4BYBA
   secret_access_key:
-    secure: hkOs8/obtDqaOGJISU+Ra97BdYB/KbC+nrjvlcXz6xIULx3+zTyWBqCEtVsKKSDkbDiVXkNy2+HPrQhqqqhoOyy0r4RFDQoY9pvQ+IuvlXniKWGEXwwiVdO6P5pU3VkZ9m6O88Ek4KJ9LXoHsJhr6tjCRdohrUq6BGxdXCU5KIQ=
+    secure: "os6r0tpMbE6e9GBcQn2S/kAPpeQy61ddB5+5N5FGgYv6pm3wL53enTldr1ZAxCp08PXX71mbufGU30WM4lmq4EFT8+zpZhOild30X6ICg8FKaC5Ip99Cp5dB+A+lzxmkF7F1eegxMXgBhfNuNjtM3/97ffyvcCR5xwR2A9Aka4w="
   bucket: Dissertate
   skip_cleanup: true
   local-dir: build
