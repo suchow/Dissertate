@@ -1,7 +1,9 @@
 # Dissertate: a LaTeX dissertation template 
 
 
-[![Build Status](https://travis-ci.org/suchow/Dissertate.svg?branch=master)](https://travis-ci.org/suchow/Dissertate)[![Code Climate](https://codeclimate.com/github/asm-products/dissertate/badges/gpa.svg)](https://codeclimate.com/github/asm-products/dissertate)<a href="https://assembly.com/dissertate/bounties?utm_campaign=assemblage&utm_source=dissertate&utm_medium=repo_badge"><img src="http://badger.asm.co/dissertate/badges/tasks.svg" height="24px" alt="Open Tasks" /></a>
+[![Build Status](https://travis-ci.org/suchow/Dissertate.svg?branch=master)](https://travis-ci.org/suchow/Dissertate)
+[![Code Climate](https://codeclimate.com/github/asm-products/dissertate/badges/gpa.svg)](https://codeclimate.com/github/asm-products/dissertate)
+<a href="https://assembly.com/dissertate/bounties?utm_campaign=assemblage&utm_source=dissertate&utm_medium=repo_badge"><img src="http://badger.asm.co/dissertate/badges/tasks.svg" height="24px" alt="Open Tasks" /></a>
 
 This package provides all the files needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, and NYU, though it can easily be adapted to meet the requirements of other schools. The format and styling is based closely on the requirements published by each university's registrar.
 
