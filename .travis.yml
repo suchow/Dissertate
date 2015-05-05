@@ -14,5 +14,5 @@ deploy:
   skip_cleanup: true
   local-dir: build
   on:
-    repo: suchow/Dissertate
+    repo: asm-products/Dissertate
     branch: master
