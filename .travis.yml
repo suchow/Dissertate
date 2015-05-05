@@ -11,7 +11,7 @@ deploy:
   access_key_id: AKIAILY5S7AZ77Q4BYBA
   secret_access_key:
     secure: "os6r0tpMbE6e9GBcQn2S/kAPpeQy61ddB5+5N5FGgYv6pm3wL53enTldr1ZAxCp08PXX71mbufGU30WM4lmq4EFT8+zpZhOild30X6ICg8FKaC5Ip99Cp5dB+A+lzxmkF7F1eegxMXgBhfNuNjtM3/97ffyvcCR5xwR2A9Aka4w="
-  bucket: Dissertate
+  bucket: dissertate.io
   skip_cleanup: true
   local-dir: build
   on:
