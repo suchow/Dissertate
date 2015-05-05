@@ -1,3 +1,4 @@
+language: python
 script: ./scripts/build
 install:
 - sudo apt-get update -qq
