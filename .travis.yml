@@ -3,7 +3,7 @@ install:
 - sudo apt-get update -qq
 - sudo cp -r assets/fonts/* /usr/local/share/fonts/
 - sudo fc-cache -f -v
-- sudo apt-get install texlive-full
+- sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
 - sudo pip install python-docx
 deploy:
   provider: s3
