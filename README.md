@@ -1,7 +1,6 @@
 # Dissertate: a LaTeX dissertation template 
 
-
-[![Build Status](https://travis-ci.org/suchow/Dissertate.svg?branch=master)](https://travis-ci.org/suchow/Dissertate)
+[![Build Status](https://travis-ci.org/asm-products/Dissertate.svg?branch=master)](https://travis-ci.org/asm-products/Dissertate)
 [![Code Climate](https://codeclimate.com/github/asm-products/dissertate/badges/gpa.svg)](https://codeclimate.com/github/asm-products/dissertate)
 <a href="https://assembly.com/dissertate/bounties?utm_campaign=assemblage&utm_source=dissertate&utm_medium=repo_badge"><img src="http://badger.asm.co/dissertate/badges/tasks.svg" height="24px" alt="Open Tasks" /></a>
 
