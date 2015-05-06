@@ -17,3 +17,9 @@ deploy:
   on:
     repo: asm-products/Dissertate
     branch: master
+notifications:
+  email:
+    recipients:
+      - suchow@post.harvard.edu
+    on_success: always
+    on_failure: always
