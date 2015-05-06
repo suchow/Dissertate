@@ -1,10 +1,14 @@
 language: python
 script: ./scripts/build
 install:
-- sudo apt-get update -qq
+- sudo add-apt-repository ppa:texlive-backports/ppa
+- sudo apt-get update
 - sudo cp -r assets/fonts/* /usr/local/share/fonts/
 - sudo fc-cache -f -v
-- sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-xetex
+- sudo apt-get install texlive-latex-recommended
+- sudo apt-get install texlive-latex-extra
+- sudo apt-get install texlive-fonts-recommended
+- sudo apt-get install texlive-xetex
 deploy:
   provider: s3
   access_key_id: AKIAILY5S7AZ77Q4BYBA
