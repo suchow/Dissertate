@@ -70,6 +70,8 @@
 \RequirePackage[super,comma,numbers]{natbib}
 \renewcommand{\bibnumfmt}[1]{[#1]}
 \RequirePackage[palatino]{quotchap}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-0.5\baselineskip}}
+\renewcommand*{\chapterheadendvskip}{\vspace{1.3\baselineskip}}
 
 % An environment for paragraph-style section.
 \providecommand\newthought[1]{%
