@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      Word and LaTeX dissertation templates for Princeton
+title:      Dissertating at Princeton.
 date:       2014-06-08 11:21:29
-summary:    Dissertating at Princeton.
+summary:    Word and LaTeX dissertation templates for Princeton
 categories: university
 ---
 
