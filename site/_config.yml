@@ -1,10 +1,10 @@
 # Site settings
 title:       Dissertate
-email:       suchow@post.harvard.edu
+email:       your_email@example.com
 author:      ""
 description: ""
-baseurl:    "" # the subpath of your site, e.g. /blog/
-url:        "http://dissertate.io" # the base hostname & protocol for your site
+baseurl:    "" #"/Dissertate" # the subpath of your site, e.g. /blog/
+url:        "http://dissertate.io" #"http://asm-products.github.io" # the base hostname & protocol for your site
 
 # Google analytics
 google_analytics:
