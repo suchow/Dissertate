@@ -2,7 +2,7 @@
 title:       Dissertate
 email:       suchow@post.harvard.edu
 author:      ""
-description: "Dissertate is a set of beautiful Word and LaTeX templates for a thesis or dissertation. <a href=\"https://s3.amazonaws.com/dissertate.io/generic.pdf\">Here's a sample</a>."
+description: ""
 baseurl:    "" # the subpath of your site, e.g. /blog/
 url:        "http://dissertate.io" # the base hostname & protocol for your site
 
@@ -48,7 +48,7 @@ share_hackernews: false
 markdown:     redcarpet
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    pretty
+permalink:    /:title
 paginate:     3
 sass:
   compressed: true
