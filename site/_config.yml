@@ -20,10 +20,10 @@ show_post_footers:  false
 disqus_shortname:
 
 # Social icons
-show_social_icons: false
-github_username:
+show_social_icons: true
+github_username: asm-products
 stackoverflow_id:
-twitter_username:
+twitter_username: dissertate
 google_plus_id:
 linkedin_username:
 angellist_username:
