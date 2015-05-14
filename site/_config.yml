@@ -1,6 +1,6 @@
 # Site settings
 title:       Dissertate
-email:       your_email@example.com
+email:       suchow@post.harvard.edu
 author:      "[Jordan Suchow, Varun Agrawal]"
 description: ""
 baseurl:     "" #"/Dissertate" # the subpath of your site, e.g. /blog/
