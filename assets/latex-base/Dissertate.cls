@@ -61,6 +61,7 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftchapfont}{\normalsize \scshape}
 \renewcommand\listfigurename{Listing of figures}
+\renewcommand\listtablename{Listing of tables}
 
 % Endmatter
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
