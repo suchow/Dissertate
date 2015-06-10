@@ -4,7 +4,11 @@ cd $BASEDIR
 cd ..
 
 # Build the dissertation.
-latexmk dissertation
+xelatex dissertation
+bibtex dissertation
+xelatex dissertation
+xelatex dissertation
 
 # Hide the log.
 mv "dissertation.log" ".logged"
+
