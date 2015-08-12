@@ -1,0 +1,55 @@
+# Site settings
+title:       Dissertate
+email:       suchow@post.harvard.edu
+author:      "[Jordan Suchow, Varun Agrawal]"
+description: ""
+baseurl:     "" #"/Dissertate" # the subpath of your site, e.g. /blog/
+url:         "http://dissertate.io" #"http://asm-products.github.io" # the base hostname & protocol for your site
+logo:        "images/logo.jpg"
+
+# Google analytics
+google_analytics:
+
+# Optional features
+animated:           true
+show_related_posts: false
+show_post_footers:  false
+
+# Disqus post comments
+# (leave blank to disable Disqus)
+disqus_shortname:
+
+# Social icons
+show_social_icons: true
+github_username: asm-products
+stackoverflow_id:
+twitter_username: dissertate
+google_plus_id:
+linkedin_username:
+angellist_username:
+bitcoin_url:
+paypal_url:
+flattr_button:
+
+# Post sharing icons
+show_sharing_icons: false
+share_text: 'Share this post!'
+# Change to 'true' to enable individual icons
+share_facebook: false
+share_twitter: false
+share_googleplus: false
+share_linkedin: false
+share_digg: false
+share_tumblr: false
+share_reddit: false
+share_stumbleupon: false
+share_hackernews: false
+
+# Build settings
+markdown:     redcarpet
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
+permalink:    /:title
+paginate:     3
+sass:
+  compressed: true

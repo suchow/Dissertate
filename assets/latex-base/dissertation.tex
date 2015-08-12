@@ -1,0 +1,44 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{Dissertate}
+
+\begin{document}
+
+% the front matter
+\input{frontmatter/personalize}
+\maketitle
+\copyrightpage
+
+\setstretch{1.2}
+\abstractpage
+\tableofcontents
+%\authorlist
+\listoffigures
+\dedicationpage
+\acknowledgments
+
+\doublespacing
+
+% include each chapter...
+\setcounter{chapter}{-1}  % start chapter numbering at 0
+\include{chapters/introduction}
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+\include{chapters/conclusion}
+\begin{appendices}
+    \include{chapters/appendixA}
+\end{appendices}
+
+\setstretch{1.2}
+
+% the back matter
+\clearpage
+\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{apalike2}
+
+\include{endmatter/colophon}
+
+\end{document}
