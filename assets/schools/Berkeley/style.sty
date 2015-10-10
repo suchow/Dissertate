@@ -1,0 +1,105 @@
+% School name and location
+\university{University of California, Berkeley}
+\universitycity{Berkeley}
+\universitystate{California}
+
+% School color found from university's graphic identity site:
+% http://brand.berkeley.edu/colors/
+
+\definecolor{SchoolColor}{rgb}{0,0.19608,0.3843} %berkeley blue
+\definecolor{chaptergrey}{rgb}{0,0.19608,0.3843} % chapter numbers
+
+\hypersetup{
+    colorlinks,
+    citecolor=SchoolColor,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=SchoolColor,
+}
+
+% Formatting guidelines found in:
+% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+\renewcommand{\frontmatter}{
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\abstractpage
+    \dedicationpage
+    \tableofcontents
+    \acknowledgments
+	% \listoffigures % optional
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+}
+
+\renewcommand{\maketitle}{
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \vspace{10pt}
+    \begin{center}
+    \Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+    \vspace{100pt}
+    By\\
+    \theauthor\\
+    \vspace{12pt}
+    \textsc{A Dissertation submitted in partial satisfaction of the\\
+    requirements for the degree of \\ \@degree\\
+    in\\ \@department\\ in the\\  Graduate Division\\ of the\\
+    \@university\\
+    \vspace{50pt}
+    Committee in charge:\\
+    \vspace{20pt}
+    Professor \@coadvisorOne, Co-chair\\
+    Professor \@coadvisorTwo, Co-chair\\
+    Professor \@committeeInternal\\
+    Professor \@committeeExternal\\
+    \vspace{50pt}
+    \@degreeterm\ \@degreeyear}
+    \end{center} \vspace*{\fill}
+}
+
+\newcommand{\copyrightpage}{
+    \newpage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \scshape \noindent \small \copyright \small 2015\hspace{3pt}-- \theauthor \\
+    \noindent all rights reserved.
+    \vspace*{\fill}
+    \newpage
+    \rm
+}
+
+\newcommand{\abstractpage}{
+    \newpage
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+    \pagestyle{fancy}
+    \lhead{Co-advisors: Professors \@coadvisorOne {\textit \&} \@coadvisorTwo}
+    \rhead{\@author}
+    \renewcommand{\headrulewidth}{0.0pt}
+    \vspace*{35pt}
+    \begin{center}
+    \Large \textcolor{SchoolColor}{\@title} \normalsize \\
+    \vspace*{20pt}
+    \scshape Abstract \\ \rm
+    \end{center}
+    \input{frontmatter/abstract}
+    \vspace*{\fill}
+    \newpage \lhead{} \rhead{}
+    \cfoot{\thepage}
+}
+
+\newcommand{\acknowledgments}{
+    \chapter*{Acknowledgments}
+    \noindent
+    \input{frontmatter/thanks}
+    \vspace*{\fill} \newpage
+}
+
+\newcommand{\dedicationpage}{
+    \setcounter{page}{1}
+    \pagenumbering{roman}
+    \newpage \thispagestyle{fancy} \vspace*{\fill}
+    \scshape \noindent \input{frontmatter/dedication}
+    \vspace*{\fill} \newpage \rm
+}
