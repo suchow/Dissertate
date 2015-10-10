@@ -7,8 +7,9 @@
 
 % School color found from university's graphic identity site:
 % http://brand.berkeley.edu/colors/
-\definecolor{SchoolColor}{HTML}{003262}
-\definecolor{chaptergrey}{HTML}{003262}
+
+\definecolor{SchoolColor}{rgb}{0,0.19608,0.3843} %berkeley blue
+\definecolor{chaptergrey}{rgb}{0,0.19608,0.3843} % chapter numbers
 
 \hypersetup{
     colorlinks,
@@ -59,14 +60,14 @@
 }
 
 \newcommand{\copyrightpage}{
-	\newpage
-	\thispagestyle{empty}
-	\vspace*{\fill}
-	\scshape \noindent \small \copyright \small 2014\hspace{3pt}-- \theauthor \\
-	\noindent all rights reserved.
-	\vspace*{\fill}
-	\newpage
-	\rm
+    \newpage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \scshape \noindent \small \copyright \small 2014\hspace{3pt}-- \theauthor \\
+    \noindent all rights reserved.
+    \vspace*{\fill}
+    \newpage
+    \rm
 }
 
 % The following conditional definition is derived from http://tex.stackexchange.com/questions/131726/conditional-content. This allows the inclusion of the co-advisor consideration.
