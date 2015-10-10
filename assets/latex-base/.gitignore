@@ -1,0 +1,16 @@
+dissertation.pdf
+.dissertation.log
+.logged
+endmatter/colophon.aux
+dissertation.lof
+dissertation.synctex.gz
+dissertation.pdfsync
+*.aux
+*.blg
+*.out
+*.gz(busy)
+*.toc
+*.log
+*.fdb_latexmk
+*.bbl
+fonts/*
