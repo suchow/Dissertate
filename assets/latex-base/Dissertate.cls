@@ -104,10 +104,15 @@
      \endlist}
 
 % Some definitions.
+\def\advisor#1{\gdef\@advisor{#1}}
+\def\coadvisorOne#1{\gdef\@coadvisorOne{#1}}
+\def\coadvisorTwo#1{\gdef\@coadvisorTwo{#1}}
+\def\committeeInternal#1{\gdef\@committeeInternal{#1}}
+\def\committeeExternal#1{\gdef\@committeeExternal{#1}}
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
 \def\degreemonth#1{\gdef\@degreemonth{#1}}
+\def\degreeterm#1{\gdef\@degreeterm{#1}}
 \def\degree#1{\gdef\@degree{#1}}
-\def\advisor#1{\gdef\@advisor{#1}}
 \def\department#1{\gdef\@department{#1}}
 \def\field#1{\gdef\@field{#1}}
 \def\university#1{\gdef\@university{#1}}
