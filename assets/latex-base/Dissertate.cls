@@ -108,6 +108,8 @@
 \def\coadvisorOne#1{\gdef\@coadvisorOne{#1}}
 \def\coadvisorTwo#1{\gdef\@coadvisorTwo{#1}}
 \def\committeeInternal#1{\gdef\@committeeInternal{#1}}
+\def\committeeInternalOne#1{\gdef\@committeeInternalOne{#1}}
+\def\committeeInternalTwo#1{\gdef\@committeeInternalTwo{#1}}
 \def\committeeExternal#1{\gdef\@committeeExternal{#1}}
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
 \def\degreemonth#1{\gdef\@degreemonth{#1}}
