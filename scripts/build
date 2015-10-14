@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#install required packages
+pip install -r requirements.txt
+
 cd build
 
 # Clear out the previous build.

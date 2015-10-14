@@ -1,3 +1,5 @@
+from __future__ import print_function
+from builtins import object
 #!/usr/bin/env python
 from docx import Document
 
@@ -8,7 +10,7 @@ class GenericTemplate(object):
         self.document = Document('../assets/word-base/dissertate.docx')
 
     def fill(self):
-        print ""
+        print("")
 
     def save(self):
         self.document.save('dissertation.docx')
