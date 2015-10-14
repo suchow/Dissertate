@@ -8,7 +8,7 @@ cd build
 for dir in ../assets/schools/*/
 do
     dir=${dir%*/}
-    
+
     if [ ${dir##*/} != "__pycache__" ]
         then
             # Create LaTeX template
@@ -21,6 +21,9 @@ do
             # Add guidelines
             cp ../assets/schools/${dir##*/}/guidelines.pdf $latexdir/guidelines.pdf
 
+            # Add school specific resources
+            cp -R ../assets/schools/${dir##*/}/resources $latexdir/resources
+            
             # Add the LaTeX template
             rsync --recursive ../assets/latex-base/* $latexdir
             cat ../assets/schools/${dir##*/}/style.sty >> ../build/$latexdir/Dissertate.cls
