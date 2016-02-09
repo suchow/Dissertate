@@ -26,6 +26,7 @@
 
 % Fonts.
 \RequirePackage{color}
+\RequirePackage{xcolor}
 \usepackage{hyperref}
 \RequirePackage{url}
 \RequirePackage{amssymb}
