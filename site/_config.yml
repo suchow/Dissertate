@@ -4,7 +4,7 @@ email:       suchow@post.harvard.edu
 author:      "[Jordan Suchow, Varun Agrawal]"
 description: ""
 baseurl:     "" #"/Dissertate" # the subpath of your site, e.g. /blog/
-url:         "http://dissertate.io" #"http://asm-products.github.io" # the base hostname & protocol for your site
+url:         "http://dissertate.io"
 logo:        "images/logo.jpg"
 
 # Google analytics
@@ -21,7 +21,7 @@ disqus_shortname:
 
 # Social icons
 show_social_icons: true
-github_username: asm-products
+github_username: suchow
 stackoverflow_id:
 twitter_username: dissertate
 google_plus_id:
