@@ -4,4 +4,4 @@ title: Contact
 permalink: /contact/
 ---
 
-Find us on [Assembly](https://assembly.com/dissertate)!
+Find us on [Github](https://github.com/suchow/Dissertate).
