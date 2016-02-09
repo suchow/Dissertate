@@ -6,8 +6,14 @@
 % School color found from university's graphic identity site:
 % http://brand.berkeley.edu/colors/
 
-\definecolor{SchoolColor}{rgb}{0,0.19608,0.3843} %berkeley blue
-\definecolor{chaptergrey}{rgb}{0,0.19608,0.3843} % chapter numbers
+\definecolor{SchoolColor}{HTML}{003262} %berkeley blue
+%\definecolor{chaptergrey}{HTML}{003262} % chapter numbers
+
+% \definecolor{SchoolColor}{rgb}{0,0.19608,0.3843} %berkeley blue
+%\definecolor{chaptergrey}{rgb}{0,0.19608,0.3843} % chapter numbers
+
+% \definecolor{SchoolColor}{HTML}{FDB515} %berkeley gold
+\definecolor{chaptergrey}{HTML}{FDB515} % chapter numbers
 
 \hypersetup{
     colorlinks,
@@ -20,14 +26,14 @@
 % Formatting guidelines found in:
 % http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
 \renewcommand{\frontmatter}{
-	\input{frontmatter/personalize}
-	\maketitle
-	\copyrightpage
-	\abstractpage
+    \input{frontmatter/personalize}
+    \maketitle
+    \copyrightpage
+    \abstractpage
     \dedicationpage
     \tableofcontents
     \acknowledgments
-	% \listoffigures % optional
+    % \listoffigures % optional
     \setcounter{page}{1}
     \pagenumbering{arabic}
 }
@@ -101,8 +107,8 @@
     \setcounter{page}{1}
     \pagenumbering{arabic}
     \pagestyle{fancy}
-    \lhead{Co-advisors: Professors \@coadvisorOne {\textit \&} \@coadvisorTwo}
-    \rhead{\@author}
+    \lhead{Co-advisors: \\\@coadvisorOne ~{\textit \&} \\\@coadvisorTwo}
+    \rhead{\@author\\[\baselineskip]}
     \renewcommand{\headrulewidth}{0.0pt}
     \vspace*{35pt}
     \begin{center}

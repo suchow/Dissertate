@@ -1,5 +1,3 @@
-\ProvidesPackage{packages/Berkeley/style}
-
 % School name and location
 \university{University of California, Berkeley}
 \universitycity{Berkeley}
@@ -8,8 +6,14 @@
 % School color found from university's graphic identity site:
 % http://brand.berkeley.edu/colors/
 
-\definecolor{SchoolColor}{rgb}{0,0.19608,0.3843} %berkeley blue
-\definecolor{chaptergrey}{rgb}{0,0.19608,0.3843} % chapter numbers
+\definecolor{SchoolColor}{HTML}{003262} %berkeley blue
+%\definecolor{chaptergrey}{HTML}{003262} % chapter numbers
+
+% \definecolor{SchoolColor}{rgb}{0,0.19608,0.3843} %berkeley blue
+%\definecolor{chaptergrey}{rgb}{0,0.19608,0.3843} % chapter numbers
+
+% \definecolor{SchoolColor}{HTML}{FDB515} %berkeley gold
+\definecolor{chaptergrey}{HTML}{FDB515} % chapter numbers
 
 \hypersetup{
     colorlinks,
@@ -20,116 +24,115 @@
 }
 
 % Formatting guidelines found in:
-% http://grad.berkeley.edu/academic-progress/dissertation/
+% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
 \renewcommand{\frontmatter}{
-	\input{frontmatter/personalize}
-	\maketitle
-	\copyrightpage
-	\abstractpage
-	\tableofcontents
-	% \listoffigures % optional
-	\dedicationpage
-	\acknowledgments
+    \input{frontmatter/personalize}
+    \maketitle
+    \copyrightpage
+    \abstractpage
+    \dedicationpage
+    \tableofcontents
+    \acknowledgments
+    % \listoffigures % optional
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
 }
-
 
 \renewcommand{\maketitle}{
-	%\thispagestyle{empty}
-	\vspace*{\fill}
-	\vspace{100pt}
-	\begin{center}
-	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
-	\vspace{100pt}
-	By\\
-	\theauthor\\
-	\vspace{12pt}
-	\textsc{A Dissertation submitted in partial satisfaction of the\\
-	requirements for the degree of \\ \@degree\\
-	in\\ \@department\\ in the\\  Graduate Division\\ of the\\
-	\@university\\
-	\vspace{50pt}
-	Committee in charge:\\
-	\vspace{20pt}
-	Professor \@coadvisorOne, Co-chair\\
-	Professor \@coadvisorTwo, Co-chair\\
-	Professor \@committeeInternal\\
-	Professor \@committeeExternal\\
-	\vspace{50pt}
-	\@degreeterm\ \@degreeyear}
-	\end{center} \vspace*{\fill}
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \vspace{10pt}
+    \begin{center}
+    \Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+    \vspace{100pt}
+    By\\
+    \theauthor\\
+    \vspace{12pt}
+    \textsc{A Dissertation submitted in partial satisfaction of the\\
+    requirements for the degree of \\ \@degree\\
+    in\\ \@department\\ in the\\  Graduate Division\\ of the\\
+    \@university\\
+    \vspace{50pt}
+    Committee in charge:\\
+    \vspace{20pt}
+    Professor \@coadvisorOne, Co-chair\\
+    Professor \@coadvisorTwo, Co-chair\\
+    Professor \@committeeInternal\\
+    Professor \@committeeExternal\\
+    \vspace{50pt}
+    \@degreeterm\ \@degreeyear}
+    \end{center} \vspace*{\fill}
 }
+
+
+%\renewcommand{\maketitle}{
+%    \thispagestyle{empty}
+%    \vspace*{\fill}
+%    \vspace{10pt}
+%    \begin{center}
+%    \Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+%    \vspace{100pt}
+%    By\\
+%    \theauthor\\
+%    \vspace{12pt}
+%    \textsc{A Dissertation submitted in partial satisfaction of the\\
+%    requirements for the degree of \\ \@degree\\
+%    in\\ \@department\\ in the\\  Graduate Division\\ of the\\
+%    \@university\\
+%    \vspace{50pt}
+%    Committee in charge:\\
+%    \vspace{20pt}
+%    Professor \@advisor, Chair\\
+%    Professor \@committeeInternalOne\\
+%    Professor \@committeeInternalTwo\\
+%    Professor \@committeeExternal\\
+%    \vspace{50pt}
+%    \@degreeterm\ \@degreeyear}
+%    \end{center} \vspace*{\fill}
+%}
 
 \newcommand{\copyrightpage}{
     \newpage
     \thispagestyle{empty}
     \vspace*{\fill}
-    \scshape \noindent \small \copyright \small 2014\hspace{3pt}-- \theauthor \\
+    \scshape \noindent \small \copyright \small 2015\hspace{3pt}-- \theauthor \\
     \noindent all rights reserved.
     \vspace*{\fill}
     \newpage
     \rm
 }
 
-% The following conditional definition is derived from http://tex.stackexchange.com/questions/131726/conditional-content. This allows the inclusion of the co-advisor consideration.
-
-%\documentclass{article}
-
-% Display the argument if \cond is True/False
-%\newcommand{\IfCond}[2]{%
-%  \ifnum\pdfstrcmp{\cond}{True}=0
-%    \ifnum\pdfstrcmp{}{#1}=0\unskip\else#1\fi%
-%  \else
-%    \ifnum\pdfstrcmp{}{#2}=0\unskip\else#2\fi%
-%  \fi\ignorespaces}
-%
-%% Display the argument if \cond is False
-%\newcommand{\IfCondFalse}[1]{%
-%  \ifnum\pdfstrcmp{\cond}{True}=0 \unskip\else #1\fi\ignorespaces}
-%\begin{document}
-%\def\cond{True}% Version control
-%This is fake \IfCond{text}{hooplah}. \par
-%This is fake \IfCond{}{hooplah}.
-%
-%\def\cond{False}% Version control
-%This is fake \IfCond{text}{hooplah}. \par
-%This is fake \IfCond{text}{}.
-%\end{document}
-
-
-
 \newcommand{\abstractpage}{
-	\newpage
-	\pagenumbering{arabic}
-	\setcounter{page}{1}
-	\pagestyle{fancy}
-	\lhead{Co-advisors: Professors \@coadvisorOne {\textit \&} \@coadvisorTwo}
-	\rhead{\@author}
-	\renewcommand{\headrulewidth}{0.0pt}
-	\vspace*{35pt}
-	\begin{center}
-	\Large \textcolor{SchoolColor}{\@title} \normalsize \\
-	\vspace*{20pt}
-	\scshape Abstract \\ \rm
-	\end{center}
-	\input{frontmatter/abstract}
-	\vspace*{\fill}
-	\newpage \lhead{} \rhead{}
-	\cfoot{\thepage}
+    \newpage
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+    \pagestyle{fancy}
+    \lhead{Co-advisors: \\\@coadvisorOne ~{\textit \&} \\\@coadvisorTwo}
+    \rhead{\@author\\[\baselineskip]}
+    \renewcommand{\headrulewidth}{0.0pt}
+    \vspace*{35pt}
+    \begin{center}
+    \Large \textcolor{SchoolColor}{\@title} \normalsize \\
+    \vspace*{20pt}
+    \scshape Abstract \\ \rm
+    \end{center}
+    \input{frontmatter/abstract}
+    \vspace*{\fill}
+    \newpage \lhead{} \rhead{}
+    \cfoot{\thepage}
 }
 
 \newcommand{\acknowledgments}{
-	\chapter*{Acknowledgments}
-	\noindent
-	\input{frontmatter/thanks}
-	\vspace*{\fill} \newpage
-	\setcounter{page}{1}
-	\pagenumbering{roman}
+    \chapter*{Acknowledgments}
+    \noindent
+    \input{frontmatter/thanks}
+    \vspace*{\fill} \newpage
 }
 
 \newcommand{\dedicationpage}{
-	\newpage \thispagestyle{fancy} \vspace*{\fill}
-	\scshape \noindent \input{frontmatter/dedication}
-	\vspace*{\fill} \newpage \rm
+    \setcounter{page}{1}
+    \pagenumbering{roman}
+    \newpage \thispagestyle{fancy} \vspace*{\fill}
+    \scshape \noindent \input{frontmatter/dedication}
+    \vspace*{\fill} \newpage \rm
 }
-
-
