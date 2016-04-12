@@ -92,3 +92,17 @@
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
 }
+
+
+\renewcommand{\backmatter}{
+    \begin{appendices}
+        \include{chapters/appendixA}
+    \end{appendices}
+    \input{endmatter/personalize}
+    \clearpage
+    \bibliography{references}
+    \addcontentsline{toc}{chapter}{References}
+    \bibliographystyle{apalike2}
+    \include{endmatter/colophon}
+}
+
