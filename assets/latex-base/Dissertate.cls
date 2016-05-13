@@ -13,6 +13,54 @@
 \ProvidesClass{Dissertate}[2014/03/25 v2.0 Dissertate Class]
 \LoadClass[12pt, oneside, letterpaper]{book}
 
+%
+% Options
+%
+\RequirePackage{etoolbox}
+
+% Line spacing: dsingle/ddouble
+%   Whether to use single- or doublespacing.
+\newtoggle{DissertateSingleSpace}
+\togglefalse{DissertateSingleSpace}
+\DeclareOption{dsingle}{
+    \toggletrue{DissertateSingleSpace}
+    \ClassWarning{Dissertate}{Single-spaced mode on.}
+}
+\DeclareOption{ddouble}{\togglefalse{DissertateSingleSpace}}
+
+\ProcessOptions\relax
+
+% Line Spacing
+%   Define two line spacings: one for the body, and one that is more compressed.
+\iftoggle{DissertateSingleSpace}{
+    \newcommand{\dnormalspacing}{1.2}
+    \newcommand{\dcompressedspacing}{1.0}
+}{
+    \newcommand{\dnormalspacing}{2.0}
+    \newcommand{\dcompressedspacing}{1.2}
+}
+
+% Block quote with compressed spacing
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}
+    {\begin{spacing}{\dcompressedspacing}\oldquote}
+    {\endoldquote\end{spacing}}
+
+% Itemize with compressed spacing
+\let\olditemize\itemize
+\let\endolditemize\enditemize
+\renewenvironment{itemize}
+    {\begin{spacing}{\dcompressedspacing}\olditemize}
+    {\endolditemize\end{spacing}}
+
+% Enumerate with compressed spacing
+\let\oldenumerate\enumerate
+\let\endoldenumerate\endenumerate
+\renewenvironment{enumerate}
+    {\begin{spacing}{\dcompressedspacing}\oldenumerate}
+    {\endoldenumerate\end{spacing}}
+
 % Text layout.
 \RequirePackage[width=5.75in, letterpaper]{geometry}
 \usepackage{ragged2e}
