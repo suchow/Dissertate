@@ -19,6 +19,7 @@
 % Formatting guidelines found in:
 % http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
 \renewcommand{\frontmatter}{
+    \certificatepage
 	\input{frontmatter/personalize}
 	\maketitle
 	\copyrightpage
@@ -27,6 +28,18 @@
 	% \listoffigures % optional
 	\dedicationpage
 	\acknowledgments
+}
+
+% Diploma Acceptance Certificate
+\iftoggle{DissertateDraft}{ % No certificate page in draft
+    \newcommand{\certificatepage}{}
+}{                          % Insert certificate page in final version
+    \RequirePackage{pdfpages}
+    \newcommand{\certificatepage}{
+        \pagenumbering{roman}
+        \setcounter{page}{0}
+        \includepdf{certificate.pdf}
+    }
 }
 
 \renewcommand{\maketitle}{
@@ -105,4 +118,3 @@
     \bibliographystyle{apalike2}
     \include{endmatter/colophon}
 }
-
