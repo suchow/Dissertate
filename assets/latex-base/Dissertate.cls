@@ -13,6 +13,24 @@
 \ProvidesClass{Dissertate}[2014/03/25 v2.0 Dissertate Class]
 \LoadClass[12pt, oneside, letterpaper]{book}
 
+%
+% Options
+%
+\RequirePackage{etoolbox}
+
+% Draft: ddraft/dfinal
+%   In draft mode, the following changes are made:
+%     1. Certificate is not included at the beginning of the dissertation.
+\newtoggle{DissertateDraft}
+\togglefalse{DissertateDraft}
+\DeclareOption{ddraft}{
+    \toggletrue{DissertateDraft}
+    \ClassWarning{Dissertate}{Draft mode on.}
+}
+\DeclareOption{dfinal}{\togglefalse{DissertateDraft}}
+
+\ProcessOptions\relax
+
 % Text layout.
 \RequirePackage[width=5.75in, letterpaper]{geometry}
 \usepackage{ragged2e}
