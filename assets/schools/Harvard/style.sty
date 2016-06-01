@@ -68,11 +68,13 @@
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}
 	\begin{center}
-	\Large \textcolor{SchoolColor}{\@title} \normalsize \\
-	\vspace*{20pt}
-	\scshape Abstract \\ \rm
+    	\Large \textcolor{SchoolColor}{\@title} \normalsize \\
+    	\vspace*{20pt}
+    	\scshape Abstract \\ \rm
 	\end{center}
-	\input{frontmatter/abstract}
+    \begin{spacing}{\dnormalspacing}
+    	\input{frontmatter/abstract}
+    \end{spacing}
 	\vspace*{\fill}
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
@@ -87,7 +89,9 @@
 \newcommand{\acknowledgments}{
 	\chapter*{Acknowledgments}
 	\noindent
-	\input{frontmatter/thanks}
+    \begin{spacing}{\dnormalspacing}
+    	\input{frontmatter/thanks}
+    \end{spacing}
 	\vspace*{\fill} \newpage
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
@@ -100,9 +104,10 @@
     \end{appendices}
     \input{endmatter/personalize}
     \clearpage
-    \bibliography{references}
-    \addcontentsline{toc}{chapter}{References}
-    \bibliographystyle{apalike2}
-    \include{endmatter/colophon}
+    \begin{spacing}{\dcompressedspacing}
+        \bibliography{references}
+        \addcontentsline{toc}{chapter}{References}
+        \bibliographystyle{apalike2}
+        \include{endmatter/colophon}
+    \end{spacing}
 }
-
