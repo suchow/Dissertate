@@ -23,13 +23,15 @@
 	\maketitle
 	\copyrightpage
 	\abstractpage
-	\tableofcontents
+    \contentspage
 	% \listoffigures % optional
 	\dedicationpage
 	\acknowledgments
 }
 
 \renewcommand{\maketitle}{
+    \pagenumbering{roman}
+    \setcounter{page}{1}
 	\thispagestyle{empty}
 	\vspace*{\fill}
 	\vspace{100pt}
@@ -60,6 +62,7 @@
 }
 
 \newcommand{\abstractpage}{
+    \pdfbookmark{Abstract}{Abstract}
 	\newpage
 	\pagenumbering{roman}
 	\setcounter{page}{3}
@@ -80,10 +83,19 @@
 	\cfoot{\thepage}
 }
 
+\newcommand{\contentspage}{
+    \pdfbookmark{\contentsname}{Contents}
+    \tableofcontents
+}
+
 \newcommand{\dedicationpage}{
+    \cleardoublepage
+    \phantomsection
+    \pdfbookmark{Dedication}{Dedication}
 	\newpage \thispagestyle{fancy} \vspace*{\fill}
 	\scshape \noindent \input{frontmatter/dedication}
 	\vspace*{\fill} \newpage \rm
+    \cleardoublepage
 }
 
 \newcommand{\acknowledgments}{
