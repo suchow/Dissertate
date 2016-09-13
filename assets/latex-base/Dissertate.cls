@@ -96,6 +96,8 @@
                 figurewithin=chapter,
                 tablewithin=chapter]{caption}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\RequirePackage{microtype}
+
 
 % Headings and headers.
 \RequirePackage{fancyhdr}
