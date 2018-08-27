@@ -5,7 +5,7 @@
 
 Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. [Here's a sample](https://s3.amazonaws.com/dissertate.io/generic.pdf).
 
-**Note**: if you are just here for the templates, download them here:
+**Note**: if you are only here for the templates, download them here:
 - [Harvard](https://s3.amazonaws.com/dissertate.io/Dissertate-Harvard-LaTeX.zip)
 - [NYU](https://s3.amazonaws.com/dissertate.io/Dissertate-NYU-LaTeX.zip)
 - [Princeton](https://s3.amazonaws.com/dissertate.io/Dissertate-Princeton-LaTeX.zip)
