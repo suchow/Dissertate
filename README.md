@@ -16,4 +16,4 @@ One of the biggest hurdles in submitting a thesis or dissertation is getting the
 
 # Example College
 [Burton, Lea E. (Year). *Title of Dissertation*. University] (URL)
-[Limor, Gultchin. (2017). *Just for Laughts: Utilizing Machine Learning to Rate and Generate Humorous Analogies*. Harvard University.] (https://dash.harvard.edu/handle/1/38811513) 
+[Limor, Gultchin. (2017). *Just for Laughts: Utilizing Machine Learning to Rate and Generate Humorous Analogies*. Harvard University.](https://dash.harvard.edu/handle/1/38811513). 
