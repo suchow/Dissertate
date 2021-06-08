@@ -44,7 +44,8 @@ PSL Research University].](https://www.theses.fr/2018PSLEH156.pdf)
 Essays on cultural adaptation.* [Unpublished doctoral dissertation, Universit´a di Bologna].](http://amsdottorato.unibo.it/9116/3/Asri%20thesis.pdf)
 - [ Harutyunyan, Nikolay. (2019). *Corporate Open Source Governance of
 Software Supply Chains.* [Unpublished doctoral dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_Harutyunyan_Nikolay.pdf)
-
+- [Peterson, Joshua C. (2018). *Leveraging deep neural networks to study human cognition.* (Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/leveraging-deep-neural-networks-study-human/docview/2135826689/se-2?accountid=201395)
+- 
 
 
 
