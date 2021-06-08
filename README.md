@@ -25,7 +25,6 @@ clicks of Pilot Whales.* [Master's thesis, Harvard University].](http://sabiod.u
 - [Zhai, Hongjie. (2018). *Study on Discovery and Exploration
 Systems Considering User’s Intention*. [Unpublished doctoral dissertation, Hokkaido University].](https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/70225/1/Zhai_HongJie.pdf)
 - [Garruss, Alexander Shineman. (2020). *Accelerating the Understanding and Design of Intracellular Biosensors by Massively Multiplexed Experimentation and Machine Learning.* (Pulication No. 28265270) [Doctoral dissertation, Harvard University].](https://media.proquest.com/media/hms/PFT/2/PwWSI?_s=A2LLUBgS1hBgpi%2FFbEc9h1uFGNk%3D)
-- [Noyen, Kay. (2015). *Towards Understanding the Behavioral Mechanics of Crowdsourcing - Insights from a Mobile Travel Risk Application.* [Unpublished doctoral dissertation, Swiss Federal Institute of Technology in Zürich or ETH Zürich].](https://studylib.net/doc/18569099/fulltext)
 - [Pérez, Víctor Javier Jiménez. (2016). *Improving the Efficiency of Multicore
 Systems Through Software and Hardware Cooperation.* [Unpublished doctoral dissertation, Universitat Politè cnica de Catalunya – Barcelona Tech Barcelona].](https://upcommons.upc.edu/bitstream/handle/2117/105576/TVJJP1de1.pdf?sequence=1&isAllowed=y)
 - [Malygin, Mykola G. (2016). *Gas Opacity in Planet and Star Formation.* [Unpublished doctoral dissertation, Ruperto Carola Universitat].](https://www.imprs-hd.mpg.de/81761/thesis_malygin.pdf)
