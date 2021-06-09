@@ -44,7 +44,18 @@ Essays on cultural adaptation.* [Unpublished doctoral dissertation, Universit´a
 - [ Harutyunyan, Nikolay. (2019). *Corporate Open Source Governance of
 Software Supply Chains.* [Unpublished doctoral dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_Harutyunyan_Nikolay.pdf)
 - [Peterson, Joshua C. (2018). *Leveraging deep neural networks to study human cognition.* (Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/leveraging-deep-neural-networks-study-human/docview/2135826689/se-2?accountid=201395)
+- [Meylan, Stephan C. (2018). *Representing linguistic knowledge with probabilistic models.* (Publication No. 10931065)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/representing-linguistic-knowledge-with/docview/2135808388/se-2?accountid=201395)
+- [Langlois, Thomas A. (2018). *Uncovering Human Visual Priors.* (Publication No. 10931026)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/uncovering-human-visual-priors/docview/2135826687/se-2?accountid=201395)
+- [Vlastakis, Brian Michael. (2015). *Controlling coherent state superpositions with
+superconducting circuits.* (Publication No. 10013061)[Doctoral dissertation, Yale University].](https://www.proquest.com/dissertations-theses/controlling-coherent-state-superpositions-with/docview/1765648577/se-2?accountid=201395)
+- [Pacer, Michael D. (2016). *Mind as Theory Engine:
+Causation, Explanation and Time.* (Publication No. 10194103)[University of California, Berkeley].](https://www.proquest.com/dissertations-theses/mind-as-theory-engine-causation-explanation-time/docview/1916533628/se-2?accountid=201395)
+- [Heinrich, Lukas. (2019). *Searches for Supersymmetry, RECAST, and
+Contributions to Computational High
+Energy Physics.* (Publication No. 13421570) [Doctoral dissertation, New York University].](https://www.proquest.com/dissertations-theses/searches-supersymmetry-recast-contributions/docview/2201490026/se-2?accountid=201395)
 - 
+
+
 
 
 
