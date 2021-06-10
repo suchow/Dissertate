@@ -14,7 +14,7 @@ Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. [
 
 One of the biggest hurdles in submitting a thesis or dissertation is getting the formatting right — the rules are arcane, and the registrar is pedantic. Few students have the background needed to design and typeset clean and stylish documents. Enter Dissertate. Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. To date, the software provides everything needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, NYU, and UC Berkeley, though it will be adapted to meet the requirements of other schools — eventually all of them. The format and styling are based closely on the requirements published by each university's registrar.
 
-# Examples of Dissertations
+# Examples of Dissertations using Dissertate
 - [Limor, Gultchin. (2017). *Just for Laughts: Utilizing Machine Learning to Rate and Generate Humorous Analogies.* [Senior thesis, Harvard College].](https://dash.harvard.edu/handle/1/38811513)
 - [Ayala, Peter. (2019). *Evaluating Stock Market Performance Using Aggregated Employee Reviews.* [Bachelor's thesis, Harvard College].](https://dash.harvard.edu/handle/1/37364656)
 - [Randle, Dylan L. (2020). *Unsupervised Neural Network Methods for Solvong Differential Equations.* [Master's thesis, Harvard University].](https://dylanrandle.github.io/denn/Harvard_Masters_Thesis_Submit.pdf)
