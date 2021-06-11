@@ -64,7 +64,7 @@ in Low-Density Settings* [Senior thesis, Harvard University, Cambridge, Massachu
 communication* [Unpublished doctoral dissertation, Stanford University, Stanford, CA].](https://stacks.stanford.edu/file/druid:yk028zn8777/dissertation-augmented.pdf)
 - [Shannon, Matthew. (2016). *The Spectral Variability of Astronomical PAHs* [Published doctoral dissertation, The University of Western Ontario].](http://www.astrochem.org/docs/The%20spectral%20variability%20of%20astronomical%20PAHs.pdf)
 - [Duong, Ly. (2018). *Unravelling the evolution of the Galactic
-stellar disk & bulge* (Doctoral dissertation, Austrailian National University].](https://openresearch-repository.anu.edu.au/bitstream/1885/149502/5/dissertation_print_LDuong_finalv2.pdf)
+stellar disk & bulge* [Doctoral dissertation, Austrailian National University].](https://openresearch-repository.anu.edu.au/bitstream/1885/149502/5/dissertation_print_LDuong_finalv2.pdf)
 - [Qin, Chongli. (2020). *Phylogenetic Signals in Protein Data* [Doctoral dissertation, Selwyn College, University of Cambridge, Cambridge, Cambridgeshire].](https://www.repository.cam.ac.uk/bitstream/handle/1810/318986/PhD_thesis_V3.pdf?sequence=11&isAllowed=y)
 - [Lubitz, Timo. (2016). *From signal to metabolism: A journey through the regulatory layers of the cell* [Doctoral dissertation, Humboldt-Universität zu Berlin].](https://edoc.hu-berlin.de/bitstream/handle/18452/18150/lubitz.pdf?sequence=1)
 - [Buczkowska, Sabina. (2017). *Quantitative models of establishments location choices :
@@ -79,12 +79,11 @@ social distance on spatial attention* [Doctoral dissertation, Flinders Universit
 - [Leonard, Mark. Ryan. (2019). *Robust Signal Processing in
 Distributed Sensor Networks* [Unpublished doctoral dissertation, Technische Universität Darmstadt].](https://tuprints.ulb.tu-darmstadt.de/8489/1/2019-02-15_Leonard_Mark_Ryan.pdf)
 - [Harutyunyan, Nikolay. (2019). *Corporate Open Source Governance of
-Software Supply Chains* (Unpublished doctoral dissertation, Friedrich-Alexander-Universität
+Software Supply Chains* [Unpublished doctoral dissertation, Friedrich-Alexander-Universität
 Erlangen-Nürnberg].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_Harutyunyan_Nikolay.pdf)
-[Lim Yong San, Gilbert. (2015). *Automated Methods for Retinopathy and Glaucoma Screening* [Doctoral dissertation, National University of Singapore].](https://www.academia.edu/36587574/Automated_Methods_for_Retinopathy_and_Glaucoma_Screening)
+-[Lim Yong San, Gilbert. (2015). *Automated Methods for Retinopathy and Glaucoma Screening* [Doctoral dissertation, National University of Singapore].](https://www.academia.edu/36587574/Automated_Methods_for_Retinopathy_and_Glaucoma_Screening)
 -[Dimiduk, Thomas. G. (2016). *Holographic Microscopy for Soft Matter
 and Biophysics* [Unpublished doctoral dissertation, Harvard University, Cambridge, Massachusetts].](http://tom.dimiduk.net/files/dimiduk_thesis.pdf)
--
 
 
 
