@@ -78,9 +78,6 @@ Topological Phases of Quantum Matter* [Doctoral dissertation, Harvard University
 social distance on spatial attention* [Doctoral dissertation, Flinders University, Adelaide, South Australia].](https://flex.flinders.edu.au/file/0f664187-d49c-41b2-99c8-c2b6b98fdcfe/1/Szpak,%20A.%20PhD%20Thesis%202016.pdf)
 - [Leonard, Mark. Ryan. (2019). *Robust Signal Processing in
 Distributed Sensor Networks* [Unpublished doctoral dissertation, Technische Universität Darmstadt].](https://tuprints.ulb.tu-darmstadt.de/8489/1/2019-02-15_Leonard_Mark_Ryan.pdf)
-- [Harutyunyan, Nikolay. (2019). *Corporate Open Source Governance of
-Software Supply Chains* [Unpublished doctoral dissertation, Friedrich-Alexander-Universität
-Erlangen-Nürnberg].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_Harutyunyan_Nikolay.pdf)
 - [Dimiduk, Thomas. G. (2016). *Holographic Microscopy for Soft Matter
 and Biophysics* [Unpublished doctoral dissertation, Harvard University, Cambridge, Massachusetts].](http://tom.dimiduk.net/files/dimiduk_thesis.pdf)
 - [Lim Yong San, Gilbert. (2015). *Automated Methods for Retinopathy and Glaucoma Screening* [Doctoral dissertation, National University of Singapore].](https://www.academia.edu/36587574/Automated_Methods_for_Retinopathy_and_Glaucoma_Screening)
