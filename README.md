@@ -84,6 +84,9 @@ Erlangen-Nürnberg].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_H
 - [Dimiduk, Thomas. G. (2016). *Holographic Microscopy for Soft Matter
 and Biophysics* [Unpublished doctoral dissertation, Harvard University, Cambridge, Massachusetts].](http://tom.dimiduk.net/files/dimiduk_thesis.pdf)
 - [Lim Yong San, Gilbert. (2015). *Automated Methods for Retinopathy and Glaucoma Screening* [Doctoral dissertation, National University of Singapore].](https://www.academia.edu/36587574/Automated_Methods_for_Retinopathy_and_Glaucoma_Screening)
+- [Kuszlewicz, James. Stevenson. (2017). *Buoyancy-driven oscillations in helio- and
+asteroseismology* [Doctoral dissertation, University of Birmingham].](https://etheses.bham.ac.uk/id/eprint/7658/2/Kuszlewicz17PhD.pdf)
+
 
 
 
