@@ -17,15 +17,15 @@ One of the biggest hurdles in submitting a thesis or dissertation is getting the
 # Examples of Dissertations using Dissertate
 ## Harvard College & Harvard University
 - Limor, Gultchin. (2017). [*Just for Laughts: Utilizing Machine Learning to Rate and Generate Humorous Analogies*](https://dash.harvard.edu/handle/1/38811513) [Senior thesis, Harvard College].
-- [Ayala, Peter. (2019). *Evaluating Stock Market Performance Using Aggregated Employee Reviews* [Bachelor's thesis, Harvard College].](https://dash.harvard.edu/handle/1/37364656)
-- [Randle, Dylan L. (2020). *Unsupervised Neural Network Methods for Solvong Differential Equations* [Master's thesis, Harvard University].](https://dylanrandle.github.io/denn/Harvard_Masters_Thesis_Submit.pdf)
-- - [Garruss, Alexander Shineman. (2020). *Accelerating the Understanding and Design of Intracellular Biosensors by Massively Multiplexed Experimentation and Machine Learning* (Pulication No. 28265270) [Doctoral dissertation, Harvard University].](https://media.proquest.com/media/hms/PFT/2/PwWSI?_s=A2LLUBgS1hBgpi%2FFbEc9h1uFGNk%3D)
-- [Fu, Daniel. Y. (2018). *Design of Influencing Agents for Flocking
-in Low-Density Settings* [Senior thesis, Harvard University, Cambridge, Massachusetts].](https://www.danfu.org/files/SeniorThesis.pdf)
-- [Xiong, Zhaoxi. (2019). *Classification and Construction of
-Topological Phases of Quantum Matter* [Doctoral dissertation, Harvard University, Cambridge, Massachusetts].](https://arxiv.org/pdf/1906.02892.pdf)
-- [Dimiduk, Thomas. G. (2016). *Holographic Microscopy for Soft Matter
-and Biophysics* [Unpublished doctoral dissertation, Harvard University, Cambridge, Massachusetts].](http://tom.dimiduk.net/files/dimiduk_thesis.pdf)
+- Ayala, Peter. (2019). [*Evaluating Stock Market Performance Using Aggregated Employee Reviews*](https://dash.harvard.edu/handle/1/37364656)[Bachelor's thesis, Harvard College].
+- Randle, Dylan L. (2020). [*Unsupervised Neural Network Methods for Solvong Differential Equations*](https://dylanrandle.github.io/denn/Harvard_Masters_Thesis_Submit.pdf) [Master's thesis, Harvard University].
+- Garruss, Alexander Shineman. (2020). [*Accelerating the Understanding and Design of Intracellular Biosensors by Massively Multiplexed Experimentation and Machine Learning*](https://media.proquest.com/media/hms/PFT/2/PwWSI?_s=A2LLUBgS1hBgpi%2FFbEc9h1uFGNk%3D) (Pulication No. 28265270) [Doctoral dissertation, Harvard University].
+- Fu, Daniel. Y. (2018). [*Design of Influencing Agents for Flocking
+in Low-Density Settings*](https://www.danfu.org/files/SeniorThesis.pdf)[Senior thesis, Harvard University, Cambridge, Massachusetts].]
+- Xiong, Zhaoxi. (2019). [*Classification and Construction of
+Topological Phases of Quantum Matter*](https://arxiv.org/pdf/1906.02892.pdf)[Doctoral dissertation, Harvard University, Cambridge, Massachusetts].]
+- Dimiduk, Thomas. G. (2016). [*Holographic Microscopy for Soft Matter
+and Biophysics*](http://tom.dimiduk.net/files/dimiduk_thesis.pdf)[Unpublished doctoral dissertation, Harvard University, Cambridge, Massachusetts].
 
 ## Hokkaido University
 - [Zhai, Hongjie. (2018). *Study on Discovery and Exploration
