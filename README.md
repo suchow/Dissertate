@@ -31,14 +31,14 @@ and Biophysics* [Unpublished doctoral dissertation, Harvard University, Cambridg
 - [Zhai, Hongjie. (2018). *Study on Discovery and Exploration
 Systems Considering User’s Intention* [Unpublished doctoral dissertation, Hokkaido University].](https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/70225/1/Zhai_HongJie.pdf)
 
-## Universitat Politè cnica de Catalunya
+## The Polytechnic University of Catalonia
 - [Pérez, Víctor Javier Jiménez. (2016). *Improving the Efficiency of Multicore
 Systems Through Software and Hardware Cooperation* [Doctoral dissertation, Universitat Politè cnica de Catalunya – Barcelona Tech Barcelona].](https://upcommons.upc.edu/bitstream/handle/2117/105576/TVJJP1de1.pdf?sequence=1&isAllowed=y)
 
-## Ruperto Carola Universitat
+## Ruprecht Karl University of Heidelberg
 - [Malygin, Mykola G. (2016). *Gas Opacity in Planet and Star Formation* [Unpublished doctoral dissertation, Ruperto Carola Universitat].](https://www.imprs-hd.mpg.de/81761/thesis_malygin.pdf)
 
-## Universität Oldenburg
+## University of Oldenburg
 - [Hornauer, Sascha Alexander. (2016). *Maritime Trajectory Negotiation for
 n-Vessel Collision Avoidance* [Unpublished doctoral dissertation, Universität Oldenburg].](https://uol.de/f/2/dept/informatik/hormar16.pdf)
 
@@ -53,7 +53,7 @@ medical diagnostics* [Unpublushed doctoral dissertation, University of Warsaw].]
 ## University of Zurich
 - [Asri, Maria Viola. (2021). *Social Pensions for Greying India – Empirical Analyses of Potential Effectiveness Constraints* [Doctoral dissertation, University of Zurich].](https://doi.org/10.5167/uzh-202724)
 
-## de l’Université de recherche Paris Sciences et Lettres PSL Research University
+## Paris Sciences et Lettres University
 - [Saussay, Aurelien. (2018). *Trois essais sur les prix de l'énergie
 et la transition énergétique* [Unpublished doctoral dissertation, de l’Université de recherche Paris Sciences et Lettres
 PSL Research University].](https://www.theses.fr/2018PSLEH156.pdf)
@@ -61,11 +61,11 @@ PSL Research University].](https://www.theses.fr/2018PSLEH156.pdf)
 ## University of Mannheim
 - [Pietrantuono, Giuseppe. (2016). *The Value of Citizenship. Experimental and Quasi-experimental Evidence from Germany and Switzerland* [Unpublished doctoral dissertation, University of Mannheim].](http://madoc.bib.uni-mannheim.de/41290/1/dissertation_pflichtexemplare.pdf)
 
-## Universit´a di Bologna
+## University of Bologna
 - [Asri, Ankush. (2019). *When Giulia and Andrea meet Salma and Omar:
 Essays on cultural adaptation* [Unpublished doctoral dissertation, Universit´a di Bologna].](http://amsdottorato.unibo.it/9116/3/Asri%20thesis.pdf)
 
-## Friedrich-Alexander-Universität
+## Friedrich–Alexander University Erlangen–Nürnberg
 - [ Harutyunyan, Nikolay. (2019). *Corporate Open Source Governance of
 Software Supply Chains* [Unpublished doctoral dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_Harutyunyan_Nikolay.pdf)
 
@@ -108,10 +108,10 @@ stellar disk & bulge* [Doctoral dissertation, Austrailian National University].]
 ## University of Cambridge
 - [Qin, Chongli. (2020). *Phylogenetic Signals in Protein Data* [Doctoral dissertation, Selwyn College, University of Cambridge, Cambridge, Cambridgeshire].](https://www.repository.cam.ac.uk/bitstream/handle/1810/318986/PhD_thesis_V3.pdf?sequence=11&isAllowed=y)
 
-## Humboldt-Universität zu Berlin
+## Humboldt University of Berlin
 - [Lubitz, Timo. (2016). *From signal to metabolism: A journey through the regulatory layers of the cell* [Doctoral dissertation, Humboldt-Universität zu Berlin].](https://edoc.hu-berlin.de/bitstream/handle/18452/18150/lubitz.pdf?sequence=1)
 
-## Université Paris-Est
+## Paris-East Créteil University
 - [Buczkowska, Sabina. (2017). *Quantitative models of establishments location choices :
 spatial effects and strategic interactions* [Doctoral dissertation, Université Paris-Est].](https://tel.archives-ouvertes.fr/tel-01835289/document)
 
@@ -128,7 +128,7 @@ spatial effects and strategic interactions* [Doctoral dissertation, Université 
 -[Szpak, Ancrêt. L. (2015). *The Social Space Around Us: the effect of
 social distance on spatial attention* [Doctoral dissertation, Flinders University, Adelaide, South Australia].](https://flex.flinders.edu.au/file/0f664187-d49c-41b2-99c8-c2b6b98fdcfe/1/Szpak,%20A.%20PhD%20Thesis%202016.pdf)
 
-## Technische Universität Darmstadt
+## Technical University of Darmstadt
 - [Leonard, Mark. Ryan. (2019). *Robust Signal Processing in
 Distributed Sensor Networks* [Unpublished doctoral dissertation, Technische Universität Darmstadt].](https://tuprints.ulb.tu-darmstadt.de/8489/1/2019-02-15_Leonard_Mark_Ryan.pdf)
 
