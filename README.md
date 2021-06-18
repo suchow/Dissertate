@@ -20,7 +20,7 @@ One of the biggest hurdles in submitting a thesis or dissertation is getting the
 stellar disk & bulge*](https://openresearch-repository.anu.edu.au/bitstream/1885/149502/5/dissertation_print_LDuong_finalv2.pdf)[Doctoral dissertation, Austrailian National University].
 
 ## Flinders University
--Szpak, Ancrêt. L. (2015). [*The Social Space Around Us: the effect of
+- Szpak, Ancrêt. L. (2015). [*The Social Space Around Us: the effect of
 social distance on spatial attention*](https://flex.flinders.edu.au/file/0f664187-d49c-41b2-99c8-c2b6b98fdcfe/1/Szpak,%20A.%20PhD%20Thesis%202016.pdf)[Doctoral dissertation, Flinders University, Adelaide, South Australia].
 
 ## Friedrich–Alexander University Erlangen–Nürnberg
@@ -67,13 +67,13 @@ PSL Research University].
 - Malygin, Mykola G. (2016). [*Gas Opacity in Planet and Star Formation*](https://www.imprs-hd.mpg.de/81761/thesis_malygin.pdf)[Unpublished doctoral dissertation, Ruperto Carola Universitat].
 
 ## Saint Martin’s University
--Lentz, Jotham C. (2018). [*A Fuzzy Architecture for Robotics Sensor
+- Lentz, Jotham C. (2018). [*A Fuzzy Architecture for Robotics Sensor
 Information Integration*](http://ricopic.one/mme/theses/Lentz_Jotham.pdf)[Master's thesis, Saint Martin’s University, Lacey, Washington].
 - Mortimer, Laura A. (2017). [*Fluid Velocity Vector Field Measurement in
 Synovial Joints*](http://ricopic.one/mme/theses/Mortimer_Laura.pdf)[Master's thsis, Saint Martin’s University, Lacey, Washington].
 
 ## Stanford University
--Hawkins, Robert. D. (2019). [*Coordinating on meaning in
+- Hawkins, Robert. D. (2019). [*Coordinating on meaning in
 communication*](https://stacks.stanford.edu/file/druid:yk028zn8777/dissertation-augmented.pdf)[Unpublished doctoral dissertation, Stanford University, Stanford, CA].
 
 ## Technical University of Darmstadt
