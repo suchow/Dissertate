@@ -131,7 +131,7 @@ medical diagnostics*](https://www.mimuw.edu.pl/sites/default/files/piotr_dittwal
 
 ## The University of Western Ontario
 - Shannon, Matthew. (2016). [*The Spectral Variability of Astronomical PAHs*](http://www.astrochem.org/docs/The%20spectral%20variability%20of%20astronomical%20PAHs.pdf)[Published doctoral dissertation, The University of Western Ontario].
-- 
+
 ## University of Zurich
 - Asri, Maria Viola. (2021). [*Social Pensions for Greying India – Empirical Analyses of Potential Effectiveness Constraints*](https://doi.org/10.5167/uzh-202724)[Doctoral dissertation, University of Zurich].
 
