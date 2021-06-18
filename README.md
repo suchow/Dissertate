@@ -15,6 +15,18 @@ Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. [
 One of the biggest hurdles in submitting a thesis or dissertation is getting the formatting right — the rules are arcane, and the registrar is pedantic. Few students have the background needed to design and typeset clean and stylish documents. Enter Dissertate. Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. To date, the software provides everything needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, NYU, and UC Berkeley, though it will be adapted to meet the requirements of other schools — eventually all of them. The format and styling are based closely on the requirements published by each university's registrar.
 
 # Examples of Dissertations using Dissertate
+## Austrailian National University
+- [Duong, Ly. (2018). *Unravelling the evolution of the Galactic
+stellar disk & bulge* [Doctoral dissertation, Austrailian National University].](https://openresearch-repository.anu.edu.au/bitstream/1885/149502/5/dissertation_print_LDuong_finalv2.pdf)
+
+## Flinders University
+-[Szpak, Ancrêt. L. (2015). *The Social Space Around Us: the effect of
+social distance on spatial attention* [Doctoral dissertation, Flinders University, Adelaide, South Australia].](https://flex.flinders.edu.au/file/0f664187-d49c-41b2-99c8-c2b6b98fdcfe/1/Szpak,%20A.%20PhD%20Thesis%202016.pdf)
+
+## Friedrich–Alexander University Erlangen–Nürnberg
+- [ Harutyunyan, Nikolay. (2019). *Corporate Open Source Governance of
+Software Supply Chains* [Unpublished doctoral dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_Harutyunyan_Nikolay.pdf)
+
 ## Harvard College & Harvard University
 - Ayala, Peter. (2019). [*Evaluating Stock Market Performance Using Aggregated Employee Reviews*](https://dash.harvard.edu/handle/1/37364656)[Bachelor's thesis, Harvard College].
 - Dimiduk, Thomas. G. (2016). [*Holographic Microscopy for Soft Matter
@@ -32,12 +44,76 @@ Topological Phases of Quantum Matter*](https://arxiv.org/pdf/1906.02892.pdf)[Doc
 - [Zhai, Hongjie. (2018). *Study on Discovery and Exploration
 Systems Considering User’s Intention* [Unpublished doctoral dissertation, Hokkaido University].](https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/70225/1/Zhai_HongJie.pdf)
 
+## Humboldt University of Berlin
+- [Lubitz, Timo. (2016). *From signal to metabolism: A journey through the regulatory layers of the cell* [Doctoral dissertation, Humboldt-Universität zu Berlin].](https://edoc.hu-berlin.de/bitstream/handle/18452/18150/lubitz.pdf?sequence=1)
+
+## National University of Singapore
+- [Lim Yong San, Gilbert. (2015). *Automated Methods for Retinopathy and Glaucoma Screening* [Doctoral dissertation, National University of Singapore].](https://www.academia.edu/36587574/Automated_Methods_for_Retinopathy_and_Glaucoma_Screening)
+
+## New York University
+- [Heinrich, Lukas. (2019). *Searches for Supersymmetry, RECAST, and
+Contributions to Computational High
+Energy Physics* (Publication No. 13421570) [Doctoral dissertation, New York University].](https://www.proquest.com/dissertations-theses/searches-supersymmetry-recast-contributions/docview/2201490026/se-2?accountid=201395)
+
+## Paris-East Créteil University
+- [Buczkowska, Sabina. (2017). *Quantitative models of establishments location choices :
+spatial effects and strategic interactions* [Doctoral dissertation, Université Paris-Est].](https://tel.archives-ouvertes.fr/tel-01835289/document)
+
+## Paris Sciences et Lettres University
+- [Saussay, Aurelien. (2018). *Trois essais sur les prix de l'énergie
+et la transition énergétique* [Unpublished doctoral dissertation, de l’Université de recherche Paris Sciences et Lettres
+PSL Research University].](https://www.theses.fr/2018PSLEH156.pdf)
+
+## Ruprecht Karl University of Heidelberg
+- [Malygin, Mykola G. (2016). *Gas Opacity in Planet and Star Formation* [Unpublished doctoral dissertation, Ruperto Carola Universitat].](https://www.imprs-hd.mpg.de/81761/thesis_malygin.pdf)
+
+## Saint Martin’s University
+-[Lentz, Jotham C. (2018). *A Fuzzy Architecture for Robotics Sensor
+Information Integration* [Master's thesis, Saint Martin’s University, Lacey, Washington].](http://ricopic.one/mme/theses/Lentz_Jotham.pdf)
+- [Mortimer, Laura A. (2017). *Fluid Velocity Vector Field Measurement in
+Synovial Joints* [Master's thsis, Saint Martin’s University, Lacey, Washington].](http://ricopic.one/mme/theses/Mortimer_Laura.pdf)
+
+## Stanford University
+-[Hawkins, Robert. D. (2019). *Coordinating on meaning in
+communication* [Unpublished doctoral dissertation, Stanford University, Stanford, CA].](https://stacks.stanford.edu/file/druid:yk028zn8777/dissertation-augmented.pdf)
+
+## Technical University of Darmstadt
+- [Leonard, Mark. Ryan. (2019). *Robust Signal Processing in
+Distributed Sensor Networks* [Unpublished doctoral dissertation, Technische Universität Darmstadt].](https://tuprints.ulb.tu-darmstadt.de/8489/1/2019-02-15_Leonard_Mark_Ryan.pdf)
+
 ## The Polytechnic University of Catalonia
 - [Pérez, Víctor Javier Jiménez. (2016). *Improving the Efficiency of Multicore
 Systems Through Software and Hardware Cooperation* [Doctoral dissertation, Universitat Politè cnica de Catalunya – Barcelona Tech Barcelona].](https://upcommons.upc.edu/bitstream/handle/2117/105576/TVJJP1de1.pdf?sequence=1&isAllowed=y)
 
-## Ruprecht Karl University of Heidelberg
-- [Malygin, Mykola G. (2016). *Gas Opacity in Planet and Star Formation* [Unpublished doctoral dissertation, Ruperto Carola Universitat].](https://www.imprs-hd.mpg.de/81761/thesis_malygin.pdf)
+## University of Amsterdam
+- [Lê, Hoàng-Ân. (2021). *Outdoor image understanding from multiple vision modalities* [Doctoral dissertation, University of Amsterdam].](https://pure.uva.nl/ws/files/60160532/Thesis.pdf)
+
+## University of Birmingham
+- [Kuszlewicz, James. Stevenson. (2017). *Buoyancy-driven oscillations in helio- and
+asteroseismology* [Doctoral dissertation, University of Birmingham].](https://etheses.bham.ac.uk/id/eprint/7658/2/Kuszlewicz17PhD.pdf)
+
+## University of Bologna
+- [Asri, Ankush. (2019). *When Giulia and Andrea meet Salma and Omar:
+Essays on cultural adaptation* [Unpublished doctoral dissertation, Universit´a di Bologna].](http://amsdottorato.unibo.it/9116/3/Asri%20thesis.pdf)
+
+## Universite de Bordeaux
+- [Golemo, Florian. (2018). *How to Train Your Robot - New Environments for Robotic Training and New Methods for Transferring Policies from the Simulator to the Real Robot* [Doctoral dissertation, Universite de Bordeaux, Bordeaux, France].](https://hal.inria.fr/tel-01974203/file/89722_GOLEMO_2018_archivage.pdf)
+
+## University of California, Berkeley
+- [Langlois, Thomas A. (2018). *Uncovering Human Visual Priors* (Publication No. 10931026)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/uncovering-human-visual-priors/docview/2135826687/se-2?accountid=201395)
+- [Meylan, Stephan C. (2018). *Representing linguistic knowledge with probabilistic models* (Publication No. 10931065)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/representing-linguistic-knowledge-with/docview/2135808388/se-2?accountid=201395)
+- [Pacer, Michael D. (2016). *Mind as Theory Engine:
+Causation, Explanation and Time* (Publication No. 10194103)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/mind-as-theory-engine-causation-explanation-time/docview/1916533628/se-2?accountid=201395)
+- [Peterson, Joshua C. (2018). *Leveraging deep neural networks to study human cognition* (Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/leveraging-deep-neural-networks-study-human/docview/2135826689/se-2?accountid=201395)
+
+## University of Cambridge
+- [Qin, Chongli. (2020). *Phylogenetic Signals in Protein Data* [Doctoral dissertation, Selwyn College, University of Cambridge, Cambridge, Cambridgeshire].](https://www.repository.cam.ac.uk/bitstream/handle/1810/318986/PhD_thesis_V3.pdf?sequence=11&isAllowed=y)
+
+## University of Groningen
+- [Driesprong, F. T. (2015). *Web-scale outlier detection* [Master's thesis, University of Groningen, Groningen, Netherlands].](https://fse.studenttheses.ub.rug.nl/13549/1/Masterscriptie.pdf)
+
+## University of Mannheim
+- [Pietrantuono, Giuseppe. (2016). *The Value of Citizenship. Experimental and Quasi-experimental Evidence from Germany and Switzerland* [Unpublished doctoral dissertation, University of Mannheim].](http://madoc.bib.uni-mannheim.de/41290/1/dissertation_pflichtexemplare.pdf)
 
 ## University of Oldenburg
 - [Hornauer, Sascha Alexander. (2016). *Maritime Trajectory Negotiation for
@@ -47,98 +123,23 @@ n-Vessel Collision Avoidance* [Unpublished doctoral dissertation, Universität O
 - [Li, Chuan. (2014). *Superconducting proximity effect in Graphene
 and Bi nanowire junctions* [Unpublished doctoral dissertation, University of Paris Sud].](https://tel.archives-ouvertes.fr/tel-01142084/file/VD2_LI_CHUAN_26112014.pdf)
 
+## University of Virginia
+- [Yanhaona, Muhammad. Nur. (2017). *PCubeS Type Architecture and IT Programming Language* [Doctoral dissertation, University of Virgina].](https://libraetd.lib.virginia.edu/downloads/8c97kq430?filename=Yan_PhD_Dissertation.pdf)
+
 ## University of Warsaw
 - [Dittwald, Piotr. (2014). *Computational methods for large-scale data in
 medical diagnostics* [Unpublushed doctoral dissertation, University of Warsaw].](https://www.mimuw.edu.pl/sites/default/files/piotr_dittwald_pd-dok.pdf)
 
+## The University of Western Ontario
+- [Shannon, Matthew. (2016). *The Spectral Variability of Astronomical PAHs* [Published doctoral dissertation, The University of Western Ontario].](http://www.astrochem.org/docs/The%20spectral%20variability%20of%20astronomical%20PAHs.pdf)
+- 
 ## University of Zurich
 - [Asri, Maria Viola. (2021). *Social Pensions for Greying India – Empirical Analyses of Potential Effectiveness Constraints* [Doctoral dissertation, University of Zurich].](https://doi.org/10.5167/uzh-202724)
-
-## Paris Sciences et Lettres University
-- [Saussay, Aurelien. (2018). *Trois essais sur les prix de l'énergie
-et la transition énergétique* [Unpublished doctoral dissertation, de l’Université de recherche Paris Sciences et Lettres
-PSL Research University].](https://www.theses.fr/2018PSLEH156.pdf)
-
-## University of Mannheim
-- [Pietrantuono, Giuseppe. (2016). *The Value of Citizenship. Experimental and Quasi-experimental Evidence from Germany and Switzerland* [Unpublished doctoral dissertation, University of Mannheim].](http://madoc.bib.uni-mannheim.de/41290/1/dissertation_pflichtexemplare.pdf)
-
-## University of Bologna
-- [Asri, Ankush. (2019). *When Giulia and Andrea meet Salma and Omar:
-Essays on cultural adaptation* [Unpublished doctoral dissertation, Universit´a di Bologna].](http://amsdottorato.unibo.it/9116/3/Asri%20thesis.pdf)
-
-## Friedrich–Alexander University Erlangen–Nürnberg
-- [ Harutyunyan, Nikolay. (2019). *Corporate Open Source Governance of
-Software Supply Chains* [Unpublished doctoral dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)].](https://opus4.kobv.de/opus4-fau/files/12272/Dissertation_Harutyunyan_Nikolay.pdf)
-
-## University of California, Berkeley
-- [Peterson, Joshua C. (2018). *Leveraging deep neural networks to study human cognition* (Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/leveraging-deep-neural-networks-study-human/docview/2135826689/se-2?accountid=201395)
-- [Meylan, Stephan C. (2018). *Representing linguistic knowledge with probabilistic models* (Publication No. 10931065)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/representing-linguistic-knowledge-with/docview/2135808388/se-2?accountid=201395)
-- [Langlois, Thomas A. (2018). *Uncovering Human Visual Priors* (Publication No. 10931026)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/uncovering-human-visual-priors/docview/2135826687/se-2?accountid=201395)
-- [Pacer, Michael D. (2016). *Mind as Theory Engine:
-Causation, Explanation and Time* (Publication No. 10194103)[Doctoral dissertation, University of California, Berkeley].](https://www.proquest.com/dissertations-theses/mind-as-theory-engine-causation-explanation-time/docview/1916533628/se-2?accountid=201395)
 
 ## Yale University
 - [Vlastakis, Brian Michael. (2015). *Controlling coherent state superpositions with
 superconducting circuits* (Publication No. 10013061)[Doctoral dissertation, Yale University].](https://www.proquest.com/dissertations-theses/controlling-coherent-state-superpositions-with/docview/1765648577/se-2?accountid=201395)
 
-## New York University
-- [Heinrich, Lukas. (2019). *Searches for Supersymmetry, RECAST, and
-Contributions to Computational High
-Energy Physics* (Publication No. 13421570) [Doctoral dissertation, New York University].](https://www.proquest.com/dissertations-theses/searches-supersymmetry-recast-contributions/docview/2201490026/se-2?accountid=201395)
-
-## University of Amsterdam
-- [Lê, Hoàng-Ân. (2021). *Outdoor image understanding from multiple vision modalities* [Doctoral dissertation, University of Amsterdam].](https://pure.uva.nl/ws/files/60160532/Thesis.pdf)
-
-## Saint Martin’s University
-- [Mortimer, Laura A. (2017). *Fluid Velocity Vector Field Measurement in
-Synovial Joints* [Master's thsis, Saint Martin’s University, Lacey, Washington].](http://ricopic.one/mme/theses/Mortimer_Laura.pdf)
--[Lentz, Jotham C. (2018). *A Fuzzy Architecture for Robotics Sensor
-Information Integration* [Master's thesis, Saint Martin’s University, Lacey, Washington].](http://ricopic.one/mme/theses/Lentz_Jotham.pdf)
-
-## Stanford University
--[Hawkins, Robert. D. (2019). *Coordinating on meaning in
-communication* [Unpublished doctoral dissertation, Stanford University, Stanford, CA].](https://stacks.stanford.edu/file/druid:yk028zn8777/dissertation-augmented.pdf)
-
-## The University of Western Ontario
-- [Shannon, Matthew. (2016). *The Spectral Variability of Astronomical PAHs* [Published doctoral dissertation, The University of Western Ontario].](http://www.astrochem.org/docs/The%20spectral%20variability%20of%20astronomical%20PAHs.pdf)
-
-## Austrailian National University
-- [Duong, Ly. (2018). *Unravelling the evolution of the Galactic
-stellar disk & bulge* [Doctoral dissertation, Austrailian National University].](https://openresearch-repository.anu.edu.au/bitstream/1885/149502/5/dissertation_print_LDuong_finalv2.pdf)
-
-## University of Cambridge
-- [Qin, Chongli. (2020). *Phylogenetic Signals in Protein Data* [Doctoral dissertation, Selwyn College, University of Cambridge, Cambridge, Cambridgeshire].](https://www.repository.cam.ac.uk/bitstream/handle/1810/318986/PhD_thesis_V3.pdf?sequence=11&isAllowed=y)
-
-## Humboldt University of Berlin
-- [Lubitz, Timo. (2016). *From signal to metabolism: A journey through the regulatory layers of the cell* [Doctoral dissertation, Humboldt-Universität zu Berlin].](https://edoc.hu-berlin.de/bitstream/handle/18452/18150/lubitz.pdf?sequence=1)
-
-## Paris-East Créteil University
-- [Buczkowska, Sabina. (2017). *Quantitative models of establishments location choices :
-spatial effects and strategic interactions* [Doctoral dissertation, Université Paris-Est].](https://tel.archives-ouvertes.fr/tel-01835289/document)
-
-## University of Virginia
-- [Yanhaona, Muhammad. Nur. (2017). *PCubeS Type Architecture and IT Programming Language* [Doctoral dissertation, University of Virgina].](https://libraetd.lib.virginia.edu/downloads/8c97kq430?filename=Yan_PhD_Dissertation.pdf)
-
-## University of Groningen
-- [Driesprong, F. T. (2015). *Web-scale outlier detection* [Master's thesis, University of Groningen, Groningen, Netherlands].](https://fse.studenttheses.ub.rug.nl/13549/1/Masterscriptie.pdf)
-
-## Universite de Bordeaux
-- [Golemo, Florian. (2018). *How to Train Your Robot - New Environments for Robotic Training and New Methods for Transferring Policies from the Simulator to the Real Robot* [Doctoral dissertation, Universite de Bordeaux, Bordeaux, France].](https://hal.inria.fr/tel-01974203/file/89722_GOLEMO_2018_archivage.pdf)
-
-## Flinders University
--[Szpak, Ancrêt. L. (2015). *The Social Space Around Us: the effect of
-social distance on spatial attention* [Doctoral dissertation, Flinders University, Adelaide, South Australia].](https://flex.flinders.edu.au/file/0f664187-d49c-41b2-99c8-c2b6b98fdcfe/1/Szpak,%20A.%20PhD%20Thesis%202016.pdf)
-
-## Technical University of Darmstadt
-- [Leonard, Mark. Ryan. (2019). *Robust Signal Processing in
-Distributed Sensor Networks* [Unpublished doctoral dissertation, Technische Universität Darmstadt].](https://tuprints.ulb.tu-darmstadt.de/8489/1/2019-02-15_Leonard_Mark_Ryan.pdf)
-
-## National University of Singapore
-- [Lim Yong San, Gilbert. (2015). *Automated Methods for Retinopathy and Glaucoma Screening* [Doctoral dissertation, National University of Singapore].](https://www.academia.edu/36587574/Automated_Methods_for_Retinopathy_and_Glaucoma_Screening)
-
-## University of Birmingham
-- [Kuszlewicz, James. Stevenson. (2017). *Buoyancy-driven oscillations in helio- and
-asteroseismology* [Doctoral dissertation, University of Birmingham].](https://etheses.bham.ac.uk/id/eprint/7658/2/Kuszlewicz17PhD.pdf)
 
 
 
@@ -146,13 +147,5 @@ asteroseismology* [Doctoral dissertation, University of Birmingham].](https://et
 
 
 
-
-
-
-
-
-
-
-- 
 
 
