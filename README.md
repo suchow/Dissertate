@@ -101,7 +101,7 @@ Essays on cultural adaptation*](http://amsdottorato.unibo.it/9116/3/Asri%20thesi
 ## University of California, Berkeley
 - Langlois, Thomas A. (2018). [*Uncovering Human Visual Priors*](https://www.proquest.com/dissertations-theses/uncovering-human-visual-priors/docview/2135826687/se-2?accountid=201395)(Publication No. 10931026) [Doctoral dissertation, University of California, Berkeley].
 - Meylan, Stephan C. (2018). [*Representing linguistic knowledge with probabilistic models*](https://www.proquest.com/dissertations-theses/representing-linguistic-knowledge-with/docview/2135808388/se-2?accountid=201395)(Publication No. 10931065) [Doctoral dissertation, University of California, Berkeley].
-- Pacer, Michael D. (2016). [*Mind as Theory Engine:
+- Pacer, M D. (2016). [*Mind as Theory Engine:
 Causation, Explanation and Time*](https://www.proquest.com/dissertations-theses/mind-as-theory-engine-causation-explanation-time/docview/1916533628/se-2?accountid=201395)(Publication No. 10194103) [Doctoral dissertation, University of California, Berkeley].
 - Peterson, Joshua C. (2018). [*Leveraging deep neural networks to study human cognition*](https://www.proquest.com/dissertations-theses/leveraging-deep-neural-networks-study-human/docview/2135826689/se-2?accountid=201395)(Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].
 
