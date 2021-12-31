@@ -127,7 +127,7 @@ and Bi nanowire junctions*](https://tel.archives-ouvertes.fr/tel-01142084/file/V
 
 ## University of Warsaw
 - Dittwald, Piotr. (2014). [*Computational methods for large-scale data in
-medical diagnostics*](https://www.mimuw.edu.pl/sites/default/files/piotr_dittwald_pd-dok.pdf) [Unpublushed doctoral dissertation, University of Warsaw].
+medical diagnostics*](https://www.mimuw.edu.pl/sites/default/files/piotr_dittwald_pd-dok.pdf) [Unpublished doctoral dissertation, University of Warsaw].
 
 ## The University of Western Ontario
 - Shannon, Matthew. (2016). [*The Spectral Variability of Astronomical PAHs*](http://www.astrochem.org/docs/The%20spectral%20variability%20of%20astronomical%20PAHs.pdf) [Published doctoral dissertation, The University of Western Ontario].
