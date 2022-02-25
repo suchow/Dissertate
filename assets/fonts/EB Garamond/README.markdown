@@ -1,4 +1,17 @@
 # EB Garamond
+
+EB Garamond fonts sourced from two open source projects:
+
+1) https://github.com/georgd/EB-Garamond
+
+* All sources except those noted in 2.
+* Covered by license in `COPYING`.
+
+2) https://github.com/octaviopardo/EBGaramond12
+
+* Adds bold fonts EBGaramond-Bold.ttf and EBGaramond-BoldItalic.ttf
+* Covered by license in `OFL.txt`.
+
 ## Claude Garamont’s designs go opensource.
 
 This project aims at providing a free version of the Garamond types, based on the Designs of the Berner specimen from 1592.
