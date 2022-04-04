@@ -1,0 +1,4 @@
+# Engineering Science Undergraduate Thesis
+This template matches the rather loose formatting requirements for the University of Toronto's Engineering Science undergraduate thesis administered through ESC499. As there is much flexibility in the requirements, there are likely many elements of this template which can be tailored to the your particular thesis.
+
+This template was tested using a thesis which did not include equations or very many tables or other LaTeX features. There will likely be issues that arise as the template is used in ways which have not been tested. If you make changes to the template which you think could help other students, please open a pull request with the relevant changes. For your own sanity, do this after you graduate.
