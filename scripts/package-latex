@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""Assemble one school-specific LaTeX source archive."""
+
+import argparse
+import shutil
+import tempfile
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("school", help="school directory under assets/schools")
+    parser.add_argument("output", type=Path, help="output ZIP file")
+    args = parser.parse_args()
+
+    schools = ROOT / "assets" / "schools"
+    school = schools / args.school
+    if school.parent != schools or not (school / "style.sty").is_file():
+        parser.error("school must name a directory containing style.sty")
+    if args.output.suffix.lower() != ".zip":
+        parser.error("output must end in .zip")
+    output = args.output.resolve()
+    if output.exists():
+        parser.error("output already exists")
+    if not output.parent.is_dir():
+        parser.error("output directory does not exist")
+
+    name = f"Dissertate-{args.school}-LaTeX"
+    with tempfile.TemporaryDirectory(prefix="dissertate-package-") as temp:
+        package = Path(temp) / name
+        shutil.copytree(ROOT / "assets" / "latex-base", package)
+        shutil.copytree(ROOT / "assets" / "fonts", package / "fonts")
+        for item in ("guidelines.pdf", "resources"):
+            source = school / item
+            if source.is_dir():
+                shutil.copytree(source, package / item)
+            elif source.is_file():
+                shutil.copy2(source, package / item)
+        with (package / "Dissertate.cls").open("a", encoding="utf-8") as target:
+            target.write("\n" + (school / "style.sty").read_text(encoding="utf-8"))
+        archive = shutil.make_archive(str(Path(temp) / name), "zip", temp, name)
+        shutil.copyfile(archive, output)
+    print(output)
+
+
+if __name__ == "__main__":
+    main()
