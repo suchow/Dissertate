@@ -32,6 +32,8 @@
 \renewcommand{\maketitle}{
     \pagenumbering{roman}
     \setcounter{page}{1}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Title page}
 	\thispagestyle{empty}
 	\vspace*{\fill}
 	\vspace{100pt}
@@ -52,6 +54,8 @@
 
 \newcommand{\copyrightpage}{
 	\newpage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Copyright}
 	\thispagestyle{empty}
 	\vspace*{\fill}
 	\scshape \noindent \small \copyright \small \@degreeyear\hspace{3pt}-- \theauthor \\
@@ -62,10 +66,11 @@
 }
 
 \newcommand{\abstractpage}{
-    \pdfbookmark{Abstract}{Abstract}
 	\newpage
 	\pagenumbering{roman}
 	\setcounter{page}{3}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abstract}
 	\pagestyle{fancy}
 	\lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
 	\renewcommand{\headrulewidth}{0.0pt}
@@ -84,15 +89,17 @@
 }
 
 \newcommand{\contentspage}{
-    \pdfbookmark{\contentsname}{Contents}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\contentsname}
     \tableofcontents
 }
 
 \newcommand{\dedicationpage}{
     \cleardoublepage
     \phantomsection
-    \pdfbookmark{Dedication}{Dedication}
-	\newpage \thispagestyle{fancy} \vspace*{\fill}
+    \addcontentsline{toc}{chapter}{Dedication}
+	\thispagestyle{fancy} \vspace*{\fill}
 	\scshape \noindent \input{frontmatter/dedication}
 	\vspace*{\fill} \newpage \rm
     \cleardoublepage
@@ -100,6 +107,8 @@
 
 \newcommand{\acknowledgments}{
 	\chapter*{Acknowledgments}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Acknowledgments}
 	\noindent
     \begin{spacing}{\dnormalspacing}
     	\input{frontmatter/thanks}
@@ -117,8 +126,9 @@
     \input{endmatter/personalize}
     \clearpage
     \begin{spacing}{\dcompressedspacing}
-        \bibliography{references}
+        \phantomsection
         \addcontentsline{toc}{chapter}{References}
+        \bibliography{references}
         \bibliographystyle{apalike2}
         \include{endmatter/colophon}
     \end{spacing}
