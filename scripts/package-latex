@@ -41,6 +41,7 @@ def main():
                 shutil.copytree(source, package / item)
             elif source.is_file():
                 shutil.copy2(source, package / item)
+        shutil.copy2(school / "agent-guidance.md", package / "AGENTS.md")
         with (package / "Dissertate.cls").open("a", encoding="utf-8") as target:
             target.write("\n" + (school / "style.sty").read_text(encoding="utf-8"))
         if args.compile:
