@@ -73,4 +73,5 @@
 \renewcommand{\frontmatter}{\input{frontmatter/personalize}\setstretch{2}\pagenumbering{roman}\maketitle\ifpenncopyright\copyrightpage\fi\pagestyle{plain}\penndedication\pennacknowledgments\abstractpage\tableofcontents\clearpage\pennlists\pennpreface\pagenumbering{arabic}}
 \patchcmd{\thebibliography}{\chapter*{\bibname}}{\chapter*{\bibname}\phantomsection\addcontentsline{toc}{chapter}{\bibname}}{}{\ClassError{Dissertate}{Cannot link bibliography heading}{Check the bibliography definition.}}
 \apptocmd{\@openbib@code}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}{}{\ClassError{Dissertate}{Cannot set bibliography spacing}{Check the bibliography definition.}}
-\renewcommand{\backmatter}{\begin{appendices}\include{chapters/appendixA}\end{appendices}\input{endmatter/personalize}\clearpage\begingroup\setstretch{2}\bibliographystyle{apalike2}\bibliography{references}\endgroup}
+\renewcommand{\backmatter}{\begin{appendices}\include{chapters/appendixA}\end{appendices}\input{endmatter/personalize}\clearpage\begingroup\setstretch{2}\dissertatecolophon
+    \bibliographystyle{apalike2}\bibliography{references}\endgroup}

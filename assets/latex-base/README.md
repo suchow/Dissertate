@@ -108,3 +108,7 @@ Add these lines after `\documentclass{Dissertate}` in `dissertation.tex`:
 ```
 
 Write `\extrasymbol{⇥}` or `\extrasymbol{⤞}` in the text. The font change applies only inside `\extrasymbol{...}`; the surrounding text uses the body font. This example is for text mode and does not change the math fonts.
+
+### How do I configure the colophon?
+
+The colophon is enabled by default. Its position depends on the school template. In `frontmatter/personalize.tex`, use `\togglefalse{DissertateColophonImage}` for a text-only colophon or `\togglefalse{DissertateColophon}` to omit the page. Duke disables the illustration by default because its guide prohibits artwork unrelated to the research. Check the university’s required section order before changing the colophon’s position.
