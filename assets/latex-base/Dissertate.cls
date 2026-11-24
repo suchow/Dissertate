@@ -11,12 +11,18 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Dissertate}[2014/03/25 v2.0 Dissertate Class]
-\LoadClass[12pt, oneside, letterpaper]{book}
 
 %
 % Options
 %
 \RequirePackage{etoolbox}
+
+% Paper size (US Letter by default).
+\newtoggle{DissertateAfour}
+\DeclareOption{a4paper}{\toggletrue{DissertateAfour}}
+\DeclareOption{letterpaper}{\togglefalse{DissertateAfour}}
+\DeclareOption{dpaperafour}{\toggletrue{DissertateAfour}}
+\DeclareOption{dpaperletter}{\togglefalse{DissertateAfour}}
 
 % Line spacing: dsingle/ddouble
 %   Whether to use single- or doublespacing.
@@ -29,6 +35,10 @@
 \DeclareOption{ddouble}{\togglefalse{DissertateSingleSpace}}
 
 \ProcessOptions\relax
+
+\iftoggle{DissertateAfour}
+    {\LoadClass[12pt, oneside, a4paper]{book}}
+    {\LoadClass[12pt, oneside, letterpaper]{book}}
 
 % Line Spacing
 %   Define two line spacings: one for the body, and one that is more compressed.
@@ -62,7 +72,7 @@
     {\endoldenumerate\end{spacing}}
 
 % Text layout.
-\RequirePackage[width=5.75in, letterpaper]{geometry}
+\RequirePackage[width=5.75in]{geometry}
 \usepackage{ragged2e}
 \RaggedRight
 \RequirePackage{graphicx}

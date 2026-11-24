@@ -9,6 +9,10 @@ The template loads its bundled EB Garamond, Lato, and Source Code Pro fonts auto
 
 ## FAQ
 
+### How do I select A4 paper?
+
+Use `\documentclass[a4paper]{Dissertate}` in `dissertation.tex` for A4 paper. US Letter remains the default; `letterpaper` selects it explicitly. The aliases `dpaperafour` and `dpaperletter` are also supported. Choose the size required by your school.
+
 ### How do I adjust line spacing?
 
 The default body spacing is set by `\dnormalspacing`. To change it, add `\renewcommand{\dnormalspacing}{1.5}` after `\documentclass{Dissertate}` in `dissertation.tex`. Replace `1.5` with the spacing factor required by your program. Check the compiled PDF against your school’s current formatting rules.
