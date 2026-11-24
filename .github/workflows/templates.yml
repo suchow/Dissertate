@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
     inputs:
       school:
-        type: choice
+        type: string
         default: Generic
-        options: [Generic, Harvard, Berkeley, Princeton, NYU, Chicago]
+        description: School directory under assets/schools
 
 permissions:
   contents: read
@@ -37,9 +37,14 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, os, subprocess
-          schools = ['Generic', 'Harvard', 'Berkeley', 'Princeton', 'NYU', 'Chicago']
+          from pathlib import Path
+          schools = sorted(p.name for p in Path('assets/schools').iterdir()
+                           if p.is_dir() and (p / 'style.sty').is_file()
+                           and (p / 'agent-guidance.md').is_file())
           selected = {}
           if os.environ['SCHOOL']:
+              if os.environ['SCHOOL'] not in schools:
+                  raise SystemExit('Unknown school directory.')
               selected[os.environ['SCHOOL']] = True
           else:
               paths = subprocess.check_output(['git', 'diff', '--name-only', os.environ['BASE'], os.environ['HEAD']], text=True).splitlines()
