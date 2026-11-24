@@ -4,7 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Release tag, for example templates-2026-11-24-2
+        description: Semantic version tag, for example v1.0.1
+        required: true
+        type: string
+
+      notes:
+        description: What changed, in a few words
         required: true
         type: string
 
@@ -29,14 +34,17 @@ jobs:
       - name: Validate release tag
         env:
           RELEASE_TAG: ${{ inputs.tag }}
+          RELEASE_NOTES: ${{ inputs.notes }}
         run: |
           python3 - <<'PYCODE'
-          import datetime, os, re
+          import os, re
           tag = os.environ['RELEASE_TAG']
-          match = re.fullmatch(r'templates-(\d{4}-\d{2}-\d{2})(?:-[1-9]\d*)?', tag)
+          match = re.fullmatch(r'v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)', tag)
           if not match:
-              raise SystemExit('Use templates-YYYY-MM-DD or templates-YYYY-MM-DD-N.')
-          datetime.date.fromisoformat(match.group(1))
+              raise SystemExit('Use vMAJOR.MINOR.PATCH, for example v1.0.1.')
+          notes = os.environ['RELEASE_NOTES']
+          if not notes.strip() or len(notes) > 120 or len(notes.splitlines()) != 1:
+              raise SystemExit('Use one short line of change notes (at most 120 characters).')
           PYCODE
       - name: Package school templates
         run: |
@@ -73,8 +81,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ inputs.tag }}
+          RELEASE_NOTES: ${{ inputs.notes }}
         run: |
           gh release create "$RELEASE_TAG" "$RUNNER_TEMP"/packages/*.zip "$RUNNER_TEMP/packages/SHA256SUMS.txt" \
-            --draft --target "$GITHUB_SHA" --title "School templates ($RELEASE_TAG)" \
-            --notes 'Download the ZIP for your school, extract it, and open `dissertation.tex`. Each package includes fonts and school-specific guidance in `AGENTS.md`.'
+            --draft --target "$GITHUB_SHA" --title "$RELEASE_TAG" \
+            --notes "$RELEASE_NOTES"
           gh release edit "$RELEASE_TAG" --draft=false --latest
