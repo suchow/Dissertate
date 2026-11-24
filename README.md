@@ -1,6 +1,4 @@
 # Dissertate
-[![Build Status](https://travis-ci.org/suchow/Dissertate.svg?branch=master)](https://travis-ci.org/suchow/Dissertate)
-[![Code Climate](https://codeclimate.com/github/suchow/Dissertate/badges/gpa.svg)](https://codeclimate.com/github/suchow/Dissertate)
 [![License](https://img.shields.io/badge/license-AGPL-FBB829.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. [Here's a sample](https://s3.amazonaws.com/dissertate.io/generic.pdf).
