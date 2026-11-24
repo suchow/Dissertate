@@ -3,6 +3,7 @@
 
 import argparse
 import shutil
+import subprocess
 import tempfile
 from pathlib import Path
 
@@ -14,6 +15,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("school", help="school directory under assets/schools")
     parser.add_argument("output", type=Path, help="output ZIP file")
+    parser.add_argument("--compile", action="store_true", help="build and include the dissertation PDF")
     args = parser.parse_args()
 
     schools = ROOT / "assets" / "schools"
@@ -41,6 +43,13 @@ def main():
                 shutil.copy2(source, package / item)
         with (package / "Dissertate.cls").open("a", encoding="utf-8") as target:
             target.write("\n" + (school / "style.sty").read_text(encoding="utf-8"))
+        if args.compile:
+            build = Path(temp) / "compile"
+            shutil.copytree(package, build)
+            latex = ["xelatex", "-interaction=nonstopmode", "-halt-on-error", "dissertation.tex"]
+            for command in (latex, ["bibtex", "dissertation"], latex, latex):
+                subprocess.run(command, cwd=build, check=True, timeout=120)
+            shutil.copy2(build / "dissertation.pdf", package / "dissertation.pdf")
         archive = shutil.make_archive(str(Path(temp) / name), "zip", temp, name)
         shutil.copyfile(archive, output)
     print(output)
