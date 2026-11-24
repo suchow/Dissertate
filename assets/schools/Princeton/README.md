@@ -1,2 +1,3 @@
 ## Princeton dissertation template
-This template matches http://www.princeton.edu/~mudd/thesis/MuddDissertationRequirements.pdf.
+
+Consult the current [Princeton dissertation submission guide](https://libguides.princeton.edu/dissertations_masters_theses_submission/home) and your department instructions before submitting. The included `guidelines.pdf` is an older reference.
