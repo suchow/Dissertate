@@ -55,7 +55,6 @@ exclude:
   - CONTRIBUTING.md
   - LICENSE
   - LICENSE.txt
-  - requirements.txt
   - Gemfile
   - Gemfile.lock
 sass:
