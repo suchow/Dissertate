@@ -1,0 +1,108 @@
+% Guarini School Ph.D.; excludes Engineering Sciences and MALS.
+% Guide updated 03/05/2026:
+% https://graduate.dartmouth.edu/sites/graduate_studies.prod/files/graduate_studies/wysiwyg/thesis_guidelines_5.pdf
+\university{Dartmouth College}
+\universitycity{Hanover}
+\universitystate{New Hampshire}
+\degree{Doctor of Philosophy}
+\renewcommand{\dnormalspacing}{1.5}
+\renewcommand{\dcompressedspacing}{1.0}
+\iftoggle{DissertateSingleSpace}{\ClassWarning{Dissertate}{Guarini requires at least 18-point body line spacing; ignoring dsingle}}{}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+\geometry{reset,letterpaper,left=1.5in,right=1in,top=1in,bottom=1in,footskip=0.25in}
+\microtypesetup{protrusion=false}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\renewcommand{\chapnumfont}{\normalfont\normalsize}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+\setlength{\cftbeforechapskip}{0pt}
+\renewcommand\listfigurename{List of Illustrations}
+\renewcommand\listtablename{List of Tables}
+\fancypagestyle{plain}{\fancyhf{}\fancyfootoffset[L]{0.5in}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+% Ordinary lists retain the body spacing. Long quotations and footnotes may be single spaced.
+\renewenvironment{itemize}{\olditemize}{\endolditemize}
+\renewenvironment{enumerate}{\oldenumerate}{\endoldenumerate}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{\chapter*{\bibname}\phantomsection\addcontentsline{toc}{chapter}{References}}{}{\ClassError{Dissertate}{Cannot link the bibliography heading}{Check the bibliography definition.}}
+\apptocmd{\@openbib@code}{\setlength{\itemsep}{\baselineskip}\setlength{\parsep}{0pt}}{}{}
+% Configure these in frontmatter/personalize.tex. The committee field accepts \\.
+\def\@dartmouthcommittee{(chair) Committee Chair\\Committee Member\\Committee Member\\Committee Member}
+\newcommand{\dartmouthcommittee}[1]{\gdef\@dartmouthcommittee{#1}}
+% The author must verify the current dean before submission.
+\def\@dartmouthdean{[Verify current dean name]}
+\newcommand{\dartmouthdean}[1]{\gdef\@dartmouthdean{#1}}
+\newtoggle{DartmouthCopyright}
+\togglefalse{DartmouthCopyright}
+\renewcommand{\frontmatter}{%
+  \input{frontmatter/personalize}
+  \pagenumbering{roman}
+  \maketitle
+  \hypersetup{pageanchor=false}
+  \dartmouthblankpage
+  \hypersetup{pageanchor=true}
+  \setcounter{page}{2}
+  \pagestyle{plain}
+  \setstretch{\dnormalspacing}
+  \abstractpage
+  \dartmouthfrontsection{Preface and Acknowledgments}{frontmatter/thanks}
+  \tableofcontents\clearpage
+  \listoftables\clearpage
+  \listoffigures\clearpage
+  \pagenumbering{arabic}
+}
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}
+  \begingroup\centering\normalfont\normalsize\setstretch{1}
+  \MakeUppercase{\thetitle}\par
+  \vspace{18pt}
+  A Thesis\par
+  Submitted to the Faculty\par
+  in partial fulfillment of the requirements for the\par
+  degree of\par
+  Doctor of Philosophy\par
+  in\par
+  \@department\par
+  \vspace{18pt}
+  by \theauthor\par
+  \vspace{18pt}
+  Guarini School of Graduate and Advanced Studies\par
+  Dartmouth College\par
+  Hanover, New Hampshire\par
+  \@degreemonth\ \@degreeyear\par
+  \vspace{24pt}
+  \noindent\hfill\begin{minipage}{2.4in}\raggedright
+  \begin{center}Examining Committee:\end{center}
+  \vspace{14pt}
+  \begingroup
+  \def\\{\par\vspace{20pt}\hrule\vspace{3pt}}
+  \hrule\vspace{3pt}\@dartmouthcommittee\par
+  \endgroup
+  \end{minipage}\par
+  \vfill
+  \begin{flushleft}
+  \rule{2.4in}{0.4pt}\par
+  \@dartmouthdean\par
+  Dean of the Guarini School of Graduate and Advanced Studies\par
+  \end{flushleft}
+  \endgroup\clearpage
+}
+\newcommand{\dartmouthblankpage}{%
+  \thispagestyle{empty}
+  \iftoggle{DartmouthCopyright}{\null\vfill\begin{center}\copyright\ \@degreeyear\ \theauthor\end{center}\vfill}{\null}
+  \clearpage
+}
+\newcommand{\abstractpage}{%
+  \begin{center}ABSTRACT\end{center}
+  \input{frontmatter/abstract}\clearpage
+}
+\newcommand{\dartmouthfrontsection}[2]{%
+  \begin{center}\MakeUppercase{#1}\end{center}
+  \phantomsection\addcontentsline{toc}{chapter}{#1}
+  \input{#2}\clearpage
+}
+\renewcommand{\backmatter}{%
+  \begin{appendices}\include{chapters/appendixA}\end{appendices}
+  \input{endmatter/personalize}\clearpage
+  \bibliographystyle{apalike2}
+  \bibliography{references}
+}
