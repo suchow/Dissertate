@@ -19,7 +19,7 @@ This list includes dissertations that use adaptations of Dissertate.
 
 ## Austrailian National University
 - Duong, Ly. (2018). [*Unravelling the evolution of the Galactic
-stellar disk & bulge*](https://openresearch-repository.anu.edu.au/bitstream/1885/149502/5/dissertation_print_LDuong_finalv2.pdf) [Doctoral dissertation, Austrailian National University].
+stellar disk & bulge*](https://openresearch-repository.anu.edu.au/items/c3b8d992-65d4-4f75-8b28-34f51fb5c388) [Doctoral dissertation, Austrailian National University].
 
 ## Eindhoven University of Technology
 - van Berlo, Bram Roel Debbie. (2025). [*Depleting the Ox-Eye Daisy: Towards Domain Generalization for Digital Sensing with Radio Waves*](https://research.tue.nl/en/publications/depleting-the-ox-eye-daisy-towards-domain-generalization-for-digi/) [Doctoral dissertation, Eindhoven University of Technology].
@@ -128,7 +128,7 @@ Causation, Explanation and Time*](https://escholarship.org/uc/item/4nk6p0f3)(Pub
 
 ## University of Oldenburg
 - Hornauer, Sascha Alexander. (2016). [*Maritime Trajectory Negotiation for
-n-Vessel Collision Avoidance*](https://uol.de/f/2/dept/informatik/hormar16.pdf) [Unpublished doctoral dissertation, Universität Oldenburg].
+n-Vessel Collision Avoidance*](https://oops.uni-oldenburg.de/2861/) [Unpublished doctoral dissertation, Universität Oldenburg].
 
 ## University of Paris Sud
 - Li, Chuan. (2014). [*Superconducting proximity effect in Graphene
