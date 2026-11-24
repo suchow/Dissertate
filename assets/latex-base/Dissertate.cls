@@ -79,7 +79,11 @@
 \RequirePackage{url}
 \RequirePackage{amssymb}
 \RequirePackage{amsmath}
+\let\dissertate@RequirePackage\RequirePackage
 \RequirePackage{mathspec}
+% amsmath is already loaded; allow later packages to request it again.
+\let\RequirePackage\dissertate@RequirePackage
+\let\usepackage\RequirePackage
 \setmathsfont(Digits,Latin,Greek)[Path={fonts/EB Garamond/},ItalicFont=EBGaramond12-Italic.otf,Numbers={Proportional}]{EBGaramond12-Regular.otf}
 \setmathrm[Path={fonts/EB Garamond/},ItalicFont=EBGaramond12-Italic.otf]{EBGaramond12-Regular.otf}
 \AtBeginEnvironment{tabular}{\addfontfeature{RawFeature=+tnum}}
