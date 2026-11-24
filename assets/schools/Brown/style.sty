@@ -1,0 +1,89 @@
+% Brown Graduate School Ph.D. dissertation.
+% https://graduateschool.brown.edu/academics/rules-regulations/dissertation-guidelines
+% Linked signature, copyright, and abstract samples specify 1.5-inch left
+% and 1-inch top, right, and bottom margins.
+\university{Brown University}
+\universitycity{Providence}
+\universitystate{Rhode Island}
+\iftoggle{DissertateSingleSpace}{\ClassWarning{Dissertate}{Brown requires double-spaced text; ignoring dsingle.}}{}
+\renewcommand{\dnormalspacing}{2.0}
+\renewcommand{\dcompressedspacing}{1.0}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+\geometry{reset,letterpaper,left=1.5in,right=1in,top=1in,bottom=1.1in,footskip=0.3in}
+\microtypesetup{protrusion=false}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\renewcommand{\chapnumfont}{\normalfont\normalsize}
+% Brown major-section headings are centered, uppercase, two inches from top.
+\titleformat{\chapter}[display]{\normalfont\normalsize\centering}{\MakeUppercase{\chaptertitlename}\ \thechapter}{\baselineskip}{\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{39.6pt}{\baselineskip}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{39.6pt}}
+\renewcommand*{\chapterheadendvskip}{\vspace{\baselineskip}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfootoffset[L]{0.5in}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+\setlength{\cftbeforechapskip}{0pt}
+\renewcommand{\cfttoctitlefont}{\hfill\normalfont\normalsize\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{39.6pt}
+\renewcommand{\cftloftitlefont}{\hfill\normalfont\normalsize\MakeUppercase}
+\renewcommand{\cftafterloftitle}{\hfill}
+\setlength{\cftbeforeloftitleskip}{39.6pt}
+\renewcommand{\cftlottitlefont}{\hfill\normalfont\normalsize\MakeUppercase}
+\renewcommand{\cftafterlottitle}{\hfill}
+\setlength{\cftbeforelottitleskip}{39.6pt}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\listfigurename}{List of Illustrations}
+% Ordinary lists follow Brown's double-spaced text rule.
+\renewenvironment{itemize}{\begin{spacing}{\dnormalspacing}\olditemize}{\endolditemize\end{spacing}}
+\renewenvironment{enumerate}{\begin{spacing}{\dnormalspacing}\oldenumerate}{\endoldenumerate\end{spacing}}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{\chapter*{\bibname}\phantomsection\addcontentsline{toc}{chapter}{References}}{}{\ClassError{Dissertate}{Cannot link the bibliography heading}{Check the bibliography definition.}}
+\AtBeginEnvironment{thebibliography}{\setstretch{\dnormalspacing}}
+\setlength{\footnotesep}{2\baselineskip}
+
+% Configure these in frontmatter/personalize.tex.
+\newcommand{\brownpreviousdegrees}[1]{\gdef\brown@previousdegrees{#1}}
+\brownpreviousdegrees{}
+\newcommand{\brownsignatures}[1]{\gdef\brown@signatures{#1}}
+\brownsignatures{\ClassWarning{Dissertate}{Set brownsignatures with the director, all readers, and dean before submission.}}
+\newcommand{\brownsignatureentry}[2]{%
+    \par\vspace{18pt}\noindent Date\ \rule{0.9in}{0.4pt}\hfill\begin{minipage}[t]{3.1in}\centering
+    \rule{\linewidth}{0.4pt}\par #1, #2\end{minipage}\par}
+\renewcommand{\maketitle}{%
+    \thispagestyle{empty}\begingroup\centering\normalfont\normalsize\setstretch{2}
+    \thetitle\par\vfill
+    By\par\theauthor\par\brown@previousdegrees\par\vfill
+    A Dissertation Submitted in Partial Fulfillment of the\par
+    Requirements for the Degree of Doctor of Philosophy\par
+    in the Department of \@department\ at Brown University\par\vfill
+    Providence, Rhode Island\par\@degreemonth\ \@degreeyear\par
+    \vspace*{6pt}\endgroup\clearpage}
+\newcommand{\copyrightpage}{%
+    \thispagestyle{empty}\vspace*{120pt}\begin{center}
+    \copyright\ Copyright \@degreeyear\ by \theauthor
+    \end{center}\vspace*{\fill}\clearpage}
+\newcommand{\brownsignaturepage}{%
+    \begingroup\setstretch{1}\begin{center}
+    This dissertation by \theauthor\ is accepted in its present form\par
+    by the Department of \@department\ as satisfying the\par
+    dissertation requirement for the degree of Doctor of Philosophy.
+    \end{center}\brown@signatures\endgroup\clearpage}
+\newcommand{\brownfrontsection}[2]{%
+    \chapter*{#1}\phantomsection\addcontentsline{toc}{chapter}{#1}\input{#2}\clearpage}
+\renewcommand{\frontmatter}{%
+    \input{frontmatter/personalize}\setstretch{\dnormalspacing}\pagenumbering{roman}
+    \maketitle\copyrightpage\brownsignaturepage
+    \brownfrontsection{Curriculum Vitae}{resources/biography}
+    \brownfrontsection{Preface and Acknowledgments}{frontmatter/thanks}
+    \tableofcontents\clearpage\listoftables\clearpage\listoffigures\clearpage
+    \pagenumbering{arabic}}
+% Compile separately; the abstract must not enter the dissertation PDF or TOC.
+\newcommand{\brownabstractpage}{%
+    \pagestyle{empty}\setstretch{\dnormalspacing}
+    \noindent Abstract of ``\thetitle'' by \theauthor, Ph.D., Brown University,
+    \@degreemonth\ \@degreeyear\par
+    \input{frontmatter/abstract}\clearpage}
+\renewcommand{\backmatter}{%
+    \begin{appendices}\include{chapters/appendixA}\end{appendices}
+    \input{endmatter/personalize}\clearpage
+    \bibliographystyle{apalike2}\bibliography{references}
+    }
