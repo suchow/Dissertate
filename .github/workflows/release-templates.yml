@@ -48,13 +48,22 @@ jobs:
           PYCODE
       - name: Package school templates
         run: |
-          mkdir -p "$RUNNER_TEMP/packages"
-          python3 scripts/package-latex Harvard "$RUNNER_TEMP/packages/Dissertate-Harvard-LaTeX.zip"
-          python3 scripts/package-latex NYU "$RUNNER_TEMP/packages/Dissertate-NYU-LaTeX.zip"
-          python3 scripts/package-latex Princeton "$RUNNER_TEMP/packages/Dissertate-Princeton-LaTeX.zip"
-          python3 scripts/package-latex Berkeley "$RUNNER_TEMP/packages/Dissertate-Berkeley-LaTeX.zip"
-          python3 scripts/package-latex Chicago "$RUNNER_TEMP/packages/Dissertate-Chicago-LaTeX.zip"
-          python3 scripts/package-latex Generic "$RUNNER_TEMP/packages/Dissertate-Generic-LaTeX.zip"
+          python3 - <<'PYCODE'
+          import os, subprocess, sys
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP'])
+          packages = root / 'packages'
+          packages.mkdir()
+          schools = sorted(path.name for path in Path('assets/schools').iterdir() if path.is_dir() and (path / 'style.sty').is_file())
+          if not schools:
+              raise SystemExit('No school templates found.')
+          for school in schools:
+              if not (Path('assets/schools') / school / 'agent-guidance.md').is_file():
+                  raise SystemExit(f'Missing agent guidance: {school}')
+          (root / 'release-schools.txt').write_text('\n'.join(schools) + '\n')
+          for school in schools:
+              subprocess.run([sys.executable, 'scripts/package-latex', school, str(packages / f'Dissertate-{school}-LaTeX.zip')], check=True)
+          PYCODE
       - name: Check release archives
         run: |
           python3 - <<'PYCODE'
@@ -62,7 +71,7 @@ jobs:
           from pathlib import Path
           from zipfile import ZipFile
           root = Path(os.environ['RUNNER_TEMP']) / 'packages'
-          schools = ['Harvard', 'NYU', 'Princeton', 'Berkeley', 'Chicago', 'Generic']
+          schools = (Path(os.environ['RUNNER_TEMP']) / 'release-schools.txt').read_text().splitlines()
           checksums = []
           for school in schools:
               archive = root / f'Dissertate-{school}-LaTeX.zip'
