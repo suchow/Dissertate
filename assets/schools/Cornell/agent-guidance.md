@@ -1,0 +1,9 @@
+# Guidance for working with this dissertation
+
+This template is for a Cornell Graduate School Ph.D. dissertation. Consult the current [formatting requirements](https://gradschool.cornell.edu/academic-progress/degrees-fields/research-degree-requirements/thesis-dissertation/writing-your-thesis-dissertation/formatting-requirements/) and [section guidance](https://gradschool.cornell.edu/academic-progress/degrees-fields/research-degree-requirements/thesis-dissertation/writing-your-thesis-dissertation/required-sections-guidelines-and-suggestions/) before changing the layout. Cornell distinguishes mandatory formatting from suggested preliminary-page layouts. Verify the applicable rules separately for Weill Cornell and other degree programs.
+
+Use US Letter paper, margins of at least 1 inch, an embedded main-text font of at least 11 points, and double-spaced body text. Keep page numbers at least 0.75 inch from the paper edge. Preliminary pages use the suggested numbering: the title and copyright pages are counted without printed numbers, the abstract pages are excluded from the count, and the biographical sketch begins at iii. The body starts at 1. Write the dissertation in English. Use the degree-conferral month and year; Cornell lists May, August, and December as conferral months.
+
+Edit `frontmatter/personalize.tex` for the author's details and `resources/biography.tex` for the biographical sketch. The main document is `dissertation.tex`; chapters are in `chapters/`. Preserve the author's text and verify changes in the compiled PDF. The template uses XeLaTeX and BibTeX.
+
+Consult Cornell's [names and marks policy](https://policy.cornell.edu/policy-library/use-cornells-name-logos-trademarks-and-insignias) before adding institutional branding. Add a seal or logo only when the author requests it and the applicable guidelines allow it.

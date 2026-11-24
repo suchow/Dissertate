@@ -1,0 +1,108 @@
+% Cornell Graduate School Ph.D. dissertation layout.
+% Requirements: https://gradschool.cornell.edu/academic-progress/degrees-fields/research-degree-requirements/thesis-dissertation/writing-your-thesis-dissertation/formatting-requirements/
+% Preliminary-page suggestions: https://gradschool.cornell.edu/academic-progress/degrees-fields/research-degree-requirements/thesis-dissertation/writing-your-thesis-dissertation/required-sections-guidelines-and-suggestions/
+\university{Cornell University}
+\universitycity{Ithaca}
+\universitystate{New York}
+
+\iftoggle{DissertateSingleSpace}{%
+    \ClassWarning{Dissertate}{Cornell requires double-spaced body text; ignoring the dsingle option.}%
+}{}
+\renewcommand{\dnormalspacing}{2.0}
+
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+\geometry{reset,letterpaper,left=1.6in,right=1.1in,top=1in,bottom=1.1in,footskip=0.25in}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+\renewcommand{\frontmatter}{%
+    \input{frontmatter/personalize}
+    \pagenumbering{roman}
+    \maketitle
+    \copyrightpage
+    \hypersetup{pageanchor=false}
+    \abstractpage
+    \hypersetup{pageanchor=true}
+    \pagenumbering{roman}
+    \setcounter{page}{3}
+    \pagestyle{plain}
+    \setstretch{\dnormalspacing}
+    \cornellfrontsection{Biographical Sketch}{resources/biography}
+    \cornellfrontsection{Dedication}{frontmatter/dedication}
+    \cornellfrontsection{Acknowledgments}{frontmatter/thanks}
+    \tableofcontents
+    \clearpage
+    \pagenumbering{arabic}
+}
+
+\renewcommand{\maketitle}{%
+    \thispagestyle{empty}
+    \begingroup
+    \centering
+    \setstretch{1}
+    \vspace*{0.5in}
+    \MakeUppercase{\thetitle}\par
+    \vfill
+    A Dissertation\par
+    Presented to the Faculty of the Graduate School\par
+    of Cornell University\par
+    in Partial Fulfillment of the Requirements for the Degree of\par
+    \@degree\par
+    \vfill
+    by\par
+    \theauthor\par
+    \@degreemonth\ \@degreeyear\par
+    \endgroup
+    \clearpage
+}
+
+\newcommand{\copyrightpage}{%
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \begin{center}
+    \copyright\ \@degreeyear\ \theauthor
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+}
+
+\newcommand{\abstractpage}{%
+    % Abstract pages are unnumbered and excluded from the preliminary count.
+    \pagestyle{empty}
+    \setstretch{\dnormalspacing}
+    \vspace*{0.1in}
+    \begin{center}
+    \MakeUppercase{\thetitle}\par
+    \theauthor, Ph.D.\par
+    Cornell University \@degreeyear\par
+    \end{center}
+    \input{frontmatter/abstract}
+    \clearpage
+}
+
+\newcommand{\cornellfrontsection}[2]{%
+    \begin{center}\MakeUppercase{#1}\end{center}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}
+    \input{#2}
+    \clearpage
+}
+
+\renewcommand{\backmatter}{%
+    \begin{appendices}
+        \include{chapters/appendixA}
+    \end{appendices}
+    \input{endmatter/personalize}
+    \clearpage
+    \bibliographystyle{apalike2}
+    \bibliography{references}
+    \addcontentsline{toc}{chapter}{References}
+}
