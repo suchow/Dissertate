@@ -17,6 +17,25 @@ Add `\includeonly{chapters/chapter1}` after `\documentclass{Dissertate}` in `dis
 
 The default body spacing is set by `\dnormalspacing`. To change it, add `\renewcommand{\dnormalspacing}{1.5}` after `\documentclass{Dissertate}` in `dissertation.tex`. Replace `1.5` with the spacing factor required by your program. Check the compiled PDF against your school’s current formatting rules.
 
+### How do I add a glossary?
+
+Add these lines after `\documentclass{Dissertate}` in `dissertation.tex`:
+
+```latex
+\usepackage[toc]{glossaries}
+\makenoidxglossaries
+\newglossaryentry{sample}{
+  name={sample},
+  description={an example used to illustrate a concept}
+}
+```
+
+Use `\gls{sample}` in a chapter to print the term and include its entry in the glossary. Add `\printnoidxglossary` where the glossary should appear. The `toc` option adds the glossary heading to the table of contents.
+
+Compile with XeLaTeX at least twice, and repeat if cross-reference warnings remain. This example does not require `makeglossaries`, MakeIndex, or Xindy. Follow your school’s current requirements for glossary placement and pagination.
+
+The school-specific `\frontmatter` command generates several preliminary sections. To place the glossary between those sections, insert `\printnoidxglossary` where you want it in the `\frontmatter` definition in `Dissertate.cls`.
+
 ### How do I make the text justified instead of ragged right?
 Remove or comment out the line `\RaggedRight` from the .cls file.
 
