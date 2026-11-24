@@ -1,0 +1,48 @@
+name: Build LaTeX templates
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: templates-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  template:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        school: [Generic, Harvard, Berkeley, Princeton, NYU, Chicago]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y texlive-xetex texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra
+      - name: Install bundled fonts
+        run: |
+          mkdir -p "$HOME/.local/share/fonts"
+          cp -R assets/fonts "$HOME/.local/share/fonts/dissertate"
+          fc-cache -f
+      - name: Build selected template
+        env:
+          SCHOOL: ${{ matrix.school }}
+        run: python3 scripts/package-latex "$SCHOOL" "$RUNNER_TEMP/Dissertate-$SCHOOL-LaTeX.zip" --compile
+      - name: Upload template package
+        uses: actions/upload-artifact@v6
+        with:
+          name: Dissertate-${{ matrix.school }}-LaTeX
+          path: ${{ runner.temp }}/Dissertate-${{ matrix.school }}-LaTeX.zip
+          if-no-files-found: error
+          retention-days: 14
