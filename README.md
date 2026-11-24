@@ -77,8 +77,8 @@ PSL Research University].
 ## Saint Martin’s University
 - Lentz, Jotham C. (2018). [*A Fuzzy Architecture for Robotics Sensor
 Information Integration*](http://ricopic.one/mme/theses/Lentz_Jotham.pdf) [Master's thesis, Saint Martin’s University, Lacey, Washington].
-- Mortimer, Laura A. (2017). [*Fluid Velocity Vector Field Measurement in
-Synovial Joints*](http://ricopic.one/mme/theses/Mortimer_Laura.pdf) [Master's thsis, Saint Martin’s University, Lacey, Washington].
+- Mortimer, Laura A. (2017). *Fluid Velocity Vector Field Measurement in
+Synovial Joints* [Master's thesis, Saint Martin’s University, Lacey, Washington].
 
 ## Stanford University
 - Hawkins, Robert. D. (2019). [*Coordinating on meaning in
