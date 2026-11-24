@@ -95,3 +95,16 @@ Refer to the table with `Table~\ref{tab:example}`. LaTeX may move the table to a
 ### How do I use author–year citations?
 
 Add `\setcitestyle{authoryear,round,semicolon,aysep={,},yysep={,}}` after `\documentclass{Dissertate}` in `dissertation.tex`. Use `\citet{key}` for a textual citation, `\citep{key}` for a parenthetical citation, and `\citeauthor{key}` for the author’s name. Enable `\bibliographystyle{apalike2}` and `\bibliography{references}` near the end of `dissertation.tex`, and rebuild with XeLaTeX, BibTeX, XeLaTeX, and XeLaTeX. This produces APA-like author–year citations; `apalike2` does not implement current APA requirements.
+
+### How do I print symbols missing from the body font?
+
+Use a separate font for the missing symbols. For example, STIX Two Math contains ⇥ (U+21E5) and ⤞ (U+291E). Install the [`stix2-otf`](https://ctan.org/pkg/stix2-otf) package through your TeX distribution if it is not already installed; STIX Two Math is not bundled with Dissertate.
+
+Add these lines after `\documentclass{Dissertate}` in `dissertation.tex`:
+
+```latex
+\newfontface\dissertatesymbols{STIXTwoMath-Regular.otf}
+\newcommand{\extrasymbol}[1]{{\dissertatesymbols #1}}
+```
+
+Write `\extrasymbol{⇥}` or `\extrasymbol{⤞}` in the text. The font change applies only inside `\extrasymbol{...}`; the surrounding text uses the body font. This example is for text mode and does not change the math fonts.
