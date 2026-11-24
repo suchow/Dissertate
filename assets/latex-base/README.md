@@ -46,3 +46,7 @@ Each `subfigure` environment takes a width argument:
   \caption{A figure with two panels.}
 \end{figure}
 ```
+
+### How do I use author–year citations?
+
+Add `\setcitestyle{authoryear,round,semicolon,aysep={,},yysep={,}}` after `\documentclass{Dissertate}` in `dissertation.tex`. Use `\citet{key}` for a textual citation, `\citep{key}` for a parenthetical citation, and `\citeauthor{key}` for the author’s name. Enable `\bibliographystyle{apalike2}` and `\bibliography{references}` near the end of `dissertation.tex`, and rebuild with XeLaTeX, BibTeX, XeLaTeX, and XeLaTeX. This produces APA-like author–year citations; `apalike2` does not implement current APA requirements.
