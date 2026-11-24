@@ -2,45 +2,94 @@ name: Build LaTeX templates
 
 on:
   pull_request:
-  push:
-    branches: [master]
+    types: [opened]
+    paths:
+      - assets/latex-base/**
+      - assets/fonts/**
+      - assets/schools/**
+      - scripts/package-latex
+      - .github/workflows/templates.yml
   workflow_dispatch:
+    inputs:
+      school:
+        type: choice
+        default: Generic
+        options: [Generic, Harvard, Berkeley, Princeton, NYU, Chicago]
 
 permissions:
   contents: read
 
-concurrency:
-  group: templates-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
+  select:
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.schools.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - id: schools
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+          SCHOOL: ${{ inputs.school }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          schools = ['Generic', 'Harvard', 'Berkeley', 'Princeton', 'NYU', 'Chicago']
+          selected = {}
+          if os.environ['SCHOOL']:
+              selected[os.environ['SCHOOL']] = True
+          else:
+              paths = subprocess.check_output(['git', 'diff', '--name-only', os.environ['BASE'], os.environ['HEAD']], text=True).splitlines()
+              for path in paths:
+                  parts = path.split('/')
+                  if len(parts) > 3 and parts[:2] == ['assets', 'schools'] and parts[2] in schools:
+                      school = parts[2]
+                      selected[school] = selected.get(school, False) or not path.endswith('.md')
+                  elif path.startswith(('assets/latex-base/', 'assets/fonts/')) or path in ['scripts/package-latex', '.github/workflows/templates.yml']:
+                      selected['Generic'] = selected.get('Generic', False) or not path.endswith('.md')
+          if not selected:
+              selected['Generic'] = False
+          matrix = {'include': [{'school': school, 'compile': selected[school]} for school in schools if school in selected]}
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('matrix=' + json.dumps(matrix) + '\n')
+          PY
   template:
+    needs: select
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     strategy:
       fail-fast: false
       max-parallel: 2
-      matrix:
-        school: [Generic, Harvard, Berkeley, Princeton, NYU, Chicago]
+      matrix: ${{ fromJSON(needs.select.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - name: Install TeX dependencies
+        if: matrix.compile
         run: |
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y texlive-xetex texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra
       - name: Install bundled fonts
+        if: matrix.compile
         run: |
           mkdir -p "$HOME/.local/share/fonts"
           cp -R assets/fonts "$HOME/.local/share/fonts/dissertate"
           fc-cache -f
-      - name: Build selected template
+      - name: Package selected template
         env:
           SCHOOL: ${{ matrix.school }}
-        run: python3 scripts/package-latex "$SCHOOL" "$RUNNER_TEMP/Dissertate-$SCHOOL-LaTeX.zip" --compile
-      - name: Upload template package
-        uses: actions/upload-artifact@v6
+          COMPILE: ${{ matrix.compile }}
+        run: |
+          if [ "$COMPILE" = true ]; then
+            python3 scripts/package-latex "$SCHOOL" "$RUNNER_TEMP/Dissertate-$SCHOOL-LaTeX.zip" --compile
+          else
+            python3 scripts/package-latex "$SCHOOL" "$RUNNER_TEMP/Dissertate-$SCHOOL-LaTeX.zip"
+          fi
+      - uses: actions/upload-artifact@v6
         with:
           name: Dissertate-${{ matrix.school }}-LaTeX
           path: ${{ runner.temp }}/Dissertate-${{ matrix.school }}-LaTeX.zip
