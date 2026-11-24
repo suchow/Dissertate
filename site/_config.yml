@@ -3,8 +3,8 @@ title:       Dissertate
 email:       suchow@post.harvard.edu
 author:      "[Jordan Suchow, Varun Agrawal]"
 description: ""
-baseurl:     "" #"/Dissertate" # the subpath of your site, e.g. /blog/
-url:         "http://dissertate.io"
+baseurl:     "/Dissertate"
+url:         "https://suchow.github.io"
 logo:        "images/logo.jpg"
 
 # Google analytics
@@ -46,10 +46,15 @@ share_stumbleupon: false
 share_hackernews: false
 
 # Build settings
-markdown:     redcarpet
-redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    /:title
-paginate:     3
+markdown:     kramdown
+permalink:    /:title/
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - LICENSE.txt
+  - requirements.txt
+  - Gemfile
+  - Gemfile.lock
 sass:
-  compressed: true
+  style: compressed
