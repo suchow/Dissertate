@@ -45,9 +45,9 @@ jobs:
           JEKYLL_ENV: production
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: bundle exec jekyll build --destination "$RUNNER_TEMP/dissertate-site" --baseurl "$BASE_PATH"
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: ${{ runner.temp }}/dissertate-site
       - name: Deploy site
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
