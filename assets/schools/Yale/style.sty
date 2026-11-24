@@ -1,0 +1,152 @@
+% Yale GSAS Ph.D. dissertation layout.
+% https://registrar.yale.edu/student-records/dissertations/dissertation-submission/dissertation-formatting-guide
+\university{Yale University}
+\universitycity{New Haven}
+\universitystate{Connecticut}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+\geometry{reset,letterpaper,margin=1in,footskip=0.43in}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\iftoggle{DissertateSingleSpace}{%
+    \ClassWarning{Dissertate}{Yale requires double-spaced body text; ignoring the dsingle option.}%
+}{}
+\renewcommand{\dnormalspacing}{2.0}
+\renewcommand{\dcompressedspacing}{1.0}
+\setlength{\parindent}{0.5in}
+\renewenvironment{itemize}
+    {\begin{spacing}{\dnormalspacing}\olditemize}
+    {\endolditemize\end{spacing}}
+\renewenvironment{enumerate}
+    {\begin{spacing}{\dnormalspacing}\oldenumerate}
+    {\endoldenumerate\end{spacing}}
+
+% Keep text, headings, captions, and page numbers in the body font family.
+\renewcommand{\sfdefault}{\rmdefault}
+\renewcommand{\ttdefault}{\rmdefault}
+\renewcommand{\chapnumfont}{\normalfont\normalsize}
+\let\size@chapter\normalsize
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+\captionsetup{labelfont={normalfont,footnotesize,singlespacing},textfont={normalfont,footnotesize,singlespacing}}
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
+\setlength{\emergencystretch}{2em}
+\apptocmd{\@openbib@code}{\setlength{\itemsep}{\baselineskip}}{}{}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}
+    {\chapter*{\bibname}\phantomsection\addcontentsline{toc}{chapter}{\bibname}}
+    {}{\ClassError{Dissertate}{Cannot link the bibliography heading}{Check the bibliography definition.}}
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfootoffset[R]{0.5in}
+    \fancyfoot[R]{\normalfont\normalsize\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+\newcommand{\yalecommitteechair}[1]{\gdef\yale@committeechair{#1}}
+\yalecommitteechair{}
+
+\renewcommand{\frontmatter}{%
+    \input{frontmatter/personalize}
+    \pagenumbering{roman}
+    \maketitle
+    \copyrightpage
+    \setstretch{\dnormalspacing}
+    \abstractpage
+    \yale@laysummary
+    \begingroup
+    \setstretch{1}
+    \setlength{\cftbeforechapskip}{\baselineskip}
+    \setlength{\cftbeforesecskip}{\baselineskip}
+    \setlength{\cftbeforefigskip}{\baselineskip}
+    \setlength{\cftbeforetabskip}{\baselineskip}
+    \tableofcontents
+    % \listoffigures
+    % \listoftables
+    \clearpage
+    \endgroup
+    \yale@frontsection{Acknowledgments}{frontmatter/thanks}
+    \yale@frontsection{Dedication}{frontmatter/dedication}
+    \pagenumbering{arabic}
+}
+
+\renewcommand{\maketitle}{%
+    \thispagestyle{empty}
+    \begingroup
+    \centering
+    \normalfont\normalsize
+    \setstretch{1}
+    \vspace*{0.75in}
+    \thetitle\par
+    \vspace{\stretch{5}}
+    A Dissertation\par
+    Presented to the Faculty of the Graduate School\par
+    of\par
+    Yale University\par
+    in Candidacy for the Degree of\par
+    \@degree\par
+    \vspace{\stretch{4}}
+    by\par
+    \theauthor\par
+    \vspace{\baselineskip}
+    Dissertation Adviser: \@advisor\par
+    \ifdefempty{\yale@committeechair}{}{Committee Chair: \yale@committeechair\par}
+    \vspace{\baselineskip}
+    \@degreemonth\ \@degreeyear\par
+    \vspace*{0.15in}
+    \endgroup
+    \clearpage
+}
+
+\newcommand{\copyrightpage}{%
+    \thispagestyle{empty}
+    \begingroup
+    \centering
+    \setstretch{1}
+    % The first line begins 3 inches below the top text margin.
+    \vspace*{2.75in}
+    \copyright\ \ifdefstring{\@degreemonth}{December}{\number\numexpr\@degreeyear+1\relax}{\@degreeyear}\ by \theauthor\par
+    All rights reserved.\par
+    \endgroup
+    \clearpage
+}
+
+\newcommand{\abstractpage}{%
+    \vspace*{0pt}
+    \begin{center}
+    Abstract\par
+    \parbox[t]{\linewidth}{\centering\setstretch{1}\thetitle}\par
+    \theauthor\par
+    \@degreeyear\par
+    \end{center}
+    \indent\input{frontmatter/abstract}
+    \clearpage
+}
+
+\newcommand{\yale@laysummary}{%
+    \vspace*{0pt}
+    \begin{center}Lay Summary\end{center}
+    \indent\input{resources/lay-summary}
+    \clearpage
+}
+
+\newcommand{\yale@frontsection}[2]{%
+    \begin{center}#1\end{center}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}
+    \input{#2}
+    \clearpage
+}
+
+\renewcommand{\backmatter}{%
+    \begin{appendices}
+        \include{chapters/appendixA}
+    \end{appendices}
+    \input{endmatter/personalize}
+    \clearpage
+    \begingroup
+    \setstretch{1}
+    \bibliographystyle{apalike2}
+    \bibliography{references}
+    \endgroup
+}
