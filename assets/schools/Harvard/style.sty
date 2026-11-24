@@ -72,7 +72,13 @@
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Abstract}
 	\pagestyle{fancy}
-	\lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
+	\ifdefvoid{\@advisor}{%
+        \setlength{\headheight}{29pt}
+        \lhead{\shortstack[l]{Thesis advisors: Professors\\\@coadvisorOne\ and \@coadvisorTwo}}
+        \rhead{\shortstack[r]{\@author\\\strut}}
+    }{%
+        \lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
+    }
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}
 	\begin{center}
