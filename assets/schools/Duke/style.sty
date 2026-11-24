@@ -1,0 +1,74 @@
+% Duke Graduate School Ph.D.; ETD guide revised October 2025.
+% https://gradschool.duke.edu/sites/default/files/2022-03/ETD%20Guide%202020.pdf
+\university{Duke University}
+\universitycity{Durham}
+\universitystate{North Carolina}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+% Page-number glyphs must also remain above the one-inch bottom margin.
+\geometry{reset,letterpaper,left=1.5in,right=1in,top=1in,bottom=1.4in,footskip=0.25in}
+\hypersetup{draft=true,bookmarks=false,pageanchor=false,colorlinks=false,pdfborder={0 0 0}}
+\urlstyle{same}
+\microtypesetup{protrusion=false}
+\iftoggle{DissertateSingleSpace}{\ClassWarning{Dissertate}{Duke requires double spacing; ignoring dsingle.}}{}
+\renewcommand{\dnormalspacing}{2.0}
+\renewcommand{\dcompressedspacing}{1.0}
+\renewenvironment{itemize}{\begin{spacing}{\dnormalspacing}\olditemize}{\endolditemize\end{spacing}}
+\renewenvironment{enumerate}{\begin{spacing}{\dnormalspacing}\oldenumerate}{\endoldenumerate\end{spacing}}
+\setsansfont[Path={fonts/EB Garamond/},ItalicFont=EBGaramond12-Italic.otf]{EBGaramond12-Regular.otf}
+\captionsetup{labelfont={normalfont,footnotesize,singlespacing},textfont={normalfont,footnotesize,singlespacing}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\@addtoreset{footnote}{chapter}
+\renewcommand{\footnoterule}{\kern-3pt\hrule width 2in\kern2.6pt}
+\renewcommand{\chapnumfont}{\normalfont\normalsize}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\normalfont\normalsize\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+% Each list entry is single spaced; separate entries by a normal text baseline.
+\setlength{\cftbeforechapskip}{\baselineskip}
+\setlength{\cftbeforesecskip}{\baselineskip}
+\setlength{\cftbeforefigskip}{\baselineskip}
+\setlength{\cftbeforetabskip}{\baselineskip}
+\apptocmd{\@openbib@code}{\setlength{\itemsep}{\baselineskip}\setlength{\parsep}{0pt}}{}{}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{\chapter*{\bibname}\addcontentsline{toc}{chapter}{\bibname}}{}{\ClassError{Dissertate}{Cannot add bibliography to contents}{Check the bibliography definition.}}
+\newcommand{\dukedefensedate}[1]{\gdef\duke@defensedate{#1}}
+\dukedefensedate{[Month day, year]}
+\newcommand{\dukecommittee}[1]{\gdef\duke@committee{#1}}
+\dukecommittee{\underline{[Advisor name]}, Dissertation Advisor\\[12pt]\underline{[Committee member name]}\\[12pt]\underline{[Committee member name]}\\[12pt]\underline{[Committee member name]}}
+\newcommand{\dukesubmissionyear}[1]{\gdef\duke@submissionyear{#1}}
+\dukesubmissionyear{\@degreeyear}
+\newcommand{\duketitlepage}[1]{%
+    \thispagestyle{empty}\enlargethispage{0.4in}\begingroup\centering\setstretch{1}
+    \vspace*{65pt}#1\thetitle\par\vspace{12pt}by\par\vspace{12pt}\theauthor\par
+    \vspace{12pt}Department of \@department\par Duke University\par
+    \vspace{12pt}Defense Date: \duke@defensedate\par
+    \vspace{18pt}Approved:\par\vspace{18pt}\duke@committee\par
+    \vfill
+    \ifnum\value{page}=2 An abstract of a dissertation\else Dissertation\fi\ submitted in partial fulfillment of the requirements for the degree of Doctor of Philosophy in the Department of \@department\ in The Graduate School of\par Duke University\par \duke@submissionyear\par
+    \vspace*{6pt}\endgroup\clearpage}
+\renewcommand{\maketitle}{\duketitlepage{}}
+\newcommand{\copyrightpage}{%
+    \thispagestyle{empty}\enlargethispage{0.4in}\begingroup\centering\setstretch{1}\vspace*{\fill}
+    Copyright by\par\theauthor\par\duke@submissionyear\par
+    \vspace*{6pt}\endgroup\clearpage}
+\newcommand{\dukefrontsection}[2]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}\input{#2}\clearpage}
+\renewcommand{\frontmatter}{%
+    \input{frontmatter/personalize}\pagenumbering{roman}\pagestyle{empty}
+    \maketitle
+    \duketitlepage{ABSTRACT\par\vspace{12pt}}
+    \copyrightpage
+    \setcounter{page}{4}\pagestyle{plain}\setstretch{\dnormalspacing}
+    \dukefrontsection{Abstract}{frontmatter/abstract}
+    \chapter*{Dedication}\input{frontmatter/dedication}\clearpage
+    \begingroup\setstretch{1}\tableofcontents\clearpage
+    \listoftables\addcontentsline{toc}{chapter}{List of Tables}\clearpage
+    \listoffigures\addcontentsline{toc}{chapter}{List of Figures}\clearpage\endgroup
+    \dukefrontsection{Acknowledgements}{frontmatter/thanks}
+    \pagenumbering{arabic}}
+\renewcommand{\backmatter}{%
+    \begin{appendices}\include{chapters/appendixA}\end{appendices}
+    \input{endmatter/personalize}\clearpage
+    \begingroup\setstretch{1}\bibliographystyle{apalike2}\bibliography{references}\endgroup}
