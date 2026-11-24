@@ -195,6 +195,7 @@
           \end{\@captype}}
            {\addtocounter{\@captype}{-1}} %Subtract off one from the counter?
            {\begin{\@captype}[p!]% %Changed from b to p! Thanks to Eddie. --- Andrew Leifer  	%Start another figure!
+             \vbox to \textheight{\vfil%
              \ifthenelse{\equal{\FP@guide}{\@empty}}%
                {}{\ifthenelse{\equal{\@captype}{figure}}%
                    {\renewcommand{\fnum@figure}{\old@Fnum\ {\FP@guide}}}%
@@ -206,6 +207,7 @@
              \ifthenelse{\equal{\FP@optionalCaptionText}{\@empty}}%
                {\FP@savedCaptionCommand{\expandafter\protect\FP@CaptionText}}%here is the saved caption command if the optional text is empty
 {\FP@savedCaptionCommand[\expandafter\protect\FP@optionalCaptionText]{\expandafter\protect\FP@CaptionText}}%if the optional text is not empty, than this is the command
+             \vfil}%
            \end{\@captype}}%
 }%
 
