@@ -9,6 +9,10 @@ The template loads its bundled EB Garamond, Lato, and Source Code Pro fonts auto
 
 ## FAQ
 
+### How do I set the title and author?
+
+Edit `\title{...}` and `\author{...}` in `frontmatter/personalize.tex`. The school style uses these values on the title page and in headers.
+
 ### How do I compile selected chapters?
 
 Add `\includeonly{chapters/chapter1}` after `\documentclass{Dissertate}` in `dissertation.tex` (separate multiple chapter paths with commas). Compile the complete dissertation first to preserve references and numbering from omitted chapters. Front matter and any active bibliography commands are still included; remove `\includeonly` to compile all chapters again.
@@ -46,6 +50,28 @@ Each `subfigure` environment takes a width argument:
   \caption{A figure with two panels.}
 \end{figure}
 ```
+
+### How do I add a table?
+
+Place a `table` environment in a chapter. This example puts the caption above a two-column table:
+
+```latex
+\begin{table}[htbp]
+  \centering
+  \caption{Example measurements.}
+  \label{tab:example}
+  \begin{tabular}{lr}
+    \hline
+    Measurement & Value \\
+    \hline
+    First & 12 \\
+    Second & 34 \\
+    \hline
+  \end{tabular}
+\end{table}
+```
+
+Refer to the table with `Table~\ref{tab:example}`. LaTeX may move the table to a nearby page.
 
 ### How do I use author–year citations?
 
