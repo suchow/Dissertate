@@ -1,0 +1,53 @@
+name: Publish GitHub Pages
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - site/**
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.11'
+          working-directory: site
+          bundler-cache: true
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build site
+        working-directory: site
+        env:
+          JEKYLL_ENV: production
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: bundle exec jekyll build --destination "$RUNNER_TEMP/dissertate-site" --baseurl "$BASE_PATH"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/dissertate-site
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4
