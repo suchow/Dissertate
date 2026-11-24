@@ -101,10 +101,10 @@
 }
 
 \newcommand{\dedicationpage}{
-	\phantomsection
-	\addcontentsline{toc}{chapter}{Dedication}
 	\newpage
 	\setcounter{page}{4}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Dedication}
 	\vspace*{\fill}
 	\scshape \noindent \input{frontmatter/dedication}
 	\vspace*{\fill}
@@ -113,25 +113,25 @@
 }
 
 \newcommand{\acknowledgments}{
+	\chapter*{Acknowledgments}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Acknowledgments}
-	\chapter*{Acknowledgments}
 	\noindent
 	\input{frontmatter/thanks}
 	\vspace*{\fill} \newpage
 }
 
 \newcommand{\preface}{
+	\chapter*{Preface}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Preface}
-	\chapter*{Preface}
 	\input{frontmatter/preface}
 }
 
 \newcommand{\abstractpage}{
+	\chapter*{Abstract}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Abstract}
-	\chapter*{Abstract}
 	\input{frontmatter/abstract}
 }
 
