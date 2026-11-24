@@ -35,6 +35,7 @@ def main():
         package = Path(temp) / name
         shutil.copytree(ROOT / "assets" / "latex-base", package)
         shutil.copytree(ROOT / "assets" / "fonts", package / "fonts")
+        shutil.copy2(ROOT / "LICENSE", package / "LICENSE")
         for item in ("guidelines.pdf", "resources"):
             source = school / item
             if source.is_dir():
