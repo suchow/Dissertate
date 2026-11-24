@@ -39,10 +39,10 @@ and Biophysics*](http://tom.dimiduk.net/files/dimiduk_thesis.pdf) [Unpublished d
 - Fu, Daniel. Y. (2018). [*Design of Influencing Agents for Flocking
 in Low-Density Settings*](https://www.danfu.org/files/SeniorThesis.pdf) [Senior thesis, Harvard University, Cambridge, Massachusetts].
 - Garruss, Alexander Shineman. (2020). [*Accelerating the Understanding and Design of Intracellular Biosensors by Massively Multiplexed Experimentation and Machine Learning*](https://media.proquest.com/media/hms/PFT/2/PwWSI?_s=A2LLUBgS1hBgpi%2FFbEc9h1uFGNk%3D) (Pulication No. 28265270) [Doctoral dissertation, Harvard University].
-- Limor, Gultchin. (2017). [*Just for Laughts: Utilizing Machine Learning to Rate and Generate Humorous Analogies*](https://dash.harvard.edu/handle/1/38811513 [Senior thesis, Harvard College].
+- Gultchin, Limor. (2017). [*Just for Laughs: Utilizing Machine Learning to Rate and Generate Humorous Analogies*](https://dash.harvard.edu/entities/publication/2b2d1667-f007-42eb-a55f-7213e5f70bf8) [Senior thesis, Harvard College].
 - Randle, Dylan L. (2020). [*Unsupervised Neural Network Methods for Solvong Differential Equations*](https://dylanrandle.github.io/denn/Harvard_Masters_Thesis_Submit.pdf) [Master's thesis, Harvard University].
 - Xiong, Zhaoxi. (2019). [*Classification and Construction of
-Topological Phases of Quantum Matter*](https://arxiv.org/pdf/1906.02892.pdf) [Doctoral dissertation, Harvard University, Cambridge, Massachusetts].]
+Topological Phases of Quantum Matter*](https://arxiv.org/pdf/1906.02892.pdf) [Doctoral dissertation, Harvard University, Cambridge, Massachusetts].
 
 ## Hokkaido University
 - Zhai, Hongjie. (2018). [*Study on Discovery and Exploration
@@ -107,11 +107,11 @@ Essays on cultural adaptation*](http://amsdottorato.unibo.it/9116/3/Asri%20thesi
 - Golemo, Florian. (2018). [*How to Train Your Robot - New Environments for Robotic Training and New Methods for Transferring Policies from the Simulator to the Real Robot*](https://hal.inria.fr/tel-01974203/file/89722_GOLEMO_2018_archivage.pdf) [Doctoral dissertation, Universite de Bordeaux, Bordeaux, France].
 
 ## University of California, Berkeley
-- Langlois, Thomas A. (2018). [*Uncovering Human Visual Priors*](https://www.proquest.com/dissertations-theses/uncovering-human-visual-priors/docview/2135826687/se-2?accountid=201395)(Publication No. 10931026) [Doctoral dissertation, University of California, Berkeley].
-- Meylan, Stephan C. (2018). [*Representing linguistic knowledge with probabilistic models*](https://www.proquest.com/dissertations-theses/representing-linguistic-knowledge-with/docview/2135808388/se-2?accountid=201395)(Publication No. 10931065) [Doctoral dissertation, University of California, Berkeley].
+- Langlois, Thomas A. (2018). [*Uncovering Human Visual Priors*](https://escholarship.org/uc/item/7843w9q3)(Publication No. 10931026) [Doctoral dissertation, University of California, Berkeley].
+- Meylan, Stephan C. (2018). [*Representing linguistic knowledge with probabilistic models*](https://escholarship.org/uc/item/5vp920sn)(Publication No. 10931065) [Doctoral dissertation, University of California, Berkeley].
 - Pacer, M D. (2016). [*Mind as Theory Engine:
-Causation, Explanation and Time*](https://www.proquest.com/dissertations-theses/mind-as-theory-engine-causation-explanation-time/docview/1916533628/se-2?accountid=201395)(Publication No. 10194103) [Doctoral dissertation, University of California, Berkeley].
-- Peterson, Joshua C. (2018). [*Leveraging deep neural networks to study human cognition*](https://www.proquest.com/dissertations-theses/leveraging-deep-neural-networks-study-human/docview/2135826689/se-2?accountid=201395)(Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].
+Causation, Explanation and Time*](https://escholarship.org/uc/item/4nk6p0f3)(Publication No. 10194103) [Doctoral dissertation, University of California, Berkeley].
+- Peterson, Joshua C. (2018). [*Leveraging deep neural networks to study human cognition*](https://escholarship.org/uc/item/6qp2f54d)(Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].
 
 ## University of California, Davis
 - Siegel, Noah Alexander. (2023). [*The Developing Rhesus Monkey Microbiome*](https://escholarship.org/uc/item/6mj456wb) [Doctoral dissertation, University of California, Davis].
