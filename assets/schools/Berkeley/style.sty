@@ -38,6 +38,12 @@
     \pagenumbering{arabic}
 }
 
+% Use co-advisors only when both names are supplied.
+\newcommand{\berkeleyadvisors}[2]{%
+    \ifboolexpr{test {\ifdefvoid{\@coadvisorOne}} or test {\ifdefvoid{\@coadvisorTwo}}}
+        {#2}{#1}%
+}
+
 \renewcommand{\maketitle}{
     \thispagestyle{empty}
     \vspace*{\fill}
@@ -55,41 +61,21 @@
     \vspace{50pt}
     Committee in charge:\\
     \vspace{20pt}
-    Professor \@coadvisorOne, Co-chair\\
-    Professor \@coadvisorTwo, Co-chair\\
-    Professor \@committeeInternal\\
+    \berkeleyadvisors{%
+        Professor \@coadvisorOne, Co-chair\\
+        Professor \@coadvisorTwo, Co-chair\\
+        Professor \@committeeInternal\\
+    }{%
+        Professor \@advisor, Chair\\
+        Professor \@committeeInternalOne\\
+        Professor \@committeeInternalTwo\\
+    }%
     Professor \@committeeExternal\\
     \vspace{50pt}
     \@degreeterm\ \@degreeyear}
     \end{center} \vspace*{\fill}
 }
 
-
-%\renewcommand{\maketitle}{
-%    \thispagestyle{empty}
-%    \vspace*{\fill}
-%    \vspace{10pt}
-%    \begin{center}
-%    \Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
-%    \vspace{100pt}
-%    By\\
-%    \theauthor\\
-%    \vspace{12pt}
-%    \textsc{A Dissertation submitted in partial satisfaction of the\\
-%    requirements for the degree of \\ \@degree\\
-%    in\\ \@department\\ in the\\  Graduate Division\\ of the\\
-%    \@university\\
-%    \vspace{50pt}
-%    Committee in charge:\\
-%    \vspace{20pt}
-%    Professor \@advisor, Chair\\
-%    Professor \@committeeInternalOne\\
-%    Professor \@committeeInternalTwo\\
-%    Professor \@committeeExternal\\
-%    \vspace{50pt}
-%    \@degreeterm\ \@degreeyear}
-%    \end{center} \vspace*{\fill}
-%}
 
 \newcommand{\copyrightpage}{
     \newpage
@@ -107,7 +93,11 @@
     \setcounter{page}{1}
     \pagenumbering{arabic}
     \pagestyle{fancy}
-    \lhead{Co-advisors: \\\@coadvisorOne ~{\textit \&} \\\@coadvisorTwo}
+    \berkeleyadvisors{%
+        \lhead{Co-advisors: \\\@coadvisorOne ~{\textit \&} \\\@coadvisorTwo}%
+    }{%
+        \lhead{Thesis advisor: Professor \@advisor}%
+    }%
     \rhead{\@author\\[\baselineskip]}
     \renewcommand{\headrulewidth}{0.0pt}
     \vspace*{35pt}
