@@ -3,13 +3,16 @@
 
 Dissertate provides LaTeX templates for a thesis or dissertation.
 
-[Download the repository ZIP](https://github.com/suchow/Dissertate/archive/refs/heads/master.zip) and extract it, or clone the repository. From the repository root (`Dissertate-master` if extracted from the ZIP), run:
+Download a template for your school:
 
-```sh
-python3 scripts/package-latex Harvard Dissertate-Harvard-LaTeX.zip
-```
+- [Harvard](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Harvard-LaTeX.zip)
+- [NYU](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-NYU-LaTeX.zip)
+- [Princeton](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Princeton-LaTeX.zip)
+- [UC Berkeley](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Berkeley-LaTeX.zip)
+- [University of Chicago](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Chicago-LaTeX.zip)
+- [Generic](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Generic-LaTeX.zip)
 
-Pass `Harvard`, `NYU`, `Princeton`, `Berkeley`, `Chicago`, or `Generic` as the first argument. The resulting ZIP contains the template sources, fonts, and school-specific guidance in `AGENTS.md`. Add `--compile` to include a PDF; this requires XeLaTeX and BibTeX. Extract the generated ZIP before editing the template.
+Extract the ZIP, edit `frontmatter/personalize.tex`, and compile `dissertation.tex` with XeLaTeX and BibTeX.
 
 One of the biggest hurdles in submitting a thesis or dissertation is getting the formatting right — the rules are arcane, and the registrar is pedantic. Few students have the background needed to design and typeset clean and stylish documents. Enter Dissertate. Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. To date, the software provides everything needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, NYU, and UC Berkeley, though it will be adapted to meet the requirements of other schools — eventually all of them. The format and styling are based closely on the requirements published by each university's registrar.
 
