@@ -49,6 +49,8 @@ share_hackernews: false
 markdown:     kramdown
 permalink:    /:title/
 exclude:
+  - vendor
+  - .bundle
   - README.md
   - CONTRIBUTING.md
   - LICENSE
