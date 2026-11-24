@@ -1,0 +1,89 @@
+% Rackham Ph.D. only. Current HTML formatting rules take precedence over old checklists.
+% https://rackham.umich.edu/navigating-your-degree/formatting-guidelines/
+\university{The University of Michigan}
+\universitycity{Ann Arbor}
+\universitystate{Michigan}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+\geometry{reset,letterpaper,margin=1in,bottom=1.1in,footskip=0.2in}
+\microtypesetup{protrusion=false}
+\renewcommand{\dnormalspacing}{2.0}
+\renewcommand{\dcompressedspacing}{1.0}
+\DeclareMathSizes{12}{12}{9}{9}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue,filecolor=black,pdfborder={0 0 0},pdflang={en-US}}
+\RequirePackage[normalem]{ulem}
+\let\michigan@href\href
+\renewcommand{\href}[2]{\michigan@href{#1}{\uline{#2}}}
+\DeclareUrlCommand\michigan@urltext{\urlstyle{same}}
+\renewcommand{\url}[1]{\michigan@href{#1}{\uline{\michigan@urltext{#1}}}}
+\renewcommand{\chapnumfont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
+\renewcommand{\size@chapter}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
+% Replace the decorative chapter heading with one consistent heading level.
+\def\@makechapterhead#1{\vspace*{51.662pt}{\setstretch{1}\parindent\z@\centering\normalfont\fontsize{16}{20}\selectfont
+    \ifnum\c@secnumdepth>\m@ne \@chapapp\space\thechapter\par\fi #1\par\nobreak\vskip24pt}}
+\def\@makeschapterhead#1{\vspace*{51.662pt}{\setstretch{1}\parindent\z@\centering\normalfont\fontsize{16}{20}\selectfont #1\par\nobreak\vskip24pt}}
+\titleformat{\section}{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+\setlength{\cftbeforetoctitleskip}{51.662pt}
+\setlength{\cftbeforeloftitleskip}{51.662pt}
+\setlength{\cftbeforelottitleskip}{51.662pt}
+\renewcommand{\cfttoctitlefont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
+\renewcommand{\cftloftitlefont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
+\renewcommand{\cftlottitlefont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
+\setlength{\cftbeforechapskip}{0pt}
+\renewcommand{\cftchappresnum}{Chapter }
+\setlength{\cftchapnumwidth}{6em}
+% The appendix package writes its own literal Appendix prefix into each entry.
+\AtBeginEnvironment{appendices}{\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{}}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\normalfont\normalsize\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+\newcommand{\michiganlegalname}[1]{\gdef\michigan@legalname{#1}}
+\newcommand{\michiganemail}[1]{\gdef\michigan@email{#1}}
+\newcommand{\michiganorcid}[1]{\gdef\michigan@orcid{#1}}
+\newcommand{\michigancommittee}[1]{\gdef\michigan@committee{#1}}
+\michiganlegalname{[FULL LEGAL NAME]}
+\michiganemail{[REPLACE WITH UMICH EMAIL]}
+\michiganorcid{[REPLACE WITH ORCID ID]}
+\michigancommittee{Professor [CHAIR FULL NAME], Chair\\Professor [MEMBER FULL NAME]}
+\newcommand{\michiganfrontispiece}{}
+\newcommand{\michiganpreface}{}
+\newcommand{\michiganextralists}{}
+\newcommand{\copyrightpage}{%
+    \thispagestyle{empty}\begingroup\centering\setstretch{1}\vspace*{60pt}
+    \michigan@legalname\par\michigan@email\par ORCID iD: \michigan@orcid\par
+    \vspace{\baselineskip}\copyright\ \michigan@legalname\ \@degreeyear\par\endgroup\clearpage}
+\renewcommand{\maketitle}{%
+    \thispagestyle{empty}\begingroup\centering\setstretch{1}\vspace*{60pt}
+    \thetitle\par\vspace{24pt}by\par\theauthor\par\vspace{36pt}
+    A dissertation submitted in partial fulfillment\par
+    of the requirements for the degree of\par
+    Doctor of Philosophy\par
+    (\@department)\par
+    in The University of Michigan\par
+    \@degreeyear\par\vspace{36pt}
+    \begin{flushleft}Doctoral Committee:\par\vspace{12pt}
+    \hspace*{24pt}\begin{minipage}{\dimexpr\textwidth-24pt\relax}\michigan@committee\end{minipage}\end{flushleft}
+    \endgroup\clearpage}
+\newcommand{\michiganfrontsection}[2]{\chapter*{#1}\phantomsection\addcontentsline{toc}{chapter}{#1}\input{#2}\clearpage}
+\renewcommand{\frontmatter}{%
+    \input{frontmatter/personalize}
+    \hypersetup{pdftitle={\thetitle},pdfauthor={\theauthor},pageanchor=false}
+    \setstretch{\dnormalspacing}\maketitle\michiganfrontispiece
+    \pagenumbering{roman}\copyrightpage
+    \hypersetup{pageanchor=true}\pagestyle{plain}
+    \michiganfrontsection{Dedication}{frontmatter/dedication}
+    \michiganfrontsection{Acknowledgements}{frontmatter/thanks}
+    \michiganpreface
+    \tableofcontents\clearpage\listoftables\clearpage\listoffigures\clearpage
+    \michiganextralists
+    \michiganfrontsection{Abstract}{frontmatter/abstract}
+    \pagenumbering{arabic}}
+\apptocmd{\@openbib@code}{\setlength{\itemsep}{\baselineskip}\setlength{\parsep}{0pt}}{}{\ClassError{Dissertate}{Cannot set bibliography spacing}{Check the bibliography definition.}}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}
+    {\chapter*{\bibname}\phantomsection\addcontentsline{toc}{chapter}{\bibname}}
+    {}{\ClassError{Dissertate}{Cannot link the bibliography heading}{Check the bibliography definition.}}
+\renewcommand{\backmatter}{%
+    \begin{appendices}\include{chapters/appendixA}\end{appendices}
+    \input{endmatter/personalize}\clearpage
+    \begingroup\setstretch{1}\bibliographystyle{apalike2}\bibliography{references}\endgroup}
