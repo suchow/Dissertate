@@ -76,5 +76,5 @@ jobs:
         run: |
           gh release create "$RELEASE_TAG" "$RUNNER_TEMP"/packages/*.zip "$RUNNER_TEMP/packages/SHA256SUMS.txt" \
             --draft --target "$GITHUB_SHA" --title "School templates ($RELEASE_TAG)" \
-            --notes "Download the ZIP for your school, extract it, and open dissertation.tex. Each package includes fonts and school-specific AGENTS.md guidance."
+            --notes 'Download the ZIP for your school, extract it, and open `dissertation.tex`. Each package includes fonts and school-specific guidance in `AGENTS.md`.'
           gh release edit "$RELEASE_TAG" --draft=false --latest
