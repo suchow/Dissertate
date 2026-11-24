@@ -1,0 +1,98 @@
+% MIT: single-author, single-degree Ph.D. thesis.
+% https://libraries.mit.edu/distinctive-collections/thesis-specs/
+\university{Massachusetts Institute of Technology}
+\universitycity{Cambridge}
+\universitystate{Massachusetts}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+% Letter and these margins are template defaults, not Institute-wide rules.
+\geometry{reset,letterpaper,margin=1in,bottom=1.1in,footskip=0.2in}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\microtypesetup{protrusion=false}
+\renewcommand{\dcompressedspacing}{1.0}
+\setromanfont[Path={fonts/Lato/},BoldFont=Lato-Bol.ttf,ItalicFont=Lato-RegIta.ttf,BoldItalicFont=Lato-BolIta.ttf]{Lato-Reg.ttf}
+\newfontfamily{\mit@smallcaps}[Path={fonts/Lato/},BoldFont=Lato-Bol.ttf,ItalicFont=Lato-RegIta.ttf,BoldItalicFont=Lato-BolIta.ttf]{Lato-Reg.ttf}
+\let\smallcaps\mit@smallcaps
+\renewcommand{\chapnumfont}{\normalfont\normalsize}
+\let\size@chapter\normalsize
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\setlength{\cftbeforechapskip}{0pt}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+\renewenvironment{itemize}{\begin{spacing}{\dnormalspacing}\olditemize}{\endolditemize\end{spacing}}
+\renewenvironment{enumerate}{\begin{spacing}{\dnormalspacing}\oldenumerate}{\endoldenumerate\end{spacing}}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{\chapter*{\bibname}\phantomsection\addcontentsline{toc}{chapter}{\bibname}}{}{\ClassError{Dissertate}{Cannot link the bibliography heading}{Check the bibliography definition.}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\normalfont\normalsize\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+
+\newcommand{\mitpreviousdegrees}[1]{\gdef\mit@previousdegrees{#1}}
+\newcommand{\mitsubmissiondate}[1]{\gdef\mit@submissiondate{#1}}
+\newcommand{\mitsupervisortitle}[1]{\gdef\mit@supervisortitle{#1}}
+\newcommand{\mitsupervisordepartment}[1]{\gdef\mit@supervisordepartment{#1}}
+\newcommand{\mitacceptedby}[1]{\gdef\mit@acceptedby{#1}}
+\newcommand{\mitacceptedtitle}[1]{\gdef\mit@acceptedtitle{#1}}
+\newcommand{\mitrightsstatement}[1]{\gdef\mit@rightsstatement{#1}}
+\mitpreviousdegrees{[Previous degrees, institutions, and years; omit if inapplicable]}
+\mitsubmissiondate{[Date presented to department]}
+\mitsupervisortitle{[Supervisor title: verify against MIT catalog]}
+\mitsupervisordepartment{[Supervisor department: verify against MIT catalog]}
+\mitacceptedby{[Current department or program officer: verify name]}
+\mitacceptedtitle{[Current officer title: verify with department]}
+\mitrightsstatement{All rights reserved.}
+\newcommand{\mit@legend}{The author hereby grants to MIT a nonexclusive, worldwide, irrevocable, royalty-free license to exercise any and all rights under copyright, including to reproduce, preserve, distribute and publicly display copies of the thesis, or release the thesis under an open-access license.}
+
+\renewcommand{\maketitle}{%
+ \thispagestyle{empty}\begingroup\setstretch{1}\normalfont\normalsize
+ \vspace*{36pt}
+ \begin{center}
+ \thetitle\par\vspace{12pt}
+ by\par\vspace{12pt}
+ \theauthor\par
+ \mit@previousdegrees\par\vspace{12pt}
+ Submitted to the \@department\ in partial fulfillment of the requirements for the degree of\par
+ Doctor of Philosophy\par
+ at the\par
+ Massachusetts Institute of Technology\par
+ \@degreemonth\ \@degreeyear\par\vspace{12pt}
+ \copyright\ \@degreeyear\ \theauthor.\ \mit@rightsstatement\par\vspace{12pt}
+ \mit@legend\par
+ \end{center}
+ \vspace{2\baselineskip}
+ \noindent\begin{tabular}{@{}l@{\quad}p{0.72\linewidth}}
+ Authored by: & \theauthor\\ & \@department\\ & \mit@submissiondate\\[\baselineskip]
+ Certified by: & \@advisor\\ & \mit@supervisortitle\\ & \mit@supervisordepartment, Thesis supervisor\\[\baselineskip]
+ Accepted by: & \mit@acceptedby\\ & \mit@acceptedtitle
+ \end{tabular}
+ \endgroup\clearpage
+}
+\newcommand{\abstractpage}{%
+ \begingroup\setstretch{1}
+ \begin{center}\thetitle\par\medskip by\par\medskip\theauthor\par\medskip
+ Submitted to the \@department\ on \mit@submissiondate\ in Partial Fulfillment of the Requirements for the Degree of Doctor of Philosophy\par
+ \end{center}\medskip
+ \noindent ABSTRACT\par\medskip
+ \input{frontmatter/abstract}\par\medskip
+ \noindent Thesis supervisor: \@advisor\par
+ \noindent Title: \mit@supervisortitle\par
+ \endgroup\clearpage
+}
+\newcommand{\mit@frontsection}[2]{\begingroup\setstretch{1}\chapter*{#1}\phantomsection\addcontentsline{toc}{chapter}{#1}\input{#2}\par\endgroup\clearpage}
+\renewcommand{\frontmatter}{%
+ \input{frontmatter/personalize}
+ \pagenumbering{arabic}
+ \maketitle\abstractpage
+ \mit@frontsection{Acknowledgments}{frontmatter/thanks}
+ % Optional biography: uncomment after writing resources/biography.tex.
+ % \mit@frontsection{Biographical Note}{resources/biography}
+ \setstretch{\dnormalspacing}
+ \tableofcontents\clearpage
+ \listoffigures\clearpage
+ \listoftables\clearpage
+ % Required if submitting supplemental material; populate this file first.
+ % \mit@frontsection{List of Supplemental Material}{resources/supplemental-material}
+}
+\renewcommand{\backmatter}{%
+ \begin{appendices}\include{chapters/appendixA}\end{appendices}
+ \input{endmatter/personalize}\clearpage
+ \begingroup\setstretch{1}\bibliographystyle{apalike2}\bibliography{references}\endgroup
+}
