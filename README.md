@@ -75,8 +75,8 @@ PSL Research University].
 - Malygin, Mykola G. (2016). [*Gas Opacity in Planet and Star Formation*](https://www.imprs-hd.mpg.de/81761/thesis_malygin.pdf) [Unpublished doctoral dissertation, Ruperto Carola Universitat].
 
 ## Saint Martin’s University
-- Lentz, Jotham C. (2018). [*A Fuzzy Architecture for Robotics Sensor
-Information Integration*](http://ricopic.one/mme/theses/Lentz_Jotham.pdf) [Master's thesis, Saint Martin’s University, Lacey, Washington].
+- Lentz, Jotham C. (2018). *A Fuzzy Architecture for Robotics Sensor
+Information Integration* [Master's thesis, Saint Martin’s University, Lacey, Washington].
 - Mortimer, Laura A. (2017). *Fluid Velocity Vector Field Measurement in
 Synovial Joints* [Master's thesis, Saint Martin’s University, Lacey, Washington].
 
