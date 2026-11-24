@@ -13,9 +13,15 @@ Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. [
 One of the biggest hurdles in submitting a thesis or dissertation is getting the formatting right — the rules are arcane, and the registrar is pedantic. Few students have the background needed to design and typeset clean and stylish documents. Enter Dissertate. Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. To date, the software provides everything needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, NYU, and UC Berkeley, though it will be adapted to meet the requirements of other schools — eventually all of them. The format and styling are based closely on the requirements published by each university's registrar.
 
 # Examples of Dissertations using Dissertate
+
+This list includes dissertations that use adaptations of Dissertate.
+
 ## Austrailian National University
 - Duong, Ly. (2018). [*Unravelling the evolution of the Galactic
 stellar disk & bulge*](https://openresearch-repository.anu.edu.au/bitstream/1885/149502/5/dissertation_print_LDuong_finalv2.pdf) [Doctoral dissertation, Austrailian National University].
+
+## Eindhoven University of Technology
+- van Berlo, Bram Roel Debbie. (2025). [*Depleting the Ox-Eye Daisy: Towards Domain Generalization for Digital Sensing with Radio Waves*](https://research.tue.nl/en/publications/depleting-the-ox-eye-daisy-towards-domain-generalization-for-digi/) [Doctoral dissertation, Eindhoven University of Technology].
 
 ## Flinders University
 - Szpak, Ancrêt. L. (2015). [*The Social Space Around Us: the effect of
@@ -83,6 +89,9 @@ Distributed Sensor Networks*](https://tuprints.ulb.tu-darmstadt.de/8489/1/2019-0
 Systems Through Software and Hardware Cooperation*](https://upcommons.upc.edu/bitstream/handle/2117/105576/TVJJP1de1.pdf?sequence=1&isAllowed=y) [Doctoral dissertation, Universitat Politè cnica de Catalunya – Barcelona Tech Barcelona].
 
 ## University of Amsterdam
+- Esmaeili, Babak. (2024). [*Learning Useful Representations with Variational Autoencoders*](https://pure.uva.nl/ws/files/163641968/Thesis.pdf) [Doctoral dissertation, University of Amsterdam].
+- Hoogeveen, Suzanne. (2023). [*To believe or not to believe: Open science and replication in the psychology of religion*](https://pure.uva.nl/ws/files/109876040/Thesis.pdf) [Doctoral dissertation, University of Amsterdam].
+- Kucharský, Šimon. (2024). [*Gazing into a Discrete World: Mixture Models of Cognition & Behavior*](https://pure.uva.nl/ws/files/174234290/Thesis.pdf) [Doctoral dissertation, University of Amsterdam].
 - Lê, Hoàng-Ân. (2021). [*Outdoor image understanding from multiple vision modalities*](https://pure.uva.nl/ws/files/60160532/Thesis.pdf) [Doctoral dissertation, University of Amsterdam].
 
 ## University of Birmingham
@@ -103,11 +112,15 @@ Essays on cultural adaptation*](http://amsdottorato.unibo.it/9116/3/Asri%20thesi
 Causation, Explanation and Time*](https://www.proquest.com/dissertations-theses/mind-as-theory-engine-causation-explanation-time/docview/1916533628/se-2?accountid=201395)(Publication No. 10194103) [Doctoral dissertation, University of California, Berkeley].
 - Peterson, Joshua C. (2018). [*Leveraging deep neural networks to study human cognition*](https://www.proquest.com/dissertations-theses/leveraging-deep-neural-networks-study-human/docview/2135826689/se-2?accountid=201395)(Pulication No. 10930700) [Doctoral dissertation, University of California, Berkeley].
 
+## University of California, Davis
+- Siegel, Noah Alexander. (2023). [*The Developing Rhesus Monkey Microbiome*](https://escholarship.org/uc/item/6mj456wb) [Doctoral dissertation, University of California, Davis].
+
 ## University of Cambridge
 - Qin, Chongli. (2020). [*Phylogenetic Signals in Protein Data*](https://www.repository.cam.ac.uk/bitstream/handle/1810/318986/PhD_thesis_V3.pdf?sequence=11&isAllowed=y) [Doctoral dissertation, Selwyn College, University of Cambridge, Cambridge, Cambridgeshire].
 
 ## University of Groningen
 - Driesprong, F. T. (2015). [*Web-scale outlier detection*](https://fse.studenttheses.ub.rug.nl/13549/1/Masterscriptie.pdf) [Master's thesis, University of Groningen, Groningen, Netherlands].
+- Jacobi, Jidde. (2022). [*Coordination and timing of speech gestures in Parkinson’s disease*](https://doi.org/10.33612/diss.238268145) [Doctoral dissertation, University of Groningen].
 
 ## University of Mannheim
 - Pietrantuono, Giuseppe. (2016). [*The Value of Citizenship. Experimental and Quasi-experimental Evidence from Germany and Switzerland*](http://madoc.bib.uni-mannheim.de/41290/1/dissertation_pflichtexemplare.pdf) [Unpublished doctoral dissertation, University of Mannheim].
