@@ -5,12 +5,12 @@ Dissertate provides LaTeX templates for a thesis or dissertation.
 
 Download a template for your school:
 
-- [Harvard](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Harvard-LaTeX.zip)
-- [NYU](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-NYU-LaTeX.zip)
-- [Princeton](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Princeton-LaTeX.zip)
-- [UC Berkeley](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Berkeley-LaTeX.zip)
-- [University of Chicago](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Chicago-LaTeX.zip)
-- [Generic](https://github.com/suchow/Dissertate/releases/download/templates-2026-11-24/Dissertate-Generic-LaTeX.zip)
+- [Harvard](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Harvard-LaTeX.zip)
+- [NYU](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-NYU-LaTeX.zip)
+- [Princeton](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Princeton-LaTeX.zip)
+- [UC Berkeley](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Berkeley-LaTeX.zip)
+- [University of Chicago](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Chicago-LaTeX.zip)
+- [Generic](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Generic-LaTeX.zip)
 
 Extract the ZIP, edit `frontmatter/personalize.tex`, and compile `dissertation.tex` with XeLaTeX and BibTeX.
 
