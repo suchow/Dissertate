@@ -10,3 +10,30 @@
 
 ### How do I make the text justified instead of ragged right?
 Remove or comment out the line `\RaggedRight` from the .cls file.
+
+
+### How do I add subfigures?
+
+Load the [`subcaption`](https://ctan.org/pkg/subcaption) package in `dissertation.tex` after `\documentclass{Dissertate}`:
+
+```latex
+\usepackage{subcaption}
+```
+
+Each `subfigure` environment takes a width argument:
+
+```latex
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{figures/fig1}
+    \caption{First panel.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{figures/fig2}
+    \caption{Second panel.}
+  \end{subfigure}
+  \caption{A figure with two panels.}
+\end{figure}
+```
