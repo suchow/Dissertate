@@ -1,0 +1,117 @@
+% Northwestern TGS Ph.D. dissertation layout.
+% https://www.northwestern.edu/tgs/academic-policies-procedures/dissertation-publication/dissertation-formatting-requirements.html
+% https://www.northwestern.edu/tgs/documents/academic-policies-procedures/dissertation-formatting-pdf-template.pdf
+\university{Northwestern University}
+\universitycity{Evanston}
+\universitystate{Illinois}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+\geometry{reset,letterpaper,margin=1in,headheight=15pt,headsep=3pt}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\iftoggle{DissertateSingleSpace}{%
+    \ClassWarning{Dissertate}{Northwestern requires double spacing; ignoring the dsingle option.}%
+}{}
+\renewcommand{\dnormalspacing}{2.0}
+\renewcommand{\dcompressedspacing}{1.0}
+\renewcommand{\chapnumfont}{\normalfont\normalsize}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+% With a one-inch text margin, the header begins 0.751 inches from the top.
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead[R]{\normalfont\normalsize\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+\microtypesetup{protrusion=false}
+\setlength{\cftbeforechapskip}{0pt}
+% Optional copyright page; disable with \togglefalse{NorthwesternCopyright}.
+\newtoggle{NorthwesternCopyright}
+\toggletrue{NorthwesternCopyright}
+\renewcommand{\frontmatter}{%
+    \input{frontmatter/personalize}
+    \pagenumbering{arabic}
+    \maketitle
+    \iftoggle{NorthwesternCopyright}{\copyrightpage}{}
+    \setstretch{\dnormalspacing}
+    \abstractpage
+    \northwesternfrontsection{Acknowledgment}{frontmatter/thanks}
+    % Optional preface, abbreviations, and glossary belong here.
+    \northwesternfrontsection{Dedication}{frontmatter/dedication}
+    \tableofcontents
+    % \listoftables
+    % \listoffigures
+    \clearpage
+    % Arabic pagination continues through the body and end matter.
+}
+\renewcommand{\maketitle}{%
+    \thispagestyle{empty}
+    \begingroup
+    \centering
+    \normalfont\normalsize
+    \setstretch{1}
+    \vspace*{8.5pt}
+    NORTHWESTERN UNIVERSITY\par
+    \vfill
+    \thetitle\par
+    \vfill
+    A DISSERTATION\par
+    \vspace{36pt}
+    SUBMITTED TO THE GRADUATE SCHOOL\par
+    IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\par
+    \vfill
+    for the degree\par
+    \vfill
+    DOCTOR OF PHILOSOPHY\par
+    \vfill
+    \@department\par
+    \vfill
+    By\par
+    \vspace{22pt}
+    \theauthor\par
+    \vfill
+    EVANSTON, ILLINOIS\par
+    \vfill
+    \@degreemonth\ \@degreeyear\par
+    \vspace*{6pt}
+    \endgroup
+    \clearpage
+}
+
+\newcommand{\copyrightpage}{%
+    \vspace*{\fill}
+    \begin{center}
+    \copyright\ Copyright by \theauthor, \@degreeyear\par
+    All Rights Reserved
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+}
+\newcommand{\abstractpage}{%
+    \begin{center}Abstract\end{center}
+    \input{frontmatter/abstract}
+    \clearpage
+}
+\newcommand{\northwesternfrontsection}[2]{%
+    \begin{center}#1\end{center}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}
+    \input{#2}
+    \clearpage
+}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}
+    {\chapter*{\bibname}\phantomsection\addcontentsline{toc}{chapter}{\bibname}}
+    {}{\ClassError{Dissertate}{Cannot link the bibliography heading}{Check the bibliography definition.}}
+\renewcommand{\backmatter}{%
+    \input{endmatter/personalize}
+    \clearpage
+    \begingroup
+    \setstretch{1}
+    \bibliographystyle{apalike2}
+    \bibliography{references}
+    \clearpage
+    \endgroup
+    \begin{appendices}
+        \include{chapters/appendixA}
+    \end{appendices}
+}
