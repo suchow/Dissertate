@@ -1,0 +1,80 @@
+name: Release school templates
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag, for example templates-2026-11-24-2
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: template-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Validate release tag
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          python3 - <<'PYCODE'
+          import datetime, os, re
+          tag = os.environ['RELEASE_TAG']
+          match = re.fullmatch(r'templates-(\d{4}-\d{2}-\d{2})(?:-[1-9]\d*)?', tag)
+          if not match:
+              raise SystemExit('Use templates-YYYY-MM-DD or templates-YYYY-MM-DD-N.')
+          datetime.date.fromisoformat(match.group(1))
+          PYCODE
+      - name: Package school templates
+        run: |
+          mkdir -p "$RUNNER_TEMP/packages"
+          python3 scripts/package-latex Harvard "$RUNNER_TEMP/packages/Dissertate-Harvard-LaTeX.zip"
+          python3 scripts/package-latex NYU "$RUNNER_TEMP/packages/Dissertate-NYU-LaTeX.zip"
+          python3 scripts/package-latex Princeton "$RUNNER_TEMP/packages/Dissertate-Princeton-LaTeX.zip"
+          python3 scripts/package-latex Berkeley "$RUNNER_TEMP/packages/Dissertate-Berkeley-LaTeX.zip"
+          python3 scripts/package-latex Chicago "$RUNNER_TEMP/packages/Dissertate-Chicago-LaTeX.zip"
+          python3 scripts/package-latex Generic "$RUNNER_TEMP/packages/Dissertate-Generic-LaTeX.zip"
+      - name: Check release archives
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib, os
+          from pathlib import Path
+          from zipfile import ZipFile
+          root = Path(os.environ['RUNNER_TEMP']) / 'packages'
+          schools = ['Harvard', 'NYU', 'Princeton', 'Berkeley', 'Chicago', 'Generic']
+          checksums = []
+          for school in schools:
+              archive = root / f'Dissertate-{school}-LaTeX.zip'
+              prefix = archive.stem + '/'
+              with ZipFile(archive) as package:
+                  if package.testzip() is not None:
+                      raise SystemExit(f'Corrupt archive: {archive.name}')
+                  required = ['dissertation.tex', 'Dissertate.cls', 'AGENTS.md', 'frontmatter/personalize.tex']
+                  if not all(prefix + path in package.namelist() for path in required):
+                      raise SystemExit(f'Incomplete archive: {archive.name}')
+              checksums.append(hashlib.sha256(archive.read_bytes()).hexdigest() + '  ' + archive.name)
+          (root / 'SHA256SUMS.txt').write_text('\n'.join(checksums) + '\n')
+          PYCODE
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          gh release create "$RELEASE_TAG" "$RUNNER_TEMP"/packages/*.zip "$RUNNER_TEMP/packages/SHA256SUMS.txt" \
+            --draft --target "$GITHUB_SHA" --title "School templates ($RELEASE_TAG)" \
+            --notes "Download the ZIP for your school, extract it, and open dissertation.tex. Each package includes fonts and school-specific AGENTS.md guidance."
+          gh release edit "$RELEASE_TAG" --draft=false --latest
