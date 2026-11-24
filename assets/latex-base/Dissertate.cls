@@ -18,6 +18,16 @@
 %
 \RequirePackage{etoolbox}
 
+% Colophon controls may be changed in frontmatter/personalize.tex.
+\newtoggle{DissertateColophon}
+\toggletrue{DissertateColophon}
+\newtoggle{DissertateColophonImage}
+\toggletrue{DissertateColophonImage}
+\newcommand{\dissertatebodyfont}{EB Garamond}
+\newcommand{\dissertatecolophon}{%
+    \iftoggle{DissertateColophon}{\input{endmatter/colophon}\clearpage}{}%
+}
+
 % Line spacing: dsingle/ddouble
 %   Whether to use single- or doublespacing.
 \newtoggle{DissertateSingleSpace}

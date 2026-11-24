@@ -92,3 +92,5 @@ By \theauthor
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
 }
+
+\apptocmd{\backmatter}{\dissertatecolophon}{}{\ClassError{Dissertate}{Cannot add colophon}{Check the backmatter definition.}}
