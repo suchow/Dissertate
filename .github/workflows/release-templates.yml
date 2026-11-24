@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Semantic version tag, for example v1.0.1
+        description: Semantic version tag (for example, v1.0.1)
         required: true
         type: string
 
@@ -41,7 +41,7 @@ jobs:
           tag = os.environ['RELEASE_TAG']
           match = re.fullmatch(r'v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)', tag)
           if not match:
-              raise SystemExit('Use vMAJOR.MINOR.PATCH, for example v1.0.1.')
+              raise SystemExit('Use vMAJOR.MINOR.PATCH (for example, v1.0.1).')
           notes = os.environ['RELEASE_NOTES']
           if not notes.strip() or len(notes) > 120 or len(notes.splitlines()) != 1:
               raise SystemExit('Use one short line of change notes (at most 120 characters).')
