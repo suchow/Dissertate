@@ -30,6 +30,7 @@
 \newtoggle{DissertateColophonImage}
 \toggletrue{DissertateColophonImage}
 \newcommand{\dissertatebodyfont}{EB Garamond}
+\newcommand{\dissertatedocumentname}{dissertation}
 \newcommand{\dissertatecolophon}{%
     \iftoggle{DissertateColophon}{\input{endmatter/colophon}\clearpage}{}%
 }

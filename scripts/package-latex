@@ -36,10 +36,10 @@ def main():
         shutil.copytree(ROOT / "assets" / "latex-base", package)
         shutil.copytree(ROOT / "assets" / "fonts", package / "fonts")
         shutil.copy2(ROOT / "LICENSE", package / "LICENSE")
-        for item in ("guidelines.pdf", "resources"):
+        for item in ("guidelines.pdf", "resources", "frontmatter"):
             source = school / item
             if source.is_dir():
-                shutil.copytree(source, package / item)
+                shutil.copytree(source, package / item, dirs_exist_ok=True)
             elif source.is_file():
                 shutil.copy2(source, package / item)
         for source in school.glob("*.sty"):
