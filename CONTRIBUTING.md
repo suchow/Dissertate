@@ -28,3 +28,5 @@ The school ZIPs are editable project templates. A CTAN installation layout remai
 ## Experimental CTAN staging
 
 For a local Generic-only CTAN staging experiment, run `python3 scripts/stage-ctan-generic /path/to/Dissertate /path/to/new-output`. The output directory must not exist. The tool creates a TeX Directory Structure (TDS) tree with uniquely named historical font files, unchanged font bytes, license notices, and a hash manifest. It does not upload or release a package. Redistribution review, complete documentation, and compatibility checks remain required before submission. Existing school ZIP packaging is unchanged.
+
+To include a separately built and reviewed manual PDF, add `--manual-pdf /path/to/manual.pdf` to the staging command. Staging checks the PDF file header and records its hash; it does not compile the manual or verify that the PDF matches the manual source. Without this option, the tree contains the manual source but no manual PDF.
