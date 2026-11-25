@@ -14,4 +14,4 @@ Edit `frontmatter/abstract.tex` for the abstract and chapter files for the disse
 
 Write in English. A foreign-language research dissertation requires the approvals specified by the guide, requested at the prospectus stage. Even with approval, the title, abstract, copyright notice, committee pages, and contents remain in English.
 
-Consult Duke's [brand guidelines](https://brand.duke.edu/logos/) before adding institutional branding. Add a seal or logo only when the author requests it and the applicable guidelines allow it. The dissertation guide also prohibits images unrelated to the research.
+Consult Duke's [brand guidelines](https://brand.duke.edu/logos/) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks. The dissertation guide also prohibits images unrelated to the research.

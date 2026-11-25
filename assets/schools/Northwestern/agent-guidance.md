@@ -8,4 +8,4 @@ In `frontmatter/personalize.tex`, set the author, mixed-case title, and degree-c
 
 Compile with XeLaTeX and BibTeX. Preserve the author's text and inspect pagination, font embedding, and spacing in the PDF. Add optional preface, abbreviations, glossary, and illustration lists in the official order when needed.
 
-Consult Northwestern’s [visual identity guidelines](https://www.northwestern.edu/brand/visual-identity/logos-lockups/) before adding institutional branding. Add a seal or logo only when the author requests it and the applicable guidelines allow it.
+Consult Northwestern’s [visual identity guidelines](https://www.northwestern.edu/brand/visual-identity/logos-lockups/) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.

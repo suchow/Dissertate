@@ -12,4 +12,4 @@ Stanford accepts Computer Modern. This template uses Computer Modern Unicode for
 
 The main document is `dissertation.tex`; chapters are in `chapters/`. Preserve the author’s text and inspect the compiled PDF after layout changes. English is required unless the school dean approves an exception. An approved foreign-language dissertation requires an extended English summary, usually 15–20 pages, submitted as a supplemental file. Verify the current submission requirements for that case.
 
-Consult Stanford’s [identity guidance](https://identity.stanford.edu/) before adding institutional branding. Add a seal or logo only when the author requests it and the applicable guidelines allow it.
+Consult Stanford’s [identity guidance](https://identity.stanford.edu/) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
