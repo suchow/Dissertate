@@ -1,4 +1,9 @@
 # EB Garamond
+
+The regular and italic OTF faces come from [Georg Duffner’s EB Garamond project](https://github.com/georgd/EB-Garamond). Their license is in `COPYING`.
+
+The bold and bold-italic TTF faces come from [Octavio Pardo’s EB Garamond project](https://github.com/octaviopardo/EBGaramond12). `glebkuznetsov` contributed them in [#70](https://github.com/suchow/Dissertate/pull/70). Their license is in `OFL.txt`. The bundled OTF faces have version 0.015d; the TTF faces have version 1.000. Exact upstream source-to-binary correspondence remains unverified.
+
 ## Claude Garamont’s designs go opensource.
 
 This project aims at providing a free version of the Garamond types, based on the Designs of the Berner specimen from 1592.

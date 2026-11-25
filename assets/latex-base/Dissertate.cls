@@ -110,8 +110,8 @@
 \AtBeginEnvironment{tabular}{\addfontfeature{RawFeature=+tnum}}
 \widowpenalty=300
 \clubpenalty=300
-\setromanfont[Path={fonts/EB Garamond/}, ItalicFont=EBGaramond12-Italic.otf, Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EBGaramond12-Regular.otf}
-\newfontfamily{\smallcaps}[Path={fonts/EB Garamond/}, RawFeature={+c2sc,+scmp}]{EBGaramond12-Regular.otf}
+\setromanfont[Path={fonts/EB Garamond/}, ItalicFont=EBGaramond12-Italic.otf, BoldFont=EBGaramond-Bold.ttf, BoldItalicFont=EBGaramond-BoldItalic.ttf, Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EBGaramond12-Regular.otf}
+\newfontfamily{\smallcaps}[Path={fonts/EB Garamond/}, ItalicFont=EBGaramond12-Italic.otf, BoldFont=EBGaramond-Bold.ttf, BoldItalicFont=EBGaramond-BoldItalic.ttf, RawFeature={+c2sc,+smcp}]{EBGaramond12-Regular.otf}
 \setsansfont[Path={fonts/Lato/}, Scale=MatchLowercase, BoldFont=Lato-Bol.ttf, ItalicFont=Lato-RegIta.ttf, BoldItalicFont=Lato-BolIta.ttf]{Lato-Reg.ttf}
 \setmonofont[Path={fonts/Source Code Pro/}, Scale=MatchLowercase, BoldFont=SourceCodePro-Bold.ttf]{SourceCodePro-Regular.ttf}
 \RequirePackage[labelfont={bf,sf,footnotesize,singlespacing},
