@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+"""Prepare a local source candidate; never execute staged input code."""
+import argparse
+import hashlib
+import json
+import re
+import stat
+from pathlib import Path, PurePosixPath
+
+D = 'doc/latex/dissertate/'
+S = 'source/latex/dissertate/'
+FAMILIES = {
+ 'EB Garamond': ['EBGaramond12-Regular.otf','EBGaramond12-Italic.otf','EBGaramond-Bold.ttf','EBGaramond-BoldItalic.ttf'],
+ 'Lato': ['Lato-Reg.ttf','Lato-RegIta.ttf','Lato-Bol.ttf','Lato-BolIta.ttf'],
+ 'Source Code Pro': ['SourceCodePro-Regular.ttf','SourceCodePro-Bold.ttf']}
+NOTICES = ['LICENSE','assets/fonts/EB Garamond/COPYING','assets/fonts/EB Garamond/OFL.txt',
+ 'assets/fonts/Lato/SIL Open Font License 1.1.txt','assets/fonts/Source Code Pro/OFL.txt']
+README = '''# Dissertate Generic source candidate
+
+Bundle version: {version}
+
+This local candidate contains Generic sources, documentation, and historical fonts for review. Creating it does not create a tag, publish a release, submit to CTAN, or install a package.
+
+Project code, documentation, and synthetic examples are under the repository’s GNU Affero General Public License, version 3. Fonts retain their separate SIL Open Font License, version 1.1, terms. Their notices and embedded copyright and Reserved Font Name metadata are preserved. Filename prefixes leave font bytes and internal names unchanged. Redistribution review remains unresolved.
+
+Run `python3 source/reconstruct.py /new/private/source-root` from this package directory to reconstruct the staging inputs. The destination must not exist; its parent must exist. The helper copies verified files and never executes the included generator. Review the reconstructed source before staging. The reconstructed `scripts/stage-ctan-generic` can then stage a separate local TDS tree. See `doc/manual.tex` and `doc/manual.pdf` for its command and options. The included manual PDF can be supplied explicitly with `--manual-pdf`.
+
+The sources target XeLaTeX with TeX Live dependencies. Generic filename lookup and embedding were tested on TeX Live 2025/macOS. MiKTeX and full dissertation behavior remain unverified. Existing Palatino-bold and mono-italic substitutions remain. Runtime classes, example files, and the manifest are generated when staging; this source package omits those derived files. No duplicate font payload is needed to reconstruct inputs.
+
+The helper does not reconstruct the full upstream repository, historical font build sources, or the manual build environment. It copies the reviewed PDF without rebuilding it. Existing destinations are refused. An I/O failure can leave a partial newly created directory; no caller data is deleted or overwritten. Use a private parent without concurrent writers. Source reconstruction and a successful build do not establish redistribution permission or CTAN acceptance.
+'''
+
+def sha(b): return hashlib.sha256(b).hexdigest()
+
+def relative(s):
+    if not isinstance(s,str) or not s or '\\' in s:
+        raise ValueError('invalid relative path')
+    p=PurePosixPath(s)
+    if p.is_absolute() or any(x in ('','.','..') for x in s.split('/')):
+        raise ValueError('invalid relative path')
+    return s
+
+def new_destination(path):
+    if path.exists() or path.is_symlink(): raise ValueError('destination exists')
+    return path.parent.resolve(strict=True)/path.name
+
+def unique_json(pairs):
+    d={}
+    for k,v in pairs:
+        if k in d: raise ValueError('duplicate JSON key')
+        d[k]=v
+    return d
+
+def project(stage, output, version):
+    if not isinstance(version,str) or not re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)',version):
+        raise ValueError('strict MAJOR.MINOR.PATCH required')
+    if stage.is_symlink(): raise ValueError('symlink input root')
+    root=stage.resolve(strict=True); output=new_destination(output)
+    if root==output or root in output.parents: raise ValueError('output inside input')
+    # Map each retained staged input to a projection path and reconstruction path.
+    mapping={
+      'README.md':('source/dissertate-input-readme.md','docs/ctan-generic/README.md'),
+      D+'manual.tex':('doc/manual.tex','docs/ctan-generic/manual.tex'),
+      D+'manual.pdf':('doc/manual.pdf','provided-manual.pdf'),
+      S+'stage_generic.py':('source/stage_generic.py','scripts/stage-ctan-generic'),
+      S+'inputs/dissertate-base-original.cls':('source/dissertate-base-original.cls','assets/latex-base/Dissertate.cls'),
+      S+'inputs/dissertate-school-generic-original.sty':('source/dissertate-school-generic-original.sty','assets/schools/Generic/style.sty')}
+    fonts=[]
+    for family,names in FAMILIES.items():
+        for name in names:
+            basename='dissertate-historical-'+name
+            installed='fonts/'+('opentype' if name.endswith('.otf') else 'truetype')+'/public/dissertate/'+basename
+            original='assets/fonts/'+family+'/'+name
+            mapping[installed]=('fonts/'+basename,original)
+            fonts.append((original,installed))
+    for n in NOTICES:
+        flat=n.replace(' ','-').replace('/','--')
+        mapping[D+'notices/'+flat]=('licenses/'+flat,n)
+    omitted={D+'examples/generic/main.tex'} | {D+'examples/generic/frontmatter/'+n+'.tex' for n in ['abstract','dedication','thanks','personalize']}
+    omitted |= {'tex/latex/dissertate/'+n for n in ['dissertate.cls','dissertate-base.cls','dissertate-school-generic.sty']}
+    allowed=set(mapping)|omitted
+    manifest_path=D+'candidate-manifest.json'
+    data={}
+    for p in root.rglob('*'):
+        mode=p.lstat().st_mode
+        if stat.S_ISLNK(mode) or not (stat.S_ISDIR(mode) or stat.S_ISREG(mode)):
+            raise ValueError('symlink or special input')
+        if stat.S_ISREG(mode):
+            key=relative(p.relative_to(root).as_posix())
+            if key not in allowed|{manifest_path}: raise ValueError('unexpected input '+key)
+            data[key]=p.read_bytes()
+    if set(data)!=allowed|{manifest_path}: raise ValueError('missing input')
+    m=json.loads(data[manifest_path],object_pairs_hook=unique_json)
+    if set(m)!={'inputs','outputs','fonts','manual_pdf_included'} or m['manual_pdf_included'] is not True:
+        raise ValueError('unexpected manifest schema')
+    if not isinstance(m['outputs'],dict) or set(m['outputs'])!=allowed: raise ValueError('unexpected manifest payload')
+    for key,h in m['outputs'].items():
+        relative(key)
+        if not isinstance(h,str) or not re.fullmatch('[0-9a-f]{64}',h) or sha(data[key])!=h:
+            raise ValueError('payload hash mismatch')
+    expected_inputs={}
+    for key,(_,orig) in mapping.items():
+        if orig=='scripts/stage-ctan-generic': continue
+        expected_inputs['provided-manual-pdf' if orig=='provided-manual.pdf' else orig]=sha(data[key])
+    if m['inputs']!=expected_inputs: raise ValueError('input hashes/paths mismatch')
+    expected_fonts=[dict(original=o,prefixed=k,sha256=sha(data[k])) for o,k in fonts]
+    if m['fonts']!=expected_fonts: raise ValueError('font mapping mismatch')
+    if not data[D+'manual.pdf'].startswith(b'%PDF-'): raise ValueError('invalid PDF header')
+    payload={out:data[key] for key,(out,_) in mapping.items()}
+    payload['VERSION']=(version+'\n').encode()
+    payload['README.md']=README.format(version=version).encode()
+    records=[(out,orig,sha(data[key])) for key,(out,orig) in sorted(mapping.items())]
+    projection_bytes=Path(__file__).read_bytes()
+    payload['source/prepare_ctan_source.py']=projection_bytes
+    records.append(('source/prepare_ctan_source.py','scripts/prepare-ctan-source',sha(projection_bytes)))
+    helper = '''# Copy-only reconstruction helper. Does not execute input code.
+import hashlib
+import sys
+from pathlib import Path
+RECORDS = '''+repr(records)+'''
+root=Path(__file__).resolve().parent.parent
+out=Path(sys.argv[1])
+if out.exists() or out.is_symlink(): raise SystemExit('destination exists')
+out=out.parent.resolve(strict=True)/out.name
+if out==root or root in out.parents: raise SystemExit('destination inside package')
+payload={}
+for rel,target,h in RECORDS:
+    p=root/rel
+    if any(x.is_symlink() for x in [p,*p.parents] if x!=root.parent):
+        raise SystemExit('symlink in input path')
+    b=p.read_bytes()
+    if hashlib.sha256(b).hexdigest()!=h: raise SystemExit('hash mismatch')
+    payload[target]=b
+out.mkdir()
+for target,b in sorted(payload.items()):
+    p=out/target
+    p.parent.mkdir(parents=True,exist_ok=True)
+    with p.open('xb') as f: f.write(b)
+'''
+    payload['source/reconstruct.py']=helper.encode()
+    basenames=[Path(k).name.casefold() for k in payload]
+    if len(basenames)!=len(set(basenames)): raise ValueError('basename collision')
+    hashes=[sha(v) for v in payload.values()]
+    if len(hashes)!=len(set(hashes)): raise ValueError('duplicate blob')
+    # Only this caller-selected new directory is created; never delete on failure.
+    output.mkdir()
+    for rel,b in sorted(payload.items()):
+        p=output/rel;p.parent.mkdir(parents=True,exist_ok=True)
+        with p.open('xb') as f:f.write(b)
+    return records
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('staged_tree',type=Path);p.add_argument('new_output',type=Path);p.add_argument('version')
+    a=p.parse_args()
+    try:project(a.staged_tree,a.new_output,a.version)
+    except (ValueError,OSError,KeyError,TypeError) as e:p.exit(1,str(e)+'\n')
