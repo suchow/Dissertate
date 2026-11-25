@@ -18,8 +18,25 @@
 
 % Formatting guidelines found in:
 % http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+\RequirePackage{pdfpages}
+\newcommand{\@harvardcertificate}{}
+\newcommand{\harvardacceptancecertificate}[1]{\renewcommand{\@harvardcertificate}{#1}}
+\newcommand{\harvardcertificatepage}{%
+    \ifdefempty{\@harvardcertificate}{}{%
+        \IfFileExists{\@harvardcertificate}{%
+            \begingroup
+            \hypersetup{pageanchor=false}%
+            \includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{\@harvardcertificate}%
+            \endgroup
+        }{%
+            \ClassError{Dissertate}{Harvard acceptance certificate not found}%
+                {Check the path passed to \string\harvardacceptancecertificate.}%
+        }%
+    }%
+}
 \renewcommand{\frontmatter}{
 	\input{frontmatter/personalize}
+    \harvardcertificatepage
 	\maketitle
 	\copyrightpage
 	\abstractpage
