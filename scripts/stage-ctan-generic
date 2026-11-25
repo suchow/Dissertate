@@ -42,8 +42,12 @@ def stage(source, destination, manual_pdf=None):
         inputs[relative] = digest(data)
         return data
 
-    base = read('assets/latex-base/Dissertate.cls').decode()
-    school = read('assets/schools/Generic/style.sty').decode()
+    raw_base = read('assets/latex-base/Dissertate.cls')
+    raw_school = read('assets/schools/Generic/style.sty')
+    payload['source/latex/dissertate/inputs/dissertate-base-original.cls'] = raw_base
+    payload['source/latex/dissertate/inputs/dissertate-school-generic-original.sty'] = raw_school
+    base = raw_base.decode()
+    school = raw_school.decode()
     if base.count('\\ProvidesClass{Dissertate}') != 1 or '\\endinput' in base:
         raise ValueError('unexpected base identity or terminator')
     if any(x in school for x in ['\\ProvidesPackage', '\\endinput', 'fonts/', '\\includegraphics']):

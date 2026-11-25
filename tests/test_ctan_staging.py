@@ -3,6 +3,8 @@ import importlib.machinery
 import importlib.util
 from pathlib import Path
 import tempfile
+import subprocess
+import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +48,27 @@ class StagingTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 module.stage(ROOT, link)
             self.assertEqual(before, hashes(first))
+            reconstructed = root / "reconstructed"
+            mapping = {
+                "source/latex/dissertate/inputs/dissertate-base-original.cls": "assets/latex-base/Dissertate.cls",
+                "source/latex/dissertate/inputs/dissertate-school-generic-original.sty": "assets/schools/Generic/style.sty",
+                "README.md": "docs/ctan-generic/README.md",
+                "doc/latex/dissertate/manual.tex": "docs/ctan-generic/manual.tex",
+                "source/latex/dissertate/stage_generic.py": "scripts/stage-ctan-generic",
+            }
+            for notice in module.NOTICES:
+                mapping["doc/latex/dissertate/notices/" + notice.replace(" ", "-").replace("/", "--")] = notice
+            for font in manifest["fonts"]:
+                mapping[font["prefixed"]] = font["original"]
+            for staged, original in mapping.items():
+                target = reconstructed / original
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((first / staged).read_bytes())
+            self.assertEqual((reconstructed / "assets/latex-base/Dissertate.cls").read_bytes(), (ROOT / "assets/latex-base/Dissertate.cls").read_bytes())
+            self.assertEqual((reconstructed / "assets/schools/Generic/style.sty").read_bytes(), (ROOT / "assets/schools/Generic/style.sty").read_bytes())
+            rebuilt = root / "rebuilt"
+            subprocess.run([sys.executable, "-I", str(reconstructed / "scripts/stage-ctan-generic"), str(reconstructed), str(rebuilt), "--manual-pdf", str(pdf)], check=True)
+            self.assertEqual(before, hashes(rebuilt))
 
     def test_unexpected_source_creates_no_destination(self):
         with tempfile.TemporaryDirectory(prefix="dissertate-ctan-test-") as name:
