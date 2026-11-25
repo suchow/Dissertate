@@ -4,5 +4,7 @@ This template matched the requirements of Chicago's Economics format, although m
 ## Citations
 For citations, use the bibtex style "Chicago".
 
-## Known Bugs
-There is a minor bug regarding figure captions for full page figures. This is built on the Havard package. Harvard requires that full page figures be preceded by a page containing only a figure caption. I have modified the fltpage package to do this. Now the bug: on rare occasions, if LaTeX has many small floats in the queue, a second float can appear on the page that is supposed to have only the figure caption. This is a known bug in the fltpage package, see for example the comments in the original (unmodified) source: https://ctan.org/pkg/fltpage
+## Full-page figures and tables
+Full-page figures and tables use the independently implemented `dissertate-fullpage` package. Load it with `\usepackage{dissertate-fullpage}` after `\documentclass{Dissertate}` in `dissertation.tex`. The legacy `fltpage2` package name loads this implementation. A full-page environment flushes earlier floats. Its caption occupies the next page alone; the image or table occupies the following page. Later body text begins on a new page.
+
+With the `twoside` package option, a blank page is inserted when necessary to put the caption on an even page facing the content on an odd page. Use `\caption[Short title]{Full caption}` and `\label{...}` inside `FPfigure` or `FPtable`. The content page repeats the number and optional short title. Ordinary float placement arguments such as `[h]` are unsupported. Leave room for the short heading when sizing the content.
