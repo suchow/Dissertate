@@ -9,6 +9,10 @@ The template loads its bundled EB Garamond, Lato, and Source Code Pro fonts auto
 
 ## FAQ
 
+### How do I select A4 paper?
+
+Use `\documentclass[a4paper]{Dissertate}` in `dissertation.tex` for A4 paper. US Letter remains the default; `letterpaper` selects it explicitly. The aliases `dpaperafour` and `dpaperletter` are also supported. Choose the size required by your school.
+
 ### How do I set the title and author?
 
 Edit `\title{...}` and `\author{...}` in `frontmatter/personalize.tex`. The school style uses these values on the title page and in headers.
