@@ -24,3 +24,7 @@ The repository software license is in `LICENSE`. Bundled fonts and artwork have 
 Disabling the colophon image does not remove its file from a source ZIP. University guides and institutional artwork also require their own distribution review. The Toronto cover notice is in `assets/schools/Toronto/resources/cover.png.LICENSE`; the repository software license does not license university marks.
 
 The school ZIPs are editable project templates. A CTAN installation layout remains to be defined. A CTAN submission still needs a defined package structure, a complete file inventory, and documentation with its source.
+
+## Experimental CTAN staging
+
+For a local Generic-only CTAN staging experiment, run `python3 scripts/stage-ctan-generic /path/to/Dissertate /path/to/new-output`. The output directory must not exist. The tool creates a TeX Directory Structure (TDS) tree with uniquely named historical font files, unchanged font bytes, license notices, and a hash manifest. It does not upload or release a package. Redistribution review, complete documentation, and compatibility checks remain required before submission. Existing school ZIP packaging is unchanged.
