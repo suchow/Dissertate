@@ -96,6 +96,10 @@ Place a `table` environment in a chapter. This example puts the caption above a 
 
 Refer to the table with `Table~\ref{tab:example}`. LaTeX may move the table to a nearby page.
 
+### How do I write a possessive citation?
+
+With numeric citations, write `\citeauthor{key}\textquotesingle s~\citep{key}`. For author–year prose, write `\citeauthor{key}\textquotesingle s (\citeyear{key})`. Replace `key` with the bibliography entry key. Adjust the possessive ending to your citation style. These examples use the existing citation package and do not modify its internal commands.
+
 ### How do I use author–year citations?
 
 Add `\setcitestyle{authoryear,round,semicolon,aysep={,},yysep={,}}` after `\documentclass{Dissertate}` in `dissertation.tex`. Use `\citet{key}` for a textual citation, `\citep{key}` for a parenthetical citation, and `\citeauthor{key}` for the author’s name. Enable `\bibliographystyle{apalike2}` and `\bibliography{references}` near the end of `dissertation.tex`, and rebuild with XeLaTeX, BibTeX, XeLaTeX, and XeLaTeX. This produces APA-like author–year citations; `apalike2` does not implement current APA requirements.
