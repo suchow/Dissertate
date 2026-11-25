@@ -1,14 +1,13 @@
 #!/bin/sh
-BASEDIR=$(dirname $0)
-cd $BASEDIR
-cd ..
+set -eu
+
+cd "$(dirname "$0")/.."
 
 # Build the dissertation.
-xelatex dissertation
-bibtex dissertation
-xelatex dissertation
-xelatex dissertation
-
-# Hide the log.
-mv "dissertation.log" ".logged"
+xelatex -interaction=nonstopmode -halt-on-error dissertation
+if grep -Fq '\bibdata{' dissertation.aux; then
+    bibtex dissertation
+fi
+xelatex -interaction=nonstopmode -halt-on-error dissertation
+xelatex -interaction=nonstopmode -halt-on-error dissertation
 
