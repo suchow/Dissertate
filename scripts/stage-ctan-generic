@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""Stage a local Generic candidate. This does not establish redistribution rights."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+
+EXPECTED_FONTS = {
+    'EB Garamond': ['EBGaramond12-Regular.otf', 'EBGaramond12-Italic.otf',
+                    'EBGaramond-Bold.ttf', 'EBGaramond-BoldItalic.ttf'],
+    'Lato': ['Lato-Reg.ttf', 'Lato-RegIta.ttf', 'Lato-Bol.ttf', 'Lato-BolIta.ttf'],
+    'Source Code Pro': ['SourceCodePro-Regular.ttf', 'SourceCodePro-Bold.ttf'],
+}
+NOTICES = ['LICENSE', 'assets/fonts/EB Garamond/COPYING',
+           'assets/fonts/EB Garamond/OFL.txt',
+           'assets/fonts/Lato/SIL Open Font License 1.1.txt',
+           'assets/fonts/Source Code Pro/OFL.txt']
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def stage(source, destination):
+    source = source.resolve(strict=True)
+    # lexists-equivalent: refuse dangling symlinks too.
+    if destination.exists() or destination.is_symlink():
+        raise ValueError('destination already exists')
+    parent = destination.parent.resolve(strict=True)
+    destination = parent / destination.name
+    if destination == source or source in destination.parents:
+        raise ValueError('destination must be outside source')
+    payload = {}
+    inputs = {}
+
+    def read(relative):
+        p = source / relative
+        if not p.is_file() or p.is_symlink() or source not in p.resolve().parents:
+            raise ValueError('missing, symlinked, or external source: ' + relative)
+        data = p.read_bytes()
+        inputs[relative] = digest(data)
+        return data
+
+    base = read('assets/latex-base/Dissertate.cls').decode()
+    school = read('assets/schools/Generic/style.sty').decode()
+    if base.count('\\ProvidesClass{Dissertate}') != 1 or '\\endinput' in base:
+        raise ValueError('unexpected base identity or terminator')
+    if any(x in school for x in ['\\ProvidesPackage', '\\endinput', 'fonts/', '\\includegraphics']):
+        raise ValueError('unexpected Generic package/resource pattern')
+    options = ['a4paper', 'letterpaper', 'dpaperafour', 'dpaperletter', 'dsingle', 'ddouble']
+    import re
+    if re.findall(r'\\DeclareOption\{([^}]+)\}', base) != options:
+        raise ValueError('unexpected base options')
+    paths = {'EB Garamond': 4, 'Lato': 1, 'Source Code Pro': 1}
+    for family, count in paths.items():
+        pattern = 'Path={fonts/' + family + '/},'
+        if base.count(pattern) != count:
+            raise ValueError('unexpected font path count: ' + family)
+        base = base.replace(pattern, '')
+    font_manifest = []
+    for family, names in EXPECTED_FONTS.items():
+        for name in names:
+            if name not in base:
+                raise ValueError('missing font declaration: ' + name)
+            relative = 'assets/fonts/' + family + '/' + name
+            data = read(relative)
+            prefixed = 'dissertate-historical-' + name
+            base = base.replace(name, prefixed)
+            kind = 'opentype' if name.endswith('.otf') else 'truetype'
+            target = 'fonts/' + kind + '/public/dissertate/' + prefixed
+            payload[target] = data
+            font_manifest.append(dict(original=relative, prefixed=target, sha256=digest(data)))
+    if 'Path=' in base or 'fonts/' in base:
+        raise ValueError('untransformed font path')
+    declared = set(re.findall(r'[A-Za-z0-9_-]+\.(?:otf|ttf)', base))
+    if declared != {'dissertate-historical-' + n for ns in EXPECTED_FONTS.values() for n in ns}:
+        raise ValueError('unexpected font filename declaration')
+    runtime = 'tex/latex/dissertate/'
+    base = base.replace('\\ProvidesClass{Dissertate}', '\\ProvidesClass{dissertate-base}')
+    base = base.replace('\\ClassWarning{Dissertate}', '\\ClassWarning{dissertate-base}')
+    payload[runtime + 'dissertate-base.cls'] = (base + '\n\\endinput\n').encode()
+    payload[runtime + 'dissertate.cls'] = r'''\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{dissertate}[2026/11/25 local Generic candidate]
+\DeclareOption{school=generic}{}
+\DeclareOption{a4paper}{\PassOptionsToClass{a4paper}{dissertate-base}}
+\DeclareOption{letterpaper}{\PassOptionsToClass{letterpaper}{dissertate-base}}
+\DeclareOption{dpaperafour}{\PassOptionsToClass{dpaperafour}{dissertate-base}}
+\DeclareOption{dpaperletter}{\PassOptionsToClass{dpaperletter}{dissertate-base}}
+\DeclareOption{dsingle}{\PassOptionsToClass{dsingle}{dissertate-base}}
+\DeclareOption{ddouble}{\PassOptionsToClass{ddouble}{dissertate-base}}
+\DeclareOption*{\ClassError{dissertate}{Unsupported option \CurrentOption}{Only Generic is staged}}
+\ProcessOptions\relax
+\LoadClass{dissertate-base}
+\RequirePackage{dissertate-school-generic}
+\endinput
+'''.encode()
+    payload[runtime + 'dissertate-school-generic.sty'] = (
+        '\\ProvidesPackage{dissertate-school-generic}[2026/11/25 local candidate]\n'
+        + school + '\n\\endinput\n').encode()
+    doc = 'doc/latex/dissertate/'
+    for relative in NOTICES:
+        target = doc + 'notices/' + relative.replace(' ', '-').replace('/', '--')
+        payload[target] = read(relative)
+    example = doc + 'examples/generic/'
+    payload[example + 'main.tex'] = r'''\documentclass[school=generic,dsingle]{dissertate}
+\title{Synthetic Generic example}\author{Example Author}
+\department{Example Studies}\degree{Doctor of Philosophy}\field{Testing}
+\degreemonth{November}\degreeyear{2026}
+\togglefalse{DissertateColophonImage}
+\togglefalse{DissertateColophon}
+\begin{document}
+\maketitle\clearpage\mainmatter
+\chapter{Historical fonts}
+Regular 0123456789. \textit{Italic}. \textbf{Bold}. \textbf{\textit{Bold italic}}.
+{\smallcaps Small capitals}. {\sffamily Sans \textbf{bold} \textit{italic} \textbf{\textit{bold italic}}}.
+{\ttfamily Mono \textbf{bold}}. $x+\alpha=123$.
+\begin{figure}[h]\centering\rule{20mm}{5mm}\caption{Synthetic caption}\end{figure}
+\begin{thebibliography}{1}\bibitem{demo} Example Author. Synthetic reference. 2026.\end{thebibliography}
+\end{document}
+'''.encode()
+    # Editable resources are deliberately not installed under tex/.
+    for name in ['abstract', 'dedication', 'thanks', 'personalize']:
+        payload[example + 'frontmatter/' + name + '.tex'] = b'% Synthetic user resource.\n'
+    payload['source/latex/dissertate/stage_generic.py'] = Path(__file__).read_bytes()
+    manifest = dict(inputs=inputs, fonts=font_manifest,
+                    outputs={k: digest(v) for k, v in sorted(payload.items())})
+    payload[doc + 'candidate-manifest.json'] = (json.dumps(manifest, indent=2, sort_keys=True) + '\n').encode()
+    # All validation precedes this exclusive creation. Never clean up caller paths.
+    destination.mkdir()
+    for relative, data in sorted(payload.items()):
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with target.open('xb') as stream:
+            stream.write(data)
+    return manifest
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('source_root', type=Path)
+    parser.add_argument('new_output_directory', type=Path)
+    args = parser.parse_args()
+    try:
+        stage(args.source_root, args.new_output_directory)
+    except (ValueError, OSError) as exc:
+        parser.exit(1, str(exc) + '\n')
