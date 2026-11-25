@@ -23,8 +23,17 @@
     urlcolor=SchoolColor,
 }
 
-% Formatting guidelines found in:
-% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+% Berkeley requirements, including the April 2026 revision:
+% https://grad.berkeley.edu/academics/degree-progress/dissertation/
+\geometry{reset,letterpaper,left=1in,right=1in,top=1in,bottom=1.25in,footskip=.4in}
+\renewcommand{\dnormalspacing}{1.0}
+\renewcommand{\dcompressedspacing}{1.0}
+\renewcommand{\bibfont}{\normalfont\normalsize}
+\setlength{\bibsep}{0pt}
+\definecolor{chaptergrey}{HTML}{000000}
+\AtBeginDocument{\setstretch{1.0}\color{black}\microtypesetup{protrusion=false}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\pagestyle{plain}
 \renewcommand{\frontmatter}{
     \input{frontmatter/personalize}
     \maketitle
@@ -44,72 +53,92 @@
         {#2}{#1}%
 }
 
-\renewcommand{\maketitle}{
+\renewcommand{\maketitle}{%
+    \clearpage
     \thispagestyle{empty}
-    \vspace*{\fill}
-    \vspace{10pt}
     \begin{center}
-    \Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
-    \vspace{100pt}
-    By\\
-    \theauthor\\
-    \vspace{12pt}
-    \textsc{A Dissertation submitted in partial satisfaction of the\\
-    requirements for the degree of \\ \@degree\\
-    in\\ \@department\\ in the\\  Graduate Division\\ of the\\
-    \@university\\
-    \vspace{50pt}
-    Committee in charge:\\
-    \vspace{20pt}
+    \normalfont\normalsize
+    \thetitle\par
+    \vspace{\baselineskip}
+    By\par
+    \vspace{\baselineskip}
+    \theauthor\par
+    \vspace{2\baselineskip}
+    A dissertation submitted in partial satisfaction of the\par
+    \vspace{\baselineskip}
+    requirements for the degree of\par
+    \vspace{\baselineskip}
+    \@degree\par
+    \vspace{\baselineskip}
+    in\par
+    \vspace{\baselineskip}
+    \@department\par
+    \vspace{\baselineskip}
+    in the\par
+    \vspace{\baselineskip}
+    Graduate Division\par
+    \vspace{\baselineskip}
+    of the\par
+    \vspace{\baselineskip}
+    \@university\par
+    \vspace{2\baselineskip}
+    Committee in charge:\par
+    \vspace{\baselineskip}
     \berkeleyadvisors{%
-        Professor \@coadvisorOne, Co-chair\\
-        Professor \@coadvisorTwo, Co-chair\\
-        Professor \@committeeInternal\\
+        Professor \@coadvisorOne, Co-Chair\par
+        \vspace{\baselineskip}
+        Professor \@coadvisorTwo, Co-Chair\par
+        \vspace{\baselineskip}
+        Professor \@committeeInternal\par
     }{%
-        Professor \@advisor, Chair\\
-        Professor \@committeeInternalOne\\
-        Professor \@committeeInternalTwo\\
+        Professor \@advisor, Chair\par
+        \vspace{\baselineskip}
+        Professor \@committeeInternalOne\par
+        \vspace{\baselineskip}
+        Professor \@committeeInternalTwo\par
     }%
-    Professor \@committeeExternal\\
-    \vspace{50pt}
-    \@degreeterm\ \@degreeyear}
-    \end{center} \vspace*{\fill}
-}
-
-
-\newcommand{\copyrightpage}{
-    \newpage
-    \thispagestyle{empty}
-    \vspace*{\fill}
-    \scshape \noindent \small \copyright \small \@degreeyear\hspace{3pt}-- \theauthor \\
-    \noindent all rights reserved.
-    \vspace*{\fill}
-    \newpage
-    \rm
-}
-
-\newcommand{\abstractpage}{
-    \newpage
-    \setcounter{page}{1}
-    \pagenumbering{arabic}
-    \pagestyle{fancy}
-    \berkeleyadvisors{%
-        \lhead{Co-advisors: \\\@coadvisorOne ~{\textit \&} \\\@coadvisorTwo}%
-    }{%
-        \lhead{Thesis advisor: Professor \@advisor}%
-    }%
-    \rhead{\@author\\[\baselineskip]}
-    \renewcommand{\headrulewidth}{0.0pt}
-    \vspace*{35pt}
-    \begin{center}
-    \Large \textcolor{SchoolColor}{\@title} \normalsize \\
-    \vspace*{20pt}
-    \scshape Abstract \\ \rm
+    \vspace{\baselineskip}
+    Professor \@committeeExternal\par
+    \vspace{2\baselineskip}
+    \@degreeterm\ \@degreeyear
     \end{center}
-    \input{frontmatter/abstract}
+    \clearpage
+}
+
+\newcommand{\copyrightpage}{%
+    \thispagestyle{empty}
     \vspace*{\fill}
-    \newpage \lhead{} \rhead{}
-    \cfoot{\thepage}
+    \begin{center}
+    \normalfont\normalsize\copyright\ \@degreeyear\ \theauthor\par
+    All rights reserved.
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+}
+
+\newcommand{\abstractpage}{%
+    \clearpage
+    \pagenumbering{arabic}
+    \pagestyle{plain}
+    \begin{center}
+    \normalfont\normalsize
+    \begin{spacing}{2.0}
+    Abstract\par
+    \thetitle\par
+    by\par
+    \theauthor\par
+    \@degree\ in \@department\par
+    \@university\par
+    \berkeleyadvisors{%
+        Professor \@coadvisorOne, Co-Chair\par
+        Professor \@coadvisorTwo, Co-Chair\par
+    }{Professor \@advisor, Chair\par}%
+    \end{spacing}
+    \end{center}
+    \vspace{2\baselineskip}
+    \setstretch{1.0}
+    \input{frontmatter/abstract}
+    \clearpage
 }
 
 \newcommand{\acknowledgments}{
@@ -120,9 +149,10 @@
 }
 
 \newcommand{\dedicationpage}{
+    \clearpage
     \setcounter{page}{1}
     \pagenumbering{roman}
-    \newpage \thispagestyle{fancy} \vspace*{\fill}
+     \thispagestyle{fancy} \vspace*{\fill}
     \scshape \noindent \input{frontmatter/dedication}
     \vspace*{\fill} \newpage \rm
 }
