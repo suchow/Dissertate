@@ -26,6 +26,12 @@ TEXMFHOME=/tmp/dissertate-candidate xelatex -no-shell-escape -interaction=nonsto
 
 Check that the class resolves inside the candidate tree. This temporary environment setting does not install files globally. Dependencies are not supplied or installed by the staging tool.
 
+## Dependencies and resource scope
+
+Preparation requires Python 3. The runtime requires XeLaTeX and these TeX packages: `etoolbox`, `geometry`, `ragged2e`, `graphicx`, `fixltx2e`, `lettrine`, `setspace`, `verbatim`, `color`, `xcolor`, `hyperref`, `url`, `amssymb`, `amsmath`, `mathspec`, `caption`, `microtype`, `fancyhdr`, `titlesec`, `titling`, `tocloft`, `appendix`, `natbib`, and `quotchap`. Modern LaTeX incorporates `fixltx2e`; the historical class still requests its compatibility package. The ten bundled historical fonts remain required. Building the supplied manual separately requires `geometry`, `fontenc`, `lmodern`, `hyperref`, and `verbatim`.
+
+The supplied example exercises the title, body, fonts, caption, and an inline bibliography. It skips the Generic `\frontmatter` and `\backmatter` hooks. Authors using those hooks must supply `frontmatter/personalize.tex`, `frontmatter/abstract.tex`, `frontmatter/dedication.tex`, `frontmatter/thanks.tex`, `chapters/appendixA.tex`, `endmatter/personalize.tex`, and `references.bib`. The bibliography also requires BibTeX and the `apalike2` style. The four supplied frontmatter files are empty placeholders. Colophon toggles default to enabled in the base class; keep both disabled unless supplying the separate colophon resources. This candidate supplies no colophon text or artwork. Full-hook behavior remains untested.
+
 ## Class and files
 
 Use `\documentclass[school=generic]{dissertate}`. Generic is the only school selection and the default. Accepted paper options are `a4paper`, `letterpaper`, `dpaperafour`, and `dpaperletter`; spacing options are `dsingle` and `ddouble`. Defaults are US Letter and double spacing. Choose one paper setting and one spacing setting. The loader reports unsupported options as class errors.

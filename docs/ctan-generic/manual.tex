@@ -31,6 +31,30 @@ TEXMFHOME=/tmp/dissertate-candidate xelatex -no-shell-escape \
   -interaction=nonstopmode -halt-on-error -recorder main.tex
 \end{verbatim}
 Check that the class resolves inside the candidate tree. These command-specific environment settings do not install files globally. The staging tool does not supply or install dependencies.
+\section*{Dependencies and resources}
+\begingroup\raggedright
+Preparation requires Python 3. The runtime requires XeLaTeX and the TeX packages
+\texttt{etoolbox}, \texttt{geometry}, \texttt{ragged2e}, \texttt{graphicx},
+\texttt{fixltx2e}, \texttt{lettrine}, \texttt{setspace}, \texttt{verbatim},
+\texttt{color}, \texttt{xcolor}, \texttt{hyperref}, \texttt{url},
+\texttt{amssymb}, \texttt{amsmath}, \texttt{mathspec}, \texttt{caption},
+\texttt{microtype}, \texttt{fancyhdr}, \texttt{titlesec}, \texttt{titling},
+\texttt{tocloft}, \texttt{appendix}, \texttt{natbib}, and \texttt{quotchap}.
+Modern LaTeX incorporates \texttt{fixltx2e}; the historical class still requests
+its compatibility package. The ten bundled historical fonts remain required.
+Building this manual separately requires \texttt{geometry}, \texttt{fontenc},
+\texttt{lmodern}, \texttt{hyperref}, and \texttt{verbatim}.
+
+The example skips the Generic \verb|\frontmatter| and \verb|\backmatter| hooks.
+Using those hooks requires author-supplied \texttt{frontmatter/personalize.tex},
+\texttt{frontmatter/abstract.tex}, \texttt{frontmatter/dedication.tex}, and
+\texttt{frontmatter/thanks.tex}, plus \texttt{chapters/appendixA.tex}, \texttt{endmatter/personalize.tex},
+and \texttt{references.bib}. The bibliography requires BibTeX and the
+\texttt{apalike2} style. The supplied frontmatter files are empty placeholders.
+Both colophon toggles default to enabled in the base class. Keep them disabled
+unless supplying separate colophon resources; this candidate includes no
+colophon text or artwork. Full-hook behavior remains untested.
+\par\endgroup
 \section*{Class options}
 Use \verb|\documentclass[school=generic]{dissertate}|. Generic is the only school and the default. Paper options are \texttt{a4paper}, \texttt{letterpaper}, \texttt{dpaperafour}, and \texttt{dpaperletter}; spacing options are \texttt{dsingle} and \texttt{ddouble}. Defaults are US Letter and double spacing. Choose one paper setting and one spacing setting. Unsupported options produce class errors.
 \newpage

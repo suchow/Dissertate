@@ -32,8 +32,10 @@ class ProjectionTest(unittest.TestCase):
             self.assertEqual((first / "source/prepare_ctan_source.py").read_bytes(),
                              (ROOT / "scripts/prepare-ctan-source").read_bytes())
             inputs = root / "inputs"
-            # Execute only helpers generated here by the reviewed project tools.
-            subprocess.run([sys.executable, "-I", str(first / "source/reconstruct.py"), str(inputs)], check=True)
+            self.assertFalse((first / "source/reconstruct.py").exists())
+            # Execute the exact reviewed projector source copied by this test.
+            subprocess.run([sys.executable, "-I", str(first / "source/prepare_ctan_source.py"),
+                            "--reconstruct", str(first), str(inputs)], check=True)
             for relative, original, digest in records:
                 self.assertEqual(hashes(first)[relative], digest)
                 self.assertEqual((first / relative).read_bytes(), (inputs / original).read_bytes())
@@ -77,6 +79,24 @@ class ProjectionTest(unittest.TestCase):
             readme.unlink()
             with self.assertRaises(ValueError):
                 projection.project(bad, rejected, "0.1.0")
+            self.assertFalse(rejected.exists())
+
+    def test_reconstruction_refuses_incomplete_or_existing_payload(self):
+        with tempfile.TemporaryDirectory(prefix="dissertate-reconstruction-safety-") as name:
+            root = Path(name)
+            source = root / "source"
+            projection.project(self.make_stage(root), source, "0.1.0")
+            output = root / "output"
+            projection.reconstruct(source, output)
+            before = hashes(output)
+            with self.assertRaises(ValueError):
+                projection.reconstruct(source, output)
+            self.assertEqual(before, hashes(output))
+            font = next((source / "fonts").iterdir())
+            font.unlink()
+            rejected = root / "rejected"
+            with self.assertRaises(ValueError):
+                projection.reconstruct(source, rejected)
             self.assertFalse(rejected.exists())
 
 
