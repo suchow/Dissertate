@@ -1,0 +1,84 @@
+% SPDX-License-Identifier: AGPL-3.0-only
+% Dissertate full-page figures and tables. Independently implemented.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dissertate-fullpage}[2026/11/25 Full-page caption and content pairs]
+\RequirePackage{xparse}
+\RequirePackage{caption}
+\newif\ifDFP@twoside
+\if@twoside\DFP@twosidetrue\fi
+\DeclareOption{twoside}{\DFP@twosidetrue}
+\DeclareOption{oneside}{\DFP@twosidefalse}
+\DeclareOption{closeFloats}{} % Pairs are always placed immediately.
+\DeclareOption{leftFloats}{} % Caption precedes content.
+\DeclareOption*{\PackageError{dissertate-fullpage}{Unsupported option \CurrentOption}{Use oneside or twoside. Captions always precede content.}}
+\ProcessOptions\relax
+\newsavebox{\DFP@content}
+\newsavebox{\DFP@captionpage}
+\newsavebox{\DFP@heading}
+\newif\ifDFP@active
+\newif\ifDFP@caption
+\newcommand{\DFP@pair}[3]{%
+  \IfNoValueF{#2}{\PackageError{dissertate-fullpage}{Placement options are unsupported}{Remove the optional environment argument.}}%
+  \ifDFP@active\PackageError{dissertate-fullpage}{Nested full-page environments are unsupported}{End the outer environment first.}\fi
+  \begingroup
+  \DFP@activetrue
+  \clearpage
+  \ifDFP@twoside\ifodd\value{page}\null\thispagestyle{plain}\clearpage\fi\fi
+  \def\@captype{#1}%
+  \stepcounter{#1}% Content may print its figure or table number.
+  \global\DFP@captionfalse
+  \gdef\DFP@long{}\gdef\DFP@short{}\gdef\DFP@labels{}%
+  \let\DFP@originalcaption\caption
+  \let\DFP@originallabel\label
+  \setbox\DFP@content=\vbox{%
+    \hsize=\linewidth
+    \centering
+    \RenewDocumentCommand{\caption}{o +m}{%
+      \ifDFP@caption\PackageError{dissertate-fullpage}{Only one caption is supported}{Use one caption in each full-page environment.}\fi
+      \global\DFP@captiontrue
+      \gdef\DFP@long{##2}%
+      \IfNoValueTF{##1}{\gdef\DFP@short{}}{\gdef\DFP@short{##1}}%
+    }%
+    \renewcommand{\label}[1]{\g@addto@macro\DFP@labels{\DFP@originallabel{##1}}}%
+    #3\par
+  }%
+  \ifDFP@caption\else\PackageError{dissertate-fullpage}{A caption is required}{Add a caption to the full-page environment.}\fi
+  \setbox\DFP@captionpage=\vbox{%
+    \hsize=\linewidth
+    \noindent\begin{minipage}{\linewidth}
+      \addtocounter{#1}{-1}% The ordinary caption creates its number and hyperlink.
+      \captionsetup{type=#1,justification=centering}%
+      \ifx\DFP@short\@empty
+        \protected@edef\DFP@emit{\noexpand\DFP@originalcaption{\unexpanded\expandafter{\DFP@long}}}\DFP@emit%
+      \else
+        \protected@edef\DFP@emit{\noexpand\DFP@originalcaption[\unexpanded\expandafter{\DFP@short}]{\unexpanded\expandafter{\DFP@long}}}\DFP@emit%
+      \fi
+      \DFP@labels
+    \end{minipage}\par
+  }%
+  \setbox\DFP@heading=\vbox{%
+    \hsize=\linewidth
+    \noindent\begin{minipage}{\linewidth}
+      \captionsetup{type=#1,justification=centering}%
+      \DFP@originalcaption*{\csname #1name\endcsname~\csname the#1\endcsname\ifx\DFP@short\@empty\else: \DFP@short\fi}%
+    \end{minipage}\par
+  }%
+  \ifdim\dimexpr\ht\DFP@captionpage+\dp\DFP@captionpage\relax>\textheight
+    \PackageError{dissertate-fullpage}{Caption is too tall for one page}{Shorten the full caption.}%
+  \fi
+  \ifdim\dimexpr\ht\DFP@content+\dp\DFP@content+\ht\DFP@heading+\dp\DFP@heading\relax>\textheight
+    \PackageError{dissertate-fullpage}{Full-page content and heading are too tall}{Reduce the content height or shorten the short title.}%
+  \fi
+  \nointerlineskip\vbox to\textheight{%
+    \offinterlineskip\vfil\box\DFP@captionpage\vfil
+  }%
+  \clearpage
+  \nointerlineskip\vbox to\textheight{%
+    \offinterlineskip\box\DFP@heading\vfil\box\DFP@content\vfil
+  }%
+  \clearpage
+  \endgroup
+}
+\NewDocumentEnvironment{FPfigure}{o +b}{\DFP@pair{figure}{#1}{#2}}{}
+\NewDocumentEnvironment{FPtable}{o +b}{\DFP@pair{table}{#1}{#2}}{}
+\endinput
