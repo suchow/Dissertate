@@ -34,4 +34,4 @@ Landscape formatting is not implemented. Guide 15 says landscape margins are one
 
 Submit a PDF through ETD Administrator and inspect every converted page. Formatting checks do not establish acceptance, accessibility, copyright permission, or completion of deposit requirements. For previously published material, obtain committee and graduate group chair approval, secure required permissions, disclose the publication under the chapter title, and describe the individual contribution to joint work. Upload permission letters as the supplemental file specified by the guide.
 
-No logo or seal is included. Add a mark only when the author requests it and the applicable [Penn branding rules](https://branding.web-resources.upenn.edu/) and dissertation guidelines permit it.
+No logo or seal is included. Consult the [Penn branding rules](https://branding.web-resources.upenn.edu/) for the specified mark. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.

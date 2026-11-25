@@ -12,4 +12,4 @@ Previously published or submitted articles require separate attention. The guide
 
 Edit `frontmatter/abstract.tex` and `frontmatter/thanks.tex` for the abstract and preface. The main document is `dissertation.tex`; chapters are in `chapters/`. To omit unused lists, edit the `\frontmatter` definition in the distributed `Dissertate.cls`. Preserve the author’s text and inspect the compiled PDF, including long titles and committee lists. The template uses XeLaTeX and BibTeX.
 
-Consult Dartmouth’s [design guidelines](https://communications.dartmouth.edu/design-guidelines) before adding institutional branding. Add a seal or logo only when the author requests it and the applicable guidelines allow it.
+Consult Dartmouth’s [design guidelines](https://communications.dartmouth.edu/design-guidelines) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.

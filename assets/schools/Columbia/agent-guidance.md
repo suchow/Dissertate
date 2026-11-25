@@ -8,4 +8,4 @@ Title, copyright, and abstract pages are unnumbered and excluded from counting. 
 
 Edit `frontmatter/personalize.tex`. Set the conferral year with `\degreeyear{...}` and, when different, the manuscript year with `\columbiacopyrightyear{...}`. Preserve the author's text. Compile with XeLaTeX and BibTeX, inspect the PDF, and check font embedding. Keep the abstract free of images, abbreviations, and formulae.
 
-Consult Columbia’s [brand guide](https://visualidentity.columbia.edu/branding) before adding institutional branding. Add a seal or logo only when the author requests it and the applicable guidelines allow it.
+Consult Columbia’s [brand guide](https://visualidentity.columbia.edu/branding) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.

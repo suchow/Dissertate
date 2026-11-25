@@ -10,4 +10,4 @@ The copyright-page placement in the Registrar's written guide differs from that 
 
 The main document is `dissertation.tex`; chapters are in `chapters/`. Preserve the author's text and verify changes in the compiled PDF. The template uses XeLaTeX and BibTeX. It sets text in EB Garamond, including headings and captions, to maintain a consistent font family.
 
-Consult [Yale's identity guidance](https://yaleidentity.yale.edu/frequently-asked-questions) before adding institutional marks. Add a seal or logo only when the author requests it and the applicable guidelines allow it.
+Consult [Yale's identity guidance](https://yaleidentity.yale.edu/frequently-asked-questions) before adding institutional marks. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.

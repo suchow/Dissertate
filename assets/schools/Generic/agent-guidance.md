@@ -4,4 +4,4 @@ This generic template is a starting point. Identify the institution, degree prog
 
 Edit `frontmatter/personalize.tex` for the author's details. The main document is `dissertation.tex`; chapters are in `chapters/`. Preserve the author's content and verify requested changes in the compiled PDF. The template uses XeLaTeX and BibTeX.
 
-Check permission and applicable institutional identity guidance before adding a seal, logo, or other protected mark. Do not assume that a brand guide requires branding in a dissertation.
+Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.

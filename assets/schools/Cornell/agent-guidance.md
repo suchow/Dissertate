@@ -6,4 +6,4 @@ Use US Letter paper, margins of at least 1 inch, an embedded main-text font of a
 
 Edit `frontmatter/personalize.tex` for the author's details and `resources/biography.tex` for the biographical sketch. The main document is `dissertation.tex`; chapters are in `chapters/`. Preserve the author's text and verify changes in the compiled PDF. The template uses XeLaTeX and BibTeX.
 
-Consult Cornell's [names and marks policy](https://policy.cornell.edu/policy-library/use-cornells-name-logos-trademarks-and-insignias) before adding institutional branding. Add a seal or logo only when the author requests it and the applicable guidelines allow it.
+Consult Cornell's [names and marks policy](https://policy.cornell.edu/policy-library/use-cornells-name-logos-trademarks-and-insignias) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
