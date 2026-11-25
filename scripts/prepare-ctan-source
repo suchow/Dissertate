@@ -5,6 +5,7 @@ import hashlib
 import json
 import re
 import stat
+import sys
 from pathlib import Path, PurePosixPath
 
 D = 'doc/latex/dissertate/'
@@ -19,15 +20,18 @@ README = '''# Dissertate Generic source candidate
 
 Bundle version: {version}
 
+Project: https://github.com/suchow/Dissertate
+Issues: https://github.com/suchow/Dissertate/issues
+
 This local candidate contains Generic sources, documentation, and historical fonts for review. Creating it does not create a tag, publish a release, submit to CTAN, or install a package.
 
 Project code, documentation, and synthetic examples are under the repository’s GNU Affero General Public License, version 3. Fonts retain their separate SIL Open Font License, version 1.1, terms. Their notices and embedded copyright and Reserved Font Name metadata are preserved. Filename prefixes leave font bytes and internal names unchanged. Redistribution review remains unresolved.
 
-Run `python3 source/reconstruct.py /new/private/source-root` from this package directory to reconstruct the staging inputs. The destination must not exist; its parent must exist. The helper copies verified files and never executes the included generator. Review the reconstructed source before staging. The reconstructed `scripts/stage-ctan-generic` can then stage a separate local TDS tree. See `doc/manual.tex` and `doc/manual.pdf` for its command and options. The included manual PDF can be supplied explicitly with `--manual-pdf`.
+Run `python3 source/prepare_ctan_source.py --reconstruct . /new/private/source-root` from this package directory to reconstruct the staging inputs. The destination must not exist; its parent must exist. Reconstruction copies the finite source payload and checks the written file hashes against the bytes read. These checks establish copy consistency. They do not establish authenticity. Reconstruction does not execute the included staging generator. Review the reconstructed source before staging. The reconstructed `scripts/stage-ctan-generic` can then stage a separate local TDS tree. See `doc/manual.tex` and `doc/manual.pdf` for its command and options. The included manual PDF can be supplied explicitly with `--manual-pdf`.
 
-The sources target XeLaTeX with TeX Live dependencies. Generic filename lookup and embedding were tested on TeX Live 2025/macOS. MiKTeX and full dissertation behavior remain unverified. Existing Palatino-bold and mono-italic substitutions remain. Runtime classes, example files, and the manifest are generated when staging; this source package omits those derived files. No duplicate font payload is needed to reconstruct inputs.
+The sources target XeLaTeX with TeX Live dependencies, listed in `source/dissertate-input-readme.md` and `doc/manual.tex`. Generic filename lookup and embedding were tested on TeX Live 2025/macOS. MiKTeX and full dissertation behavior remain unverified. Existing Palatino-bold and mono-italic substitutions remain. Runtime classes, example files, and the manifest are generated when staging; this source package omits those derived files. No duplicate font payload is needed to reconstruct inputs.
 
-The helper does not reconstruct the full upstream repository, historical font build sources, or the manual build environment. It copies the reviewed PDF without rebuilding it. Existing destinations are refused. An I/O failure can leave a partial newly created directory; no caller data is deleted or overwritten. Use a private parent without concurrent writers. Source reconstruction and a successful build do not establish redistribution permission or CTAN acceptance.
+Reconstruction does not restore the full upstream repository, historical font build sources, or the manual build environment. It copies the reviewed PDF without rebuilding it. Existing destinations are refused. An I/O failure can leave a partial newly created directory; no caller data is deleted or overwritten. Use a private parent without concurrent writers. Source reconstruction and a successful build do not establish redistribution permission or CTAN acceptance.
 '''
 
 def sha(b): return hashlib.sha256(b).hexdigest()
@@ -51,12 +55,7 @@ def unique_json(pairs):
         d[k]=v
     return d
 
-def project(stage, output, version):
-    if not isinstance(version,str) or not re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)',version):
-        raise ValueError('strict MAJOR.MINOR.PATCH required')
-    if stage.is_symlink(): raise ValueError('symlink input root')
-    root=stage.resolve(strict=True); output=new_destination(output)
-    if root==output or root in output.parents: raise ValueError('output inside input')
+def stage_mapping():
     # Map each retained staged input to a projection path and reconstruction path.
     mapping={
       'README.md':('source/dissertate-input-readme.md','docs/ctan-generic/README.md'),
@@ -76,6 +75,15 @@ def project(stage, output, version):
     for n in NOTICES:
         flat=n.replace(' ','-').replace('/','--')
         mapping[D+'notices/'+flat]=('licenses/'+flat,n)
+    return mapping, fonts
+
+def project(stage, output, version):
+    if not isinstance(version,str) or not re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)',version):
+        raise ValueError('strict MAJOR.MINOR.PATCH required')
+    if stage.is_symlink(): raise ValueError('symlink input root')
+    root=stage.resolve(strict=True); output=new_destination(output)
+    if root==output or root in output.parents: raise ValueError('output inside input')
+    mapping, fonts = stage_mapping()
     omitted={D+'examples/generic/main.tex'} | {D+'examples/generic/frontmatter/'+n+'.tex' for n in ['abstract','dedication','thanks','personalize']}
     omitted |= {'tex/latex/dissertate/'+n for n in ['dissertate.cls','dissertate-base.cls','dissertate-school-generic.sty']}
     allowed=set(mapping)|omitted
@@ -113,31 +121,6 @@ def project(stage, output, version):
     projection_bytes=Path(__file__).read_bytes()
     payload['source/prepare_ctan_source.py']=projection_bytes
     records.append(('source/prepare_ctan_source.py','scripts/prepare-ctan-source',sha(projection_bytes)))
-    helper = '''# Copy-only reconstruction helper. Does not execute input code.
-import hashlib
-import sys
-from pathlib import Path
-RECORDS = '''+repr(records)+'''
-root=Path(__file__).resolve().parent.parent
-out=Path(sys.argv[1])
-if out.exists() or out.is_symlink(): raise SystemExit('destination exists')
-out=out.parent.resolve(strict=True)/out.name
-if out==root or root in out.parents: raise SystemExit('destination inside package')
-payload={}
-for rel,target,h in RECORDS:
-    p=root/rel
-    if any(x.is_symlink() for x in [p,*p.parents] if x!=root.parent):
-        raise SystemExit('symlink in input path')
-    b=p.read_bytes()
-    if hashlib.sha256(b).hexdigest()!=h: raise SystemExit('hash mismatch')
-    payload[target]=b
-out.mkdir()
-for target,b in sorted(payload.items()):
-    p=out/target
-    p.parent.mkdir(parents=True,exist_ok=True)
-    with p.open('xb') as f: f.write(b)
-'''
-    payload['source/reconstruct.py']=helper.encode()
     basenames=[Path(k).name.casefold() for k in payload]
     if len(basenames)!=len(set(basenames)): raise ValueError('basename collision')
     hashes=[sha(v) for v in payload.values()]
@@ -149,9 +132,60 @@ for target,b in sorted(payload.items()):
         with p.open('xb') as f:f.write(b)
     return records
 
+def reconstruct(package, output):
+    """Copy finite candidate inputs; never execute included programs."""
+    if package.is_symlink(): raise ValueError('symlink package root')
+    root=package.resolve(strict=True)
+    if not root.is_dir(): raise ValueError('package root must be a directory')
+    output=new_destination(output)
+    if root==output or root in output.parents: raise ValueError('output inside package')
+    staged, _ = stage_mapping()
+    mapping={out:original for out,original in staged.values()}
+    mapping['source/prepare_ctan_source.py']='scripts/prepare-ctan-source'
+    allowed=set(mapping)|{'README.md','VERSION'}
+    allowed_dirs={parent.as_posix() for rel in allowed
+                  for parent in PurePosixPath(rel).parents if parent.as_posix()!='.'}
+    data={}
+    for path in root.rglob('*'):
+        mode=path.lstat().st_mode
+        rel=relative(path.relative_to(root).as_posix())
+        if stat.S_ISDIR(mode):
+            if rel not in allowed_dirs: raise ValueError('unexpected package directory '+rel)
+        elif stat.S_ISREG(mode):
+            if rel not in allowed: raise ValueError('unexpected package file '+rel)
+            data[rel]=path.read_bytes()
+        else:
+            raise ValueError('symlink or special package input')
+    if set(data)!=allowed: raise ValueError('missing package input')
+    version=data['VERSION'].decode('ascii')
+    if not re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\n',version):
+        raise ValueError('invalid package version')
+    if data['README.md']!=README.format(version=version[:-1]).encode():
+        raise ValueError('unexpected package README')
+    if not data['doc/manual.pdf'].startswith(b'%PDF-'):
+        raise ValueError('invalid PDF header')
+    # All relative paths are fixed by this program, never read as instructions.
+    records=[(rel,target,sha(data[rel])) for rel,target in sorted(mapping.items())]
+    output.mkdir()
+    for rel,target,digest in records:
+        path=output/target
+        path.parent.mkdir(parents=True,exist_ok=True)
+        with path.open('xb') as stream: stream.write(data[rel])
+        if sha(path.read_bytes())!=digest: raise OSError('written copy hash mismatch')
+    return records
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('staged_tree',type=Path);p.add_argument('new_output',type=Path);p.add_argument('version')
-    a=p.parse_args()
-    try:project(a.staged_tree,a.new_output,a.version)
-    except (ValueError,OSError,KeyError,TypeError) as e:p.exit(1,str(e)+'\n')
+    if len(sys.argv)>1 and sys.argv[1]=='--reconstruct':
+        p.add_argument('package',type=Path)
+        p.add_argument('new_source_root',type=Path)
+        a=p.parse_args(sys.argv[2:])
+        operation=lambda: reconstruct(a.package,a.new_source_root)
+    else:
+        p.add_argument('staged_tree',type=Path)
+        p.add_argument('new_output',type=Path)
+        p.add_argument('version')
+        a=p.parse_args()
+        operation=lambda: project(a.staged_tree,a.new_output,a.version)
+    try: operation()
+    except (ValueError,OSError,KeyError,TypeError) as e: p.exit(1,str(e)+'\n')

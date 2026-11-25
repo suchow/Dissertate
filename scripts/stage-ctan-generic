@@ -83,7 +83,9 @@ def stage(source, destination, manual_pdf=None):
     runtime = 'tex/latex/dissertate/'
     base = base.replace('\\ProvidesClass{Dissertate}', '\\ProvidesClass{dissertate-base}')
     base = base.replace('\\ClassWarning{Dissertate}', '\\ClassWarning{dissertate-base}')
-    payload[runtime + 'dissertate-base.cls'] = (base + '\n\\endinput\n').encode()
+    notice = ('% Modified by the Dissertate staging tool, 2026-11-25.\n'
+              '% Class identity renamed; font paths removed and external filenames prefixed.\n')
+    payload[runtime + 'dissertate-base.cls'] = (notice + base + '\n\\endinput\n').encode()
     payload[runtime + 'dissertate.cls'] = r'''\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{dissertate}[2026/11/25 local Generic candidate]
 \DeclareOption{school=generic}{}
@@ -100,6 +102,7 @@ def stage(source, destination, manual_pdf=None):
 \endinput
 '''.encode()
     payload[runtime + 'dissertate-school-generic.sty'] = (
+        '% Packaged as a separate style by the Dissertate staging tool, 2026-11-25.\n'
         '\\ProvidesPackage{dissertate-school-generic}[2026/11/25 local candidate]\n'
         + school + '\n\\endinput\n').encode()
     doc = 'doc/latex/dissertate/'
