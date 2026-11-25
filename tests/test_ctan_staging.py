@@ -22,8 +22,10 @@ class StagingTest(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="dissertate-ctan-test-") as name:
             root = Path(name)
             first, second = root / "first", root / "second"
-            manifest = module.stage(ROOT, first)
-            module.stage(ROOT, second)
+            pdf = root / "manual.pdf"
+            pdf.write_bytes(b"%PDF-1.5\n%%EOF\n")
+            manifest = module.stage(ROOT, first, pdf)
+            module.stage(ROOT, second, pdf)
             before = hashes(first)
             self.assertEqual(before, hashes(second))
             self.assertEqual(len(manifest["fonts"]), 10)
@@ -31,7 +33,11 @@ class StagingTest(unittest.TestCase):
                 self.assertEqual(before[font["prefixed"]], font["sha256"])
             self.assertTrue(all(before[p] == h for p, h in manifest["outputs"].items()))
             self.assertEqual(len(list((first / "tex").rglob("*.cls"))), 2)
-            self.assertFalse(any(p.endswith((".png", ".pdf", ".jpg")) for p in before))
+            self.assertIn("README.md", before)
+            self.assertIn("doc/latex/dissertate/manual.tex", before)
+            self.assertTrue(manifest["manual_pdf_included"])
+            self.assertEqual((first / "doc/latex/dissertate/manual.pdf").read_bytes(), pdf.read_bytes())
+            self.assertFalse(any(p.endswith((".png", ".jpg")) for p in before))
             with self.assertRaises(ValueError):
                 module.stage(ROOT, first)
             self.assertEqual(before, hashes(first))
@@ -52,6 +58,11 @@ class StagingTest(unittest.TestCase):
             output = root / "output"
             with self.assertRaises(ValueError):
                 module.stage(source, output)
+            self.assertFalse(output.exists())
+            invalid_pdf = root / "invalid.pdf"
+            invalid_pdf.write_text("not a PDF")
+            with self.assertRaises(ValueError):
+                module.stage(ROOT, output, invalid_pdf)
             self.assertFalse(output.exists())
 
 

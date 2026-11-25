@@ -22,7 +22,7 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def stage(source, destination):
+def stage(source, destination, manual_pdf=None):
     source = source.resolve(strict=True)
     # lexists-equivalent: refuse dangling symlinks too.
     if destination.exists() or destination.is_symlink():
@@ -99,6 +99,16 @@ def stage(source, destination):
         '\\ProvidesPackage{dissertate-school-generic}[2026/11/25 local candidate]\n'
         + school + '\n\\endinput\n').encode()
     doc = 'doc/latex/dissertate/'
+    payload['README.md'] = read('docs/ctan-generic/README.md')
+    payload[doc + 'manual.tex'] = read('docs/ctan-generic/manual.tex')
+    if manual_pdf is not None:
+        if not manual_pdf.is_file() or manual_pdf.is_symlink():
+            raise ValueError('manual PDF must be a regular file')
+        pdf = manual_pdf.read_bytes()
+        if not pdf.startswith(b'%PDF-'):
+            raise ValueError('manual PDF file header is invalid')
+        inputs['provided-manual-pdf'] = digest(pdf)
+        payload[doc + 'manual.pdf'] = pdf
     for relative in NOTICES:
         target = doc + 'notices/' + relative.replace(' ', '-').replace('/', '--')
         payload[target] = read(relative)
@@ -123,7 +133,7 @@ Regular 0123456789. \textit{Italic}. \textbf{Bold}. \textbf{\textit{Bold italic}
     for name in ['abstract', 'dedication', 'thanks', 'personalize']:
         payload[example + 'frontmatter/' + name + '.tex'] = b'% Synthetic user resource.\n'
     payload['source/latex/dissertate/stage_generic.py'] = Path(__file__).read_bytes()
-    manifest = dict(inputs=inputs, fonts=font_manifest,
+    manifest = dict(inputs=inputs, fonts=font_manifest, manual_pdf_included=manual_pdf is not None,
                     outputs={k: digest(v) for k, v in sorted(payload.items())})
     payload[doc + 'candidate-manifest.json'] = (json.dumps(manifest, indent=2, sort_keys=True) + '\n').encode()
     # All validation precedes this exclusive creation. Never clean up caller paths.
@@ -140,8 +150,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source_root', type=Path)
     parser.add_argument('new_output_directory', type=Path)
+    parser.add_argument('--manual-pdf', type=Path, help='reviewed manual PDF to include; never compiled by staging')
     args = parser.parse_args()
     try:
-        stage(args.source_root, args.new_output_directory)
+        stage(args.source_root, args.new_output_directory, args.manual_pdf)
     except (ValueError, OSError) as exc:
         parser.exit(1, str(exc) + '\n')

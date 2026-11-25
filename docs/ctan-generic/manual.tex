@@ -1,0 +1,43 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\title{Dissertate Generic: local TDS candidate}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\section*{Scope}
+This experimental tool stages the Generic class and a synthetic example for local testing. Redistribution review remains unresolved. The tool does not submit to CTAN or publish a release. Package-manager availability remains unestablished.
+\section*{Stage}
+Use Python 3 with an existing source checkout. Supply the source root and a new output directory:
+\begin{verbatim}
+python3 /path/to/Dissertate/scripts/stage-ctan-generic \
+  /path/to/Dissertate /tmp/dissertate-candidate
+\end{verbatim}
+The output parent must exist. The destination must be new and outside the checkout. Existing destinations, including symlinks, are refused. Source-pattern checks precede output creation. An I/O failure during writing may leave a partial new directory. The tool does not delete or overwrite caller data. Use a private output parent without concurrent writers.
+To include a separately built and reviewed manual PDF, add \verb|--manual-pdf /path/to/manual.pdf| to the staging command. Staging checks the PDF file header and records its hash; it does not compile the manual or verify that the PDF matches the manual source. Without this option, the tree contains the manual source but no manual PDF.
+\section*{Isolated test}
+The output follows the TeX Directory Structure (TDS). Use an existing TeX Live installation with the XeLaTeX dependencies. Copy the synthetic example into a new document directory without local classes or fonts. Set the candidate tree as \texttt{TEXMFHOME} for each command:
+\begin{verbatim}
+mkdir /tmp/dissertate-example
+cp -R /tmp/dissertate-candidate/doc/latex/dissertate/\
+examples/generic/. /tmp/dissertate-example/
+cd /tmp/dissertate-example
+TEXMFHOME=/tmp/dissertate-candidate kpsewhich dissertate.cls
+TEXMFHOME=/tmp/dissertate-candidate xelatex -no-shell-escape \
+  -interaction=nonstopmode -halt-on-error -recorder main.tex
+\end{verbatim}
+Check that the class resolves inside the candidate tree. These command-specific environment settings do not install files globally. The staging tool does not supply or install dependencies.
+\section*{Class options}
+Use \verb|\documentclass[school=generic]{dissertate}|. Generic is the only school and the default. Paper options are \texttt{a4paper}, \texttt{letterpaper}, \texttt{dpaperafour}, and \texttt{dpaperletter}; spacing options are \texttt{dsingle} and \texttt{ddouble}. Defaults are US Letter and double spacing. Choose one paper setting and one spacing setting. Unsupported options produce class errors.
+\newpage
+\section*{Payload and evidence}
+The loader, shared base, and Generic style are under \texttt{tex/latex/dissertate/}. Editable resources are in the documented example under \texttt{doc/latex/dissertate/examples/generic/}. The example disables the colophon and its image. Artwork, official guides, site files, and legacy packages are excluded. Normal school ZIP packaging is unchanged.
+
+Ten historical fonts use unique \texttt{dissertate-historical-} external filenames in the OpenType and TrueType TDS subtrees. Font bytes and internal names are unchanged. The candidate retains the historical fonts. The manifest at \texttt{doc/latex/dissertate/candidate-manifest.json} records source hashes, original and prefixed font paths, and payload hashes; it excludes its own hash. Notices are in the adjacent \texttt{notices/} directory. Generator source is under \texttt{source/latex/dissertate/}.
+\section*{Limits}
+A clean Generic example compiled under TeX Live 2025 on macOS. PDF-driver logs identified all ten exercised historical font files as embedding sources. Those files matched the manifest hashes. This verifies the exercised filename lookup and embedding behavior. Existing Palatino-bold and mono-italic shape substitutions remain and are reported in the log. MiKTeX and full dissertation behavior have not been verified. The example does not demonstrate university compliance or PDF accessibility. Preserved notices and successful compilation do not establish redistribution permission.
+\end{document}
