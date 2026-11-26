@@ -8,4 +8,6 @@ Text fonts remain at their paired defaults, math is `auto`, and non-TeX fonts ar
 
 The CI check creates a fresh LyX user directory and copies the custom layout into its `layouts/` directory before configuration. A packaged Generic project is available through `TEXINPUTS`. LyX exports to an explicit TeX path; XeLaTeX then compiles from the project root. The example calls the existing front-matter hook and retains its external author resources. Its colophon is disabled. It adds one chapter and a short formula; it does not call the back-matter hook.
 
-No LyX executable is installed on the laptop by this workflow. The runtime version, executable hash, class-discovery record, export log, generated TeX, and PDF are retained as temporary CI artifacts. Runtime export and font preservation remain pending until those artifacts are inspected.
+The exporter adds English language setup through polyglossia. The inspected PDF retained EB Garamond for the chapter title and body paragraph. The class requests Palatino for its large chapter numeral; its unavailable bold shape falls back to Latin Modern. This class-level font limitation remains. Math symbols may use Computer Modern.
+
+No LyX executable is installed on the laptop by this workflow. The runtime version, executable hash, class-discovery record, export log, generated TeX, paragraph-level font mapping, and PDF are retained as temporary CI artifacts. Inspect those artifacts before claiming support for a configuration.

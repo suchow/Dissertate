@@ -11,6 +11,7 @@ import shutil
 import subprocess
 import sys
 import zipfile
+import xml.etree.ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -66,6 +67,8 @@ def main():
             raise RuntimeError("Export overrides class fonts: " + forbidden)
     if "\\frontmatter" not in generated or "Generic LyX export" not in generated:
         raise RuntimeError("Export omitted the hook or chapter")
+    if not re.search(r"formula is(?:~|\s+)\$", generated):
+        raise RuntimeError("Export omitted spacing before inline math")
     shutil.copyfile(output, evidence / "lyx-review.tex")
     registry = user / "textclass.lst"
     if not registry.is_file():
@@ -85,10 +88,21 @@ def main():
         evidence / "text-extraction.log")
     if "Generic LyX export" not in (evidence / "text.txt").read_text():
         raise RuntimeError("Expected chapter text is absent from PDF")
+    run(["pdftohtml", "-xml", "-i", "-stdout", "lyx-review.pdf"], project, env,
+        evidence / "text-fonts.xml")
+    xml = ET.fromstring((evidence / "text-fonts.xml").read_bytes())
+    families = {node.attrib["id"]: node.attrib.get("family", "")
+                for node in xml.findall(".//fontspec")}
+    body_fonts = [{"page": page.attrib["number"], "family": families[node.attrib["font"]]}
+                  for page in xml.findall("page") for node in page.findall("text")
+                  if "This synthetic document" in "".join(node.itertext())]
+    if not body_fonts or any("Garamond" not in row["family"] for row in body_fonts):
+        raise RuntimeError("The checked body paragraph did not retain EB Garamond")
     shutil.copyfile(project / "lyx-review.pdf", evidence / "lyx-review.pdf")
     (evidence / "result.json").write_text(json.dumps({
         "lyx_executable_sha256": hashlib.sha256(executable.read_bytes()).hexdigest(),
         "runtime": "LyX 2.5.2", "scope": "Generic front matter, one chapter, and inline math",
+        "body_paragraph_fonts": body_fonts,
         "export_sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
         "pdf_sha256": hashlib.sha256((evidence / "lyx-review.pdf").read_bytes()).hexdigest(),
     }, indent=2) + "\n")

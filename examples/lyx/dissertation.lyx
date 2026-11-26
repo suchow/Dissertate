@@ -56,6 +56,9 @@ Generic LyX export
 
 \begin_layout Standard
 This synthetic document checks the exported class, external front matter, and class-selected fonts. A short formula is
+\begin_inset space ~
+\end_inset
+
 \begin_inset Formula $x^{2}+1$
 \end_inset
 
