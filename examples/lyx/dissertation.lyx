@@ -1,0 +1,66 @@
+#LyX 2.5 prototype
+\lyxformat 643
+\begin_document
+\begin_header
+\textclass dissertate
+\begin_preamble
+\togglefalse{DissertateColophon}
+\end_preamble
+\use_default_options false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\default_output_format pdf4
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\cite_engine basic
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\end_header
+
+\begin_body
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+frontmatter
+\backslash
+setstretch{
+\backslash
+dnormalspacing}
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Chapter
+Generic LyX export
+\end_layout
+
+\begin_layout Standard
+This synthetic document checks the exported class, external front matter, and class-selected fonts. A short formula is
+\begin_inset Formula $x^{2}+1$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
