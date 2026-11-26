@@ -63,6 +63,7 @@ jobs:
           (root / 'release-schools.txt').write_text('\n'.join(schools) + '\n')
           for school in schools:
               subprocess.run([sys.executable, 'scripts/package-latex', school, str(packages / f'Dissertate-{school}-LaTeX.zip')], check=True)
+              subprocess.run([sys.executable, 'scripts/package-latex', school, str(packages / f'Dissertate-{school}-Overleaf.zip'), '--flat'], check=True)
           PYCODE
       - name: Check release archives
         run: |
@@ -74,15 +75,16 @@ jobs:
           schools = (Path(os.environ['RUNNER_TEMP']) / 'release-schools.txt').read_text().splitlines()
           checksums = []
           for school in schools:
-              archive = root / f'Dissertate-{school}-LaTeX.zip'
-              prefix = archive.stem + '/'
-              with ZipFile(archive) as package:
-                  if package.testzip() is not None:
-                      raise SystemExit(f'Corrupt archive: {archive.name}')
-                  required = ['dissertation.tex', 'Dissertate.cls', 'AGENTS.md', 'frontmatter/personalize.tex']
-                  if not all(prefix + path in package.namelist() for path in required):
-                      raise SystemExit(f'Incomplete archive: {archive.name}')
-              checksums.append(hashlib.sha256(archive.read_bytes()).hexdigest() + '  ' + archive.name)
+              for layout in ('LaTeX', 'Overleaf'):
+                  archive = root / f'Dissertate-{school}-{layout}.zip'
+                  prefix = archive.stem + '/' if layout == 'LaTeX' else ''
+                  with ZipFile(archive) as package:
+                      if package.testzip() is not None:
+                          raise SystemExit(f'Corrupt archive: {archive.name}')
+                      required = ['dissertation.tex', 'Dissertate.cls', 'AGENTS.md', 'frontmatter/personalize.tex']
+                      if not all(prefix + path in package.namelist() for path in required):
+                          raise SystemExit(f'Incomplete archive: {archive.name}')
+                  checksums.append(hashlib.sha256(archive.read_bytes()).hexdigest() + '  ' + archive.name)
           (root / 'SHA256SUMS.txt').write_text('\n'.join(checksums) + '\n')
           PYCODE
       - name: Publish release
