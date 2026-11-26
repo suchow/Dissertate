@@ -15,6 +15,7 @@ from fontTools.ttLib import TTFont
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "font-src" / "DissertateSymbols"
 CHARACTERS = {0x21E5: "uni21E5", 0x291E: "uni291E"}
+CMAP = {0x20: "space", **CHARACTERS}
 
 
 def polygon(pen, points):
@@ -41,14 +42,14 @@ def arrow(pen, commands):
 def build():
     source = json.loads((SOURCE / "arrowright.json").read_text())
     license_text = (SOURCE / "OFL.txt").read_text()
-    order = [".notdef", *CHARACTERS.values()]
-    widths = {".notdef": 600, "uni21E5": 1100, "uni291E": 1290}
+    order = [".notdef", "space", *CHARACTERS.values()]
+    widths = {".notdef": 600, "space": 250, "uni21E5": 1100, "uni291E": 1290}
     charstrings = {}
     for name in order:
         pen = T2CharStringPen(widths[name], None)
         if name == ".notdef":
             polygon(pen, [(100, 0), (100, 700), (500, 700), (500, 0)])
-        else:
+        elif name != "space":
             arrow(pen, source["commands"])
             if name == "uni21E5":
                 polygon(pen, [(950, 100), (950, 484), (996, 484), (996, 100)])
@@ -58,7 +59,7 @@ def build():
 
     font = FontBuilder(source["units_per_em"], isTTF=False)
     font.setupGlyphOrder(order)
-    font.setupCharacterMap(CHARACTERS)
+    font.setupCharacterMap(CMAP)
     font.setupHorizontalMetrics({name: (widths[name], 0) for name in order})
     font.setupHorizontalHeader(ascent=800, descent=-200)
     font.setupNameTable({
@@ -87,7 +88,7 @@ def build():
     font.save(output)
     payload = output.getvalue()
     with TTFont(io.BytesIO(payload)) as checked:
-        if checked.getBestCmap() != CHARACTERS:
+        if checked.getBestCmap() != CMAP:
             raise ValueError("Unexpected Unicode mapping")
         if checked["name"].getDebugName(1) != "Dissertate Symbols":
             raise ValueError("Unexpected font family")
