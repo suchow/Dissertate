@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+"""Build the experimental two-character Dissertate Symbols font."""
+
+import argparse
+import hashlib
+import io
+import json
+from pathlib import Path
+
+from fontTools.fontBuilder import FontBuilder
+from fontTools.pens.t2CharStringPen import T2CharStringPen
+from fontTools.ttLib import TTFont
+
+
+ROOT = Path(__file__).resolve().parent.parent
+SOURCE = ROOT / "font-src" / "DissertateSymbols"
+CHARACTERS = {0x21E5: "uni21E5", 0x291E: "uni291E"}
+
+
+def polygon(pen, points):
+    pen.moveTo(points[0])
+    for point in points[1:]:
+        pen.lineTo(point)
+    pen.closePath()
+
+
+def arrow(pen, commands):
+    for operator, *coordinates in commands:
+        points = list(zip(coordinates[::2], coordinates[1::2]))
+        if operator == "m" and len(points) == 1:
+            pen.moveTo(points[0])
+        elif operator == "l" and len(points) == 1:
+            pen.lineTo(points[0])
+        elif operator == "c" and len(points) == 3:
+            pen.curveTo(*points)
+        else:
+            raise ValueError("Unexpected outline command")
+    pen.closePath()
+
+
+def build():
+    source = json.loads((SOURCE / "arrowright.json").read_text())
+    license_text = (SOURCE / "OFL.txt").read_text()
+    order = [".notdef", *CHARACTERS.values()]
+    widths = {".notdef": 600, "uni21E5": 1100, "uni291E": 1290}
+    charstrings = {}
+    for name in order:
+        pen = T2CharStringPen(widths[name], None)
+        if name == ".notdef":
+            polygon(pen, [(100, 0), (100, 700), (500, 700), (500, 0)])
+        else:
+            arrow(pen, source["commands"])
+            if name == "uni21E5":
+                polygon(pen, [(950, 100), (950, 484), (996, 484), (996, 100)])
+            else:
+                polygon(pen, [(950, 292), (1070, 412), (1190, 292), (1070, 172)])
+        charstrings[name] = pen.getCharString()
+
+    font = FontBuilder(source["units_per_em"], isTTF=False)
+    font.setupGlyphOrder(order)
+    font.setupCharacterMap(CHARACTERS)
+    font.setupHorizontalMetrics({name: (widths[name], 0) for name in order})
+    font.setupHorizontalHeader(ascent=800, descent=-200)
+    font.setupNameTable({
+        "familyName": "Dissertate Symbols",
+        "styleName": "Regular",
+        "uniqueFontIdentifier": "DissertateSymbols-Prototype-0.001",
+        "fullName": "Dissertate Symbols Regular",
+        "psName": "DissertateSymbols-Regular",
+        "version": "Version 0.001; experimental",
+        "copyright": "Copyright (c) 2010-2013 Georg Duffner. Modifications copyright (c) 2026 Dissertate contributors.",
+        "licenseDescription": license_text,
+        "licenseInfoURL": "https://openfontlicense.org/open-font-license-official-text/",
+    })
+    font.setupOS2(sTypoAscender=800, sTypoDescender=-200,
+                  usWinAscent=800, usWinDescent=200, fsType=0)
+    font.setupPost()
+    font.setupCFF("DissertateSymbols-Regular", {
+        "FullName": "Dissertate Symbols Regular",
+        "FamilyName": "Dissertate Symbols", "Weight": "Regular",
+        "version": "0.001",
+        "Notice": "Derived from Georg Duffner arrowright; SIL Open Font License 1.1.",
+    }, charstrings, {})
+    font.font.recalcTimestamp = False
+    font.font["head"].created = font.font["head"].modified = 2082844800
+    output = io.BytesIO()
+    font.save(output)
+    payload = output.getvalue()
+    with TTFont(io.BytesIO(payload)) as checked:
+        if checked.getBestCmap() != CHARACTERS:
+            raise ValueError("Unexpected Unicode mapping")
+        if checked["name"].getDebugName(1) != "Dissertate Symbols":
+            raise ValueError("Unexpected font family")
+    return payload
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("output", type=Path, help="new .otf file in an existing directory")
+    args = parser.parse_args()
+    if args.output.suffix != ".otf" or args.output.exists() or not args.output.parent.is_dir():
+        parser.error("output must be a new .otf file in an existing directory")
+    payload = build()
+    # Exclusive creation prevents replacing an existing caller file.
+    with args.output.open("xb") as stream:
+        stream.write(payload)
+    digest = hashlib.sha256(payload).hexdigest()
+    print(json.dumps({"font": str(args.output), "sha256": digest,
+                      "characters": [f"U+{code:04X}" for code in CHARACTERS]}))
+
+
+if __name__ == "__main__":
+    main()
