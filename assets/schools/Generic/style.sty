@@ -62,7 +62,18 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
+	\ifdefvoid{\@advisor}{%
+        \ifboolexpr{test {\ifdefvoid{\@coadvisorOne}} or test {\ifdefvoid{\@coadvisorTwo}}}{%
+            \ClassError{Dissertate}{Missing adviser metadata}{%
+                Set \string\advisor, or both \string\coadvisorOne\space and \string\coadvisorTwo.}%
+        }{%
+            \setlength{\headheight}{30pt}
+            \lhead{\shortstack[l]{Thesis advisors: Professors\\\@coadvisorOne\ and \@coadvisorTwo}}
+            \rhead{\shortstack[r]{\@author\\\strut}}
+        }%
+    }{%
+        \lhead{Thesis advisor: Professor \@advisor} \rhead{\@author}
+    }
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}
 	\begin{center}

@@ -4,4 +4,6 @@ This generic template is a starting point. Identify the institution, degree prog
 
 Edit `frontmatter/personalize.tex` for the author's details. The main document is `dissertation.tex`; chapters are in `chapters/`. Preserve the author's content and verify requested changes in the compiled PDF. The template uses XeLaTeX and BibTeX.
 
+For one adviser, set `\advisor{...}`. For two co-advisers, comment out the `\advisor` line and set both `\coadvisorOne{...}` and `\coadvisorTwo{...}`. The abstract header lists the configured adviser or co-advisers.
+
 Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
