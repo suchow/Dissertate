@@ -1,0 +1,111 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\title{Dissertate LaTeX class: local component}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\raggedright
+\section*{Scope and dependency}
+The CTAN class package identifier is \texttt{dissertate}. It requires the separate
+\texttt{dissertate-historical-fonts} package for typesetting. This class is
+LaTeX-only. The internal \texttt{school=generic} option selects a school-neutral
+layout; it does not claim Plain TeX compatibility. Class staging contains no font
+binaries or font notices. Font staging contains no class or style files.
+\section*{Prepare and test separate components}
+Preparation requires Python 3. With an existing source checkout, stage into new
+directories outside the checkout:
+\begin{verbatim}
+python3 scripts/stage-ctan-generic /path/to/Dissertate \
+  /tmp/dissertate-class --component class
+python3 scripts/stage-ctan-generic /path/to/Dissertate \
+  /tmp/dissertate-fonts --component fonts
+\end{verbatim}
+The output parents must exist. Existing destinations, including symlinks, are
+refused. Input validation precedes output creation. I/O failure can leave partial
+new output. No caller data is overwritten or deleted. Use private parents without
+concurrent writers. The default \texttt{--component all} creates a combined local
+TDS test tree, not a combined CTAN upload. School ZIP packaging is unchanged.
+
+To copy a separately built and reviewed class manual, add
+\verb|--manual-pdf /path/to/dissertate-doc.pdf|. Font staging accepts
+\verb|--font-manual-pdf /path/to/dissertate-historical-fonts-doc.pdf|.
+Only the PDF header and hash are checked; staging does not compile documentation
+or verify PDF/source correspondence.
+
+Copy the class example into a new document directory without local class or
+font files. On TeX Live for Unix-like systems, make both TDS trees available:
+\begin{verbatim}
+TEXMFHOME='/tmp/dissertate-class:/tmp/dissertate-fonts' \
+  kpsewhich dissertate.cls
+TEXMFHOME='/tmp/dissertate-class:/tmp/dissertate-fonts' \
+  xelatex -no-shell-escape -interaction=nonstopmode \
+  -halt-on-error -recorder main.tex
+\end{verbatim}
+The class must resolve in the class tree; prefixed fonts must resolve in the font
+tree. These environment settings do not install files globally. A separate-tree fixture
+compiled on TeX Live 2025/macOS. The class resolved from the class tree, and
+PDF-driver logs identified all ten historical fonts from the font tree as
+embedding sources. All used fonts were embedded. MiKTeX and complete
+dissertations remain unverified.
+\section*{Options}
+Use \verb|\documentclass[school=generic]{dissertate}|. Generic is the only school
+and the default. Paper options are \texttt{a4paper}, \texttt{letterpaper},
+\texttt{dpaperafour}, and \texttt{dpaperletter}; spacing options are
+\texttt{dsingle} and \texttt{ddouble}. Defaults are US Letter and double spacing.
+Choose one paper setting and one spacing setting. Unsupported options produce
+class errors.
+\newpage
+\section*{Dependencies and author resources}
+\begingroup\raggedright
+The runtime requires XeLaTeX, the separate historical-font component, and
+\texttt{etoolbox}, \texttt{geometry}, \texttt{ragged2e}, \texttt{graphicx},
+\texttt{fixltx2e}, \texttt{lettrine}, \texttt{setspace}, \texttt{verbatim},
+\texttt{color}, \texttt{xcolor}, \texttt{hyperref}, \texttt{url},
+\texttt{amssymb}, \texttt{amsmath}, \texttt{mathspec}, \texttt{caption},
+\texttt{microtype}, \texttt{fancyhdr}, \texttt{titlesec}, \texttt{titling},
+\texttt{tocloft}, \texttt{appendix}, \texttt{natbib}, and \texttt{quotchap}.
+Modern LaTeX incorporates \texttt{fixltx2e}; the historical class still requests
+its compatibility package. This manual uses \texttt{geometry}, \texttt{fontenc},
+\texttt{lmodern}, \texttt{hyperref}, and \texttt{verbatim}.
+
+The synthetic example skips \verb|\frontmatter| and \verb|\backmatter|. Using
+those hooks requires author-supplied \texttt{frontmatter/personalize.tex},
+\texttt{frontmatter/abstract.tex}, \texttt{frontmatter/dedication.tex},
+\texttt{frontmatter/thanks.tex}, \texttt{chapters/appendixA.tex},
+\texttt{endmatter/personalize.tex}, and \texttt{references.bib}. The bibliography
+requires BibTeX and \texttt{apalike2}. Supplied frontmatter files are empty
+placeholders. Both colophon toggles default to enabled in the base class; keep
+them disabled unless supplying separate colophon resources. No colophon text or
+artwork is included. A prior nine-page combined-tree fixture exercised both hooks
+with these author resources and the colophon disabled. Citations, the appendix
+cross-reference, and contents entries resolved.
+\par\endgroup
+\section*{Files and source preparation}
+Runtime files are under \texttt{tex/latex/dissertate/}. Original class/style
+inputs and the handwritten generator are under \texttt{source/latex/dissertate/}.
+The historical base header is retained alongside a dated transformation notice.
+Package-specific documentation uses \texttt{dissertate-doc.tex} and
+\texttt{dissertate-doc.pdf}. The staging manifest records input/output hashes.
+
+The source-preparation tool consumes reviewed stages with their manual PDFs and
+creates separate \texttt{dissertate/} and \texttt{dissertate-historical-fonts/}
+source directories. A single-component stage produces only its own directory.
+The class source package contains no font binaries. Each package has independent
+copy-only input reconstruction; its README gives the command. Generated runtime
+files, examples, and manifests are omitted. Reconstruction runs no staged code,
+and it does not restore historical font build sources or a manual build
+environment. Review the reconstructed source before running a preparation tool.
+\section*{Licenses and limits}
+Project code, documentation, and examples use the repository's GNU Affero General
+Public License, version 3. The separate font package retains its own SIL Open Font
+License, version 1.1, notices and embedded metadata. Inherited Palatino-bold and
+mono-italic substitutions remain. No artwork, official guides, or legacy packages
+are included. Local staging does not submit, publish, or tag anything. Preserved
+notices and successful compilation do not establish CTAN acceptance or TeX
+distribution inclusion.
+\end{document}

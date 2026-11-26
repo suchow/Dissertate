@@ -1,0 +1,68 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\title{Dissertate historical fonts}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\raggedright
+\section*{Separate dependency}
+The \texttt{dissertate-historical-fonts} package provides ten historical font
+files for the separate \texttt{dissertate} LaTeX class. It contains no class or
+style files. External filenames begin with \texttt{dissertate-historical-}.
+Font bytes and internal names are unchanged; no font is rebuilt or substituted.
+\section*{Inventory and licenses}
+\begin{itemize}
+\item EB Garamond OTF: regular and italic, with the historical \texttt{COPYING} notice.
+\item EB Garamond TTF: bold and bold italic, with the separate \texttt{OFL.txt} notice.
+\item Lato TTF: regular, italic, bold, and bold italic, with the retained OFL text and embedded copyright and Reserved Font Name metadata.
+\item Source Code Pro TTF: regular and bold, with the retained OFL notice and embedded copyright and Reserved Font Name metadata.
+\end{itemize}
+The fonts retain SIL Open Font License, version 1.1, terms. Notices are supplied
+with the package. Embedded notices remain intact, including Reserved Font Names
+Lato and Source. Preparation programs and documentation use the repository's GNU
+Affero General Public License, version 3; its text is retained separately. The
+AGPL does not replace the fonts' OFL terms. Historical source-to-binary
+correspondence is not established by byte-preserving packaging.
+\section*{Prepare and install a local tree}
+Preparation requires Python 3. With a source checkout, run:
+\begin{verbatim}
+python3 scripts/stage-ctan-generic /path/to/Dissertate \
+  /tmp/dissertate-fonts --component fonts
+\end{verbatim}
+The output parent must exist. The destination must be new and outside the source
+checkout. Existing destinations and symlinked or missing inputs are refused.
+No caller data is overwritten or deleted. An I/O failure can leave partial new
+output; use a private parent without concurrent writers.
+
+Add \verb|--font-manual-pdf /path/to/dissertate-historical-fonts-doc.pdf| to copy
+a separately built and reviewed manual. Staging checks its header and hash,
+without compiling documentation or checking PDF/source correspondence. This
+manual uses \texttt{geometry}, \texttt{fontenc}, \texttt{lmodern},
+\texttt{hyperref}, and \texttt{verbatim}.
+
+The TDS tree stores font binaries under \texttt{fonts/opentype/public/dissertate/}
+and \texttt{fonts/truetype/public/dissertate/}. Documentation and notices are under
+\texttt{doc/fonts/dissertate-historical-fonts/}. Make this tree available alongside
+the separate class tree. On TeX Live for Unix-like systems:
+\begin{verbatim}
+TEXMFHOME='/tmp/dissertate-class:/tmp/dissertate-fonts' \
+  kpsewhich dissertate-historical-EBGaramond12-Regular.otf
+\end{verbatim}
+The font must resolve inside the font tree. Do not add local font copies to the
+document directory. A separate-tree fixture compiled on TeX Live 2025/macOS. The class resolved from
+the class tree, and PDF-driver logs identified all ten historical fonts from the
+font tree as embedding sources. All used fonts were embedded. MiKTeX and complete
+dissertations remain unverified.
+\section*{Source preparation and limits}
+The source-preparation tool creates a separate font source package with unchanged
+fonts, notices, package-specific manual PDF/source, and handwritten preparation
+programs. Its README documents independent copy-only input reconstruction.
+Reconstruction does not restore historical font build sources or the manual build
+environment. Local staging does not upload, release, or tag anything. CTAN
+acceptance and TeX distribution inclusion remain separate.
+\end{document}

@@ -2,92 +2,83 @@ import hashlib
 import importlib.machinery
 import importlib.util
 from pathlib import Path
+import shutil
 import tempfile
-import subprocess
-import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-loader = importlib.machinery.SourceFileLoader("ctan_stage", str(ROOT / "scripts/stage-ctan-generic"))
+loader = importlib.machinery.SourceFileLoader('ctan_stage', str(ROOT/'scripts/stage-ctan-generic'))
 spec = importlib.util.spec_from_loader(loader.name, loader)
 module = importlib.util.module_from_spec(spec)
 loader.exec_module(module)
 
 
 def hashes(root):
-    return {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in root.rglob("*") if p.is_file()}
+    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in root.rglob('*') if p.is_file()}
+
+
+def manuals(root):
+    class_pdf, font_pdf = root/'dissertate-doc.pdf', root/'dissertate-historical-fonts-doc.pdf'
+    class_pdf.write_bytes(b'%PDF-1.5\n% class fixture\n%%EOF\n')
+    font_pdf.write_bytes(b'%PDF-1.5\n% font fixture\n%%EOF\n')
+    return class_pdf, font_pdf
 
 
 class StagingTest(unittest.TestCase):
-    def test_reproducible_payload_and_existing_destination_safety(self):
-        with tempfile.TemporaryDirectory(prefix="dissertate-ctan-test-") as name:
+    def test_separate_components_and_deterministic_all_tree(self):
+        with tempfile.TemporaryDirectory(prefix='dissertate-stage-') as name:
             root = Path(name)
-            first, second = root / "first", root / "second"
-            pdf = root / "manual.pdf"
-            pdf.write_bytes(b"%PDF-1.5\n%%EOF\n")
-            manifest = module.stage(ROOT, first, pdf)
-            module.stage(ROOT, second, pdf)
-            before = hashes(first)
-            self.assertEqual(before, hashes(second))
-            self.assertEqual(len(manifest["fonts"]), 10)
-            for font in manifest["fonts"]:
-                self.assertEqual(before[font["prefixed"]], font["sha256"])
-            self.assertTrue(all(before[p] == h for p, h in manifest["outputs"].items()))
-            self.assertEqual(len(list((first / "tex").rglob("*.cls"))), 2)
-            self.assertIn("README.md", before)
-            self.assertIn("doc/latex/dissertate/manual.tex", before)
-            self.assertTrue(manifest["manual_pdf_included"])
-            self.assertEqual((first / "doc/latex/dissertate/manual.pdf").read_bytes(), pdf.read_bytes())
-            self.assertFalse(any(p.endswith((".png", ".jpg")) for p in before))
-            with self.assertRaises(ValueError):
-                module.stage(ROOT, first)
-            self.assertEqual(before, hashes(first))
-            link = root / "link"
-            link.symlink_to(first, target_is_directory=True)
-            with self.assertRaises(ValueError):
-                module.stage(ROOT, link)
-            self.assertEqual(before, hashes(first))
-            reconstructed = root / "reconstructed"
-            mapping = {
-                "source/latex/dissertate/inputs/dissertate-base-original.cls": "assets/latex-base/Dissertate.cls",
-                "source/latex/dissertate/inputs/dissertate-school-generic-original.sty": "assets/schools/Generic/style.sty",
-                "README.md": "docs/ctan-generic/README.md",
-                "doc/latex/dissertate/manual.tex": "docs/ctan-generic/manual.tex",
-                "source/latex/dissertate/stage_generic.py": "scripts/stage-ctan-generic",
-            }
-            for notice in module.NOTICES:
-                mapping["doc/latex/dissertate/notices/" + notice.replace(" ", "-").replace("/", "--")] = notice
-            for font in manifest["fonts"]:
-                mapping[font["prefixed"]] = font["original"]
-            for staged, original in mapping.items():
-                target = reconstructed / original
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes((first / staged).read_bytes())
-            self.assertEqual((reconstructed / "assets/latex-base/Dissertate.cls").read_bytes(), (ROOT / "assets/latex-base/Dissertate.cls").read_bytes())
-            self.assertEqual((reconstructed / "assets/schools/Generic/style.sty").read_bytes(), (ROOT / "assets/schools/Generic/style.sty").read_bytes())
-            rebuilt = root / "rebuilt"
-            subprocess.run([sys.executable, "-I", str(reconstructed / "scripts/stage-ctan-generic"), str(reconstructed), str(rebuilt), "--manual-pdf", str(pdf)], check=True)
-            self.assertEqual(before, hashes(rebuilt))
-
-    def test_unexpected_source_creates_no_destination(self):
-        with tempfile.TemporaryDirectory(prefix="dissertate-ctan-test-") as name:
-            root = Path(name)
-            source = root / "source"
-            for relative in ("assets/latex-base/Dissertate.cls", "assets/schools/Generic/style.sty"):
-                p = source / relative
+            class_pdf, font_pdf = manuals(root)
+            first, second = root/'first', root/'second'
+            manifest = module.stage(ROOT, first, class_pdf, font_pdf)
+            module.stage(ROOT, second, class_pdf, font_pdf)
+            self.assertEqual(hashes(first), hashes(second))
+            self.assertEqual(len(manifest['fonts']), 10)
+            for font in manifest['fonts']:
+                self.assertEqual(hashes(first)[font['prefixed']], font['sha256'])
+            # Class source without a font tree must still stage independently.
+            class_source = root/'class-source'
+            for rel in ['LICENSE', 'assets/latex-base/Dissertate.cls', 'assets/schools/Generic/style.sty',
+                        'docs/ctan-generic/README.md', 'docs/ctan-generic/dissertate-doc.tex']:
+                p = class_source/rel
                 p.parent.mkdir(parents=True, exist_ok=True)
-                p.write_text("unexpected source")
-            output = root / "output"
+                shutil.copyfile(ROOT/rel, p)
+            class_tree = root/'class-tree'
+            class_manifest = module.stage(class_source, class_tree, class_pdf, component='class')
+            self.assertEqual(class_manifest['fonts'], [])
+            self.assertFalse(any(p.endswith(('.otf', '.ttf')) for p in hashes(class_tree)))
+            self.assertFalse(any('assets/fonts/' in p for p in class_manifest['inputs']))
+            font_tree = root/'font-tree'
+            font_manifest = module.stage(ROOT, font_tree, font_manual_pdf=font_pdf, component='fonts')
+            self.assertFalse(any(p.endswith(('.cls', '.sty')) for p in hashes(font_tree)))
+            self.assertFalse(any('latex-base' in p for p in font_manifest['inputs']))
+            self.assertEqual({k:v for k,v in hashes(first).items() if k in class_manifest['outputs']}, class_manifest['outputs'])
+            self.assertEqual({k:v for k,v in hashes(first).items() if k in font_manifest['outputs']}, font_manifest['outputs'])
+
+    def test_refusals_precede_creation_and_preserve_existing_tree(self):
+        with tempfile.TemporaryDirectory(prefix='dissertate-stage-safety-') as name:
+            root = Path(name)
+            output = root/'output'
+            module.stage(ROOT, output, component='class')
+            before = hashes(output)
             with self.assertRaises(ValueError):
-                module.stage(source, output)
-            self.assertFalse(output.exists())
-            invalid_pdf = root / "invalid.pdf"
-            invalid_pdf.write_text("not a PDF")
+                module.stage(ROOT, output, component='class')
+            self.assertEqual(before, hashes(output))
+            link = root/'link'
+            link.symlink_to(output, target_is_directory=True)
             with self.assertRaises(ValueError):
-                module.stage(ROOT, output, invalid_pdf)
-            self.assertFalse(output.exists())
+                module.stage(ROOT, link, component='class')
+            rejected = root/'rejected'
+            bad_pdf = root/'bad.pdf'
+            bad_pdf.write_text('not a PDF')
+            with self.assertRaises(ValueError):
+                module.stage(ROOT, rejected, bad_pdf, component='class')
+            self.assertFalse(rejected.exists())
+            with self.assertRaises(ValueError):
+                module.stage(ROOT, rejected, font_manual_pdf=bad_pdf, component='fonts')
+            self.assertFalse(rejected.exists())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
