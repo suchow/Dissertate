@@ -1,49 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env python3
+"""Package one school through the maintained distribution command."""
 
-cd build
+import runpy
+from pathlib import Path
 
-# Clear out the previous build.
-/bin/rm -f *
 
-for dir in ../assets/schools/*/
-do
-    dir=${dir%*/}
-
-    if [ ${dir##*/} != "__pycache__" ]
-        then
-            # Create LaTeX template
-            latexdir="Dissertate-${dir##*/}-LaTeX"
-            mkdir $latexdir
-
-            # Add fonts
-            rsync --recursive ../assets/fonts/* $latexdir/fonts/
-
-            # Add guidelines
-            cp ../assets/schools/${dir##*/}/guidelines.pdf $latexdir/guidelines.pdf
-
-            # Add school specific resources
-            cp -R ../assets/schools/${dir##*/}/resources $latexdir/resources
-            
-            # Add the LaTeX template
-            rsync --recursive ../assets/latex-base/* $latexdir
-            cat ../assets/schools/${dir##*/}/style.sty >> ../build/$latexdir/Dissertate.cls
-            cp ../assets/schools/${dir##*/}/agent-guidance.md $latexdir/AGENTS.md
-
-            # Build LaTeX template
-            ./$latexdir/scripts/build
-
-            # Remove temporary files
-            find . -name "*.aux" -delete
-            find . -name "*.blg" -delete
-            find . -name "*.bbl" -delete
-            find . -name "*.out" -delete
-            find . -name "*.lof" -delete
-            find . -name "*.toc" -delete
-
-            # Package it up
-            zip -r $latexdir.zip $latexdir && rm -r $latexdir
-
-    fi
-done
-
-cd ..
+if __name__ == "__main__":
+    runpy.run_path(str(Path(__file__).resolve().with_name("package-latex")), run_name="__main__")

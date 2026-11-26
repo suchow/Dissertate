@@ -12,6 +12,8 @@ python3 scripts/package-latex Harvard Dissertate-Harvard-LaTeX.zip
 
 Pass the name of a school directory in `assets/schools/` as the first argument. Each supported directory contains `style.sty` and `agent-guidance.md`. The resulting ZIP contains the template sources, fonts, and school-specific guidance in `AGENTS.md`. Add `--compile` to include a PDF; this requires XeLaTeX and BibTeX. Extract the generated ZIP before editing the template.
 
+The legacy `scripts/build` entry point accepts the same school, output path, and options. It packages one school per invocation and requires an explicit output path.
+
 ## Distribution licenses
 
 The repository software license is in `LICENSE`. Bundled fonts and artwork have separate terms:
