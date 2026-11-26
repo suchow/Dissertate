@@ -1,6 +1,6 @@
 # Dissertate Symbols prototype
 
-This experimental font adds U+21E5 (RIGHTWARDS ARROW TO BAR) and U+291E (RIGHTWARDS ARROW WITH TAIL WITH BLACK DIAMOND). It is separately named Dissertate Symbols. No template loads it, and no historical font file is modified. Visual review and PDF Unicode checks remain pending.
+This experimental font adds U+21E5 (RIGHTWARDS ARROW TO BAR) and U+291E (RIGHTWARDS ARROW WITH TAIL WITH BLACK DIAMOND), plus a normal space for fontspec compatibility. It is separately named Dissertate Symbols. No template loads it, and no historical font file is modified. Final visual review and PDF Unicode checks remain pending.
 
 `arrowright.json` records the outline from `SFD/EBGaramond12-Regular.sfdir/arrowright.glyph` at upstream revision `d04d0f9da5adad27ff0e5947807b80cfe13dc477`. Its source-file SHA-256 is recorded alongside the path commands. The builder preserves that arrow and adds a terminal bar or black diamond. It does not execute upstream build code. The upstream source is at https://github.com/georgd/EB-Garamond/tree/d04d0f9da5adad27ff0e5947807b80cfe13dc477 .
 
