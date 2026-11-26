@@ -1,0 +1,41 @@
+name: Experimental symbol font
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened]
+    paths:
+      - font-src/DissertateSymbols/**
+      - scripts/build-symbol-font
+      - .github/workflows/symbol-font.yml
+
+permissions:
+  contents: read
+
+jobs:
+  prototype:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install build dependency on runner
+        run: python -m pip install fonttools==4.61.1
+      - name: Build and check the two-character font
+        run: |
+          mkdir output
+          python scripts/build-symbol-font output/DissertateSymbols-Regular.otf > output/build.json
+          python scripts/build-symbol-font output/repeated.otf
+          cmp output/DissertateSymbols-Regular.otf output/repeated.otf
+          rm output/repeated.otf
+          cp font-src/DissertateSymbols/OFL.txt output/OFL.txt
+      - uses: actions/upload-artifact@v6
+        with:
+          name: Dissertate-Symbols-prototype
+          path: output/
+          if-no-files-found: error
+          retention-days: 14
