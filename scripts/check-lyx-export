@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+"""Run one isolated Generic LyX export and compile check in CI."""
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+import zipfile
+
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def run(command, cwd, env, log, timeout=90):
+    with log.open("wb") as output:
+        subprocess.run(command, cwd=cwd, env=env, stdout=output,
+                       stderr=subprocess.STDOUT, check=True, timeout=timeout)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("destination", type=Path, help="new directory for the isolated check")
+    args = parser.parse_args()
+    destination = args.destination.resolve()
+    destination.mkdir(exist_ok=False)
+    evidence = destination / "evidence"
+    evidence.mkdir()
+    archive = destination / "Generic.zip"
+    env = dict(os.environ, QT_QPA_PLATFORM="offscreen")
+    run([sys.executable, str(ROOT / "scripts/package-latex"), "Generic", str(archive)],
+        ROOT, env, evidence / "package.log")
+    # This archive was just produced by the reviewed repository packager.
+    with zipfile.ZipFile(archive) as package:
+        package.extractall(destination / "package")
+    project = destination / "package/Dissertate-Generic-LaTeX"
+    user = destination / "lyx-user"
+    (user / "layouts").mkdir(parents=True)
+    shutil.copyfile(ROOT / "examples/lyx/dissertate.layout", user / "layouts/dissertate.layout")
+    shutil.copyfile(ROOT / "examples/lyx/dissertation.lyx", project / "dissertation.lyx")
+    env["TEXINPUTS"] = str(project) + "//:"
+    executable = Path(shutil.which("lyx") or "lyx").resolve(strict=True)
+    run([str(executable), "--version"], project, env, evidence / "lyx-version.txt")
+    run([str(executable), "--help"], project, env, evidence / "lyx-help.txt")
+    version = (evidence / "lyx-version.txt").read_text()
+    if "LyX 2.5.2" not in version:
+        raise RuntimeError("Expected the pinned LyX 2.5.2 runtime")
+    book = Path("/usr/share/lyx/layouts/book.layout")
+    if not re.search(r"^Format\s+111\s*$", book.read_text(), re.MULTILINE):
+        raise RuntimeError("Installed book layout does not use format 111")
+    shutil.copyfile(book, evidence / "book.layout")
+    output = project / "lyx-review.tex"
+    run([str(executable), "-batch", "-n", "-userdir", str(user), "-f", "none",
+         "-E", "xetex", str(output), str(project / "dissertation.lyx")],
+        project, env, evidence / "export.log", timeout=180)
+    generated = output.read_text()
+    if not re.search(r"\\documentclass(?:\[[^\]]*\])?\{Dissertate\}", generated):
+        raise RuntimeError("Export did not select Dissertate")
+    for forbidden in ("\\setmainfont", "\\setromanfont", "\\setsansfont", "\\setmonofont",
+                      "\\babelfont", "\\setmathfont", "unicode-math"):
+        if forbidden in generated:
+            raise RuntimeError("Export overrides class fonts: " + forbidden)
+    if "\\frontmatter" not in generated or "Generic LyX export" not in generated:
+        raise RuntimeError("Export omitted the hook or chapter")
+    shutil.copyfile(output, evidence / "lyx-review.tex")
+    registry = user / "textclass.lst"
+    if not registry.is_file():
+        raise RuntimeError("LyX class-discovery record is missing")
+    rows = [line for line in registry.read_text().splitlines() if line.startswith('"dissertate"')]
+    if len(rows) != 1 or '"true"' not in rows[0]:
+        raise RuntimeError("Dissertate was not available in the fresh LyX profile")
+    (evidence / "class-discovery.txt").write_text(rows[0] + "\n")
+    latex = ["xelatex", "-no-shell-escape", "-interaction=nonstopmode",
+             "-halt-on-error", "lyx-review.tex"]
+    run(latex, project, env, evidence / "latex-pass-1.log", timeout=120)
+    run(latex, project, env, evidence / "latex-pass-2.log", timeout=120)
+    run(["pdffonts", "lyx-review.pdf"], project, env, evidence / "fonts.txt")
+    if "Garamond" not in (evidence / "fonts.txt").read_text():
+        raise RuntimeError("Expected class body font was not embedded")
+    run(["pdftotext", "lyx-review.pdf", str(evidence / "text.txt")], project, env,
+        evidence / "text-extraction.log")
+    if "Generic LyX export" not in (evidence / "text.txt").read_text():
+        raise RuntimeError("Expected chapter text is absent from PDF")
+    shutil.copyfile(project / "lyx-review.pdf", evidence / "lyx-review.pdf")
+    (evidence / "result.json").write_text(json.dumps({
+        "lyx_executable_sha256": hashlib.sha256(executable.read_bytes()).hexdigest(),
+        "runtime": "LyX 2.5.2", "scope": "Generic front matter, one chapter, and inline math",
+        "export_sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
+        "pdf_sha256": hashlib.sha256((evidence / "lyx-review.pdf").read_bytes()).hexdigest(),
+    }, indent=2) + "\n")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,7 @@
+#% Do not delete the line below; configure depends on this
+# \DeclareLaTeXClass[Dissertate]{Dissertate (Generic prototype)}
+# \DeclareCategory{Books}
+
+Format 111
+Input book.layout
+Provides fontspec 1
