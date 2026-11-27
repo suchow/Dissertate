@@ -15,8 +15,16 @@
 \hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
 \renewcommand{\chapnumfont}{\normalfont\normalsize}
 % Brown major-section headings are centered, uppercase, two inches from top.
-\titleformat{\chapter}[display]{\normalfont\normalsize\centering}{\MakeUppercase{\chaptertitlename}\ \thechapter}{\baselineskip}{\MakeUppercase}
-\titlespacing*{\chapter}{0pt}{39.6pt}{\baselineskip}
+\def\@makechapterhead#1{\vspace*{39.6pt}{%
+    \parindent\z@\centering\normalfont\normalsize
+    \ifnum\c@secnumdepth>\m@ne
+      \if@mainmatter\MakeUppercase{\chaptertitlename}\ \thechapter\par\nobreak
+        \vskip\baselineskip\fi
+    \fi
+    \MakeUppercase{#1}\par\nobreak\vskip\baselineskip}}
+\def\@makeschapterhead#1{\vspace*{39.6pt}{%
+    \parindent\z@\centering\normalfont\normalsize
+    \MakeUppercase{#1}\par\nobreak\vskip\baselineskip}}
 \renewcommand*{\chapterheadstartvskip}{\vspace*{39.6pt}}
 \renewcommand*{\chapterheadendvskip}{\vspace{\baselineskip}}
 \fancypagestyle{plain}{\fancyhf{}\fancyfootoffset[L]{0.5in}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
