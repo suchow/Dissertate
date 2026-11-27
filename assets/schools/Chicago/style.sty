@@ -52,7 +52,7 @@ By \theauthor
 	\newpage
 	\thispagestyle{empty}
 	\vspace*{\fill}
-	\scshape \noindent \small \copyright \small 2016\hspace{3pt}-- \theauthor \\
+	\scshape \noindent \small \copyright \small \@degreeyear\hspace{3pt}-- \theauthor \\
 	\noindent all rights reserved.
 	\vspace*{\fill}
 	\newpage
@@ -93,4 +93,14 @@ By \theauthor
 	\pagenumbering{arabic}
 }
 
-\apptocmd{\backmatter}{\dissertatecolophon}{}{\ClassError{Dissertate}{Cannot add colophon}{Check the backmatter definition.}}
+\renewcommand{\backmatter}{
+    \begin{appendices}
+        \include{chapters/appendixA}
+    \end{appendices}
+    \input{endmatter/personalize}
+    \clearpage
+    \bibliography{references}
+    \addcontentsline{toc}{chapter}{References}
+    \bibliographystyle{apalike2}
+    \dissertatecolophon
+}
