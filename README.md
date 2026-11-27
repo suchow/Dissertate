@@ -18,7 +18,7 @@ Download a template for your school:
 - [Stanford](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Stanford-LaTeX.zip)
 - [UC Berkeley](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Berkeley-LaTeX.zip)
 - [UC Los Angeles](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-UCLA-LaTeX.zip)
-- [University of Chicago](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Chicago-LaTeX.zip)
+- [University of Chicago (Psychology Ph.D.)](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Chicago-LaTeX.zip)
 - [University of Michigan](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Michigan-LaTeX.zip)
 - [University of Pennsylvania](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Penn-LaTeX.zip)
 - [University of Toronto Engineering Science (ESC499 undergraduate)](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Toronto-LaTeX.zip)
