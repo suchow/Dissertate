@@ -5,16 +5,29 @@ Dissertate provides LaTeX templates for a thesis or dissertation.
 
 Download a template for your school:
 
+- [Brown](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Brown-LaTeX.zip)
+- [Columbia](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Columbia-LaTeX.zip)
+- [Cornell](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Cornell-LaTeX.zip)
+- [Dartmouth](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Dartmouth-LaTeX.zip)
+- [Duke](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Duke-LaTeX.zip)
 - [Harvard](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Harvard-LaTeX.zip)
+- [MIT](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-MIT-LaTeX.zip)
+- [Northwestern](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Northwestern-LaTeX.zip)
 - [NYU](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-NYU-LaTeX.zip)
 - [Princeton](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Princeton-LaTeX.zip)
+- [Stanford](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Stanford-LaTeX.zip)
 - [UC Berkeley](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Berkeley-LaTeX.zip)
+- [UC Los Angeles](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-UCLA-LaTeX.zip)
 - [University of Chicago](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Chicago-LaTeX.zip)
+- [University of Michigan](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Michigan-LaTeX.zip)
+- [University of Pennsylvania](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Penn-LaTeX.zip)
+- [University of Toronto Engineering Science (ESC499 undergraduate)](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Toronto-LaTeX.zip)
+- [Yale](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Yale-LaTeX.zip)
 - [Generic](https://github.com/suchow/Dissertate/releases/latest/download/Dissertate-Generic-LaTeX.zip)
 
 Extract the ZIP, edit `frontmatter/personalize.tex`, and compile `dissertation.tex` with XeLaTeX and BibTeX.
 
-One of the biggest hurdles in submitting a thesis or dissertation is getting the formatting right — the rules are arcane, and the registrar is pedantic. Few students have the background needed to design and typeset clean and stylish documents. Enter Dissertate. Dissertate is a set of beautiful LaTeX templates for a thesis or dissertation. To date, the software provides everything needed to support the production and typesetting of a PhD dissertation at Harvard, Princeton, NYU, and UC Berkeley, though it will be adapted to meet the requirements of other schools — eventually all of them. The format and styling are based closely on the requirements published by each university's registrar.
+Each package includes school-specific guidance in `AGENTS.md`. Check the template’s degree scope and your university’s current requirements before submission. Some institutions require separate archival or accessibility validation.
 
 # Examples of Dissertations using Dissertate
 
