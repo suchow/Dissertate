@@ -14,6 +14,10 @@ Pass the name of a school directory in `assets/schools/` as the first argument. 
 
 The legacy `scripts/build` entry point accepts the same school, output path, and options. It packages one school per invocation and requires an explicit output path.
 
+For a hosted project import, add `--flat` to the packaging command. This places `dissertation.tex`, the class, fonts, and resources at the ZIP root. The release workflow prepares separate `Dissertate-<school>-Overleaf.zip` assets in this layout. Ordinary `LaTeX.zip` downloads retain their enclosing project folder.
+
+Overleaf's documented import interface accepts a public ZIP URL in `snip_uri` and supports `engine=xelatex` and `main_document=dissertation.tex`. Publish the flat archive before adding a launch link. Archive layout is checked locally; a live Overleaf import and compilation still need verification. See the [Overleaf interface](https://www.overleaf.com/devs) and [project-upload guidance](https://docs.overleaf.com/managing-projects-and-files/uploading-a-project).
+
 ## Distribution licenses
 
 The repository software license is in `LICENSE`. Bundled fonts and artwork have separate terms:
