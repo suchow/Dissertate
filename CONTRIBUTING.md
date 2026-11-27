@@ -44,3 +44,5 @@ To prepare source uploads from reviewed stages with their PDFs, run `python3 scr
 ## Checking rendered layouts
 
 For chapter-heading changes, render the shipped chapter example with its `savequote` epigraph, a following chapter without an epigraph, and a starred chapter when supported. Inspect the heading, quote, attribution, and first body paragraph for overlap. A successful compilation alone does not verify page layout.
+
+Before a release, inspect every page of each complete example affected by the changes. Record the PDF hash, pages inspected, and any examples that only compiled. For suspected text overlap, compare an enlarged render with PDF text coordinates before changing the artwork.

@@ -109,7 +109,9 @@
 \setmathsfont(Digits,Latin,Greek)[Path={fonts/EB Garamond/},ItalicFont=EBGaramond12-Italic.otf,Numbers={Proportional}]{EBGaramond12-Regular.otf}
 \setmathrm[Path={fonts/EB Garamond/},ItalicFont=EBGaramond12-Italic.otf]{EBGaramond12-Regular.otf}
 \AtBeginEnvironment{tabular}{\addfontfeature{RawFeature=+tnum}}
-\widowpenalty=300
+% Keep a paragraph's final line with at least one preceding line.
+\widowpenalty=10000
+\displaywidowpenalty=10000
 \clubpenalty=300
 \setromanfont[Path={fonts/EB Garamond/}, ItalicFont=EBGaramond12-Italic.otf, BoldFont=EBGaramond-Bold.ttf, BoldItalicFont=EBGaramond-BoldItalic.ttf, Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EBGaramond12-Regular.otf}
 \newfontfamily{\smallcaps}[Path={fonts/EB Garamond/}, ItalicFont=EBGaramond12-Italic.otf, BoldFont=EBGaramond-Bold.ttf, BoldItalicFont=EBGaramond-BoldItalic.ttf, RawFeature={+c2sc,+smcp}]{EBGaramond12-Regular.otf}
