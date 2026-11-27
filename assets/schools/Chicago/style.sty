@@ -1,106 +1,115 @@
-\ProvidesPackage{packages/Chicago/style}
-
-% School name and location
+% Ordinary Psychology Ph.D., Division of the Social Sciences.
+% Official Psychology title model and Library dissertation-format guidance.
 \university{The University of Chicago}
 \universitycity{Chicago}
 \universitystate{Illinois}
+% Extra bottom clearance keeps descenders inside the one-inch boundary.
+\geometry{reset,letterpaper,margin=1in,bottom=1.1in,footskip=0.25in}
+\microtypesetup{protrusion=false}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\dnormalspacing}{2}
+\renewcommand{\dcompressedspacing}{1}
+\definecolor{SchoolColor}{HTML}{000000}
+\definecolor{chaptergrey}{HTML}{000000}
+\hypersetup{colorlinks=true,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\normalfont\normalsize\thepage}%
+    \renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
 
-\definecolor{SchoolColor}{HTML}{800000} % Maroon
-\definecolor{chaptergrey}{HTML}{800000} % Chapter numbers
-\definecolor{ChicagoDarkGrey}{HTML}{767676}
-\definecolor{ChicagoLightGrey}{HTML}{D6D6CE}
+% Compact headings leave the pending epigraph in normal page flow.
+\def\@makechapterhead#1{\vspace*{0pt}{%
+    \parindent\z@\centering\normalfont\normalsize
+    \ifnum\c@secnumdepth>\m@ne
+      \if@mainmatter\@chapapp\ \thechapter\par\nobreak
+        \vskip\baselineskip\fi
+    \fi
+    #1\par\nobreak\vskip\baselineskip}}
+\def\@makeschapterhead#1{\vspace*{0pt}{%
+    \parindent\z@\centering\normalfont\normalsize
+    #1\par\nobreak\vskip\baselineskip}}
+\dissertateflowchapterquotes
 
-%color source: http://communications.uchicago.edu/identity/color-palette
+\setlength{\cftbeforechapskip}{0pt}
+\renewcommand{\cfttoctitlefont}{\hfill\normalfont\normalsize}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\normalfont\normalsize}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfill\normalfont\normalsize}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\bibname}{References}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{%
+    \chapter*{\bibname}\phantomsection
+    \addcontentsline{toc}{chapter}{\bibname}}{}{%
+    \ClassError{Dissertate}{Cannot link Chicago references}{Check the bibliography definition.}}
+\AtBeginEnvironment{thebibliography}{\setstretch{1}}
+\apptocmd{\@openbib@code}{\setlength{\itemsep}{\baselineskip}}{}{%
+    \ClassError{Dissertate}{Cannot space Chicago references}{Check the bibliography definition.}}
 
-\hypersetup{
-    colorlinks,
-    citecolor=SchoolColor,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=SchoolColor,
-}
+\renewcommand{\frontmatter}{%
+    \input{frontmatter/personalize}
+    \pagenumbering{roman}\setstretch{\dnormalspacing}
+    \maketitle\copyrightpage\abstractpage\dedicationpage
+    \begingroup\setstretch{1}\tableofcontents\clearpage
+    \phantomsection\addcontentsline{toc}{chapter}{List of Figures}
+    \listoffigures\clearpage
+    \phantomsection\addcontentsline{toc}{chapter}{List of Tables}
+    \listoftables\clearpage\endgroup
+    \acknowledgments
+    \pagenumbering{arabic}}
 
-\renewcommand{\frontmatter}{
-	\input{frontmatter/personalize}
-	\maketitle
-	\copyrightpage
-	\abstractpage
-	\tableofcontents
-	% \listoffigures % optional
-	\dedicationpage
-	\acknowledgments
-}
+\renewcommand{\maketitle}{%
+    \thispagestyle{empty}
+    \begingroup\normalfont\normalsize\setstretch{2}
+    \vbox to\textheight{\hsize\textwidth\centering\parindent\z@\parskip\z@
+    % Preserve the model's blank-line groups; shrink only blanks for long titles.
+    \MakeUppercase{\@university}\par
+    \vskip2\baselineskip minus2\baselineskip\relax
+    \MakeUppercase{\thetitle}\par
+    \vskip3\baselineskip minus3\baselineskip\relax
+    A DISSERTATION SUBMITTED TO\par
+    THE FACULTY OF THE DIVISION OF THE SOCIAL SCIENCES\par
+    IN CANDIDACY FOR THE DEGREE OF\par
+    DOCTOR OF PHILOSOPHY\par
+    \vskip1\baselineskip minus1\baselineskip\relax
+    DEPARTMENT OF \MakeUppercase{\@department}\par
+    \vskip3\baselineskip minus3\baselineskip\relax
+    BY\par\MakeUppercase{\theauthor}\par
+    \vskip2\baselineskip minus2\baselineskip\relax
+    \MakeUppercase{\@universitycity, \@universitystate}\par
+    \MakeUppercase{\@degreemonth\ \@degreeyear}\par
+    \vfil}
+    \endgroup\clearpage}
 
-\renewcommand{\maketitle}{
-	\begin{center}
-	\textsc{\@university \\[1.5in]
-\Large \textcolor{SchoolColor}{\thetitle} \normalsize  \\[1in]
-A \@degree $\:$ Thesis Submitted to \\
-\bigskip
-The Faculty of the Department of \@field \\ \bigskip
-For Honors with the Degree Of \\
-\bigskip
-\@degree $\:$ in \@field
-\\[1.5in]
-By \theauthor
-\\[1.5in]
-\@universitycity, \@universitystate \\ \@degreemonth\ \@degreeyear}
-	\end{center} \vspace*{\fill}
-}
+\newcommand{\copyrightpage}{%
+    \thispagestyle{empty}\begingroup\centering\normalfont\normalsize
+    \vspace*{\fill}\copyright\ \@degreeyear\ \theauthor\par
+    \vspace*{\fill}\clearpage\endgroup}
 
-\newcommand{\copyrightpage}{
-	\newpage
-	\thispagestyle{empty}
-	\vspace*{\fill}
-	\scshape \noindent \small \copyright \small \@degreeyear\hspace{3pt}-- \theauthor \\
-	\noindent all rights reserved.
-	\vspace*{\fill}
-	\newpage
-	\rm
-}
+\newcommand{\abstractpage}{%
+    \begingroup\pagestyle{empty}\normalfont\normalsize
+    \begin{center}ABSTRACT\end{center}
+    \input{frontmatter/abstract}\clearpage\endgroup}
 
-\newcommand{\abstractpage}{
-	\newpage
-	\pagenumbering{roman}
-	\setcounter{page}{3}
-	\pagestyle{fancy}
-	\lhead{Advisors: Professors \@advisor} \rhead{\@author}
-	\renewcommand{\headrulewidth}{0.0pt}
-	\vspace*{35pt}
-	\begin{center}
-	\Large \textcolor{SchoolColor}{\@title} \normalsize \\
-	\vspace*{20pt}
-	\scshape Abstract \\ \rm
-	\end{center}
-	\input{frontmatter/abstract}
-	\vspace*{\fill}
-	\newpage \lhead{} \rhead{}
-	\cfoot{\thepage}
-}
+\newcommand{\dedicationpage}{%
+    \begingroup\pagestyle{empty}\vspace*{\fill}
+    \begin{center}\input{frontmatter/dedication}\end{center}
+    \vspace*{\fill}\clearpage\endgroup}
 
-\newcommand{\dedicationpage}{
-	\newpage \thispagestyle{fancy} \vspace*{\fill}
-	\scshape \noindent \input{frontmatter/dedication}
-	\vspace*{\fill} \newpage \rm
-}
+\newcommand{\acknowledgments}{%
+    \chapter*{Acknowledgments}\phantomsection
+    \addcontentsline{toc}{chapter}{Acknowledgments}
+    \input{frontmatter/thanks}\clearpage}
 
-\newcommand{\acknowledgments}{
-	\chapter*{Acknowledgments}
-	\noindent
-	\input{frontmatter/thanks}
-	\vspace*{\fill} \newpage
-	\setcounter{page}{1}
-	\pagenumbering{arabic}
-}
-
-\renewcommand{\backmatter}{
+\renewcommand{\backmatter}{%
+    \appendixtitletocoff
     \begin{appendices}
+        % The supplied example has one appendix, without a lettered heading.
+        \let\chicago@chapter\chapter
+        \renewcommand{\chapter}[1]{%
+            \chicago@chapter*{Appendix: ##1}\refstepcounter{chapter}%
+            \addcontentsline{toc}{chapter}{Appendix: ##1}}
         \include{chapters/appendixA}
     \end{appendices}
-    \input{endmatter/personalize}
-    \clearpage
-    \bibliography{references}
-    \addcontentsline{toc}{chapter}{References}
-    \bibliographystyle{apalike2}
-    \dissertatecolophon
-}
+    \input{endmatter/personalize}\clearpage
+    \bibliographystyle{apalike2}\bibliography{references}
+    \dissertatecolophon}

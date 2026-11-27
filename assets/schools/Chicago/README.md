@@ -1,8 +1,10 @@
-## Chicago dissertation template
-This template matched the requirements of Chicago's Economics format, although most departments have a similar, if not identical, format. It is included in the directory.
+## Chicago Psychology dissertation template
+
+This template follows the ordinary Psychology Ph.D. title-page model for the Division of the Social Sciences. Other departments, divisions, and dual or joint programs require separate verification. Read [the school guidance](agent-guidance.md) and the current [Library formatting requirements](https://www.lib.uchicago.edu/research/scholar/phd/dissertation-requirements/format/) before submission.
 
 ## Citations
-For citations, use the bibtex style "Chicago".
+
+The supplied example uses the BibTeX style `apalike2`. Consult departmental requirements before changing the bibliography style or citation commands.
 
 ## Full-page figures and tables
 Full-page figures and tables use the independently implemented `dissertate-fullpage` package. Load it with `\usepackage{dissertate-fullpage}` after `\documentclass{Dissertate}` in `dissertation.tex`. The legacy `fltpage2` package name loads this implementation. A full-page environment flushes earlier floats. Its caption occupies the next page alone; the image or table occupies the following page. Later body text begins on a new page.
