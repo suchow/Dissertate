@@ -150,6 +150,26 @@
 \RequirePackage[super,comma,numbers]{natbib}
 \renewcommand{\bibnumfmt}[1]{[#1]}
 \RequirePackage[palatino]{quotchap}
+% Compact school headings reserve no space for quotchap's overlaid epigraph.
+% Print pending epigraphs in normal flow after those headings instead.
+\newcommand{\dissertateprintchapterquote}{%
+  \ifx\@printcites\relax
+  \else
+    \par\nobreak
+    \hbox to\textwidth{\hfil\copy\@quotebox}%
+    \global\setbox\@quotebox\box\voidb@x
+    \global\let\@printcites\relax
+    \nobreak\vskip24pt
+  \fi
+}
+\newcommand{\dissertateflowchapterquotes}{%
+  \renewcommand*{\@iprintcites}{}%
+  \apptocmd{\@makechapterhead}{\dissertateprintchapterquote}
+    {}{\ClassError{Dissertate}{Cannot append chapter quote}{}}%
+  \apptocmd{\@makeschapterhead}{\dissertateprintchapterquote}
+    {}{\ClassError{Dissertate}{Cannot append starred chapter quote}{}}%
+}
+
 \renewcommand*{\chapterheadstartvskip}{\vspace*{-0.5\baselineskip}}
 \renewcommand*{\chapterheadendvskip}{\vspace{1.3\baselineskip}}
 
