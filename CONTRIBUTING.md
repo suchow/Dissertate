@@ -40,3 +40,7 @@ Run `python3 scripts/stage-ctan-generic /path/to/Dissertate /path/to/new-class-t
 Build and review the package-specific manuals separately. Class staging accepts `--manual-pdf /path/to/dissertate-doc.pdf`; font staging accepts `--font-manual-pdf /path/to/dissertate-historical-fonts-doc.pdf`. Staging checks PDF headers and records hashes without compiling manuals or verifying PDF/source correspondence.
 
 To prepare source uploads from reviewed stages with their PDFs, run `python3 scripts/prepare-ctan-source /path/to/reviewed-stage /path/to/new-packages MAJOR.MINOR.PATCH`. The output has separate `dissertate/` and `dissertate-historical-fonts/` directories; a single-component stage produces only its own package. Class source contains no font binaries, and font source contains no class/style files. Each package includes its original inputs, notices, package-specific manual, and handwritten preparation programs. Its README documents independent copy-only reconstruction. Generated runtime files, examples, and manifests are omitted. The explicit version identifies local candidates. These commands do not create a tag, publish a release, submit to CTAN, or establish TeX distribution inclusion.
+
+## Checking rendered layouts
+
+For chapter-heading changes, render the shipped chapter example with its `savequote` epigraph, a following chapter without an epigraph, and a starred chapter when supported. Inspect the heading, quote, attribution, and first body paragraph for overlap. A successful compilation alone does not verify page layout.

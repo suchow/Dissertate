@@ -75,3 +75,6 @@
 \apptocmd{\@openbib@code}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}{}{\ClassError{Dissertate}{Cannot set bibliography spacing}{Check the bibliography definition.}}
 \renewcommand{\backmatter}{\begin{appendices}\include{chapters/appendixA}\end{appendices}\input{endmatter/personalize}\clearpage\begingroup\setstretch{2}\dissertatecolophon
     \bibliographystyle{apalike2}\bibliography{references}\endgroup}
+
+% Keep chapter epigraphs below compact headings.
+\dissertateflowchapterquotes
