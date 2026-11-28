@@ -31,6 +31,9 @@
 \toggletrue{DissertateColophonImage}
 \newcommand{\dissertatebodyfont}{EB Garamond}
 \newcommand{\dissertatedocumentname}{dissertation}
+\newcommand{\dissertatecolophonopening}[2]{%
+    \lettrine[lines=3,slope=-2pt,nindent=-4pt]{\textcolor{SchoolColor}{#1}}{#2}%
+}
 \newcommand{\dissertatecolophon}{%
     \iftoggle{DissertateColophon}{\input{endmatter/colophon}\clearpage}{}%
 }
@@ -158,6 +161,8 @@
 \RequirePackage[super,comma,numbers]{natbib}
 \renewcommand{\bibnumfmt}[1]{[#1]}
 \RequirePackage[palatino]{quotchap}
+% Preserve the house composition with the bundled body family's real bold face.
+\renewcommand{\chapnumfont}{\normalfont\bfseries\fontsize{100}{130}\selectfont\color{chaptergrey}}
 % Compact school headings reserve no space for quotchap's overlaid epigraph.
 % Print pending epigraphs in normal flow after those headings instead.
 \newcommand{\dissertateprintchapterquote}{%

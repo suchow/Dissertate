@@ -13,11 +13,15 @@
 \renewenvironment{enumerate}{\begin{spacing}{2}\oldenumerate}{\endoldenumerate\end{spacing}}
 \counterwithout{footnote}{chapter}
 \renewcommand{\thefootnote}{\arabic{footnote}}
-\renewcommand{\chapnumfont}{\normalfont\normalsize}
-\renewcommand{\size@chapter}{\normalfont\normalsize}
-\def\@makechapterhead#1{\vspace*{0pt}{\parindent\z@\centering\normalfont\normalsize\setstretch{2}%
-  \ifnum\c@secnumdepth>\m@ne\MakeUppercase{\@chapapp}\space\thechapter:\space\fi\MakeUppercase{#1}\par\nobreak\vskip24pt}}
-\def\@makeschapterhead#1{\vspace*{0pt}{\parindent\z@\centering\normalfont\normalsize\setstretch{2}\MakeUppercase{#1}\par\nobreak\vskip24pt}}
+% Guide 15 permits headings up to 36pt and requires uppercase chapter titles.
+% Keep the house right alignment while respecting that size ceiling.
+\renewcommand{\chapnumfont}{\normalfont\bfseries\fontsize{36}{42}\selectfont\color{chaptergrey}}
+\def\@makechapterhead#1{\vspace*{0pt}{\parindent\z@\raggedleft\normalfont\setstretch{1}%
+  \ifnum\c@secnumdepth>\m@ne\if@mainmatter
+    \normalsize\MakeUppercase{\@chapapp}\space{\chapnumfont\thechapter}\par\nobreak\vskip12pt
+  \fi\fi
+  \Large\MakeUppercase{#1}\par\nobreak\vskip24pt}}
+\def\@makeschapterhead#1{\vspace*{0pt}{\parindent\z@\raggedleft\normalfont\Large\setstretch{1}\MakeUppercase{#1}\par\nobreak\vskip24pt}}
 \renewcommand{\contentsname}{TABLE OF CONTENTS}
 \renewcommand{\listtablename}{LIST OF TABLES}
 \renewcommand{\listfigurename}{LIST OF FIGURES}
@@ -29,7 +33,7 @@
 \setlength{\cftbeforelottitleskip}{0pt}
 \setlength{\cftbeforeloftitleskip}{0pt}
 \setlength{\cftbeforechapskip}{0pt}
-\renewcommand{\cftchapfont}{\normalfont\normalsize}
+\renewcommand{\cftchapfont}{\normalfont\normalsize\scshape}
 \let\penn@lchapter\l@chapter
 \renewcommand{\l@chapter}[2]{\penn@lchapter{\MakeUppercase{#1}}{#2}}
 \renewcommand{\cftchappresnum}{CHAPTER }
@@ -78,3 +82,6 @@
 
 % Keep chapter epigraphs below compact headings.
 \dissertateflowchapterquotes
+
+% Keep the colophon initial within the school font-size ceiling.
+\renewcommand{\dissertatecolophonopening}[2]{\textcolor{SchoolColor}{\textsc{#1#2}}}

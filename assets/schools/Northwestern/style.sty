@@ -4,17 +4,16 @@
 \university{Northwestern University}
 \universitycity{Evanston}
 \universitystate{Illinois}
-\definecolor{SchoolColor}{HTML}{000000}
-\definecolor{chaptergrey}{HTML}{000000}
+% Northwestern Purple: https://www.northwestern.edu/brand/visual-identity/color-palettes/
+\definecolor{SchoolColor}{HTML}{4E2A84}
+\definecolor{chaptergrey}{HTML}{4E2A84}
 \geometry{reset,letterpaper,margin=1in,headheight=15pt,headsep=3pt}
-\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\hypersetup{colorlinks,citecolor=SchoolColor,filecolor=black,linkcolor=black,urlcolor=SchoolColor}
 \iftoggle{DissertateSingleSpace}{%
     \ClassWarning{Dissertate}{Northwestern requires double spacing; ignoring the dsingle option.}%
 }{}
 \renewcommand{\dnormalspacing}{2.0}
 \renewcommand{\dcompressedspacing}{1.0}
-\renewcommand{\chapnumfont}{\normalfont\normalsize}
-\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
 % With a one-inch text margin, the header begins 0.751 inches from the top.
 \fancypagestyle{plain}{%
     \fancyhf{}
@@ -24,7 +23,6 @@
 }
 \pagestyle{plain}
 \microtypesetup{protrusion=false}
-\setlength{\cftbeforechapskip}{0pt}
 % Optional copyright page; disable with \togglefalse{NorthwesternCopyright}.
 \newtoggle{NorthwesternCopyright}
 \toggletrue{NorthwesternCopyright}
@@ -107,7 +105,7 @@
     \clearpage
     \begingroup
     \setstretch{1}
-    \dissertatecolophon
+
     \bibliographystyle{apalike2}
     \bibliography{references}
     \clearpage
@@ -115,7 +113,5 @@
     \begin{appendices}
         \include{chapters/appendixA}
     \end{appendices}
+    \begingroup\setstretch{1}\dissertatecolophon\endgroup
 }
-
-% Keep chapter epigraphs below compact headings.
-\dissertateflowchapterquotes

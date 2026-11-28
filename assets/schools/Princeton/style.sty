@@ -5,19 +5,25 @@
 
 % School color found from university's graphic identity site:
 % http://www.princeton.edu/communications/services/image/graphic/color
-\definecolor{SchoolColor}{HTML}{F58025}
-\definecolor{chaptergrey}{HTML}{F58025}
+\definecolor{SchoolColor}{HTML}{000000} % current submission guidance: black type
+\definecolor{chaptergrey}{HTML}{000000}
 
 \hypersetup{
     colorlinks,
-    citecolor=SchoolColor,
+    citecolor=black,
     filecolor=black,
     linkcolor=black,
-    urlcolor=SchoolColor,
+    urlcolor=black,
 }
 
-% Formatting guidelines found in:
-% http://www.princeton.edu/~mudd/thesis/MuddDissertationRequirements.pdf
+% Princeton University Archives, v26.1 (April 8, 2026):
+% https://libguides.princeton.edu/ld.php?content_id=77371930
+% Keep the house composition; the current guide recommends black type.
+\geometry{reset,letterpaper,width=5.75in,centering,top=1in,bottom=1.25in,footskip=.4in}
+\AtBeginDocument{\color{black}}
+\captionsetup{labelfont={bf,sf,normalsize,singlespacing},textfont={sf,normalsize,singlespacing}}
+\renewcommand{\bibfont}{\normalfont\normalsize}
+\renewcommand{\footnotesize}{\@setfontsize\footnotesize{11}{13.6}}
 \renewcommand{\frontmatter}{
 	\input{frontmatter/personalize}
 	\maketitle
@@ -29,33 +35,30 @@
 	\acknowledgments
 }
 
-\renewcommand{\maketitle}{
-	\thispagestyle{empty}
-	\vspace*{\fill}
-	\vspace{75pt}
-	\begin{center}
-	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
-	\vspace{100pt}
-	\textsc{\theauthor}\\
-	\vspace{50pt}
-	\sc
-		a dissertation\\
-	  presented to the faculty\\
-	  of princeton university\\
-	  in candidacy for the degree\\
-    of \@degree\\
-
-	  \vspace{35pt}
-	  recommended for acceptance\\
-	  by the Department of\\
-		\@department\\
-		\vspace{25pt}
-	  Adviser: \@advisor \\
-		\vspace{15pt}
-	  \@degreemonth\ \@degreeyear
-	\rm
-	\end{center}
-	\vspace*{\fill}
+% Preserve the official sample's case, centered groups, and text-size title.
+\renewcommand{\maketitle}{%
+    \thispagestyle{empty}
+    \begingroup\centering\normalfont\normalsize\setstretch{1}
+    \vspace*{30pt}
+    \MakeUppercase{\thetitle}\par
+    \vspace{84pt}
+    \theauthor\par
+    \vspace{36pt}
+    \begingroup\setstretch{2}
+    A DISSERTATION\par
+    PRESENTED TO THE FACULTY\par
+    OF PRINCETON UNIVERSITY\par
+    IN CANDIDACY FOR THE DEGREE\par
+    OF \MakeUppercase{\@degree}\par
+    RECOMMENDED FOR ACCEPTANCE BY\par
+    THE DEPARTMENT OF\par
+    \MakeUppercase{\@department}\par
+    \endgroup
+    \vspace{36pt}
+    Adviser: \@advisor\par
+    \vspace{24pt}
+    \@degreemonth\ \@degreeyear\par
+    \endgroup\clearpage
 }
 
 \newcommand{\copyrightpage}{
@@ -63,18 +66,18 @@
 	\thispagestyle{empty}
 	\vspace*{25pt}
 	\begin{center}
-	\scshape \noindent \small \copyright \  \small Copyright by \theauthor, \@degreeyear. All rights reserved.
+	\normalfont \noindent \normalsize \copyright \ Copyright by \theauthor, \@degreeyear. All rights reserved.
 	\end{center}
 	\newpage
 	\rm
 }
 
 \newcommand{\abstractpage}{
+    \clearpage
+    \pagenumbering{arabic}
+    \setcounter{page}{3}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Abstract}
-	\newpage
-	\pagenumbering{roman}
-	\setcounter{page}{3}
 	\pagestyle{fancy}
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}
@@ -98,8 +101,6 @@
 	\noindent
 	\input{frontmatter/thanks}
 	\vspace*{\fill} \newpage
-	\setcounter{page}{1}
-	\pagenumbering{arabic}
 }
 
 \renewcommand{\backmatter}{
@@ -108,9 +109,9 @@
     \end{appendices}
     \input{endmatter/personalize}
     \clearpage
-    \bibliography{references}
+    \phantomsection
     \addcontentsline{toc}{chapter}{References}
+    \bibliography{references}
     \bibliographystyle{apalike2}
     \dissertatecolophon
 }
-
