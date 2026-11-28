@@ -87,6 +87,8 @@
 \usepackage{ragged2e}
 \RaggedRight
 \RequirePackage{graphicx}
+% metalogo may load fontspec before mathspec requests its no-math option.
+\PassOptionsToPackage{no-math}{fontspec}
 \RequirePackage{metalogo}
 \usepackage{fixltx2e}
 \parindent 12pt
