@@ -26,7 +26,7 @@ The abstract is double-spaced, with ABSTRACT, the uppercase dissertation title, 
 
 ## Layout and submission
 
-US Letter pages have one-inch left, right, and top margins. The body ends 1.4 inches above the bottom edge to leave space for the bottom-centered page number above the required one-inch blank bottom margin. All material, including footnotes, figures, and page numbers, must remain inside the one-inch boundary. Running heads are omitted. Preliminary and chapter headings are uppercase; chapters and appendices have numbers or letters and titles. The table of contents distinguishes appendices from chapters.
+US Letter pages have one-inch left, right, and top margins. The body ends 1.4 inches above the bottom edge to leave space for the bottom-centered page number above the required one-inch blank bottom margin. All material, including footnotes, figures, and page numbers, must remain inside the one-inch boundary. Running heads are omitted. Preliminary and chapter headings are uppercase; chapters and appendices have numbers or letters and titles. Guide 15 permits headings up to 36 points without excessive spacing. The table of contents distinguishes appendices from chapters.
 
 The template uses black 12-point body text and double spacing for body text, preliminary pages, ordinary lists, and the bibliography. The guide recommends double spacing; lists of tables and figures may also be single-spaced. Footnotes and long quotations are single-spaced. Footnotes use continuous Arabic numbering across chapters. Do not mix footnotes and chapter endnotes. Use at least 8-point type for footnotes, figures, citations, charts, and graphs. The guide recommends Arial, Calibri, Georgia, or Times New Roman; these are recommendations, not an exclusive list. Inspect the final PDF for embedded fonts and legibility.
 
@@ -35,3 +35,9 @@ Landscape formatting is not implemented. Guide 15 says landscape margins are one
 Submit a PDF through ETD Administrator and inspect every converted page. Formatting checks do not establish acceptance, accessibility, copyright permission, or completion of deposit requirements. For previously published material, obtain committee and graduate group chair approval, secure required permissions, disclose the publication under the chapter title, and describe the individual contribution to joint work. Upload permission letters as the supplemental file specified by the guide.
 
 No logo or seal is included. Consult the [Penn branding rules](https://branding.web-resources.upenn.edu/) for the specified mark. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
+
+## Design choices
+
+The house chapter composition is right-aligned, with a 36-point Garamond numeral and an uppercase title. The 36-point ceiling comes from Guide 15; the earlier 12-point centered treatment was unnecessary. The Penn edition follows the guide’s direct recommendation for black text and headings. Its one-inch page boundaries, title wording, preliminary order, uppercase labels, and continuous footnotes remain school-specific. The colophon initial stays within the heading-size ceiling.
+
+The guide recommends double spacing but permits single-spaced bibliography entries. This template retains double body spacing. A department may impose additional requirements. These design choices do not establish institutional acceptance or PDF accessibility.

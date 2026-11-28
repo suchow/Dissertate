@@ -1,11 +1,17 @@
 # Guidance for working with this UC Berkeley dissertation
 
-Check the current [Berkeley dissertation writing and filing guidance](https://grad.berkeley.edu/academics/degree-progress/dissertation/) and the student's department instructions before changing the layout. Check the required page order, margins, pagination, font sizes, and PDF accessibility. Berkeley's guidance states that dissertations submitted from April 2026 must meet WCAG 2.1 Level AA. A successful LaTeX build alone does not establish accessibility or submission compliance.
+Follow the current [Berkeley dissertation writing and filing requirements](https://grad.berkeley.edu/academics/degree-progress/dissertation/) and the student's department instructions. The April 2026 requirements govern page order, typography, spacing, margins, pagination, and PDF accessibility.
 
-Use US Letter paper, black 12-point body text, and single spacing throughout the manuscript. Keep text at least 1 inch from each paper edge and page numbers at least 0.75 inch from the edge. Match the official title and abstract samples. The title and copyright pages are uncounted and unnumbered. Number the abstract separately with Arabic numerals starting at 1. Number subsequent preliminary pages with lowercase Roman numerals starting at i. Begin body pagination at Arabic 1.
+Keep black, nonitalic body text at 12 points or larger, single spacing, and at least one-inch margins. Captions, figures, tables, and footnotes must use at least eight-point text. The house Garamond typography, small caps, large chapter numbers, and epigraph composition remain. The 5.75-inch text measure exceeds the horizontal margin minimum. Keep page numbers in a consistent permitted position, at least 0.75 inch from the paper edge.
 
-Consult [Berkeley's logo guidance](https://brand.berkeley.edu/visual-identity/logos/) before adding or changing an institutional mark.
+Berkeley permits color beyond the black basic manuscript text. Use [Berkeley Blue, #002676](https://brand.berkeley.edu/visual-identity/colors/), for chapter numerals and accents. Gold text on white has insufficient contrast for this design. Preserve the color illustration in the optional colophon. Check contrast, alternative text, reading order, PDF tags, and metadata against the required WCAG 2.1 Level AA standard. A successful build does not establish accessibility.
 
-Edit `frontmatter/personalize.tex` for the author's details. The main document is `dissertation.tex`; chapters are in `chapters/`. Keep the author's text intact when adjusting layout or metadata. Follow current university and department rules where the template differs, and verify changes in the compiled PDF. The template uses XeLaTeX and BibTeX.
+Keep the required title and abstract wording and spacing. The title and copyright pages are uncounted and unnumbered. Number the abstract separately from Arabic 1, subsequent preliminary pages from Roman i, and the body from Arabic 1. Continue body numbering through references and appendices. References precede appendices. Optional preliminary pages may appear in any order. A final colophon is not addressed explicitly in the published page-order list; confirm its placement for the intended submission.
 
-Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
+Edit `frontmatter/personalize.tex` for the author's details. Preserve the author's text. Verify layout changes in the compiled PDF, including long titles and committee names. The template uses XeLaTeX and BibTeX.
+
+Include an institutional mark only when applicable dissertation rules require or recommend it. This is project policy. Consult [Berkeley logo guidance](https://brand.berkeley.edu/visual-identity/logos/) before changing a mark.
+
+Citation and URL text remains black within running text. School color is confined to permitted title and chapter accents.
+
+The blue numeral is a deliberate palette change from the historical gold. It provides stronger contrast on white.

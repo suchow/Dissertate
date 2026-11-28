@@ -3,10 +3,10 @@
 \university{Yale University}
 \universitycity{New Haven}
 \universitystate{Connecticut}
-\definecolor{SchoolColor}{HTML}{000000}
-\definecolor{chaptergrey}{HTML}{000000}
+\definecolor{SchoolColor}{HTML}{00356B}
+\definecolor{chaptergrey}{HTML}{00356B}
 \geometry{reset,letterpaper,margin=1in,footskip=0.43in}
-\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\hypersetup{colorlinks,citecolor=SchoolColor,filecolor=black,linkcolor=black,urlcolor=SchoolColor}
 \iftoggle{DissertateSingleSpace}{%
     \ClassWarning{Dissertate}{Yale requires double-spaced body text; ignoring the dsingle option.}%
 }{}
@@ -20,15 +20,19 @@
     {\begin{spacing}{\dnormalspacing}\oldenumerate}
     {\endoldenumerate\end{spacing}}
 
-% Keep text, headings, captions, and page numbers in the body font family.
+% Captions follow the body family; code retains the house monospace face.
 \renewcommand{\sfdefault}{\rmdefault}
-\renewcommand{\ttdefault}{\rmdefault}
-\renewcommand{\chapnumfont}{\normalfont\normalsize}
+\renewcommand{\chapnumfont}{\normalfont\normalsize\color{chaptergrey}}
+\renewcommand{\sectfont}{\normalfont\normalsize\scshape}
 \let\size@chapter\normalsize
 \renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
 \captionsetup{labelfont={normalfont,footnotesize,singlespacing},textfont={normalfont,footnotesize,singlespacing}}
-\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchapfont}{\normalfont\normalsize\scshape}
 \renewcommand{\cftchappagefont}{\normalfont}
+% Contents and list titles follow the same 12-point display limit.
+\renewcommand{\cfttoctitlefont}{\normalfont\normalsize\scshape}
+\renewcommand{\cftloftitlefont}{\normalfont\normalsize\scshape}
+\renewcommand{\cftlottitlefont}{\normalfont\normalsize\scshape}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
 \setlength{\emergencystretch}{2em}
 \apptocmd{\@openbib@code}{\setlength{\itemsep}{\baselineskip}}{}{}
@@ -146,11 +150,14 @@
     \clearpage
     \begingroup
     \setstretch{1}
-    \dissertatecolophon
+
     \bibliographystyle{apalike2}
-    \bibliography{references}
+    \bibliography{references}\dissertatecolophon
     \endgroup
 }
 
 % Keep chapter epigraphs below compact headings.
 \dissertateflowchapterquotes
+
+% Keep the colophon initial within the school font-size ceiling.
+\renewcommand{\dissertatecolophonopening}[2]{\textcolor{SchoolColor}{\textsc{#1#2}}}

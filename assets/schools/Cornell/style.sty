@@ -10,11 +10,10 @@
 }{}
 \renewcommand{\dnormalspacing}{2.0}
 
-\definecolor{SchoolColor}{HTML}{000000}
-\definecolor{chaptergrey}{HTML}{000000}
-\geometry{reset,letterpaper,left=1.6in,right=1.1in,top=1in,bottom=1.1in,footskip=0.25in}
+\definecolor{SchoolColor}{HTML}{B31B1B}
+\definecolor{chaptergrey}{HTML}{B31B1B}
+\geometry{reset,letterpaper,hcentering,textwidth=5.75in,top=1in,bottom=1.1in,footskip=0.25in}
 \hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
-\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
 \fancypagestyle{plain}{%
     \fancyhf{}
     \fancyfoot[C]{\thepage}
@@ -48,18 +47,19 @@
     \begingroup
     \centering
     \setstretch{1}
-    \vspace*{0.5in}
-    \MakeUppercase{\thetitle}\par
-    \vfill
-    A Dissertation\par
+    \vspace*{\fill}
+    {\Huge\textcolor{SchoolColor}{\thetitle}\par}
+    \vspace{60pt}
+    {\scshape A Dissertation\par
     Presented to the Faculty of the Graduate School\par
     of Cornell University\par
     in Partial Fulfillment of the Requirements for the Degree of\par
-    \@degree\par
-    \vfill
-    by\par
+    \@degree\par}
+    \vspace{36pt}
+    {\scshape by\par
     \theauthor\par
-    \@degreemonth\ \@degreeyear\par
+    \@degreemonth\ \@degreeyear\par}
+    \vspace*{\fill}
     \endgroup
     \clearpage
 }
@@ -80,7 +80,7 @@
     \setstretch{\dnormalspacing}
     \vspace*{0.1in}
     \begin{center}
-    \MakeUppercase{\thetitle}\par
+    {\Large\textcolor{SchoolColor}{\thetitle}\par}
     \theauthor, Ph.D.\par
     Cornell University \@degreeyear\par
     \end{center}
@@ -89,7 +89,7 @@
 }
 
 \newcommand{\cornellfrontsection}[2]{%
-    \begin{center}\MakeUppercase{#1}\end{center}
+    \begin{center}\scshape #1\end{center}
     \phantomsection
     \addcontentsline{toc}{chapter}{#1}
     \input{#2}
@@ -102,8 +102,8 @@
     \end{appendices}
     \input{endmatter/personalize}
     \clearpage
-    \dissertatecolophon
     \bibliographystyle{apalike2}
     \bibliography{references}
     \addcontentsline{toc}{chapter}{References}
+    \dissertatecolophon
 }

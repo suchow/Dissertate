@@ -21,3 +21,11 @@ The included `abstract.tex` is beside `dissertation.tex`. Compile it as a separa
 Compile it with XeLaTeX. The abstract is excluded from the dissertation PDF and contents. Keep it double-spaced. Limit it to 350 words and 2,450 characters, counting spaces and punctuation toward the character limit. The template does not enforce these limits. The header uses the configured conferral month, including February or October when applicable.
 
 Preserve the author's text and inspect the compiled PDF after changes. Use XeLaTeX and BibTeX for the main document. Consult Brown's [visual identity policy](https://policy.brown.edu/policy/visual-identity) and [identity standards](https://ouc.brown.edu/logos-identity/visual-identity-policy-and-standards) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
+
+## Design choices
+
+The [Graduate School guide](https://graduateschool.brown.edu/academics/rules-regulations/dissertation-guidelines) requires centered uppercase major headings two inches from the top. The template preserves that layout and uses 12-point headings and chapter labels. Oversized numbers remain unresolved under the guide’s broad size wording. Contents entries retain house small caps; their page heading remains uppercase. Accents use [Brown #4E3629](https://policy.brown.edu/sites/default/files/policy/related/Brown_Visual_Identity_Policy_2016-07-22.pdf). The dissertation guide does not prohibit color.
+
+The [signature sample](https://graduateschool.brown.edu/sites/default/files/pdfs/Sample%20-%20Dissertation%20Signature%20Page.pdf) labels the margins. Applying those margins throughout is a conservative template choice. The optional colophon requires review against the broad size wording, particularly its drop cap.
+
+The optional colophon follows the references and appendices. No inspected rule explicitly requires the bibliography to be the final page in this edition.

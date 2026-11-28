@@ -15,6 +15,10 @@
     linkcolor=black,
     urlcolor=SchoolColor,
 }
+% GSAS asks for body-font captions unless lettering is part of supplied artwork.
+\captionsetup{labelfont={bf,rm,footnotesize,singlespacing},textfont={rm,footnotesize,singlespacing}}
+\renewcommand{\dcompressedspacing}{1.0}
+\apptocmd{\@openbib@code}{\setlength{\itemsep}{\baselineskip}}{}{}
 
 % Formatting guidelines found in:
 % http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
