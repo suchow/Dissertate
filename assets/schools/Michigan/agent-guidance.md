@@ -11,3 +11,11 @@ The template uses US Letter paper, 12-point black body text, double spacing, and
 The template sets PDF title and English-language metadata. Change `pdflang` for another principal language. XeLaTeX output has not been validated for accessibility tagging: verify heading structure, language changes, alt text, tables, and reading order using an accessibility checker before submission. A visually correct PDF alone does not prove compliance.
 
 Compile `dissertation.tex` with XeLaTeX and BibTeX. Inspect page numbering, margins, font embedding, headings, and links in the final PDF. Consult the university [brand guidelines](https://brand.umich.edu/) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
+
+The template retains EB Garamond body text, Lato captions, smallcaps section headings and contents entries, and right-aligned chapter headings. Rackham requires the Chapter label and limits headings to 16 points; the chapter number and title therefore use 16 points. Epigraphs follow these compact headings in normal flow. The base oversized-number epigraph composition would require additional vertical space. The two-inch opening margin, minimum ancillary sizes, external-link treatment, section sequence, identifiers, and page counters remain school-specific requirements. Single-spaced lists, captions, and reference entries follow recommendations.
+
+Title and chapter accents use Michigan Blue `#00274C` ([university library palette](https://design-system.lib.umich.edu/visual-elements/colors/)). This choice interprets Rackham's black-text requirement as applying to body text, as written. Heading color is discretionary; it is not expressly approved by the dissertation rules. Ordinary body text stays black. Confirm any stricter departmental style requirements before submission.
+
+The body retains the house text width of 5.75 inches, centered horizontally on US Letter paper. The wider side margins preserve the school constraints described above.
+
+The optional colophon follows the references and appendices. No inspected rule explicitly requires the bibliography to be the final page in this edition.

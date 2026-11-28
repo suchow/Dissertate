@@ -3,9 +3,9 @@
 \university{The University of Michigan}
 \universitycity{Ann Arbor}
 \universitystate{Michigan}
-\definecolor{SchoolColor}{HTML}{000000}
-\definecolor{chaptergrey}{HTML}{000000}
-\geometry{reset,letterpaper,margin=1in,bottom=1.1in,footskip=0.2in}
+\definecolor{SchoolColor}{HTML}{00274C}
+\definecolor{chaptergrey}{HTML}{00274C}
+\geometry{reset,letterpaper,textwidth=5.75in,hcentering,top=1in,bottom=1.1in,footskip=0.2in}
 \microtypesetup{protrusion=false}
 \renewcommand{\dnormalspacing}{2.0}
 \renewcommand{\dcompressedspacing}{1.0}
@@ -18,20 +18,17 @@
 \renewcommand{\url}[1]{\michigan@href{#1}{\uline{\michigan@urltext{#1}}}}
 \renewcommand{\chapnumfont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
 \renewcommand{\size@chapter}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
-% Replace the decorative chapter heading with one consistent heading level.
-\def\@makechapterhead#1{\vspace*{51.662pt}{\setstretch{1}\parindent\z@\centering\normalfont\fontsize{16}{20}\selectfont
+% Rackham caps headings at 16 points and requires the Chapter label.
+% Retain the house alignment and school accent within those constraints.
+\def\@makechapterhead#1{\vspace*{51.662pt}{\setstretch{1}\parindent\z@\raggedleft\normalfont\fontsize{16}{20}\selectfont\color{SchoolColor}
     \ifnum\c@secnumdepth>\m@ne \@chapapp\space\thechapter\par\fi #1\par\nobreak\vskip24pt}}
-\def\@makeschapterhead#1{\vspace*{51.662pt}{\setstretch{1}\parindent\z@\centering\normalfont\fontsize{16}{20}\selectfont #1\par\nobreak\vskip24pt}}
-\titleformat{\section}{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+\def\@makeschapterhead#1{\vspace*{51.662pt}{\setstretch{1}\parindent\z@\raggedleft\normalfont\fontsize{16}{20}\selectfont\color{SchoolColor} #1\par\nobreak\vskip24pt}}
 \setlength{\cftbeforetoctitleskip}{51.662pt}
 \setlength{\cftbeforeloftitleskip}{51.662pt}
 \setlength{\cftbeforelottitleskip}{51.662pt}
-\renewcommand{\cfttoctitlefont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
-\renewcommand{\cftloftitlefont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
-\renewcommand{\cftlottitlefont}{\normalfont\setstretch{1}\fontsize{16}{20}\selectfont}
-\setlength{\cftbeforechapskip}{0pt}
+\renewcommand{\cfttoctitlefont}{\normalfont\scshape\setstretch{1}\fontsize{16}{20}\selectfont\color{SchoolColor}}
+\renewcommand{\cftloftitlefont}{\normalfont\scshape\setstretch{1}\fontsize{16}{20}\selectfont\color{SchoolColor}}
+\renewcommand{\cftlottitlefont}{\normalfont\scshape\setstretch{1}\fontsize{16}{20}\selectfont\color{SchoolColor}}
 \renewcommand{\cftchappresnum}{Chapter }
 \setlength{\cftchapnumwidth}{6em}
 % The appendix package writes its own literal Appendix prefix into each entry.
@@ -55,7 +52,7 @@
     \vspace{\baselineskip}\copyright\ \michigan@legalname\ \@degreeyear\par\endgroup\clearpage}
 \renewcommand{\maketitle}{%
     \thispagestyle{empty}\begingroup\centering\setstretch{1}\vspace*{60pt}
-    \thetitle\par\vspace{24pt}by\par\theauthor\par\vspace{36pt}
+    \textcolor{SchoolColor}{\thetitle}\par\vspace{24pt}by\par\theauthor\par\vspace{36pt}
     A dissertation submitted in partial fulfillment\par
     of the requirements for the degree of\par
     Doctor of Philosophy\par
@@ -86,8 +83,8 @@
 \renewcommand{\backmatter}{%
     \begin{appendices}\include{chapters/appendixA}\end{appendices}
     \input{endmatter/personalize}\clearpage
-    \begingroup\setstretch{1}\dissertatecolophon
-    \bibliographystyle{apalike2}\bibliography{references}\endgroup}
+    \begingroup\setstretch{1}
+    \bibliographystyle{apalike2}\bibliography{references}\dissertatecolophon\endgroup}
 
 % Keep chapter epigraphs below compact headings.
 \dissertateflowchapterquotes

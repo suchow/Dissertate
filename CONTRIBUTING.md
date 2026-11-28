@@ -46,3 +46,5 @@ To prepare source uploads from reviewed stages with their PDFs, run `python3 scr
 For chapter-heading changes, render the shipped chapter example with its `savequote` epigraph, a following chapter without an epigraph, and a starred chapter when supported. Inspect the heading, quote, attribution, and first body paragraph for overlap. A successful compilation alone does not verify page layout.
 
 Before a release, inspect every page of each complete example affected by the changes. Record the PDF hash, pages inspected, and any examples that only compiled. For suspected text overlap, compare an enlarged render with PDF text coordinates before changing the artwork.
+
+School design changes follow [the design audit](docs/school-design.md). Preserve the Harvard/Generic house aesthetic wherever the governing instructions permit it. Document a primary source for each required departure, distinguish recommendations from requirements, and identify unresolved scope. A title-page sample supplies no rule for unrelated body headings. Review revised complete examples page by page before release.

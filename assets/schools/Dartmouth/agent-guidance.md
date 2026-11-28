@@ -13,3 +13,9 @@ Previously published or submitted articles require separate attention. The guide
 Edit `frontmatter/abstract.tex` and `frontmatter/thanks.tex` for the abstract and preface. The main document is `dissertation.tex`; chapters are in `chapters/`. To omit unused lists, edit the `\frontmatter` definition in the distributed `Dissertate.cls`. Preserve the author’s text and inspect the compiled PDF, including long titles and committee lists. The template uses XeLaTeX and BibTeX.
 
 Consult Dartmouth’s [design guidelines](https://communications.dartmouth.edu/design-guidelines) before adding institutional branding. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
+
+## Design choices
+
+The [Guarini guide](https://graduate.dartmouth.edu/sites/graduate_studies.prod/files/graduate_studies/wysiwyg/thesis_guidelines_5.pdf) sets text size, leading, margins, preliminary pages, and pagination. It does not specify chapter-number size or prohibit color. The template retains the house chapter numbers, heading spacing, epigraph placement, and contents styling. Its accents use [Dartmouth Green #00693E](https://alumni.dartmouth.edu/communicating-your-class). The colophon is optional; the guide does not address it.
+
+The optional colophon follows the references and appendices. No inspected rule explicitly requires the bibliography to be the final page in this edition.

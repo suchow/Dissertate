@@ -11,3 +11,11 @@ The copyright-page placement in the Registrar's written guide differs from that 
 The main document is `dissertation.tex`; chapters are in `chapters/`. Preserve the author's text and verify changes in the compiled PDF. The template uses XeLaTeX and BibTeX. It sets text in EB Garamond, including headings and captions, to maintain a consistent font family.
 
 Consult [Yale's identity guidance](https://yaleidentity.yale.edu/frequently-asked-questions) before adding institutional marks. Include an institutional logo or seal only when the applicable dissertation formatting rules require or recommend it. Use the specified mark and placement. When those rules are silent, omit institutional marks.
+
+## Design choices
+
+The [Registrar guide](https://registrar.yale.edu/student-records/dissertations/dissertation-submission/dissertation-formatting-guide) gives an unqualified 10–12-point range and requires the same font type throughout. Chapter titles and numbers therefore remain 12 points, with the house right alignment and small caps. Oversized numbers require clarification of the size rule. Accents use [Yale Blue #00356B](https://yaleidentity.yale.edu/guidelines/websites); the dissertation guide does not prohibit color.
+
+Captions and ordinary text use the body family. Code retains Source Code Pro because the consistency rule does not name code listings. Math retains the shared Garamond configuration. Inspect mathematical symbols and custom content before claiming that every glyph uses one family. The colophon uses a text-size initial to respect the retained size ceiling.
+
+The optional colophon follows the references and appendices. No inspected rule explicitly requires the bibliography to be the final page in this edition.
